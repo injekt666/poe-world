@@ -3,6 +3,7 @@
 # compiled output
 /dist
 /tmp
+app/constants/maps.js
 
 # dependencies
 /node_modules
