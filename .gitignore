@@ -4,6 +4,7 @@
 /dist
 /tmp
 app/constants/maps.js
+maps/_wiki.json
 
 # dependencies
 /node_modules
