@@ -1,5 +1,7 @@
-const https = require('https');
 const fs = require('fs');
+
+// Cli params
+const CLI_OVERRIDES = process.argv.length >= 3 ? JSON.parse(process.argv[2]) : {};
 
 // Constants
 const MAPS_PATH = './maps';
@@ -24,7 +26,8 @@ const processedMaps = Object.keys(wikiMaps).reduce((processedMaps, mapId) => {
 
   currentOverride = {
     ...BASE_OVERRIDE,
-    ...currentOverride
+    ...currentOverride,
+    ...CLI_OVERRIDES[mapId]
   };
 
   fs.writeFileSync(currentMapOverridePath, JSON.stringify(currentOverride, Object.keys(currentOverride).sort(), 2));
