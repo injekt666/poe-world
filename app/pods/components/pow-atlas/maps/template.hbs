@@ -1,0 +1,8 @@
+{{#each maps as |map|}}
+  <li class="atlas-maps__item" style={{css-offset map.offsetLeft map.offsetTop}}>
+    <img
+      class="atlas-maps__item-map"
+      src={{map.imageUrl}}
+      alt={{map.name}}>
+  </li>
+{{/each}}

@@ -13,7 +13,8 @@ Router.map(function() {
   if (DEV_MODE) {
     this.route('atlas-offsets');
   }
-  this.route('test');
+
+  this.route('atlas');
 });
 
 export default Router;

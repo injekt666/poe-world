@@ -1,5 +1,5 @@
 import Component from '@ember/component';
-import maps from 'pow/constants/maps';
+import MAPS from 'pow/constants/maps';
 
 export default Component.extend({
   offsetData: null,
@@ -9,8 +9,8 @@ export default Component.extend({
   didInsertElement() {
     this.offsetData = {};
 
-    this.mapsToConfigure = Object.keys(maps).sort((mapIdA, mapIdB) => {
-      return (maps[mapIdA].tier || Infinity) - (maps[mapIdB].tier || Infinity);
+    this.mapsToConfigure = Object.keys(MAPS).sort((mapIdA, mapIdB) => {
+      return (MAPS[mapIdA].tier || Infinity) - (MAPS[mapIdB].tier || Infinity);
     });
 
     this._promptForNextMap();
