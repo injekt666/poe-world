@@ -5,14 +5,14 @@ module.exports = {
     sourceType: 'module'
   },
   plugins: [
-    'ember'
+    'ember',
+    'mirego'
   ],
   extends: [
-    'eslint:recommended',
-    'plugin:ember/recommended'
+    'plugin:mirego/recommended'
   ],
   env: {
-    browser: true
+    es6: true
   },
   rules: {
   },

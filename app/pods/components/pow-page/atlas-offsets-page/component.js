@@ -1,10 +1,10 @@
+/* eslint-disable no-console */
 import Component from '@ember/component';
 import MAPS from 'pow/constants/maps';
 
 export default Component.extend({
   offsetData: null,
   mapsToConfigure: [],
-
 
   didInsertElement() {
     this.offsetData = {};
@@ -42,3 +42,4 @@ export default Component.extend({
     console.log(`'${JSON.stringify(this.offsetData)}'`);
   }
 });
+/* eslint-enable no-console */
