@@ -6,6 +6,9 @@ export default Component.extend({
 
   maps: [],
   hoveredMap: null,
+  zoom: 1,
+  panTop: 0,
+  panLeft: 0,
 
   willInsertElement() {
     this.set('maps', this.get('mapsFetcher').fetchSync());
@@ -17,5 +20,9 @@ export default Component.extend({
 
   mapLeave() {
     this.set('hoveredMap', null);
+  },
+
+  panzoom(panzoomParams) {
+    this.setProperties(panzoomParams);
   }
 });

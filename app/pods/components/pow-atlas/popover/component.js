@@ -4,7 +4,8 @@ import {bool, gt} from '@ember/object/computed';
 import {htmlSafe} from '@ember/string';
 
 // Constants
-const ATLAS_WIDTH = 4096;
+const POPOVER_MARGIN = 35;
+const POPOVER_WIDTH = 400;
 
 export default Component.extend({
   classNameBindings: ['isActive:atlas-popover--visible', 'isReversed:atlas-popover--reversed'],
@@ -12,19 +13,37 @@ export default Component.extend({
 
   map: null,
 
-  offsetTop: null,
-  offsetLeft: null,
+  zoom: 1,
+  panTop: 0,
+  panLeft: 0,
 
   isActive: bool('map'),
 
-  isReversed: gt('map.offsetLeft', ATLAS_WIDTH / 2),
+  isReversed: gt('offsetLeft', window.innerWidth / 2),
 
-  style: computed('map', function() {
-    const map = this.get('map');
+  offsetTop: computed('map', 'panTop', 'zoom', function() {
+    const {map, panTop, zoom} = this.getProperties('map', 'panTop', 'zoom');
+    if (!map) return 0;
 
-    if (!map) return null;
+    return map.offsetTop * zoom + panTop;
+  }),
 
-    const {offsetTop, offsetLeft} = map;
-    return htmlSafe(`top: ${offsetTop}px; left: ${offsetLeft}px;`);
+  offsetLeft: computed('map', 'panLeft', 'zoom', function() {
+    const {map, panLeft, zoom} = this.getProperties('map', 'panLeft', 'zoom');
+    if (!map) return 0;
+
+    return map.offsetLeft * zoom + panLeft;
+  }),
+
+  marginLeft: computed('zoom', 'isReversed', function() {
+    const {zoom, isReversed} = this.getProperties('zoom', 'isReversed');
+
+    if (!isReversed) return POPOVER_MARGIN * zoom;
+    return -1 * POPOVER_WIDTH - POPOVER_MARGIN * zoom;
+  }),
+
+  style: computed('offsetTop', 'offsetLeft', 'marginLeft', function() {
+    const {offsetTop, offsetLeft, marginLeft} = this.getProperties('offsetTop', 'offsetLeft', 'marginLeft');
+    return htmlSafe(`top: ${offsetTop}px; left: ${offsetLeft}px; margin-left: ${marginLeft}px;`);
   })
 });

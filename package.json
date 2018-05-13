@@ -52,6 +52,7 @@
     "eslint-plugin-ember": "^5.0.0",
     "eslint-plugin-mirego": "0.0.1",
     "loader.js": "^4.2.3",
+    "panzoom": "^4.5.0",
     "request": "^2.85.0",
     "request-promise": "^4.2.2",
     "simple-css-reset": "^2.0.6",
