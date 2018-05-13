@@ -20,6 +20,10 @@ module.exports = function(environment) {
 
     APP: {
       DEV_MODE: Boolean(process.env.DEV_MODE)
+    },
+
+    i18n: {
+      defaultLocale: 'en'
     }
   };
 
