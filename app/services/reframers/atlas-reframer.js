@@ -6,6 +6,7 @@ const ATLAS_WIDTH = 4096;
 const ATLAS_HEIGHT = 2304;
 const SIDE_PANEL_WIDTH = 600;
 const MAX_ZOOM = 1;
+const MAX_ZOOM_THRESHOLD = 0.99;
 const MIN_ZOOM = 0.5;
 const ZOOM_DURATION = 400;
 const MOVE_DURATION = 500;
@@ -24,9 +25,11 @@ export default Service.extend({
 
     this.set('isReframing', true);
 
-    this._panzoomRef.smoothZoom(viewportCenterX, viewportCenterY, MAX_ZOOM / zoom);
+    if (zoom < MAX_ZOOM_THRESHOLD) {
+      this._panzoomRef.smoothZoom(viewportCenterX, viewportCenterY, MAX_ZOOM / zoom);
 
-    yield timeout(ZOOM_DURATION);
+      yield timeout(ZOOM_DURATION);
+    }
 
     const {x: panLeft, y: panTop} = this._panzoomRef.getTransform();
 
