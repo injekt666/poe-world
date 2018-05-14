@@ -2,7 +2,9 @@ import Component from '@ember/component';
 import {inject as service} from '@ember/service';
 
 export default Component.extend({
+  router: service('router'),
   mapsFetcher: service('fetchers/maps-fetcher'),
+  atlasReframer: service('reframers/atlas-reframer'),
 
   maps: [],
   hoveredMap: null,
@@ -11,7 +13,7 @@ export default Component.extend({
   panLeft: 0,
 
   willInsertElement() {
-    this.set('maps', this.get('mapsFetcher').fetchSync());
+    this.set('maps', this.mapsFetcher.fetchSync());
   },
 
   mapEnter(map) {
@@ -22,7 +24,15 @@ export default Component.extend({
     this.set('hoveredMap', null);
   },
 
+  mapClick(map) {
+    this.router.transitionTo('atlas.map', map.id);
+  },
+
   panzoom(panzoomParams) {
     this.setProperties(panzoomParams);
+  },
+
+  panzoomInitialize(panzoomRef) {
+    this.atlasReframer.initialize(panzoomRef);
   }
 });

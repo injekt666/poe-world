@@ -1,9 +1,10 @@
 {{#pow-panzoom-container
   class='atlas__panzoom-container'
-  minZoom=1
-  maxZoom=1.5
+  minZoom=0.5
+  maxZoom=1
   zoomSpeed=0.075
   onPanzoom=(action panzoom)
+  onPanzoomInitialize=(action panzoomInitialize)
 }}
   <div class="atlas__map-background"></div>
 
@@ -11,6 +12,7 @@
     maps=maps
     onMapEnter=(action mapEnter)
     onMapLeave=(action mapLeave)
+    onMapClick=(action mapClick)
   }}
 {{/pow-panzoom-container}}
 

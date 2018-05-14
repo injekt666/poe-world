@@ -5,5 +5,6 @@ export default Component.extend({
 
   maps: [],
   onMapEnter: () => {},
-  onMapLeave: () => {}
+  onMapLeave: () => {},
+  onMapClick: () => {}
 });

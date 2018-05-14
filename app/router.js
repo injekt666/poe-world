@@ -14,7 +14,9 @@ Router.map(function() {
     this.route('atlas-offsets');
   }
 
-  this.route('atlas');
+  this.route('atlas', {path: '/'}, function() {
+    this.route('map', {path: '/:slug'});
+  });
 });
 
 export default Router;

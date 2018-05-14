@@ -11,7 +11,7 @@ module.exports = function(defaults) {
     }
   });
 
-  app.import('node_modules/panzoom/dist/panzoom.js');
+  app.import('vendor/panzoom.js');
 
   return app.toTree();
 };

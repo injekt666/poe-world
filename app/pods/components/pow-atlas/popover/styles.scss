@@ -9,7 +9,6 @@ $atlas-popover-width: 400px;
   background-color: $background-color;
   border-radius: $border-radius;
   margin-top: -30px;
-  margin-left: 35px;
   transition: opacity 150ms linear;
 
   &:before {
@@ -32,7 +31,6 @@ $atlas-popover-width: 400px;
 }
 
 &.atlas-popover--reversed {
-  margin-left: $atlas-popover-width * -1 - 35px;
   text-align: right;
 
   &:before {

@@ -1,13 +1,16 @@
 import Component from '@ember/component';
 import {observer, computed} from '@ember/object';
-import {bool, gt} from '@ember/object/computed';
+import {bool, gt, not, and} from '@ember/object/computed';
 import {htmlSafe} from '@ember/string';
+import {inject as service} from '@ember/service';
 
 // Constants
-const POPOVER_MARGIN = 35;
+const POPOVER_MARGIN = 45;
 const POPOVER_WIDTH = 400;
 
 export default Component.extend({
+  atlasReframer: service('reframers/atlas-reframer'),
+
   classNameBindings: ['isActive:atlas-popover--visible', 'isReversed:atlas-popover--reversed'],
   attributeBindings: ['style'],
 
@@ -17,7 +20,9 @@ export default Component.extend({
   panTop: 0,
   panLeft: 0,
 
-  isActive: bool('map'),
+  hasMap: bool('map'),
+  isNotReframing: not('atlasReframer.isReframing'),
+  isActive: and('hasMap', 'isNotReframing'),
 
   isReversed: gt('offsetLeft', window.innerWidth / 2),
 

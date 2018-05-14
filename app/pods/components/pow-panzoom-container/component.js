@@ -6,32 +6,37 @@ const PANZOOM_EVENT_DEBOUNCE = 50;
 
 export default Component.extend({
   onPanzoom: () => {},
+  onPanzoomInitialize: () => {},
   minZoom: 1,
   maxZoom: 1,
   zoomSpeed: 0.05,
   bounds: true,
+  autocenter: false,
   smoothScroll: false,
 
-  triggerPanzoomEventTask: task(function *(target) {
-    this.onPanzoom(this._extractZoomStateFor(target));
+  triggerPanzoomEventTask: task(function *() {
+    this.onPanzoom(this._getPanzoomState());
     yield timeout(PANZOOM_EVENT_DEBOUNCE);
-    this.onPanzoom(this._extractZoomStateFor(target));
+    this.onPanzoom(this._getPanzoomState());
   }).restartable(),
 
   didInsertElement() {
     const $container = this.$();
-    panzoom($container[0], this.getProperties('minZoom', 'maxZoom', 'zoomSpeed', 'bounds', 'smoothScroll'));
+    const panzoomRef = panzoom($container[0], this.getProperties('minZoom', 'maxZoom', 'zoomSpeed', 'bounds', 'smoothScroll', 'autocenter'));
 
-    $container.on('pan panstart panend zoom', (event) => this.triggerPanzoomEventTask.perform(event.target));
+    $container.on('pan panstart panend zoom', () => this.triggerPanzoomEventTask.perform());
+
+    this._panzoomRef = panzoomRef;
+    this.onPanzoomInitialize(panzoomRef);
   },
 
-  _extractZoomStateFor(target) {
-    const [_match, zoom, panLeft, panTop] = target.style['transform'].match(/^matrix\((.+)\,.+\, (.+)\, (.+)\)$/);
+  _getPanzoomState() {
+    const {x, y, scale} = this._panzoomRef.getTransform();
 
     return {
-      zoom: parseFloat(zoom, 10),
-      panTop: parseInt(panTop, 10),
-      panLeft: parseInt(panLeft, 10)
+      zoom: scale,
+      panTop: y,
+      panLeft: x
     };
   }
 });
