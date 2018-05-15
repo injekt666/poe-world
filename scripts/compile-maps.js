@@ -15,13 +15,36 @@ const BASE_OVERRIDE = {
 // Utils
 const loadJsonFrom = (path) => JSON.parse(fs.readFileSync(path, 'utf8'));
 
+const mapDistance = (mapA, mapB) => {
+  const dxSquare = Math.pow(Math.abs(mapB.offsetLeft - mapA.offsetLeft), 2);
+  const dySquare = Math.pow(Math.abs(mapB.offsetTop - mapA.offsetTop), 2);
+  return Math.sqrt(dxSquare + dySquare);
+};
+
+const computeSextantsFor = (map, availableMaps) => {
+  if (!availableMaps.includes(map)) return [];
+  if (map.sextantCoverage === 1) return [map.id];
+
+  const mapDistances = availableMaps.map((comparedMap) => ({
+    id: comparedMap.id,
+    distance: mapDistance(map, comparedMap)
+  }));
+
+  return mapDistances
+    .sort(({distance: distanceA}, {distance: distanceB}) => distanceA - distanceB)
+    .slice(0, map.sextantCoverage)
+    .map(({id}) => id);
+};
+
 if (!fs.existsSync(WIKI_MAPS_PATH)) throw 'You need to "npm run fetch-maps-wiki" first to download the maps from the wiki.';
 
 const wikiMaps = loadJsonFrom(WIKI_MAPS_PATH);
 
-console.log('Compiling maps...')
-const processedMaps = Object.keys(wikiMaps).reduce((processedMaps, mapId) => {
+console.log('Assembling maps...')
+const preProcessedMaps = Object.keys(wikiMaps).reduce((preProcessedMaps, mapId) => {
   const currentMapOverridePath = `${MAPS_PATH}/${mapId}.json`;
+  const wikiMap = wikiMaps[mapId];
+
   let currentOverride = fs.existsSync(currentMapOverridePath) ? loadJsonFrom(currentMapOverridePath) : {};
 
   currentOverride = {
@@ -32,10 +55,23 @@ const processedMaps = Object.keys(wikiMaps).reduce((processedMaps, mapId) => {
 
   fs.writeFileSync(currentMapOverridePath, JSON.stringify(currentOverride, Object.keys(currentOverride).sort(), 2));
 
-  processedMaps[mapId] = {
-    ...wikiMaps[mapId],
+  preProcessedMaps[mapId] = {
+    ...wikiMap,
     ...currentOverride
-  }
+  };
+
+  return preProcessedMaps;
+}, {});
+
+console.log('Computing maps...');
+const sextantAvailableMaps = Object.values(preProcessedMaps).filter(({type}) => !/(unique|special)/.test(type));
+const processedMaps = Object.keys(preProcessedMaps).reduce((processedMaps, mapId) => {
+  const processedMap = preProcessedMaps[mapId];
+
+  processedMaps[mapId] = {
+    ...processedMap,
+    sextants: computeSextantsFor(processedMap, sextantAvailableMaps)
+  };
 
   return processedMaps;
 }, {});
