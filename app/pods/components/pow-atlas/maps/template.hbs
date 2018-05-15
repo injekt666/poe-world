@@ -1,6 +1,6 @@
 {{#each maps as |map|}}
   <li
-    class="atlas-maps__item"
+    class="atlas-maps__item {{if (eq currentMap map) 'atlas-maps__item--active'}}"
     style={{css-offset map.offsetLeft map.offsetTop}}
     {{action onMapEnter map on='mouseEnter'}}
     {{action onMapLeave on='mouseLeave'}}

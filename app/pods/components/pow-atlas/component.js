@@ -6,6 +6,8 @@ export default Component.extend({
   mapsFetcher: service('fetchers/maps-fetcher'),
   atlasReframer: service('reframers/atlas-reframer'),
 
+  currentMap: null,
+
   maps: [],
   hoveredMap: null,
   zoom: 1,
