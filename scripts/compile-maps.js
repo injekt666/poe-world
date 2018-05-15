@@ -53,7 +53,7 @@ const preProcessedMaps = Object.keys(wikiMaps).reduce((preProcessedMaps, mapId) 
     ...CLI_OVERRIDES[mapId]
   };
 
-  fs.writeFileSync(currentMapOverridePath, JSON.stringify(currentOverride, Object.keys(currentOverride).sort(), 2));
+  fs.writeFileSync(currentMapOverridePath, `${JSON.stringify(currentOverride, Object.keys(currentOverride).sort(), 2)}\n`);
 
   preProcessedMaps[mapId] = {
     ...wikiMap,
