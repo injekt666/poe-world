@@ -13,5 +13,6 @@ export default EmberObject.extend({
   sextantCoverage: null,
   drops: [],
   offsetLeft: null,
-  offsetTop: null
+  offsetTop: null,
+  sextants: []
 });

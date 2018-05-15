@@ -1,0 +1,10 @@
+{{#each sextantMaps as |sextantMap|}}
+  <div
+    class="atlas-sextants__item-wrapper"
+    style={{css-offset sextantMap.offsetLeft sextantMap.offsetTop}}
+  >
+    {{inline-svg 'assets/images/sextant-outline'
+      class='atlas-sextants__item'
+    }}
+  </div>
+{{/each}}

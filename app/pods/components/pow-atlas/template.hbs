@@ -15,6 +15,12 @@
     onMapLeave=(action mapLeave)
     onMapClick=(action mapClick)
   }}
+
+  {{#if currentMap}}
+    {{pow-atlas/sextants
+      map=currentMap
+    }}
+  {{/if}}
 {{/pow-panzoom-container}}
 
 {{pow-atlas/popover
