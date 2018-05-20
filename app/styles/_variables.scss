@@ -8,6 +8,10 @@ $black-color: #161616;
 $background-color: #292c36;
 $primary-color: #83817c;
 
+$white-tier-color: #d7cFd5;
+$yellow-tier-color: #c78a30;
+$red-tier-color: #be3925;
+
 $border-radius: 5px;
 
 $font-family-regular: 'Open Sans', sans-serif;
@@ -16,7 +20,7 @@ $font-family-accent: 'Marcellus SC', serif;
 $padding: 15px;
 
 // Atlas
-$atlas-sextants-item-radius: 150px * 2;
+$atlas-sextants-item-radius: 150px;
 
 $atlas-map-z-index: 1000;
 $atlas-map-glow-z-index: 900;

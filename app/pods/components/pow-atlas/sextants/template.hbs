@@ -1,10 +1,6 @@
 {{#each sextantMaps as |sextantMap|}}
   <div
-    class="atlas-sextants__item-wrapper"
+    class="atlas-sextants__item atlas-sextants__item--{{sextantMap.tierColor}}"
     style={{css-offset sextantMap.offsetLeft sextantMap.offsetTop}}
-  >
-    {{inline-svg 'assets/images/sextant-outline'
-      class='atlas-sextants__item'
-    }}
-  </div>
+  ></div>
 {{/each}}

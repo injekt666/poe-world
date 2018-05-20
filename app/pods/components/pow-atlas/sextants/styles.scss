@@ -1,21 +1,21 @@
-@keyframes sextant-spin {
-  100% { transform: rotate(360deg); }
-}
-
-.atlas-sextants__item-wrapper {
-  position: absolute;
-  width: $atlas-sextants-item-radius;
-  height: $atlas-sextants-item-radius;
-  margin: ($atlas-sextants-item-radius / -2) 0 0 ($atlas-sextants-item-radius / -2);
-  z-index: $atlas-sextants-z-index;
-  animation: sextant-spin 15000ms infinite linear;
-}
-
 .atlas-sextants__item {
-  width: 100%;
-  height: 100%;
+  position: absolute;
+  width: $atlas-sextants-item-radius * 2;
+  height: $atlas-sextants-item-radius * 2;
+  margin: ($atlas-sextants-item-radius * -1) 0 0 ($atlas-sextants-item-radius * -1);
+  border: 2px solid $white-color;
+  border-radius: 50%;
+  z-index: $atlas-sextants-z-index;
+}
 
-  g {
-    stroke: blue;
-  }
+.atlas-sextants__item--white {
+  border-color: $white-tier-color;
+}
+
+.atlas-sextants__item--yellow {
+  border-color: $yellow-tier-color;
+}
+
+.atlas-sextants__item--red {
+  border-color: $red-tier-color;
 }

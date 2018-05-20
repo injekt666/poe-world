@@ -4,12 +4,6 @@
   100% { opacity: 1; }
 }
 
-@keyframes map-glow {
-  0% { box-shadow: 0 0 40px 0 $white-color; }
-  50% { box-shadow: 0 0 50px 30px $white-color; }
-  100% { box-shadow: 0 0 40px 0 $white-color; }
-}
-
 .atlas-maps__item {
   position: absolute;
   width: 50px;
@@ -28,7 +22,7 @@
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    animation: map-glow 1500ms infinite;
+    box-shadow: 0 0 50px 30px $white-color;
     animation-delay: $map-fading-in-duration;
     z-index: $atlas-map-glow-z-index;
   }

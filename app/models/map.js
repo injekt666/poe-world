@@ -1,4 +1,5 @@
 import EmberObject from '@ember/object';
+import {computed} from '@ember/object';
 
 export default EmberObject.extend({
   id: null,
@@ -13,5 +14,15 @@ export default EmberObject.extend({
   drops: [],
   offsetLeft: null,
   offsetTop: null,
-  sextants: []
+  sextants: [],
+
+  tierColor: computed('tier', function() {
+    const tier = this.tier;
+
+    if (!tier) return null;
+
+    if (tier >= 11) return 'red';
+    if (tier >= 6) return 'yellow';
+    return 'white';
+  })
 });
