@@ -21,7 +21,6 @@ const main = async () => {
 
   for (let i = 1; i < $mapRows.length; i++) {
     const tier = parseInt($mapRows.eq(i).find('td').eq(2).text().trim(), 10);
-    const sextantCoverage = parseInt($mapRows.eq(i).find('td').eq(9).text().trim(), 10);
     const detailsUrl = wikiUrl($mapRows.eq(i).find('td').eq(0).find('a').attr('href'));
     const name = $mapRows.eq(i).find('td').eq(0).find('a').attr('title').replace(/ \([a-z ]+\)$/i, '').replace(/ map/i, '');
 
@@ -35,8 +34,7 @@ const main = async () => {
       type: $mapRows.eq(i).find('td').eq(3).find('img').attr('alt') === 'yes' ? 'unique' : 'normal',
       layoutRating: $mapRows.eq(i).find('td').eq(4).text().trim(),
       bossRating: $mapRows.eq(i).find('td').eq(5).text().trim(),
-      tileset: $mapRows.eq(i).find('td').eq(6).text().trim(),
-      sextantCoverage: isNaN(sextantCoverage) ? null : sextantCoverage
+      tileset: $mapRows.eq(i).find('td').eq(6).text().trim()
     };
 
     console.log(`Fetching details for ${name}... (${id})`);

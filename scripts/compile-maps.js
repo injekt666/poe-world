@@ -7,6 +7,7 @@ const CLI_OVERRIDES = process.argv.length >= 3 ? JSON.parse(process.argv[2]) : {
 const MAPS_PATH = './maps';
 const WIKI_MAPS_PATH = './maps/_wiki.json';
 const OUTPUT_ES6_PATH = './app/constants/maps.js';
+const SEXTANT_RANGE = 150;
 const BASE_OVERRIDE = {
   offsetLeft: 0,
   offsetTop: 0
@@ -23,7 +24,6 @@ const mapDistance = (mapA, mapB) => {
 
 const computeSextantsFor = (map, availableMaps) => {
   if (!availableMaps.includes(map)) return [];
-  if (map.sextantCoverage === 1) return [map.id];
 
   const mapDistances = availableMaps.map((comparedMap) => ({
     id: comparedMap.id,
@@ -32,7 +32,7 @@ const computeSextantsFor = (map, availableMaps) => {
 
   return mapDistances
     .sort(({distance: distanceA}, {distance: distanceB}) => distanceA - distanceB)
-    .slice(0, map.sextantCoverage)
+    .filter(({distance}) => distance <= SEXTANT_RANGE)
     .map(({id}) => id);
 };
 
