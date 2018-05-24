@@ -15,7 +15,13 @@ Router.map(function() {
   }
 
   this.route('atlas', {path: '/'}, function() {
-    this.route('map', {path: '/:slug'});
+    this.route('map', {path: '/:slug'}, function() {
+      this.route('information', {path: '/'});
+      this.route('stash');
+      this.route('friends');
+      this.route('trade');
+      this.route('stats');
+    });
   });
 });
 

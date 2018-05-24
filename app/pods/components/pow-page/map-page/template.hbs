@@ -1,3 +1,47 @@
-<h1>{{map.name}}</h1>
+<div class="map-page__header">
+  <button class="map-page__back" {{action back}}>X</button>
 
-<button {{action back}}>BACK</button>
+  <div class="map-page__header-title">
+    {{map.name}}
+
+    <img src={{map.imageUrl}} class="map-page__header-title-image" alt={{map.name}}>
+  </div>
+
+  <div class="map-page__header-subtitle">
+    <div class="map-page__header-subtitle-tier map-page__header-subtitle-tier--{{map.tierColor}}">
+      {{t 'components.page.map-page.tier'}}
+
+      <div class="map-page__header-subtitle-tier-value">
+        {{map.tier}}
+      </div>
+    </div>
+
+    <div class="map-page__header-subtitle-area-level">
+      {{t 'components.page.map-page.area_level'}} {{map.areaLevel}}
+    </div>
+  </div>
+</div>
+
+<nav class="map-page__nav">
+  {{#link-to 'atlas.map.information' class='map-page__nav-link'}}
+    {{t 'components.page.map-page.information'}}
+  {{/link-to}}
+
+  {{#link-to 'atlas.map.stash' class='map-page__nav-link'}}
+    {{t 'components.page.map-page.stash'}}
+  {{/link-to}}
+
+  {{#link-to 'atlas.map.friends' class='map-page__nav-link'}}
+    {{t 'components.page.map-page.friends'}}
+  {{/link-to}}
+
+  {{#link-to 'atlas.map.trade' class='map-page__nav-link'}}
+    {{t 'components.page.map-page.trade'}}
+  {{/link-to}}
+
+  {{#link-to 'atlas.map.stats' class='map-page__nav-link'}}
+    {{t 'components.page.map-page.stats'}}
+  {{/link-to}}
+</nav>
+
+{{yield}}

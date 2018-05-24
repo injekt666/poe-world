@@ -5,6 +5,7 @@ export default EmberObject.extend({
   id: null,
   name: null,
   wikiUrl: null,
+  imageUrl: null,
   areaLevel: null,
   tier: null,
   type: null,

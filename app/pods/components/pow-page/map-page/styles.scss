@@ -5,5 +5,108 @@
   width: 600px;
   height: 100vh;
   background-color: $background-color;
-  padding: $padding;
+}
+
+.map-page__back {
+  position: absolute;
+  top: $padding;
+  left: -50px;
+  font-size: 4rem;
+  color: $white-color;
+  background-color: $background-color;
+}
+
+.map-page__header {
+  padding: $padding $padding ($padding * 2);
+  background-color: darken($background-color, 5%);
+}
+
+.map-page__header-title {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  font-family: $font-family-accent;
+  font-size: 2rem;
+  letter-spacing: 2px;
+}
+
+.map-page__header-title-image {
+  width: 50px;
+  margin-left: $padding;
+}
+
+.map-page__header-subtitle {
+  display: flex;
+  align-items: center;
+  margin-top: $padding;
+  font-family: $font-family-accent;
+  font-size: 1.2rem;
+  letter-spacing: 3px;
+}
+
+.map-page__header-subtitle-tier,
+.map-page__header-subtitle-area-level {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  background-color: $background-color;
+  height: 50px;
+  border-radius: $border-radius;
+}
+
+.map-page__header-subtitle-tier {
+  margin-right: $padding;
+}
+
+.map-page__header-subtitle-tier-value {
+  display: inline-flex;
+  margin-left: $padding / 2;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 35px;
+  border-radius: $border-radius;
+  color: $background-color;
+}
+
+.map-page__header-subtitle-tier--white .map-page__header-subtitle-tier-value {
+  background-color: $white-tier-color
+}
+
+.map-page__header-subtitle-tier--yellow .map-page__header-subtitle-tier-value {
+  background-color: $yellow-tier-color
+}
+
+.map-page__header-subtitle-tier--red .map-page__header-subtitle-tier-value {
+  background-color: $red-tier-color
+}
+
+.map-page__nav {
+  display: flex;
+}
+
+.map-page__nav-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: ($padding / 2) 0;
+  flex-grow: 1;
+  color: $white-color;
+  text-decoration: none;
+  font-family: $font-family-accent;
+  background-color: lighten($background-color, 7.5%);
+
+  &.active {
+    background-color: $primary-color;
+
+    &:hover {
+      background-color: $primary-color;
+      cursor: default;
+    }
+  }
+
+  &:hover {
+    background-color: lighten($background-color, 2.5%);
+  }
 }
