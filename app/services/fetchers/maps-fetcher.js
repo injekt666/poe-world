@@ -21,13 +21,7 @@ export default Service.extend({
     this._mapHash = Object.keys(MAPS).reduce((hash, mapId) => {
       const rawMap = MAPS[mapId];
 
-      hash[mapId] = Map.create({
-        ...rawMap,
-        drops: rawMap.drops.map((rawDrop) => {
-          const [name, wikiUrl] = rawDrop.split(':');
-          return {name, wikiUrl};
-        })
-      });
+      hash[mapId] = Map.create(rawMap);
 
       return hash;
     }, {});

@@ -47,9 +47,11 @@ const main = async () => {
         const itemWikiUrl = $details(this).find('a').attr('href');
 
         if (!itemName) return null;
-        if (!itemWikiUrl) return itemName;
 
-        return `${itemName}:${wikiUrl(itemWikiUrl)}`;
+        return {
+          name: itemName,
+          wikiUrl: itemWikiUrl ? WIKI_ROOT_URL + itemWikiUrl : null
+        };
       }).get()
     };
 

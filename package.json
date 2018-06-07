@@ -17,8 +17,9 @@
     "lint-scss": "./node_modules/.bin/stylelint ./app/**/*.scss",
     "start": "ember serve",
     "test": "ember test",
+    "fetch-maps-wiki": "node scripts/fetch-maps-wiki.js",
     "compile-maps": "node scripts/compile-maps.js",
-    "fetch-maps-wiki": "node scripts/fetch-maps-wiki.js"
+    "update-maps": "npm run fetch-maps-wiki && npm run compile-maps"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.3",
