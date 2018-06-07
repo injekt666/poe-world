@@ -15,6 +15,14 @@ export default {
         "friends": "Friends",
         "trade": "Trade",
         "stats": "Stats"
+      },
+      "map-information-page": {
+        "drops_title": "Notable drops",
+        "layout_title": "Layout",
+        "layout_rating_A": "The map has a consistent layout that can be reliably fully cleared with no backtracking.",
+        "layout_rating_B": "The map has an open layout with few obstacles, or has only short and well-connected side paths.",
+        "layout_rating_C": "The map has an open layout with many obstacles, or has long side paths that require backtracking.",
+        "boss_title": "Boss"
       }
     }
   }

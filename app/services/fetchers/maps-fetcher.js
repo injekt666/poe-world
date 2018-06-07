@@ -19,7 +19,16 @@ export default Service.extend({
 
   _processMaps() {
     this._mapHash = Object.keys(MAPS).reduce((hash, mapId) => {
-      hash[mapId] = Map.create(MAPS[mapId]);
+      const rawMap = MAPS[mapId];
+
+      hash[mapId] = Map.create({
+        ...rawMap,
+        drops: rawMap.drops.map((rawDrop) => {
+          const [name, wikiUrl] = rawDrop.split(':');
+          return {name, wikiUrl};
+        })
+      });
+
       return hash;
     }, {});
 

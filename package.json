@@ -22,6 +22,7 @@
   },
   "devDependencies": {
     "babel-eslint": "^8.2.3",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "broccoli-asset-rev": "^2.4.5",
     "cheerio": "^1.0.0-rc.2",
     "ember-ajax": "^3.0.0",

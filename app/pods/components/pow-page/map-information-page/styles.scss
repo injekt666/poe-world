@@ -1,0 +1,71 @@
+.map-information-page__title {
+  margin-top: $padding;
+  padding-left: $padding;
+  font-family: $font-family-accent;
+  font-size: 1.5rem;
+  letter-spacing: 3px;
+}
+
+.map-information-page__drops {
+  display: flex;
+  flex-direction: column;
+}
+
+.map-information-page__drops-item {
+  width: 100%;
+  margin-top: $padding / 4;
+}
+
+.map-information-page__drops-item-link {
+  display: block;
+  width: 100%;
+  padding: ($padding / 2) $padding;
+  color: inherit;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: padding 250ms ease-in;
+
+  &:hover {
+    padding-left: $padding * 2;
+    background-color: $primary-color;
+  }
+}
+
+.map-information-page__layout {
+  display: flex;
+  align-items: center;
+  padding: $padding;
+}
+
+.map-information-page__layout-rating {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 75px;
+  height: 60px;
+  margin-right: $padding;
+  border-radius: $border-radius;
+  background-color: darken($background-color, 5%);
+  font-size: 1.8rem;
+  font-family: $font-family-accent;
+}
+
+.map-information-page__layout-description {
+  position: relative;
+  padding-left: $padding;
+  font-style: italic;
+  opacity: 0.9;
+  font-size: 0.9rem;
+
+  &::before {
+    content: '“';
+    position: absolute;
+    left: -5px;
+    top: -6px;
+    font-size: 2rem;
+  }
+}
+
+.map-information-page__boss {
+  padding: $padding;
+}
