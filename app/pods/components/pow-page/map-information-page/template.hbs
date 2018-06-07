@@ -18,24 +18,28 @@
   </ul>
 {{/if}}
 
-<h1 class="map-information-page__title">
-  {{t 'components.page.map-information-page.layout_title'}}
-</h1>
+{{#if map.layoutRating}}
+  <h1 class="map-information-page__title">
+    {{t 'components.page.map-information-page.layout_title'}}
+  </h1>
 
-<div class="map-information-page__layout">
-  <div class="map-information-page__layout-rating">
-    {{map.layoutRating}}
+  <div class="map-information-page__layout">
+    <div class="map-information-page__layout-rating">
+      {{map.layoutRating}}
+    </div>
+
+    <div class="map-information-page__layout-description">
+      {{t layoutRatingDescriptionKey}}
+    </div>
   </div>
+{{/if}}
 
-  <div class="map-information-page__layout-description">
-    {{t layoutRatingDescriptionKey}}
+{{#if map.bossRating}}
+  <h1 class="map-information-page__title">
+    {{t 'components.page.map-information-page.boss_title'}}
+  </h1>
+
+  <div class="map-information-page__boss">
+    {{map.bossRating}} / 5
   </div>
-</div>
-
-<h1 class="map-information-page__title">
-  {{t 'components.page.map-information-page.boss_title'}}
-</h1>
-
-<div class="map-information-page__boss">
-  {{map.bossRating}} / 5
-</div>
+{{/if}}
