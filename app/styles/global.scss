@@ -1,6 +1,7 @@
 html,
 body {
-  min-height: 100vh;
+  overflow: hidden;
+  height: 100vh;
   font-family: $font-family-regular;
   color: $white-color;
 }
