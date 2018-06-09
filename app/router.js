@@ -8,6 +8,7 @@ const Router = EmberRouter.extend({
   rootURL
 });
 
+/* eslint-disable max-nested-callbacks */
 Router.map(function() {
   // Dev routes
   if (DEV_MODE) {
@@ -24,5 +25,6 @@ Router.map(function() {
     });
   });
 });
+/* eslint-enable max-nested-callbacks */
 
 export default Router;

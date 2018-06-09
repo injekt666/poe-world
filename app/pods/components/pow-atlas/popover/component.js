@@ -1,5 +1,5 @@
 import Component from '@ember/component';
-import {observer, computed} from '@ember/object';
+import {computed} from '@ember/object';
 import {bool, gt, not, and} from '@ember/object/computed';
 import {htmlSafe} from '@ember/string';
 import {inject as service} from '@ember/service';

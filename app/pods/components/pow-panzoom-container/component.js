@@ -1,6 +1,8 @@
 import Component from '@ember/component';
 import {task, timeout} from 'ember-concurrency';
 
+/* global panzoom */
+
 // Constants
 const PANZOOM_EVENT_DEBOUNCE = 50;
 

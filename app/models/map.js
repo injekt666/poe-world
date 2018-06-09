@@ -1,6 +1,10 @@
 import EmberObject from '@ember/object';
 import {computed} from '@ember/object';
 
+// Constants
+const YELLOW_TIER_MIN_TIER = 6;
+const RED_TIER_MIN_TIER = 11;
+
 export default EmberObject.extend({
   id: null,
   name: null,
@@ -22,8 +26,8 @@ export default EmberObject.extend({
 
     if (!tier) return null;
 
-    if (tier >= 11) return 'red';
-    if (tier >= 6) return 'yellow';
+    if (tier >= RED_TIER_MIN_TIER) return 'red';
+    if (tier >= YELLOW_TIER_MIN_TIER) return 'yellow';
     return 'white';
   })
 });

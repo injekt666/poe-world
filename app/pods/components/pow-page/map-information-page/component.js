@@ -2,9 +2,9 @@ import Component from '@ember/component';
 import {computed} from '@ember/object';
 
 const LAYOUT_RATINGS_KEY = {
-  A: 'components.page.map-information-page.layout_rating_A',
-  B: 'components.page.map-information-page.layout_rating_B',
-  C: 'components.page.map-information-page.layout_rating_C'
+  A: 'components.page.map_information_page.layout_rating_A',
+  B: 'components.page.map_information_page.layout_rating_B',
+  C: 'components.page.map_information_page.layout_rating_C'
 };
 
 export default Component.extend({
