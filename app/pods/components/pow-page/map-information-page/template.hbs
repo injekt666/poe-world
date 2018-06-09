@@ -7,9 +7,9 @@
     {{#each map.drops as |drop|}}
       <li class="map-information-page__drops-item">
         {{#if drop.wikiUrl}}
-          <a href={{drop.wikiUrl}} target="_blank" class="map-information-page__drops-item-link">
+          {{#pow-external-link url=drop.wikiUrl class="map-information-page__drops-item-link"}}
             {{drop.name}}
-          </a>
+          {{/pow-external-link}}
         {{else}}
           {{drop.name}}
         {{/if}}
