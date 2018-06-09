@@ -1,24 +1,24 @@
 $atlas-popover-width: 400px;
 
 & {
-  position: absolute;
   display: flex;
-  flex-direction: column;
+  position: absolute;
   opacity: 0;
+  flex-direction: column;
   width: $atlas-popover-width;
-  background-color: $background-color;
   border-radius: $border-radius;
   margin-top: -30px;
+  background-color: $background-color;
   transition: opacity 150ms linear;
 
-  &:before {
+  &::before {
     content: '';
     position: absolute;
     top: 20px;
     left: -10px;
     border-top: 10px solid transparent;
-    border-bottom: 10px solid transparent;
     border-right: 10px solid darken($background-color, 5%);
+    border-bottom: 10px solid transparent;
   }
 }
 
@@ -33,18 +33,18 @@ $atlas-popover-width: 400px;
 &.atlas-popover--reversed {
   text-align: right;
 
-  &:before {
+  &::before {
     left: $atlas-popover-width;
-    border-left: 10px solid darken($background-color, 5%);
     border-right: 0;
+    border-left: 10px solid darken($background-color, 5%);
   }
 }
 
 .atlas-popover__header {
   padding: $padding;
-  border-top-right-radius: $border-radius;
-  border-top-left-radius: $border-radius;
   background-color: darken($background-color, 5%);
+  border-top-left-radius: $border-radius;
+  border-top-right-radius: $border-radius;
 }
 
 .atlas-popover__header-title {

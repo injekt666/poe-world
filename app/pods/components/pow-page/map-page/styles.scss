@@ -53,12 +53,12 @@ $map-page-header-background-color: darken($background-color, 5%);
 .map-page__header-subtitle-tier,
 .map-page__header-subtitle-area-level {
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   width: 50%;
-  background-color: $background-color;
   height: 50px;
   border-radius: $border-radius;
+  background-color: $background-color;
 }
 
 .map-page__header-subtitle-tier {
@@ -67,25 +67,25 @@ $map-page-header-background-color: darken($background-color, 5%);
 
 .map-page__header-subtitle-tier-value {
   display: inline-flex;
-  margin-left: $padding / 2;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   width: 45px;
   height: 35px;
   border-radius: $border-radius;
+  margin-left: $padding / 2;
   color: $background-color;
 }
 
 .map-page__header-subtitle-tier--white .map-page__header-subtitle-tier-value {
-  background-color: $white-tier-color
+  background-color: $white-tier-color;
 }
 
 .map-page__header-subtitle-tier--yellow .map-page__header-subtitle-tier-value {
-  background-color: $yellow-tier-color
+  background-color: $yellow-tier-color;
 }
 
 .map-page__header-subtitle-tier--red .map-page__header-subtitle-tier-value {
-  background-color: $red-tier-color
+  background-color: $red-tier-color;
 }
 
 .map-page__nav {
@@ -97,11 +97,11 @@ $map-page-header-background-color: darken($background-color, 5%);
   justify-content: center;
   align-items: center;
   padding: ($padding / 2) 0;
+  background-color: lighten($background-color, 7.5%);
   text-decoration: none;
+  font-family: $font-family-accent;
   color: $white-color;
   flex-grow: 1;
-  font-family: $font-family-accent;
-  background-color: lighten($background-color, 7.5%);
 
   &.active {
     background-color: $primary-color;

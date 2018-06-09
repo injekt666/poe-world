@@ -18,8 +18,9 @@
     "start-electron": "DEBUG=true ember electron",
     "test-electron": "ember electron:test",
     "lint": "npm run lint-js && npm run lint-scss",
-    "lint-js": "./node_modules/.bin/eslint ./*.js app blueprints config lib server tests",
-    "lint-scss": "./node_modules/.bin/stylelint ./app/**/*.scss",
+    "lint-js": "./node_modules/.bin/eslint './*.js' 'app' 'blueprints' 'config' 'lib' 'server' 'tests'",
+    "lint-scss": "./node_modules/.bin/stylelint './app/**/*.scss'",
+    "lint-scss-fix": "./node_modules/.bin/stylelint './app/**/*/*.scss' --fix",
     "fetch-maps-wiki": "node scripts/fetch-maps-wiki.js",
     "compile-maps": "node scripts/compile-maps.js",
     "update-maps": "npm run fetch-maps-wiki && npm run compile-maps"

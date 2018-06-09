@@ -1,11 +1,11 @@
 .atlas-sextants__item {
   position: absolute;
+  z-index: $atlas-sextants-z-index;
   width: $atlas-sextants-item-radius * 2;
   height: $atlas-sextants-item-radius * 2;
-  margin: ($atlas-sextants-item-radius * -1) 0 0 ($atlas-sextants-item-radius * -1);
   border: 2px solid $white-color;
   border-radius: 50%;
-  z-index: $atlas-sextants-z-index;
+  margin: ($atlas-sextants-item-radius * -1) 0 0 ($atlas-sextants-item-radius * -1);
 }
 
 .atlas-sextants__item--white {
