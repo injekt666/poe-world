@@ -5,6 +5,7 @@
 /tmp
 app/constants/maps.js
 maps/_wiki.json
+/electron-out
 
 # dependencies
 /node_modules
