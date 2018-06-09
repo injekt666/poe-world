@@ -1,6 +1,10 @@
 {{#if map.drops}}
   <h1 class="map-information-page__title">
-    {{t 'components.page.map_information_page.drops_title'}}
+    {{fa-icon 'coins'}}
+
+    <span class="map-information-page__title-label">
+      {{t 'components.page.map_information_page.drops_title'}}
+    </span>
   </h1>
 
   <ul class="map-information-page__drops">
@@ -20,7 +24,11 @@
 
 {{#if map.layoutRating}}
   <h1 class="map-information-page__title">
-    {{t 'components.page.map_information_page.layout_title'}}
+    {{fa-icon 'compass'}}
+
+    <span class="map-information-page__title-label">
+      {{t 'components.page.map_information_page.layout_title'}}
+    </span>
   </h1>
 
   <div class="map-information-page__layout">
@@ -36,7 +44,11 @@
 
 {{#if map.bossRating}}
   <h1 class="map-information-page__title">
-    {{t 'components.page.map_information_page.boss_title'}}
+    {{fa-icon 'skull'}}
+
+    <span class="map-information-page__title-label">
+      {{t 'components.page.map_information_page.boss_title'}}
+    </span>
   </h1>
 
   <div class="map-information-page__boss">

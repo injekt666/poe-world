@@ -11,6 +11,13 @@ module.exports = function(defaults) {
       'simple-css-reset': {
         import: ['reset.css']
       }
+    },
+    fontawesome: {
+      icons: {
+        'free-solid-svg-icons': [
+          'times', 'info', 'coins', 'compass', 'skull'
+        ]
+      }
     }
   });
 

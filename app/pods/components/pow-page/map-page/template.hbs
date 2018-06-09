@@ -1,5 +1,7 @@
 <div class="map-page__header">
-  <button class="map-page__back" {{action back}}>X</button>
+  <button class="map-page__back" {{action back}}>
+    {{fa-icon 'times'}}
+  </button>
 
   <div class="map-page__header-title">
     {{map.name}}
@@ -24,7 +26,11 @@
 
 <nav class="map-page__nav">
   {{#link-to 'atlas.map.information' class='map-page__nav-link'}}
-    {{t 'components.page.map_page.information'}}
+    {{fa-icon 'info'}}
+
+    <span class="map-page__nav-link-label">
+      {{t 'components.page.map_page.information'}}
+    </span>
   {{/link-to}}
 
   {{!--

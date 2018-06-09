@@ -1,3 +1,5 @@
+$map-page-header-background-color: darken($background-color, 5%);
+
 & {
   position: fixed;
   top: 0;
@@ -11,20 +13,24 @@
   position: absolute;
   top: $padding;
   left: -50px;
-  font-size: 4rem;
+  padding: 7px 15px;
+  background-color: $map-page-header-background-color;
+  outline: none;
+  font-size: 2rem;
   color: $white-color;
-  background-color: $background-color;
+  border-bottom-left-radius: $border-radius;
+  border-top-left-radius: $border-radius;
 }
 
 .map-page__header {
   padding: $padding $padding ($padding * 2);
-  background-color: darken($background-color, 5%);
+  background-color: $map-page-header-background-color;
 }
 
 .map-page__header-title {
   display: flex;
-  align-items: center;
   justify-content: flex-end;
+  align-items: center;
   font-family: $font-family-accent;
   font-size: 2rem;
   letter-spacing: 2px;
@@ -88,12 +94,12 @@
 
 .map-page__nav-link {
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   padding: ($padding / 2) 0;
-  flex-grow: 1;
-  color: $white-color;
   text-decoration: none;
+  color: $white-color;
+  flex-grow: 1;
   font-family: $font-family-accent;
   background-color: lighten($background-color, 7.5%);
 
@@ -109,4 +115,8 @@
   &:hover {
     background-color: lighten($background-color, 2.5%);
   }
+}
+
+.map-page__nav-link-label {
+  margin-left: $padding / 2;
 }

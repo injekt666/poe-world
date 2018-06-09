@@ -15,7 +15,7 @@
     "start-web": "ember serve",
     "test-web": "ember test",
     "build-electron": "ember electron:package",
-    "start-electron": "ember electron",
+    "start-electron": "DEBUG=true ember electron",
     "test-electron": "ember electron:test",
     "lint": "npm run lint-js && npm run lint-scss",
     "lint-js": "./node_modules/.bin/eslint ./*.js app blueprints config lib server tests",
@@ -25,6 +25,8 @@
     "update-maps": "npm run fetch-maps-wiki && npm run compile-maps"
   },
   "devDependencies": {
+    "@fortawesome/ember-fontawesome": "0.1.0-8",
+    "@fortawesome/free-solid-svg-icons": "^5.1.0-11",
     "babel-eslint": "^8.2.3",
     "babel-plugin-transform-async-to-generator": "^6.24.1",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
