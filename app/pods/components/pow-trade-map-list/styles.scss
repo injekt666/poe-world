@@ -1,0 +1,109 @@
+.map-trade-list__maps {
+  display: flex;
+  flex-direction: column;
+}
+
+.map-trade-list__maps-header {
+  display: flex;
+  padding: 0 $padding;
+  font-family: $font-family-accent;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+}
+
+.map-trade-list__maps-header-properties {
+  width: 15%;
+}
+
+.map-trade-list__maps-header-mods {
+  width: 55%;
+}
+
+.map-trade-list__maps-header-listing {
+  width: 30%;
+  text-align: right;
+}
+
+.map-trade-list__maps-item {
+  display: flex;
+  position: relative;
+  padding: ($padding / 2) $padding;
+  margin-top: 4px;
+  font-size: 0.85rem;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 100%;
+  }
+
+  &:first-of-type {
+    margin-top: 0;
+  }
+
+  &:nth-child(even) {
+    background-color: darken($background-color, 2%);
+  }
+}
+
+.map-trade-list__maps-item--normal::before {
+  background-color: $normal-color;
+}
+
+.map-trade-list__maps-item--magic::before {
+  background-color: $magic-color;
+}
+
+.map-trade-list__maps-item--rare::before {
+  background-color: $rare-color;
+}
+
+.map-trade-list__maps-item--unique::before {
+  background-color: $unique-color;
+}
+
+.map-trade-list__maps-item-properties {
+  width: 15%;
+}
+
+.map-trade-list__maps-item-mods {
+  width: 55%;
+}
+
+.map-trade-list__maps-item-listing {
+  width: 30%;
+  text-align: right;
+}
+
+.map-trade-list__maps-item-properties-corrupted {
+  padding: ($padding / 4) 0;
+  border-radius: $border-radius / 2;
+  margin: ($padding / 2) ($padding / 2) 0 0;
+  background-color: #cc2b22;
+  text-align: center;
+  font-size: 0.75rem;
+  font-weight: bold;
+
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+.map-trade-list__maps-item-mods-line {
+  position: relative;
+  padding-left: ($padding / 2);
+}
+
+.map-trade-list__maps-item-mods-line-caret {
+  position: absolute;
+  top: 4px;
+  left: 0;
+}
+
+.map-trade-list__maps-item-listing-price-amount {
+  font-size: 1.2rem;
+  font-style: bold;
+}

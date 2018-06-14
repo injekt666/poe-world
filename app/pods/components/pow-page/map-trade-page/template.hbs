@@ -1,0 +1,13 @@
+<div class="map-trade-page__header">
+  {{#if isMapsLoaded}}
+    <h1 class="map-trade-page__header-total">
+      {{t 'components.page.map_trade_page.total' count=total}}
+    </h1>
+  {{/if}}
+</div>
+
+{{#if initialLoadTask.isRunning}}
+  LOAD
+{{else}}
+  {{pow-trade-map-list tradeMaps=tradeMaps}}
+{{/if}}
