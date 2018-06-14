@@ -1,0 +1,7 @@
+{{#if task.isRunning}}
+  <div class="task-load-container__loader-wrapper">
+    {{fa-icon 'spinner' spin=true size='2x'}}
+  </div>
+{{else}}
+  {{yield}}
+{{/if}}
