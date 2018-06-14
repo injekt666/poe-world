@@ -1,0 +1,81 @@
+& {
+  display: flex;
+  position: relative;
+  padding: ($padding / 2) $padding;
+  margin-top: 4px;
+  font-size: 0.85rem;
+
+  &:first-of-type {
+    margin-top: 0;
+  }
+
+  &:nth-child(even) {
+    background-color: darken($background-color, 2%);
+  }
+}
+
+.trade-map-list-item__rarity {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 100%;
+}
+
+.trade-map-list-item__rarity--normal {
+  background-color: $normal-color;
+}
+
+.trade-map-list-item__rarity--magic {
+  background-color: $magic-color;
+}
+
+.trade-map-list-item__rarity--rare {
+  background-color: $rare-color;
+}
+
+.trade-map-list-item__rarity--unique {
+  background-color: $unique-color;
+}
+
+.trade-map-list-item__properties {
+  width: 15%;
+}
+
+.trade-map-list-item__mods {
+  width: 55%;
+}
+
+.trade-map-list-item__listing {
+  width: 30%;
+  text-align: right;
+}
+
+.trade-map-list-item__properties-corrupted {
+  padding: ($padding / 4) 0;
+  border-radius: $border-radius / 2;
+  margin: ($padding / 2) ($padding / 2) 0 0;
+  background-color: #cc2b22;
+  text-align: center;
+  font-size: 0.75rem;
+  font-weight: bold;
+
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+.trade-map-list-item__mods-line {
+  position: relative;
+  padding-left: ($padding / 2);
+}
+
+.trade-map-list-item__mods-line-caret {
+  position: absolute;
+  top: 4px;
+  left: 0;
+}
+
+.trade-map-list-item__listing-price-amount {
+  font-size: 1.2rem;
+}

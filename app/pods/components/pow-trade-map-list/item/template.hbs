@@ -1,0 +1,60 @@
+<div class="trade-map-list-item__rarity trade-map-list-item__rarity--{{tradeMap.rarity}}"></div>
+
+<div class="trade-map-list-item__properties">
+  {{#if tradeMap.itemQuantity}}
+    <div class="trade-map-list-item__properties-quantity">
+      {{t 'components.map_trade_list.item_quantity' itemQuantity=tradeMap.itemQuantity}}
+    </div>
+  {{/if}}
+
+  {{#if tradeMap.itemRarity}}
+    <div class="trade-map-list-item__properties-rarity">
+      {{t 'components.map_trade_list.item_rarity' itemRarity=tradeMap.itemRarity}}
+    </div>
+  {{/if}}
+
+  {{#if tradeMap.monsterPackSize}}
+    <div class="trade-map-list-item__properties-monster-pack-size">
+      {{t 'components.map_trade_list.monster_pack_size' monsterPackSize=tradeMap.monsterPackSize}}
+    </div>
+  {{/if}}
+
+  {{#if tradeMap.corrupted}}
+    <div class="trade-map-list-item__properties-corrupted">
+      {{t 'components.map_trade_list.corrupted'}}
+    </div>
+  {{/if}}
+</div>
+
+<ul class="trade-map-list-item__mods">
+  {{#unless tradeMap.identified}}
+    <div class="trade-map-list-item__properties-unidentified">
+      {{t 'components.map_trade_list.unidentified'}}
+    </div>
+  {{else}}
+    {{#each tradeMap.mods as |mod|}}
+      <li class="trade-map-list-item__mods-line">
+        {{fa-icon 'caret-right' class='trade-map-list-item__mods-line-caret'}} {{mod}}
+      </li>
+    {{/each}}
+  {{/unless}}
+</ul>
+
+<div class="trade-map-list-item__listing">
+  <div class="trade-map-list-item__listing-price">
+    <span class="trade-map-list-item__listing-price-amount">
+      {{tradeMap.priceAmount}}
+    </span>
+
+    {{fa-icon 'times'}}
+    {{tradeMap.priceCurrency}}
+  </div>
+
+  <div class="trade-map-list-item__listing-time">
+    {{moment-from-now tradeMap.indexedAt}}
+  </div>
+
+  <div class="trade-map-list-item__listing-account">
+    {{t 'components.map_trade_list.sold_by' account=tradeMap.account}}
+  </div>
+</div>
