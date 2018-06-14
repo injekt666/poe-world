@@ -21,7 +21,7 @@ export default {
     page: {
       map_page: {
         tier: 'Tier',
-        area_level: 'Area Level',
+        area_level: 'Area Level {{level}}',
         information: 'Information',
         stash: 'Stash',
         friends: 'Friends',
