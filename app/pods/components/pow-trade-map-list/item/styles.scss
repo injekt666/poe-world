@@ -1,6 +1,7 @@
 & {
   display: flex;
   position: relative;
+  align-items: center;
   padding: ($padding / 2) $padding;
   margin-top: 4px;
   font-size: 0.85rem;
@@ -15,11 +16,10 @@
 }
 
 .trade-map-list-item__rarity {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 5px;
-  height: 100%;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: $padding;
 }
 
 .trade-map-list-item__rarity--normal {
@@ -52,7 +52,8 @@
 }
 
 .trade-map-list-item__properties-corrupted {
-  padding: ($padding / 4) 0;
+  display: inline-block;
+  padding: ($padding / 4);
   border-radius: $border-radius / 2;
   margin: ($padding / 2) ($padding / 2) 0 0;
   background-color: #cc2b22;

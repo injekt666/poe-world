@@ -15,7 +15,8 @@ module.exports = function(defaults) {
     fontawesome: {
       icons: {
         'free-solid-svg-icons': [
-          'times', 'info', 'coins', 'compass', 'skull', 'balance-scale', 'spinner', 'sync', 'copy', 'check', 'caret-right'
+          'times', 'info', 'coins', 'compass', 'skull', 'balance-scale', 'spinner', 'sync', 'copy', 'check',
+          'caret-right', 'minus'
         ]
       }
     }

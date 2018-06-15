@@ -1,4 +1,5 @@
 import EmberObject from '@ember/object';
+import {not} from '@ember/object/computed';
 
 export default EmberObject.extend({
   id: null,
@@ -18,5 +19,7 @@ export default EmberObject.extend({
   whisper: null,
   account: null,
   priceAmount: null,
-  priceCurrency: null
+  priceCurrency: null,
+
+  isUnidentified: not('identified')
 });
