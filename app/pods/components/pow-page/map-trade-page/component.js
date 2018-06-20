@@ -24,6 +24,7 @@ export default Component.extend({
   }).drop(),
 
   didReceiveAttrs() {
+    this.tradeMaps.clear();
     this.initialLoadTask.perform();
   }
 });
