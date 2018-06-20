@@ -1,5 +1,6 @@
 import EmberObject from '@ember/object';
 import {computed} from '@ember/object';
+import {equal} from '@ember/object/computed';
 
 // Constants
 const YELLOW_TIER_MIN_TIER = 6;
@@ -32,9 +33,11 @@ export default EmberObject.extend({
     return 'white';
   }),
 
-  tradeName: computed('name', 'type', function() {
-    const {name, type} = this.getProperties('name', 'type');
-    if (type === UNIQUE_RARITY) return name;
+  isUnique: equal('type', UNIQUE_RARITY),
+
+  tradeName: computed('name', 'isUnique', function() {
+    const {name, isUnique} = this.getProperties('name', 'isUnique');
+    if (isUnique) return name;
 
     return `${name} Map`;
   })

@@ -13,7 +13,7 @@ export default Component.extend({
 
   initialLoadTask: task(function *() {
     const {tradeMapsFetcher, map, tradeMaps} = this.getProperties('tradeMapsFetcher', 'map', 'tradeMaps');
-    const {tradeMaps: newTradeMaps, nextTradeMapIds, total} = yield tradeMapsFetcher.fetchFromName(map.tradeName);
+    const {tradeMaps: newTradeMaps, nextTradeMapIds, total} = yield tradeMapsFetcher.fetchFromMap(map);
 
     tradeMaps.addObjects(newTradeMaps);
     this.setProperties({

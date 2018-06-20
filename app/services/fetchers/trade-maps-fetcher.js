@@ -3,7 +3,7 @@ import TradeMap from 'pow/models/trade-map';
 import TRADE_API from 'pow/constants/trade-api';
 
 // Constants
-const BASE_QUERY = {
+const NORMAL_QUERY = {
   query: {
     status: {
       option: 'online'
@@ -18,14 +18,29 @@ const BASE_QUERY = {
   }
 };
 
+const UNIQUE_QUERY = {
+  query: {
+    status: {
+      option: 'online'
+    },
+    name: {
+      option: '__MAP_NAME__',
+      discriminator: TRADE_API.VERSION_DISCRIMINATOR
+    }
+  },
+  sort: {
+    price: 'asc'
+  }
+};
+
 export default Service.extend({
   request: service('request'),
 
-  fetchFromName(mapName) {
+  fetchFromMap(map) {
     const request = this.get('request');
     const league = 'Incursion'; // TODO: Replace with proper league setting
 
-    return request.fetch(`${TRADE_API.BASE_URL}/search/${league}?source=${this._queryParamFor(mapName)}`).then(({result: mapIds, total}) => {
+    return request.fetch(`${TRADE_API.BASE_URL}/search/${league}?source=${this._queryParamFor(map)}`).then(({result: mapIds, total}) => {
       if (!mapIds.length) return {maps: [], nextMapIds: [], total};
 
       const mapIdsParam = mapIds.splice(0, TRADE_API.BATCH_SIZE).join(',');
@@ -48,8 +63,11 @@ export default Service.extend({
     }));
   },
 
-  _queryParamFor(mapName) {
-    return JSON.stringify(BASE_QUERY).replace('__MAP_NAME__', mapName);
+  _queryParamFor(map) {
+    const {isUnique, tradeName} = map.getProperties('isUnique', 'tradeName');
+
+    if (isUnique) return JSON.stringify(UNIQUE_QUERY).replace('__MAP_NAME__', tradeName);
+    return JSON.stringify(NORMAL_QUERY).replace('__MAP_NAME__', tradeName);
   },
 
   /* eslint-disable complexity */
