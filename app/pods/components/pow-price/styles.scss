@@ -1,4 +1,10 @@
+& {
+  display: inline-flex;
+  align-items: center;
+}
+
 .price__amount {
+  margin-right: $padding / 2;
   font-size: 1.2rem;
 }
 
