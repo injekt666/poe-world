@@ -1,12 +1,14 @@
 <div class="map-page__header">
-  <button class="map-page__back" {{action back}}>
-    {{fa-icon 'times'}}
-  </button>
+  <div class="map-page__header-title-wrapper">
+    <button class="map-page__back" {{action back}}>
+      {{fa-icon 'times'}}
+    </button>
 
-  <div class="map-page__header-title">
-    {{map.name}}
+    <div class="map-page__header-title">
+      {{map.name}}
 
-    <img src={{map.imageUrl}} class="map-page__header-title-image" alt={{map.name}}>
+      <img src={{map.imageUrl}} class="map-page__header-title-image" alt={{map.name}}>
+    </div>
   </div>
 
   <div class="map-page__header-subtitle">

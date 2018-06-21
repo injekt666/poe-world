@@ -11,21 +11,21 @@ $map-page-header-background-color: darken($background-color, 5%);
 }
 
 .map-page__back {
-  position: absolute;
-  top: $padding;
-  left: -50px;
-  padding: 7px 15px;
-  background-color: $map-page-header-background-color;
+  padding: 0 ($padding / 2);
   outline: none;
   font-size: 2rem;
   color: $white-color;
-  border-bottom-left-radius: $border-radius;
-  border-top-left-radius: $border-radius;
 }
 
 .map-page__header {
   padding: $padding $padding ($padding * 2);
   background-color: $map-page-header-background-color;
+}
+
+.map-page__header-title-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .map-page__header-title {
