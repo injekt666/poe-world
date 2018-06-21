@@ -1,0 +1,13 @@
+@mixin button {
+  padding: ($padding / 2) $padding;
+  border-radius: $border-radius;
+  background-color: $primary-color;
+  outline: none;
+  font-size: 0.8rem;
+  color: $white-color;
+
+  &:hover,
+  &:focus {
+    background-color: darken($primary-color, 5%);
+  }
+}

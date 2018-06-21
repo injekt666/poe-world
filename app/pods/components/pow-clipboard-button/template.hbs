@@ -1,0 +1,11 @@
+<button class="clipboard-button__button {{if isCopied 'clipboard-button__button--copied'}}" {{action copy}}>
+  {{#if isCopied}}
+    {{fa-icon 'check'}}
+    {{t 'components.clipboard_button.copied'}}
+  {{else}}
+    {{fa-icon 'copy'}}
+    {{t 'components.clipboard_button.copy'}}
+  {{/if}}
+</button>
+
+{{input value=value class='clipboard-button__hidden-field'}}

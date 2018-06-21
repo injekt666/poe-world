@@ -18,6 +18,10 @@ export default {
       monster_pack_size: '{{monsterPackSize}} MPS',
       sold_by: 'Sold by {{account}}'
     },
+    clipboard_button: {
+      copy: 'Copy to clipboard',
+      copied: 'Copied'
+    },
     page: {
       map_page: {
         tier: 'Tier',
