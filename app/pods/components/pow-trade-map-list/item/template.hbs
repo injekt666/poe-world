@@ -49,14 +49,9 @@
 </ul>
 
 <div class="trade-map-list-item__listing">
-  <div class="trade-map-list-item__listing-price">
-    <span class="trade-map-list-item__listing-price-amount">
-      {{tradeMap.priceAmount}}
-    </span>
-
-    {{fa-icon 'times'}}
-    {{tradeMap.priceCurrency}}
-  </div>
+  {{pow-price
+    amount=tradeMap.priceAmount
+    currencyId=tradeMap.priceCurrency}}
 
   <div class="trade-map-list-item__listing-time">
     {{moment-from-now tradeMap.indexedAt}}
