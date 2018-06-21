@@ -1,5 +1,5 @@
 <div class="map-trade-page__header">
-  {{#if isMapsLoaded}}
+  {{#if isMapsInitiallyLoaded}}
     <h1 class="map-trade-page__header-total">
       {{t 'components.page.map_trade_page.total' count=total}}
     </h1>
@@ -9,3 +9,7 @@
 {{#pow-task-load-container task=initialLoadTask}}
   {{pow-trade-map-list tradeMaps=tradeMaps}}
 {{/pow-task-load-container}}
+
+{{#if isMapsInitiallyLoaded}}
+  {{pow-lazy-loader lazyLoadableTask=lazyLoadTask}}
+{{/if}}

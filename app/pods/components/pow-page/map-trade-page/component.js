@@ -8,19 +8,33 @@ export default Component.extend({
 
   map: null,
 
+  tradeMapIds: [],
   tradeMaps: Ember.A([]),
-  isMapsLoaded: false,
+  isMapsInitiallyLoaded: false,
 
   initialLoadTask: task(function *() {
     const {tradeMapsFetcher, map, tradeMaps} = this.getProperties('tradeMapsFetcher', 'map', 'tradeMaps');
-    const {tradeMaps: newTradeMaps, nextTradeMapIds, total} = yield tradeMapsFetcher.fetchFromMap(map);
+    const {tradeMaps: newTradeMaps, tradeMapIds, total} = yield tradeMapsFetcher.fetchFromMap(map);
 
     tradeMaps.addObjects(newTradeMaps);
+
     this.setProperties({
-      nextTradeMapIds,
+      tradeMapIds,
       total,
-      isMapsLoaded: true
+      isMapsInitiallyLoaded: true
     });
+  }).drop(),
+
+  lazyLoadTask: task(function *() {
+    const {tradeMapsFetcher, tradeMapIds, tradeMaps, isMapsInitiallyLoaded} = this.getProperties('tradeMapsFetcher', 'tradeMapIds', 'tradeMaps', 'isMapsInitiallyLoaded');
+
+    if (!isMapsInitiallyLoaded) return null;
+
+    const {tradeMaps: newTradeMaps, tradeMapIds: updatedTradeMapIds} = yield tradeMapsFetcher.fetchFromIds(tradeMapIds);
+
+    tradeMaps.addObjects(newTradeMaps);
+
+    this.set('tradeMapIds', updatedTradeMapIds);
   }).drop(),
 
   didReceiveAttrs() {

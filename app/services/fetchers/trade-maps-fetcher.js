@@ -40,26 +40,26 @@ export default Service.extend({
     const request = this.get('request');
     const league = 'Incursion'; // TODO: Replace with proper league setting
 
-    return request.fetch(`${TRADE_API.BASE_URL}/search/${league}?source=${this._queryParamFor(map)}`).then(({result: mapIds, total}) => {
-      if (!mapIds.length) return {maps: [], nextMapIds: [], total};
+    return request.fetch(`${TRADE_API.BASE_URL}/search/${league}?source=${this._queryParamFor(map)}`).then(({result: tradeMapIds, total}) => {
+      if (!tradeMapIds.length) return {maps: [], tradeMapIds: [], total};
 
-      const mapIdsParam = mapIds.splice(0, TRADE_API.BATCH_SIZE).join(',');
+      const tradeMapIdsParam = tradeMapIds.splice(0, TRADE_API.BATCH_SIZE).join(',');
 
-      return request.fetch(`${TRADE_API.BASE_URL}/fetch/${mapIdsParam}`).then(({result: mapResults}) => ({
+      return request.fetch(`${TRADE_API.BASE_URL}/fetch/${tradeMapIdsParam}`).then(({result: mapResults}) => ({
         tradeMaps: this._buildMaps(mapResults),
-        nextTradeMapIds: mapIds,
+        tradeMapIds,
         total
       }));
     });
   },
 
-  fetchFromIds(mapIds) {
+  fetchFromIds(tradeMapIds) {
     const request = this.get('request');
-    const mapIdsParam = mapIds.splice(0, TRADE_API.BATCH_SIZE).join(',');
+    const tradeMapIdsParam = tradeMapIds.splice(0, TRADE_API.BATCH_SIZE).join(',');
 
-    return request.fetch(`${TRADE_API.BASE_URL}/fetch/${mapIdsParam}`).then(({result: mapResults}) => ({
+    return request.fetch(`${TRADE_API.BASE_URL}/fetch/${tradeMapIdsParam}`).then(({result: mapResults}) => ({
       tradeMaps: this._buildMaps(mapResults),
-      nextTradeMapIds: mapIds
+      tradeMapIds
     }));
   },
 
