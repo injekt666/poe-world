@@ -9,21 +9,21 @@ $navigation-spacing: 15px;
   height: $navigation-height;
   padding: 0 $padding;
   background-color: lighten($background-color, 7.5%);
-
 }
 
-.navigation__section {
+.navigation__left-section,
+.navigation__right-section {
   display: flex;
   align-items: center;
   height: 100%;
 }
 
-.navigation__section-logo {
+.navigation__left-section-logo {
   height: $navigation-height - 15px;
   margin-right: $navigation-spacing;
 }
 
-.navigation__section-brand {
+.navigation__left-section-brand {
   margin-right: $navigation-spacing;
   text-transform: uppercase;
   font-family: $font-family-accent;
@@ -31,7 +31,8 @@ $navigation-spacing: 15px;
   letter-spacing: -2px;
 }
 
-.navigation__section-link {
+.navigation__left-section-link,
+.navigation__right-section-link {
   display: flex;
   align-items: center;
   height: 100%;
@@ -47,12 +48,13 @@ $navigation-spacing: 15px;
   }
 }
 
-.navigation__section-link--active {
+.navigation__left-section-link--active,
+.navigation__right-section-link--active {
   background-color: $primary-color;
   pointer-events: none;
 }
 
-.navigation__section-league {
+.navigation__right-section-league {
   padding: 5px 10px;
   border-radius: $border-radius;
   margin-right: $navigation-spacing;
