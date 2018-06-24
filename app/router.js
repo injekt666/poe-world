@@ -24,6 +24,8 @@ Router.map(function() {
       this.route('stats');
     });
   });
+
+  this.route('settings');
 });
 /* eslint-enable max-nested-callbacks */
 

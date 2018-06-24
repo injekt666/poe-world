@@ -24,12 +24,16 @@ $font-family-accent: 'Marcellus SC', serif;
 
 $padding: 15px;
 
+$navigation-height: 50px;
+
 // Atlas
 $atlas-sextants-item-radius: 150px;
 
+// Animations
+$map-fading-in-duration: 1500ms;
+
+// Z-Indexes
+$navigation-z-index: 2000;
 $atlas-map-z-index: 1000;
 $atlas-map-glow-z-index: 900;
 $atlas-sextants-z-index: 800;
-
-// Animations
-$map-fading-in-duration: 1500ms;

@@ -22,6 +22,10 @@ export default {
       copy: 'Copy to clipboard',
       copied: 'Copied'
     },
+    navigation: {
+      atlas: 'Atlas',
+      settings: 'Settings'
+    },
     page: {
       map_page: {
         tier: 'Tier',
