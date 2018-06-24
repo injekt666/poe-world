@@ -1,0 +1,17 @@
+<h1 class="settings-index-pages__title">
+  {{t 'components.page.settings_index_page.leagues_title'}}
+</h1>
+
+{{#pow-task-load-container task=leaguesLoadTask}}
+  <ul class="settings-index-pages__leagues">
+    {{#each leagues as |league|}}
+      <li {{action applyLeague league}} class="settings-index-pages__leagues-item">
+        {{#if (eq league.slug currentLeagueSlug)}}
+          {{fa-icon 'check'}}
+        {{/if}}
+
+        {{league.name}}
+      </li>
+    {{/each}}
+  </ul>
+{{/pow-task-load-container}}

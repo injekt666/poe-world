@@ -50,6 +50,9 @@ export default {
           one: 'One map found.',
           other: '{{count}} maps found !'
         }
+      },
+      settings_index_page: {
+        leagues_title: 'Active league'
       }
     }
   }

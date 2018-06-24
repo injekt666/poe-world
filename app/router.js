@@ -25,7 +25,9 @@ Router.map(function() {
     });
   });
 
-  this.route('settings');
+  this.route('settings', function() {
+    this.route('global', {path: '/'});
+  });
 });
 /* eslint-enable max-nested-callbacks */
 

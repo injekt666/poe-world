@@ -1,0 +1,28 @@
+& {
+  @include page;
+}
+
+.settings-index-pages__title {
+  font-family: $font-family-accent;
+  font-size: 2rem;
+  letter-spacing: 2px;
+}
+
+.settings-index-pages__leagues {
+  display: flex;
+  margin-top: 10px;
+}
+
+.settings-index-pages__leagues-item {
+  @include button;
+
+  margin-left: 10px;
+
+  &:first-child {
+    margin-left: 0;
+  }
+
+  svg {
+    margin-right: 5px;
+  }
+}
