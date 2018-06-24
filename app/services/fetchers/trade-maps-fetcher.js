@@ -35,17 +35,17 @@ const UNIQUE_QUERY = {
 
 export default Service.extend({
   request: service('request'),
+  leagueSetting: service('settings/league-setting'),
 
   fetchFromMap(map) {
-    const request = this.get('request');
-    const league = 'Incursion'; // TODO: Replace with proper league setting
+    const leagueId = this.leagueSetting.league.id;
 
-    return request.fetch(`${TRADE_API.BASE_URL}/search/${league}?source=${this._queryParamFor(map)}`).then(({result: tradeMapIds, total}) => {
+    return this.request.fetch(`${TRADE_API.BASE_URL}/search/${leagueId}?source=${this._queryParamFor(map)}`).then(({result: tradeMapIds, total}) => {
       if (!tradeMapIds.length) return {maps: [], tradeMapIds: [], total};
 
       const tradeMapIdsParam = tradeMapIds.splice(0, TRADE_API.BATCH_SIZE).join(',');
 
-      return request.fetch(`${TRADE_API.BASE_URL}/fetch/${tradeMapIdsParam}`).then(({result: mapResults}) => ({
+      return this.request.fetch(`${TRADE_API.BASE_URL}/fetch/${tradeMapIdsParam}`).then(({result: mapResults}) => ({
         tradeMaps: this._buildMaps(mapResults),
         tradeMapIds,
         total
@@ -54,10 +54,9 @@ export default Service.extend({
   },
 
   fetchFromIds(tradeMapIds) {
-    const request = this.get('request');
     const tradeMapIdsParam = tradeMapIds.splice(0, TRADE_API.BATCH_SIZE).join(',');
 
-    return request.fetch(`${TRADE_API.BASE_URL}/fetch/${tradeMapIdsParam}`).then(({result: mapResults}) => ({
+    return this.request.fetch(`${TRADE_API.BASE_URL}/fetch/${tradeMapIdsParam}`).then(({result: mapResults}) => ({
       tradeMaps: this._buildMaps(mapResults),
       tradeMapIds
     }));
