@@ -3,7 +3,6 @@ import STORAGE_KEYS from 'pow/constants/storage-keys';
 
 export default Service.extend({
   storage: service('storage'),
-  authStateFetcher: service('fetchers/auth-state-fetcher'),
 
   poesessid: null,
   account: null,

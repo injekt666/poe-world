@@ -1,0 +1,22 @@
+& {
+  margin-top: 20px;
+
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+.input-field__label {
+  display: block;
+  letter-spacing: 1px;
+}
+
+.input-field__input {
+  display: block;
+  width: 100%;
+  padding: 5px 10px;
+  border-radius: $border-radius;
+  margin-top: 5px;
+  font-size: 0.75rem;
+  color: $black-color;
+}

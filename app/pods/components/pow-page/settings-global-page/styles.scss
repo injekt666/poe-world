@@ -32,20 +32,12 @@
   }
 }
 
-.settings-index-page__input-wrapper {
-  display: flex;
-  align-items: center;
-  margin-top: 10px;
+.settings-index-page__authentication-section {
+  width: 400px;
+  margin-top: 5px;
 }
 
-.settings-index-page__input {
-  @include input;
-
-  width: 300px;
-}
-
-.settings-index-page__input-check {
-  margin-left: 10px;
-  color: $success-color;
-  animation: fadeOut 1s;
+.settings-index-page__authentication-section-test {
+  margin-top: $padding;
+  text-align: center;
 }

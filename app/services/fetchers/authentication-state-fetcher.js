@@ -6,7 +6,7 @@ export default Service.extend({
   authenticationSetting: service('settings/authentication-setting'),
   leagueSetting: service('settings/league-setting'),
 
-  test() {
+  fetch() {
     const leagueId = this.leagueSetting.league.id;
     const account = this.authenticationSetting.account;
 

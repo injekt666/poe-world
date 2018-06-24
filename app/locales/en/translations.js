@@ -53,7 +53,11 @@ export default {
       },
       settings_index_page: {
         leagues_title: 'Active league',
-        session_id_title: 'pathofexile.com session cookie (POESESSID)'
+        authentication_title: 'pathofexile.com authentication',
+        account_label: 'Account name',
+        poesessid_label: 'Session cookie (POESESSID)',
+        authenticated: 'Authenticated',
+        not_authenticated: 'Not authenticated'
       }
     }
   }
