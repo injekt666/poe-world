@@ -1,7 +1,8 @@
 /* eslint-env node */
-const { app, BrowserWindow, protocol } = require('electron');
+const { app, BrowserWindow, protocol, ipcMain } = require('electron');
 const { dirname, join, resolve } = require('path');
 const protocolServe = require('electron-protocol-serve');
+const rp = require('request-promise');
 
 let mainWindow = null;
 
@@ -62,6 +63,21 @@ app.on('ready', () => {
 
   mainWindow.on('closed', () => {
     mainWindow = null;
+  });
+
+  ipcMain.on('REQUEST', (event, params) => {
+    const rpParams = {
+      uri: params.url,
+      headers: {
+        ...params.headers,
+        Cookie: `POESESSID=${params.poesessid}`
+      },
+      json: true
+    };
+
+    rp(rpParams)
+      .then((response) => event.sender.send(params.responseSuccessChannel, response))
+      .catch((error) => event.sender.send(params.responseErrorChannel, error));
   });
 });
 
