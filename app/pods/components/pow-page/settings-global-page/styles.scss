@@ -2,18 +2,23 @@
   @include page;
 }
 
-.settings-index-pages__title {
+.settings-index-page__title {
+  margin-top: 50px;
   font-family: $font-family-accent;
   font-size: 2rem;
   letter-spacing: 2px;
+
+  &:first-of-type {
+    margin-top: 0;
+  }
 }
 
-.settings-index-pages__leagues {
+.settings-index-page__leagues {
   display: flex;
   margin-top: 10px;
 }
 
-.settings-index-pages__leagues-item {
+.settings-index-page__leagues-item {
   @include button;
 
   margin-left: 10px;
@@ -25,4 +30,22 @@
   svg {
     margin-right: 5px;
   }
+}
+
+.settings-index-page__input-wrapper {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.settings-index-page__input {
+  @include input;
+
+  width: 300px;
+}
+
+.settings-index-page__input-check {
+  margin-left: 10px;
+  color: $success-color;
+  animation: fadeOut 1s;
 }

@@ -1,14 +1,15 @@
 import Service, {inject as service} from '@ember/service';
+import STORAGE_KEYS from 'pow/constants/storage-keys';
 
 export default Service.extend({
-  localStorage: service('local-storage'),
+  storage: service('storage'),
   leaguesFetcher: service('fetchers/leagues-fetcher'),
 
   league: null,
 
   apply(league) {
     this.set('league', league);
-    this.localStorage.setValue('league', league.slug);
+    this.storage.setValue(STORAGE_KEYS.LEAGUE, league.slug);
   },
 
   initialize() {
@@ -23,7 +24,7 @@ export default Service.extend({
   },
 
   _getCurrentLeagueFrom(leagues) {
-    const currentLeagueSlug = this.localStorage.getValue('league');
+    const currentLeagueSlug = this.storage.getValue(STORAGE_KEYS.LEAGUE);
 
     if (!currentLeagueSlug) return null;
 

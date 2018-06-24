@@ -52,7 +52,8 @@ export default {
         }
       },
       settings_index_page: {
-        leagues_title: 'Active league'
+        leagues_title: 'Active league',
+        session_id_title: 'pathofexile.com session cookie (POESESSID)'
       }
     }
   }

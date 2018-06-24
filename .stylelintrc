@@ -59,7 +59,6 @@
     "mirego/single-decimal-line-height": 2,
     "no-eol-whitespace": true,
     "no-missing-end-of-source-newline": true,
-    "no-unknown-animations": true,
     "number-leading-zero": "always",
     "number-no-trailing-zeros": true,
     "order/properties-order": [

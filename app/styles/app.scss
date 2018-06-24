@@ -1,7 +1,11 @@
 @import 'variables';
 @import 'global';
 
+// Animations
+@import 'animations/fade-out';
+
 // Mixins
 @import 'mixins/button';
 @import 'mixins/page';
+@import 'mixins/input';
 @import 'pod-styles';
