@@ -1,5 +1,3 @@
-$map-page-header-background-color: darken($background-color, 5%);
-
 & {
   position: fixed;
   top: $navigation-height;
@@ -19,7 +17,7 @@ $map-page-header-background-color: darken($background-color, 5%);
 
 .map-page__header {
   padding: $padding $padding ($padding * 2);
-  background-color: $map-page-header-background-color;
+  background-color: $background-darker-color;
 }
 
 .map-page__header-title-wrapper {

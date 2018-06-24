@@ -1,3 +1,5 @@
+$navigation-spacing: 15px;
+
 & {
   display: flex;
   position: relative;
@@ -18,11 +20,11 @@
 
 .navigation__section-logo {
   height: $navigation-height - 15px;
-  margin-right: $padding;
+  margin-right: $navigation-spacing;
 }
 
 .navigation__section-brand {
-  margin-right: 15px;
+  margin-right: $navigation-spacing;
   text-transform: uppercase;
   font-family: $font-family-accent;
   font-size: 1.5rem;
@@ -48,4 +50,12 @@
 .navigation__section-link--active {
   background-color: $primary-color;
   pointer-events: none;
+}
+
+.navigation__section-league {
+  padding: 5px 10px;
+  border-radius: $border-radius;
+  margin-right: $navigation-spacing;
+  background-color: $background-darker-color;
+  font-size: 0.8rem;
 }
