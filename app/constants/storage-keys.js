@@ -1,4 +1,5 @@
 export default {
   LEAGUE: 'league',
-  POESESSID: 'poesessid'
+  POESESSID: 'poesessid',
+  ACCOUNT: 'account'
 };

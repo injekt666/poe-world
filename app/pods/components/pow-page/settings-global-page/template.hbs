@@ -21,9 +21,9 @@
 </h1>
 
 <div class="settings-index-page__input-wrapper">
-  <input type="text" class="settings-index-page__input" value={{currentSessionId}} oninput={{action applySessionId}}>
+  <input type="text" class="settings-index-page__input" value={{currentAccount}} oninput={{action applyAccount}}>
+</div>
 
-  {{#if isSessionIdConfirmed}}
-    {{fa-icon 'check' class='settings-index-page__input-check'}}
-  {{/if}}
+<div class="settings-index-page__input-wrapper">
+  <input type="text" class="settings-index-page__input" value={{currentPoesessid}} oninput={{action applyPoesessid}}>
 </div>
