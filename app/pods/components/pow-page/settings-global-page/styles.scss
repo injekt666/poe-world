@@ -2,16 +2,16 @@
   @include page;
 }
 
-.settings-index-page__title {
+.settings-global-page__title {
   @include settings-title;
 }
 
-.settings-index-page__leagues {
+.settings-global-page__leagues {
   display: flex;
   margin-top: 10px;
 }
 
-.settings-index-page__leagues-item {
+.settings-global-page__leagues-item {
   @include button;
 
   margin-left: 10px;
@@ -25,12 +25,12 @@
   }
 }
 
-.settings-index-page__authentication-section {
+.settings-global-page__authentication-section {
   width: 400px;
   margin-top: 5px;
 }
 
-.settings-index-page__authentication-section-test {
+.settings-global-page__authentication-section-test {
   margin-top: $padding;
   text-align: center;
 }

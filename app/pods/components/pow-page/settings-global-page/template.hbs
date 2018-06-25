@@ -1,11 +1,11 @@
-<h1 class="settings-index-page__title">
+<h1 class="settings-global-page__title">
   {{t 'components.page.settings_global_page.leagues_title'}}
 </h1>
 
 {{#pow-task-load-container task=leaguesLoadTask}}
-  <ul class="settings-index-page__leagues">
+  <ul class="settings-global-page__leagues">
     {{#each leagues as |league|}}
-      <li {{action applyLeague league}} class="settings-index-page__leagues-item">
+      <li {{action applyLeague league}} class="settings-global-page__leagues-item">
         {{#if (eq league.slug currentLeagueSlug)}}
           {{fa-icon 'check'}}
         {{/if}}
@@ -16,12 +16,12 @@
   </ul>
 {{/pow-task-load-container}}
 
-<h1 class="settings-index-page__title">
+<h1 class="settings-global-page__title">
   {{t 'components.page.settings_global_page.authentication_title'}}
 </h1>
 
 {{#pow-electron-container}}
-  <div class="settings-index-page__authentication-section">
+  <div class="settings-global-page__authentication-section">
     {{pow-input-field
       label=(t 'components.page.settings_global_page.account_label')
       value=currentAccount
@@ -33,7 +33,7 @@
       onChange=(action applyPoesessid)}}
 
     {{#pow-task-load-container task=testAuthenticationTask}}
-      <div class="settings-index-page__authentication-section-test">
+      <div class="settings-global-page__authentication-section-test">
         {{#if isAuthenticated}}
           {{fa-icon 'check'}} {{t 'components.page.settings_global_page.authenticated'}}
         {{else}}
