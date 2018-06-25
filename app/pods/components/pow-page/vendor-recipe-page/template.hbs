@@ -1,0 +1,311 @@
+<div class="vendor-recipe-page__small-row">
+  <div class="vendor-recipe-page__small-row-col">
+    <h2 class="vendor-recipe-page__title">
+      {{t 'components.page.vendor_recipe_page.chromatic_title'}}
+    </h2>
+
+    <div class="vendor-recipe-page__recipe-card">
+      <div class="vendor-recipe-page__recipe-card-count">
+        <div class="vendor-recipe-page__recipe-card-count-value">{{chromaticRecipe.recipeCount}}</div>
+        {{fa-icon 'times' class='vendor-recipe-page__recipe-card-count-times'}}
+        <img src={{chromaticImageUrl}} alt="chrom" class="vendor-recipe-page__recipe-card-count-icon">
+
+        <span class="vendor-recipe-page__recipe-card-count-items">
+          {{t 'components.page.vendor_recipe_page.item_count' count=chromaticRecipe.itemCount}}
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="vendor-recipe-page__small-row-col">
+    <h2 class="vendor-recipe-page__title">
+      {{t 'components.page.vendor_recipe_page.jeweller_title'}}
+    </h2>
+
+    <div class="vendor-recipe-page__recipe-card">
+      <div class="vendor-recipe-page__recipe-card-count">
+        <div class="vendor-recipe-page__recipe-card-count-value">{{jewellerRecipe.recipeCount}}</div>
+        {{fa-icon 'times' class='vendor-recipe-page__recipe-card-count-times'}}
+        <img src={{jewellerImageUrl}} alt="jew" class="vendor-recipe-page__recipe-card-count-icon">
+
+        <div class="vendor-recipe-page__recipe-card-count-items">
+          {{t 'components.page.vendor_recipe_page.item_count' count=jewellerRecipe.itemCount}}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="vendor-recipe-page__small-row-col">
+    <h2 class="vendor-recipe-page__title">
+      {{t 'components.page.vendor_recipe_page.divine_title'}}
+    </h2>
+
+    <div class="vendor-recipe-page__recipe-card">
+      <div class="vendor-recipe-page__recipe-card-count">
+        <div class="vendor-recipe-page__recipe-card-count-value">{{divineRecipe.recipeCount}}</div>
+        {{fa-icon 'times' class='vendor-recipe-page__recipe-card-count-times'}}
+        <img src={{divineImageUrl}} alt="divine" class="vendor-recipe-page__recipe-card-count-icon">
+
+        <span class="vendor-recipe-page__recipe-card-count-items">
+          {{t 'components.page.vendor_recipe_page.item_count' count=divineRecipe.itemCount}}
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h2 class="vendor-recipe-page__title">
+  {{t 'components.page.vendor_recipe_page.chaos_title'}}
+</h2>
+
+<div class="vendor-recipe-page__chaos">
+  <div class="vendor-recipe-page__chaos-hands">
+    <div class="vendor-recipe-page__recipe-card">
+      <div class="vendor-recipe-page__recipe-card-header">
+        {{t 'components.page.vendor_recipe_page.summary'}}
+      </div>
+
+      <div class="vendor-recipe-page__recipe-card-count">
+        <div class="vendor-recipe-page__recipe-card-count-value">{{chaosRecipe.summary.recipeCount}}</div>
+        {{fa-icon 'times' class='vendor-recipe-page__recipe-card-count-times'}}
+        <img src="assets/images/regal-chaos.png" alt="chaos/regal" class="vendor-recipe-page__recipe-card-count-icon">
+      </div>
+    </div>
+
+    <div class="vendor-recipe-page__recipe-card {{if (eq chaosRecipe.hands.recipeCount chaosRecipe.summary.recipeCount) 'vendor-recipe-page__recipe-card--error'}}">
+      <div class="vendor-recipe-page__recipe-card-header">
+        {{t 'components.page.vendor_recipe_page.hand'}}
+      </div>
+
+      <div class="vendor-recipe-page__recipe-card-count">
+        <div class="vendor-recipe-page__recipe-card-count-value">{{chaosRecipe.hands.recipeCount}}</div>
+        {{fa-icon 'times' class='vendor-recipe-page__recipe-card-count-times'}}
+        <img src="assets/images/regal-chaos.png" alt="chaos/regal" class="vendor-recipe-page__recipe-card-count-icon">
+      </div>
+
+      <div class="vendor-recipe-page__recipe-card-label">
+        {{t 'components.page.vendor_recipe_page.two_handed'}}
+      </div>
+
+      <div class="vendor-recipe-page__recipe-card-count">
+        <div class="vendor-recipe-page__recipe-card-sub-count-items">
+          <img src={{chaosImageUrl}} alt="chaos" class="vendor-recipe-page__recipe-card-sub-count-icon">
+          {{t 'components.page.vendor_recipe_page.item_count' count=chaosRecipe.hands.twoHanded.itemChaosCount}}
+        </div>
+
+        <div class="vendor-recipe-page__recipe-card-sub-count-items">
+          <img src={{regalImageUrl}} alt="chaos" class="vendor-recipe-page__recipe-card-sub-count-icon">
+          {{t 'components.page.vendor_recipe_page.item_count' count=chaosRecipe.hands.twoHanded.itemRegalCount}}
+        </div>
+      </div>
+
+      <div class="vendor-recipe-page__recipe-card-label">
+        {{t 'components.page.vendor_recipe_page.one_handed'}}
+      </div>
+
+      <div class="vendor-recipe-page__recipe-card-count">
+        <div class="vendor-recipe-page__recipe-card-sub-count-items">
+          <img src={{chaosImageUrl}} alt="chaos" class="vendor-recipe-page__recipe-card-sub-count-icon">
+          {{t 'components.page.vendor_recipe_page.item_count' count=chaosRecipe.hands.oneHanded.itemChaosCount}}
+        </div>
+
+        <div class="vendor-recipe-page__recipe-card-sub-count-items">
+          <img src={{regalImageUrl}} alt="chaos" class="vendor-recipe-page__recipe-card-sub-count-icon">
+          {{t 'components.page.vendor_recipe_page.item_count' count=chaosRecipe.hands.oneHanded.itemRegalCount}}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="vendor-recipe-page__chaos-misc">
+    <div class="vendor-recipe-page__chaos-misc-row">
+      <div class="vendor-recipe-page__chaos-misc-col">
+        <div class="vendor-recipe-page__recipe-card {{if (eq chaosRecipe.helmet.recipeCount chaosRecipe.summary.recipeCount) 'vendor-recipe-page__recipe-card--error'}}">
+          <div class="vendor-recipe-page__recipe-card-header">
+            {{t 'components.page.vendor_recipe_page.helmet'}}
+          </div>
+
+          <div class="vendor-recipe-page__recipe-card-count">
+            <div class="vendor-recipe-page__recipe-card-count-wrapper">
+              <div class="vendor-recipe-page__recipe-card-count-value">{{chaosRecipe.helmet.recipeCount}}</div>
+              {{fa-icon 'times' class='vendor-recipe-page__recipe-card-count-times'}}
+              <img src="assets/images/regal-chaos.png" alt="chaos/regal" class="vendor-recipe-page__recipe-card-count-icon">
+            </div>
+
+            <div class="vendor-recipe-page__recipe-card-sub-count-items">
+              <img src={{chaosImageUrl}} alt="chaos" class="vendor-recipe-page__recipe-card-sub-count-icon">
+              {{t 'components.page.vendor_recipe_page.item_count' count=chaosRecipe.helmet.itemChaosCount}}
+            </div>
+
+            <div class="vendor-recipe-page__recipe-card-sub-count-items">
+              <img src={{regalImageUrl}} alt="chaos" class="vendor-recipe-page__recipe-card-sub-count-icon">
+              {{t 'components.page.vendor_recipe_page.item_count' count=chaosRecipe.helmet.itemRegalCount}}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="vendor-recipe-page__chaos-misc-col">
+        <div class="vendor-recipe-page__recipe-card {{if (eq chaosRecipe.chest.recipeCount chaosRecipe.summary.recipeCount) 'vendor-recipe-page__recipe-card--error'}}">
+          <div class="vendor-recipe-page__recipe-card-header">
+            {{t 'components.page.vendor_recipe_page.chest'}}
+          </div>
+
+          <div class="vendor-recipe-page__recipe-card-count">
+            <div class="vendor-recipe-page__recipe-card-count-wrapper">
+              <div class="vendor-recipe-page__recipe-card-count-value">{{chaosRecipe.chest.recipeCount}}</div>
+              {{fa-icon 'times' class='vendor-recipe-page__recipe-card-count-times'}}
+              <img src="assets/images/regal-chaos.png" alt="chaos/regal" class="vendor-recipe-page__recipe-card-count-icon">
+            </div>
+
+            <div class="vendor-recipe-page__recipe-card-sub-count-items">
+              <img src={{chaosImageUrl}} alt="chaos" class="vendor-recipe-page__recipe-card-sub-count-icon">
+              {{t 'components.page.vendor_recipe_page.item_count' count=chaosRecipe.chest.itemChaosCount}}
+            </div>
+
+            <div class="vendor-recipe-page__recipe-card-sub-count-items">
+              <img src={{regalImageUrl}} alt="chaos" class="vendor-recipe-page__recipe-card-sub-count-icon">
+              {{t 'components.page.vendor_recipe_page.item_count' count=chaosRecipe.chest.itemRegalCount}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="vendor-recipe-page__chaos-misc-row">
+      <div class="vendor-recipe-page__chaos-misc-col">
+        <div class="vendor-recipe-page__recipe-card {{if (eq chaosRecipe.belt.recipeCount chaosRecipe.summary.recipeCount) 'vendor-recipe-page__recipe-card--error'}}">
+          <div class="vendor-recipe-page__recipe-card-header">
+            {{t 'components.page.vendor_recipe_page.belt'}}
+          </div>
+
+          <div class="vendor-recipe-page__recipe-card-count">
+            <div class="vendor-recipe-page__recipe-card-count-wrapper">
+              <div class="vendor-recipe-page__recipe-card-count-value">{{chaosRecipe.belt.recipeCount}}</div>
+              {{fa-icon 'times' class='vendor-recipe-page__recipe-card-count-times'}}
+              <img src="assets/images/regal-chaos.png" alt="chaos/regal" class="vendor-recipe-page__recipe-card-count-icon">
+            </div>
+
+            <div class="vendor-recipe-page__recipe-card-sub-count-items">
+              <img src={{chaosImageUrl}} alt="chaos" class="vendor-recipe-page__recipe-card-sub-count-icon">
+              {{t 'components.page.vendor_recipe_page.item_count' count=chaosRecipe.belt.itemChaosCount}}
+            </div>
+
+            <div class="vendor-recipe-page__recipe-card-sub-count-items">
+              <img src={{regalImageUrl}} alt="chaos" class="vendor-recipe-page__recipe-card-sub-count-icon">
+              {{t 'components.page.vendor_recipe_page.item_count' count=chaosRecipe.belt.itemRegalCount}}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="vendor-recipe-page__chaos-misc-col">
+        <div class="vendor-recipe-page__recipe-card {{if (eq chaosRecipe.boots.recipeCount chaosRecipe.summary.recipeCount) 'vendor-recipe-page__recipe-card--error'}}">
+          <div class="vendor-recipe-page__recipe-card-header">
+            {{t 'components.page.vendor_recipe_page.boots'}}
+          </div>
+
+          <div class="vendor-recipe-page__recipe-card-count">
+            <div class="vendor-recipe-page__recipe-card-count-wrapper">
+              <div class="vendor-recipe-page__recipe-card-count-value">{{chaosRecipe.boots.recipeCount}}</div>
+              {{fa-icon 'times' class='vendor-recipe-page__recipe-card-count-times'}}
+              <img src="assets/images/regal-chaos.png" alt="chaos/regal" class="vendor-recipe-page__recipe-card-count-icon">
+            </div>
+
+            <div class="vendor-recipe-page__recipe-card-sub-count-items">
+              <img src={{chaosImageUrl}} alt="chaos" class="vendor-recipe-page__recipe-card-sub-count-icon">
+              {{t 'components.page.vendor_recipe_page.item_count' count=chaosRecipe.boots.itemChaosCount}}
+            </div>
+
+            <div class="vendor-recipe-page__recipe-card-sub-count-items">
+              <img src={{regalImageUrl}} alt="chaos" class="vendor-recipe-page__recipe-card-sub-count-icon">
+              {{t 'components.page.vendor_recipe_page.item_count' count=chaosRecipe.boots.itemRegalCount}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="vendor-recipe-page__chaos-misc-row">
+      <div class="vendor-recipe-page__chaos-misc-col">
+        <div class="vendor-recipe-page__recipe-card {{if (eq chaosRecipe.amulet.recipeCount chaosRecipe.summary.recipeCount) 'vendor-recipe-page__recipe-card--error'}}">
+          <div class="vendor-recipe-page__recipe-card-header">
+            {{t 'components.page.vendor_recipe_page.amulet'}}
+          </div>
+
+          <div class="vendor-recipe-page__recipe-card-count">
+            <div class="vendor-recipe-page__recipe-card-count-wrapper">
+              <div class="vendor-recipe-page__recipe-card-count-value">{{chaosRecipe.amulet.recipeCount}}</div>
+              {{fa-icon 'times' class='vendor-recipe-page__recipe-card-count-times'}}
+              <img src="assets/images/regal-chaos.png" alt="chaos/regal" class="vendor-recipe-page__recipe-card-count-icon">
+            </div>
+
+            <div class="vendor-recipe-page__recipe-card-sub-count-items">
+              <img src={{chaosImageUrl}} alt="chaos" class="vendor-recipe-page__recipe-card-sub-count-icon">
+              {{t 'components.page.vendor_recipe_page.item_count' count=chaosRecipe.amulet.itemChaosCount}}
+            </div>
+
+            <div class="vendor-recipe-page__recipe-card-sub-count-items">
+              <img src={{regalImageUrl}} alt="chaos" class="vendor-recipe-page__recipe-card-sub-count-icon">
+              {{t 'components.page.vendor_recipe_page.item_count' count=chaosRecipe.amulet.itemRegalCount}}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="vendor-recipe-page__chaos-misc-col">
+        <div class="vendor-recipe-page__recipe-card {{if (eq chaosRecipe.gloves.recipeCount chaosRecipe.summary.recipeCount) 'vendor-recipe-page__recipe-card--error'}}">
+          <div class="vendor-recipe-page__recipe-card-header">
+            {{t 'components.page.vendor_recipe_page.gloves'}}
+          </div>
+
+          <div class="vendor-recipe-page__recipe-card-count">
+            <div class="vendor-recipe-page__recipe-card-count-wrapper">
+              <div class="vendor-recipe-page__recipe-card-count-value">{{chaosRecipe.gloves.recipeCount}}</div>
+              {{fa-icon 'times' class='vendor-recipe-page__recipe-card-count-times'}}
+              <img src="assets/images/regal-chaos.png" alt="chaos/regal" class="vendor-recipe-page__recipe-card-count-icon">
+            </div>
+
+            <div class="vendor-recipe-page__recipe-card-sub-count-items">
+              <img src={{chaosImageUrl}} alt="chaos" class="vendor-recipe-page__recipe-card-sub-count-icon">
+              {{t 'components.page.vendor_recipe_page.item_count' count=chaosRecipe.gloves.itemChaosCount}}
+            </div>
+
+            <div class="vendor-recipe-page__recipe-card-sub-count-items">
+              <img src={{regalImageUrl}} alt="chaos" class="vendor-recipe-page__recipe-card-sub-count-icon">
+              {{t 'components.page.vendor_recipe_page.item_count' count=chaosRecipe.gloves.itemRegalCount}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="vendor-recipe-page__chaos-misc-row">
+      <div class="vendor-recipe-page__chaos-misc-col">
+        <div class="vendor-recipe-page__recipe-card {{if (eq chaosRecipe.ring.recipeCount chaosRecipe.summary.recipeCount) 'vendor-recipe-page__recipe-card--error'}}">
+          <div class="vendor-recipe-page__recipe-card-header">
+            {{t 'components.page.vendor_recipe_page.ring'}}
+          </div>
+
+          <div class="vendor-recipe-page__recipe-card-count">
+            <div class="vendor-recipe-page__recipe-card-count-wrapper">
+              <div class="vendor-recipe-page__recipe-card-count-value">{{chaosRecipe.ring.recipeCount}}</div>
+              {{fa-icon 'times' class='vendor-recipe-page__recipe-card-count-times'}}
+              <img src="assets/images/regal-chaos.png" alt="chaos/regal" class="vendor-recipe-page__recipe-card-count-icon">
+            </div>
+
+            <div class="vendor-recipe-page__recipe-card-sub-count-items">
+              <img src={{chaosImageUrl}} alt="chaos" class="vendor-recipe-page__recipe-card-sub-count-icon">
+              {{t 'components.page.vendor_recipe_page.item_count' count=chaosRecipe.ring.itemChaosCount}}
+            </div>
+
+            <div class="vendor-recipe-page__recipe-card-sub-count-items">
+              <img src={{regalImageUrl}} alt="chaos" class="vendor-recipe-page__recipe-card-sub-count-icon">
+              {{t 'components.page.vendor_recipe_page.item_count' count=chaosRecipe.ring.itemRegalCount}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

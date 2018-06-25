@@ -24,6 +24,7 @@ export default {
     },
     navigation: {
       atlas: 'Atlas',
+      vendor_recipe: 'Vendor recipe',
       settings: 'Settings'
     },
     settings_navigation: {
@@ -57,6 +58,28 @@ export default {
           one: 'One map found.',
           other: '{{count}} maps found !'
         }
+      },
+      vendor_recipe_page: {
+        chromatic_title: 'Chromatic',
+        jeweller_title: 'Jeweller',
+        divine_title: 'Divine',
+        chaos_title: 'Chaos / Regal',
+        item_count: {
+          zero: 'No item',
+          one: '1 item',
+          other: '{{count}} items'
+        },
+        hand: 'Hand',
+        one_handed: 'One-Handed',
+        two_handed: 'Two-Handed',
+        helmet: 'Helmet',
+        chest: 'Chest armor',
+        belt: 'Belt',
+        boots: 'Boots',
+        amulet: 'Amulet',
+        gloves: 'Gloves',
+        ring: 'Ring',
+        summary: 'Summary'
       },
       settings_global_page: {
         leagues_title: 'Active league',

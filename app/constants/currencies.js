@@ -21,7 +21,7 @@ export default {
   },
   exa: {
     name: 'Exalted Orb',
-    imageUrl: 'https://web.poecdn.com/image\/Art\/2DItems\/Currency\/CurrencyAddModToRare.png?v=1745ebafbd533b6f91bccf588ab5efc5&scaleIndex=0'
+    imageUrl: 'https://web.poecdn.com/image/Art/2DItems/Currency/CurrencyAddModToRare.png?v=1745ebafbd533b6f91bccf588ab5efc5&scaleIndex=0'
   },
   chrom: {
     name: 'Chromatic Orb',

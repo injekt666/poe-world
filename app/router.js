@@ -25,6 +25,8 @@ Router.map(function() {
     });
   });
 
+  this.route('vendor-recipe');
+
   this.route('settings', function() {
     this.route('global', {path: '/'});
     this.route('vendor-recipe');

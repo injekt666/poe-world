@@ -1,6 +1,7 @@
 import Service, {inject as service} from '@ember/service';
 import TradeMap from 'pow/models/trade-map';
 import TRADE_API from 'pow/constants/trade-api';
+import FRAME_TYPES from 'pow/constants/frame-types';
 
 // Constants
 const NORMAL_QUERY = {
@@ -78,7 +79,7 @@ export default Service.extend({
 
       return TradeMap.create({
         id: mapResult.id,
-        rarity: TRADE_API.FRAME_TYPES_RARITY_MAP[mapResult.item.frameType],
+        rarity: FRAME_TYPES[mapResult.item.frameType],
         corrupted: mapResult.item.corrupted || false,
         identified: mapResult.item.identified || false,
         verified: mapResult.item.verified || false,

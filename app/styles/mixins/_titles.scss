@@ -1,4 +1,4 @@
-@mixin settings-title {
+@mixin title {
   margin-top: 50px;
   font-family: $font-family-accent;
   font-size: 2rem;
@@ -7,4 +7,10 @@
   &:first-of-type {
     margin-top: 0;
   }
+}
+
+@mixin subtitle {
+  font-family: $font-family-accent;
+  font-size: 1.5rem;
+  letter-spacing: 2px;
 }
