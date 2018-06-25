@@ -27,6 +27,7 @@ Router.map(function() {
 
   this.route('settings', function() {
     this.route('global', {path: '/'});
+    this.route('vendor-recipe');
   });
 });
 /* eslint-enable max-nested-callbacks */

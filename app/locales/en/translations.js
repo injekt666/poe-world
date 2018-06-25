@@ -26,6 +26,10 @@ export default {
       atlas: 'Atlas',
       settings: 'Settings'
     },
+    settings_navigation: {
+      global: 'Global',
+      vendor_recipe: 'Vendor recipe'
+    },
     electron_container: {
       warning_message: 'This feature is only available on the native version of PoeWorld.'
     },
@@ -54,13 +58,16 @@ export default {
           other: '{{count}} maps found !'
         }
       },
-      settings_index_page: {
+      settings_global_page: {
         leagues_title: 'Active league',
         authentication_title: 'pathofexile.com authentication',
         account_label: 'Account name',
         poesessid_label: 'Session cookie (POESESSID)',
         authenticated: 'Authenticated',
         not_authenticated: 'Not authenticated'
+      },
+      settings_vendor_recipe_page: {
+        title: 'Vendor recipe stash tabs'
       }
     }
   }

@@ -71,8 +71,7 @@ app.on('ready', () => {
       headers: {
         ...params.headers,
         Cookie: `POESESSID=${params.poesessid}`
-      },
-      json: true
+      }
     };
 
     rp(rpParams)

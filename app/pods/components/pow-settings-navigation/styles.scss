@@ -1,0 +1,18 @@
+& {
+  padding: 20px;
+}
+
+.settings-navigation__link {
+  margin-left: 20px;
+  text-decoration: none;
+  font-size: 1.1rem;
+  color: $white-color;
+
+  &:first-child {
+    margin-left: 0;
+  }
+}
+
+.settings-navigation__link--active {
+  text-decoration: underline;
+}

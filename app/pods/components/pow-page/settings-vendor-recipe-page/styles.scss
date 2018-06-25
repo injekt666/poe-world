@@ -1,0 +1,65 @@
+& {
+  @include page;
+}
+
+.settings-vendor-recipe-page__title {
+  @include settings-title;
+}
+
+.settings-vendor-recipe-page__stashes {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.settings-vendor-recipe-page__stashes-card {
+  position: relative;
+  overflow: hidden;
+  width: 300px;
+  height: 100px;
+  padding: 10px 0 10px 10px;
+  border-radius: $border-radius;
+  margin: 0 10px 10px 0;
+  background-color: darken($primary-color, 10%);
+  cursor: pointer;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 20px;
+    height: 100%;
+    background-color: currentColor;
+  }
+
+  &:hover {
+    background-color: darken($primary-color, 5%);
+  }
+}
+
+.settings-vendor-recipe-page__stashes-card--disabled {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.settings-vendor-recipe-page__stashes-card-name {
+  font-family: $font-family-accent;
+  font-size: 1.1rem;
+  letter-spacing: 2px;
+  color: $white-color;
+}
+
+.settings-vendor-recipe-page__stashes-card-type {
+  margin-top: 4px;
+  font-size: 0.8rem;
+  color: $white-color;
+}
+
+.settings-vendor-recipe-page__stashes-card-check {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  font-size: 1.75rem;
+  color: $white-color;
+}

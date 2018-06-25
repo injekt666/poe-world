@@ -36,7 +36,7 @@ export default Service.extend({
     return new Promise((resolve, reject) => {
       ipcRenderer.once(responseSuccessChannel, (_event, data) => {
         ipcRenderer.removeAllListeners(responseErrorChannel);
-        return resolve(data);
+        return resolve(JSON.parse(data));
       });
 
       ipcRenderer.once(responseErrorChannel, (_event, error) => {
