@@ -3,20 +3,22 @@
 </h1>
 
 {{#pow-electron-container}}
-  <ul class="settings-vendor-recipe-page__stashes">
-    {{#each stashes as |stash|}}
-      <li
-        class="settings-vendor-recipe-page__stashes-card {{if stash.isDisabled 'settings-vendor-recipe-page__stashes-card--disabled'}}"
-        style={{css-style 'color' stash.color}}
-        {{action toggleStash stash}}
-      >
-        <div class="settings-vendor-recipe-page__stashes-card-name">{{stash.name}}</div>
-        <div class="settings-vendor-recipe-page__stashes-card-type">{{stash.type}}</div>
+  {{#pow-task-load-container task=stashTabsLoadTask}}
+    <ul class="settings-vendor-recipe-page__stashes">
+      {{#each stashes as |stash|}}
+        <li
+          class="settings-vendor-recipe-page__stashes-card {{if stash.isDisabled 'settings-vendor-recipe-page__stashes-card--disabled'}}"
+          style={{css-style 'color' stash.color}}
+            {{action toggleStash stash}}
+        >
+          <div class="settings-vendor-recipe-page__stashes-card-name">{{stash.name}}</div>
+          <div class="settings-vendor-recipe-page__stashes-card-type">{{stash.type}}</div>
 
-        {{#unless stash.isDisabled}}
-          {{fa-icon (if stash.isSelected 'check-square' 'square') class='settings-vendor-recipe-page__stashes-card-check'}}
-        {{/unless}}
-      </li>
-    {{/each}}
-  </ul>
+          {{#unless stash.isDisabled}}
+            {{fa-icon (if stash.isSelected 'check-square' 'square') class='settings-vendor-recipe-page__stashes-card-check'}}
+          {{/unless}}
+        </li>
+      {{/each}}
+    </ul>
+  {{/pow-task-load-container}}
 {{/pow-electron-container}}
