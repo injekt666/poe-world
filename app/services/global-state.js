@@ -1,6 +1,6 @@
 import Service from '@ember/service';
 
 export default Service.extend({
-  isDesktop: true,
+  isElectron: true,
   isWeb: false
 });

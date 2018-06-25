@@ -20,24 +20,26 @@
   {{t 'components.page.settings_index_page.authentication_title'}}
 </h1>
 
-<div class="settings-index-page__authentication-section">
-  {{pow-input-field
-    label=(t 'components.page.settings_index_page.account_label')
-    value=currentAccount
-    onChange=(action applyAccount)}}
+{{#pow-electron-container}}
+  <div class="settings-index-page__authentication-section">
+    {{pow-input-field
+      label=(t 'components.page.settings_index_page.account_label')
+      value=currentAccount
+      onChange=(action applyAccount)}}
 
-  {{pow-input-field
-    label=(t 'components.page.settings_index_page.poesessid_label')
-    value=currentPoesessid
-    onChange=(action applyPoesessid)}}
+    {{pow-input-field
+      label=(t 'components.page.settings_index_page.poesessid_label')
+      value=currentPoesessid
+      onChange=(action applyPoesessid)}}
 
-  {{#pow-task-load-container task=testAuthenticationTask}}
-    <div class="settings-index-page__authentication-section-test">
-      {{#if isAuthenticated}}
-        {{fa-icon 'check'}} {{t 'components.page.settings_index_page.authenticated'}}
-      {{else}}
-        {{fa-icon 'times'}} {{t 'components.page.settings_index_page.not_authenticated'}}
-      {{/if}}
-    </div>
-  {{/pow-task-load-container}}
-</div>
+    {{#pow-task-load-container task=testAuthenticationTask}}
+      <div class="settings-index-page__authentication-section-test">
+        {{#if isAuthenticated}}
+          {{fa-icon 'check'}} {{t 'components.page.settings_index_page.authenticated'}}
+        {{else}}
+          {{fa-icon 'times'}} {{t 'components.page.settings_index_page.not_authenticated'}}
+        {{/if}}
+      </div>
+    {{/pow-task-load-container}}
+  </div>
+{{/pow-electron-container}}

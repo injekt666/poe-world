@@ -26,6 +26,9 @@ export default {
       atlas: 'Atlas',
       settings: 'Settings'
     },
+    electron_container: {
+      warning_message: 'This feature is only available on the native version of PoeWorld.'
+    },
     page: {
       map_page: {
         tier: 'Tier',

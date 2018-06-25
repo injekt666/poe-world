@@ -1,0 +1,5 @@
+{{#if isElectron}}
+  {{yield}}
+{{else}}
+  {{t 'components.electron_container.warning_message'}}
+{{/if}}
