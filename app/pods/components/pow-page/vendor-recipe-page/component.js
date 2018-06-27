@@ -52,12 +52,17 @@ export default Component.extend({
   }).drop(),
 
   vendorRecipePollingTask: task(function *() {
-    yield this.vendorRecipeLoadTask.perform();
     yield timeout(RECIPE_POLLING_INTERVAL);
+    yield this.vendorRecipeLoadTask.perform();
     this.vendorRecipePollingTask.perform();
   }).drop(),
 
+  vendorRecipeInitialLoadTask: task(function *() {
+    yield this.vendorRecipeLoadTask.perform();
+  }).drop(),
+
   willInsertElement() {
+    this.vendorRecipeInitialLoadTask.perform();
     this.vendorRecipePollingTask.perform();
   }
 });
