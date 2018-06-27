@@ -1,5 +1,6 @@
 module.exports = {
   globals: {
-    requireNode: true
+    require: true,
+    module: true
   }
 }

@@ -1,20 +1,21 @@
 {
   "name": "pow",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "private": true,
   "description": "Small description for poeworld goes here",
   "license": "MIT",
-  "author": "",
+  "author": "Pascal Boutin <infamc>",
   "directories": {
     "doc": "doc",
     "test": "tests"
   },
-  "repository": "",
+  "repository": "https://github.com/poe-world/poeworld",
   "scripts": {
     "build-web": "ember build",
     "start-web": "ember serve",
     "test-web": "ember test",
     "build-electron": "ember electron:package",
+    "make-electron": "ember electron:make",
     "start-electron": "DEBUG=true ember electron",
     "test-electron": "ember electron:test",
     "lint": "npm run lint-js && npm run lint-scss",
@@ -72,8 +73,6 @@
     "eslint-plugin-mirego": "0.0.1",
     "loader.js": "^4.2.3",
     "panzoom": "^4.5.0",
-    "request": "^2.85.0",
-    "request-promise": "^4.2.2",
     "simple-css-reset": "^2.0.6",
     "stylelint": "^9.2.0",
     "stylelint-mirego": "^0.2.2",
@@ -85,7 +84,9 @@
   "dependencies": {
     "electron-compile": "^6.4.2",
     "electron-protocol-serve": "^1.3.0",
-    "electron-squirrel-startup": "^1.0.0"
+    "electron-squirrel-startup": "^1.0.0",
+    "request-promise": "^4.2.2",
+    "request": "^2.85.0"
   },
   "config": {
     "forge": "./ember-electron/electron-forge-config.js"
