@@ -29,13 +29,14 @@ export default Component.extend({
 
   vendorRecipeLoadTask: task(function *() {
     const stashIdsToLoad = this.vendorRecipeSetting.stashIds;
+    let stashIndexes = [];
 
-    if (stashIdsToLoad.length === 0) return;
-
-    const stashTabs = yield this.stashTabsFetcher.fetch();
-    const stashIndexes = stashTabs
-      .filter((stashTab) => stashIdsToLoad.includes(stashTab.id))
-      .map((stashTab) => stashTab.index);
+    if (stashIdsToLoad.length) {
+      const stashTabs = yield this.stashTabsFetcher.fetch();
+      stashIndexes = stashTabs
+        .filter((stashTab) => stashIdsToLoad.includes(stashTab.id))
+        .map((stashTab) => stashTab.index);
+    }
 
     let stashItems = [];
     while (stashIndexes.length) {
