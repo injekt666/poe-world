@@ -11,7 +11,7 @@ export default Service.extend({
     if (this._mapsPromise) return this._mapsPromise;
 
     const mapsPromise = this.request.fetch(RESOURCES.MAPS_JSON_URL).then((rawMaps) => {
-      return rawMaps.map((rawMap) => Map.create(rawMap));
+      return this._processRawMaps(rawMaps);
     });
 
     this.set('_mapsPromise', mapsPromise);
@@ -20,5 +20,17 @@ export default Service.extend({
 
   fetchMap(mapId) {
     return this.fetch().then((maps) => maps.find((map) => map.id === mapId));
+  },
+
+  _processRawMaps(rawMaps) {
+    const mapHash = rawMaps.reduce((mapHash, rawMap) => {
+      mapHash[rawMap.id] = Map.create(rawMap);
+      return mapHash;
+    }, {});
+
+    const maps = Object.values(mapHash);
+    maps.forEach((map) => map.set('sextants', map.sextants.map((mapId) => mapHash[mapId])));
+
+    return maps;
   }
 });
