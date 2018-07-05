@@ -3,8 +3,6 @@
 # compiled output
 /dist
 /tmp
-app/constants/maps.js
-maps/_wiki.json
 /electron-out
 
 # dependencies

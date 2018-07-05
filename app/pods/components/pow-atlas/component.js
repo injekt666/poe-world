@@ -1,5 +1,6 @@
 import Component from '@ember/component';
 import {inject as service} from '@ember/service';
+import {task} from 'ember-concurrency';
 
 export default Component.extend({
   router: service('router'),
@@ -14,8 +15,13 @@ export default Component.extend({
   panTop: 0,
   panLeft: 0,
 
+  mapsLoadTask: task(function *() {
+    const maps = yield this.mapsFetcher.fetch();
+    this.set('maps', maps);
+  }).drop(),
+
   willInsertElement() {
-    this.set('maps', this.mapsFetcher.fetchSync());
+    this.mapsLoadTask.perform();
   },
 
   mapEnter(map) {

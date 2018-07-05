@@ -7,15 +7,13 @@ export default Route.extend({
   atlasReframer: service('reframers/atlas-reframer'),
 
   model(params) {
-    const currentMap = this.mapsFetcher.fetchMapSync(params.slug);
-
-    this._setAtlasCurrentMap(currentMap);
-    return currentMap;
+    return this.mapsFetcher.fetchMap(params.slug);
   },
 
   afterModel(map) {
     if (!map) return null;
 
+    this._setAtlasCurrentMap(map);
     this.atlasReframer.reframeFor(map);
   },
 

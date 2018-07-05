@@ -1,31 +1,24 @@
-import Service from '@ember/service';
+import Service, {inject as service} from '@ember/service';
 import Map from 'pow/models/map';
-import MAPS from 'pow/constants/maps';
+import RESOURCES from 'pow/constants/resources';
 
 export default Service.extend({
-  _mapHash: null,
+  request: service('request'),
 
-  fetchSync() {
-    if (this._mapHash) return Object.values(this._mapHash);
+  _mapsPromise: null,
 
-    return Object.values(this._processMaps());
+  fetch() {
+    if (this._mapsPromise) return this._mapsPromise;
+
+    const mapsPromise = this.request.fetch(RESOURCES.MAPS_JSON_URL).then((rawMaps) => {
+      return rawMaps.map((rawMap) => Map.create(rawMap));
+    });
+
+    this.set('_mapsPromise', mapsPromise);
+    return mapsPromise;
   },
 
-  fetchMapSync(mapId) {
-    if (this._mapHash) return this._mapHash[mapId];
-
-    return this._processMaps()[mapId];
-  },
-
-  _processMaps() {
-    this._mapHash = Object.keys(MAPS).reduce((hash, mapId) => {
-      const rawMap = MAPS[mapId];
-
-      hash[mapId] = Map.create(rawMap);
-
-      return hash;
-    }, {});
-
-    return this._mapHash;
+  fetchMap(mapId) {
+    return this.fetch().then((maps) => maps.find((map) => map.id === mapId));
   }
 });

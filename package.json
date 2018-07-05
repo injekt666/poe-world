@@ -20,10 +20,7 @@
     "lint": "npm run lint-js && npm run lint-scss",
     "lint-js": "./node_modules/.bin/eslint './*.js' 'app' 'blueprints' 'config' 'lib' 'server' 'tests'",
     "lint-scss": "./node_modules/.bin/stylelint './app/**/*.scss'",
-    "lint-scss-fix": "./node_modules/.bin/stylelint './app/**/*.scss' --fix",
-    "fetch-maps-wiki": "node scripts/fetch-maps-wiki.js",
-    "compile-maps": "node scripts/compile-maps.js",
-    "update-maps": "npm run fetch-maps-wiki && npm run compile-maps"
+    "lint-scss-fix": "./node_modules/.bin/stylelint './app/**/*.scss' --fix"
   },
   "devDependencies": {
     "@fortawesome/ember-fontawesome": "0.1.0-8",
@@ -34,7 +31,6 @@
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "broccoli-asset-rev": "^2.4.5",
-    "cheerio": "^1.0.0-rc.2",
     "devtron": "^1.4.0",
     "electron-forge": "^5.2.2",
     "electron-prebuilt-compile": "2.0.2",
