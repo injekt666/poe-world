@@ -1,8 +1,8 @@
 import Service, {inject as service} from '@ember/service';
-import StashTab from 'pow/models/stash-tab';
+import StashTab from 'poe-world/models/stash-tab';
 import {Promise} from 'rsvp';
-import PRIVATE_API from 'pow/constants/private-api';
-import rgbToHexColor from 'pow/utilities/rgbToHexColor';
+import PRIVATE_API from 'poe-world/constants/private-api';
+import rgbToHexColor from 'poe-world/utilities/rgbToHexColor';
 
 export default Service.extend({
   electronRequest: service('electron/request'),

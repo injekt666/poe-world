@@ -1,5 +1,5 @@
 import Service, {inject as service} from '@ember/service';
-import STORAGE_KEYS from 'pow/constants/storage-keys';
+import STORAGE_KEYS from 'poe-world/constants/storage-keys';
 
 export default Service.extend({
   storage: service('storage'),

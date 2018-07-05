@@ -1,7 +1,7 @@
 import Component from '@ember/component';
 import {inject as service} from '@ember/service';
 import {task, timeout} from 'ember-concurrency';
-import CURRENCIES from 'pow/constants/currencies';
+import CURRENCIES from 'poe-world/constants/currencies';
 
 // Constants
 const RECIPE_POLLING_INTERVAL = 60000; // 60 seconds

@@ -1,8 +1,8 @@
 import Service, {inject as service} from '@ember/service';
-import StashItem from 'pow/models/stash-item';
+import StashItem from 'poe-world/models/stash-item';
 import {Promise} from 'rsvp';
-import PRIVATE_API from 'pow/constants/private-api';
-import FRAME_TYPES from 'pow/constants/frame-types';
+import PRIVATE_API from 'poe-world/constants/private-api';
+import FRAME_TYPES from 'poe-world/constants/frame-types';
 
 // Constants
 const MAXIMUM_SOCKETS_COUNT = 6;

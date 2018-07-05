@@ -1,6 +1,6 @@
 import Service, {inject as service} from '@ember/service';
-import League from 'pow/models/league';
-import RESOURCES from 'pow/constants/resources';
+import League from 'poe-world/models/league';
+import RESOURCES from 'poe-world/constants/resources';
 
 export default Service.extend({
   request: service('request'),

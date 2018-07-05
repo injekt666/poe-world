@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 import Component from '@ember/component';
-import MAPS from 'pow/constants/maps';
+import MAPS from 'poe-world/constants/maps';
 
 export default Component.extend({
   offsetData: null,

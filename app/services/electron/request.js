@@ -1,6 +1,6 @@
 import Service, {inject as service} from '@ember/service';
 import {Promise} from 'rsvp';
-import uuid from 'pow/utilities/uuid';
+import uuid from 'poe-world/utilities/uuid';
 
 // Constants
 const IPC_CHANNEL = 'REQUEST';

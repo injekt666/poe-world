@@ -1,5 +1,5 @@
 import Component from '@ember/component';
-import uuid from 'pow/utilities/uuid';
+import uuid from 'poe-world/utilities/uuid';
 
 export default Component.extend({
   label: null,

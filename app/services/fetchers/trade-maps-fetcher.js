@@ -1,7 +1,7 @@
 import Service, {inject as service} from '@ember/service';
-import TradeMap from 'pow/models/trade-map';
-import TRADE_API from 'pow/constants/trade-api';
-import FRAME_TYPES from 'pow/constants/frame-types';
+import TradeMap from 'poe-world/models/trade-map';
+import TRADE_API from 'poe-world/constants/trade-api';
+import FRAME_TYPES from 'poe-world/constants/frame-types';
 
 // Constants
 const NORMAL_QUERY = {

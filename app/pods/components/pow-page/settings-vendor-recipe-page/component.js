@@ -2,7 +2,7 @@ import Component from '@ember/component';
 import {inject as service} from '@ember/service';
 import {task} from 'ember-concurrency';
 import {readOnly} from '@ember/object/computed';
-import toggleArray from 'pow/utilities/toggleArray';
+import toggleArray from 'poe-world/utilities/toggleArray';
 
 // Constants
 const SUPPORTED_STASH_TYPES = ['Premium', 'Normal', 'Quad'];

@@ -1,6 +1,6 @@
 import Service, {inject as service} from '@ember/service';
 import {Promise} from 'rsvp';
-import PRIVATE_API from 'pow/constants/private-api';
+import PRIVATE_API from 'poe-world/constants/private-api';
 
 export default Service.extend({
   electronRequest: service('electron/request'),

@@ -2,8 +2,8 @@
 
 module.exports = function(environment) {
   const ENV = {
-    modulePrefix: 'pow',
-    podModulePrefix: 'pow/pods',
+    modulePrefix: 'poe-world',
+    podModulePrefix: 'poe-world/pods',
     environment,
     rootURL: '/',
     locationType: 'hash',
