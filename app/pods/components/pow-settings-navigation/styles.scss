@@ -3,10 +3,27 @@
 }
 
 .settings-navigation__link {
+  position: relative;
+  padding: 0 20px 20px;
   margin-left: 20px;
   text-decoration: none;
-  font-size: 1.1rem;
+  font-size: 1.25rem;
+  font-weight: 300;
+  letter-spacing: 1px;
   color: $white-color;
+
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background-color: $primary-color;
+    transition: height 150ms ease-in;
+    border-bottom-left-radius: 100%;
+    border-bottom-right-radius: 100%;
+  }
 
   &:first-child {
     margin-left: 0;
@@ -14,5 +31,7 @@
 }
 
 .settings-navigation__link--active {
-  text-decoration: underline;
+  &::before {
+    height: 6px;
+  };
 }
