@@ -1,0 +1,23 @@
+& {
+  h1 {
+    padding: 5px 0 5px 20px;
+    margin: 0 -20px;
+    background-color: $background-darker-color;
+    font-family: $font-family-accent;
+    font-size: 1.35rem;
+    letter-spacing: 3px;
+  }
+
+  h2 {
+    margin: 15px 0 5px;
+    font-family: $font-family-accent;
+    font-size: 1.15rem;
+    letter-spacing: 2px;
+  }
+
+  ul {
+    margin-left: 20px;
+    list-style: disc;
+    font-size: 0.9rem;
+  }
+}

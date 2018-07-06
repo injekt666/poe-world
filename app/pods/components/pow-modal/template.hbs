@@ -1,0 +1,21 @@
+{{#if isOpened}}
+  {{#modal-dialog
+    onClose=(action onClose)
+    translucentOverlay=true
+  }}
+    <div class={{styleNamespace}}>
+      <div class="modal__content">
+        <div class="modal__content-header">
+          <div class="modal__content-header-title">
+            {{title}}
+          </div>
+
+          <button class="modal__content-header__close" {{action onClose}}>
+            {{fa-icon 'times'}}
+          </button>
+        </div>
+        {{yield}}
+      </div>
+    </div>
+  {{/modal-dialog}}
+{{/if}}

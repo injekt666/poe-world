@@ -1,8 +1,9 @@
 @import 'variables';
 @import 'global';
 
-// Animations
-@import 'animations/fade-out';
+// Vendors
+@import 'ember-modal-dialog/ember-modal-structure';
+@import 'vendors/ember-modal-dialog';
 
 // Mixins
 @import 'mixins/titles';

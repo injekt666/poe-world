@@ -34,6 +34,9 @@ export default {
     electron_container: {
       warning_message: 'This feature is only available on the native version of PoeWorld.'
     },
+    changelog_modal: {
+      title: "What's up !"
+    },
     page: {
       map_page: {
         tier: 'Tier',

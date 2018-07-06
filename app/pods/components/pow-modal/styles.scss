@@ -1,0 +1,24 @@
+.modal__content {
+  width: 750px;
+  padding: 10px 20px 20px;
+  border-radius: $border-radius;
+  background-color: $background-color;
+}
+
+.modal__content-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.modal__content-header-title {
+  font-family: $font-family-accent;
+  font-size: 1.8rem;
+  letter-spacing: 3px;
+}
+
+.modal__content-header__close {
+  display: inline-block;
+  font-size: 1.5rem;
+  color: $white-color;
+}

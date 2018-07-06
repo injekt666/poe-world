@@ -1,5 +1,8 @@
 'use strict';
 
+const npmPackage = require('../package.json');
+const fs = require('fs');
+
 module.exports = function(environment) {
   const ENV = {
     modulePrefix: 'poe-world',
@@ -27,7 +30,9 @@ module.exports = function(environment) {
     },
 
     APP: {
-      DEV_MODE: Boolean(process.env.DEV_MODE)
+      DEV_MODE: Boolean(process.env.DEV_MODE),
+      VERSION: npmPackage.version,
+      CHANGELOG: fs.readFileSync(`./changelogs/${npmPackage.version.replace(/\./g, '_')}.md`, 'utf-8')
     }
   };
 

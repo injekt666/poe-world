@@ -1,0 +1,9 @@
+{{#pow-modal
+  isOpened=isOpened
+  onClose=(action onClose)
+  title=(t 'components.changelog_modal.title')
+}}
+  <div class={{styleNamespace}}>
+    {{markdown-to-html changelogMarkdown}}
+  </div>
+{{/pow-modal}}
