@@ -4,6 +4,7 @@ import Service from '@ember/service';
 const CHAOS_LOW_LEVEL = 60;
 const REGAL_LOW_LEVEL = 75;
 const REGAL_HIGH_LEVEL = 100;
+const RARE_RARITY = 'rare';
 const ONE_HANDED_REGEXP = /(one|claw|shield|wand|dagger)/i;
 const TWO_HANDED_REGEXP = /(two)/i;
 
@@ -68,6 +69,7 @@ export default Service.extend({
     /* eslint-disable complexity */
     stashItems.forEach((stashItem) => {
       if (stashItem.identified) return;
+      if (stashItem.rarity !== RARE_RARITY) return;
       if (stashItem.itemLevel < CHAOS_LOW_LEVEL || stashItem.itemLevel > REGAL_HIGH_LEVEL) return;
 
       let itemCounts = null;
