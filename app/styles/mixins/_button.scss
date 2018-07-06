@@ -1,4 +1,6 @@
 @mixin button {
+  display: inline-flex;
+  align-items: center;
   padding: ($padding / 2) $padding;
   border-radius: $border-radius;
   background-color: $primary-color;
@@ -11,5 +13,10 @@
   &:hover,
   &:focus {
     background-color: darken($primary-color, 5%);
+  }
+
+  // Icon placement
+  svg {
+    margin-right: 10px;
   }
 }

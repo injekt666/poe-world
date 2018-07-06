@@ -35,7 +35,11 @@ export default {
       warning_message: 'This feature is only available on the native version of PoeWorld.'
     },
     changelog_modal: {
-      title: "What's up !"
+      title: "What's up !",
+      download_title: "A new version has been released !",
+      download_warning: "Automatic updates cannot be implemented yet. To do so, the application would need to be code-signed, and doing so cost money. Once the project gets more serious, it will happen.",
+      download_button: "Download",
+      see_on_github: "Open on GitHub"
     },
     page: {
       map_page: {

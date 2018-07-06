@@ -4,6 +4,28 @@
   title=(t 'components.changelog_modal.title')
 }}
   <div class={{styleNamespace}}>
+    {{#if nextRelease}}
+      <div class="changelog-modal__download-warning alert alert--warning">
+        <div class="alert__title">
+          {{t 'components.changelog_modal.download_title'}}
+        </div>
+
+        {{t 'components.changelog_modal.download_warning'}}
+      </div>
+    {{/if}}
+
     {{markdown-to-html changelogMarkdown}}
+
+    {{#if nextRelease}}
+      <div class="changelog-modal__download-links">
+        {{#pow-external-link url=nextRelease.windowsDownloadUrl class='changelog-modal__download-link'}}
+          {{fa-icon 'download'}} {{t 'components.changelog_modal.download_button'}}
+        {{/pow-external-link}}
+
+        {{#pow-external-link url=nextRelease.githubReleaseUrl class='changelog-modal__download-link'}}
+          {{fa-icon 'github' prefix='fab'}} {{t 'components.changelog_modal.see_on_github'}}
+        {{/pow-external-link}}
+      </div>
+    {{/if}}
   </div>
 {{/pow-modal}}

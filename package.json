@@ -9,7 +9,7 @@
     "doc": "doc",
     "test": "tests"
   },
-  "repository": "https://github.com/poe-world/poeworld",
+  "repository": "https://github.com/poe-world/poe-world",
   "scripts": {
     "build-web": "ember build",
     "start-web": "ember serve",
@@ -24,6 +24,7 @@
   },
   "devDependencies": {
     "@fortawesome/ember-fontawesome": "0.1.0-8",
+    "@fortawesome/free-brands-svg-icons": "^5.1.0",
     "@fortawesome/free-solid-svg-icons": "^5.1.0-11",
     "babel-eslint": "^8.2.3",
     "babel-plugin-transform-async-to-generator": "^6.24.1",
