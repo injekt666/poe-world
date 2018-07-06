@@ -16,6 +16,7 @@ new_version=${new_version:1}
 echo "Drafting a new changelog for $new_version 📝"
 changelog_filename=${new_version//./_}.md
 cp ./changelogs/_template.md ./changelogs/$changelog_filename
+sed -i '' -e "s/{{version}}/$new_version/g" ./changelogs/$changelog_filename
 git add ./changelogs/$changelog_filename
 
 echo "Let's go ! 🚀"
