@@ -77,11 +77,11 @@ export default Service.extend({
       // Non-hand items
       if (dataStructure[stashItem.defaultCategory]) itemCounts = dataStructure[stashItem.defaultCategory];
 
+      // Two-handed items
+      if (!itemCounts && stashItem.subCategories.some((subCategory) => TWO_HANDED_REGEXP.test(subCategory))) itemCounts = dataStructure.hands.twoHanded;
+
       // One-handed items
       if (!itemCounts && stashItem.subCategories.some((subCategory) => ONE_HANDED_REGEXP.test(subCategory))) itemCounts = dataStructure.hands.oneHanded;
-
-      // Two-handed items
-      if (!itemCounts && stashItem.subCategories.some((subCategory) => TWO_HANDED_REGEXP.test(subCategory))) itemCounts = dataStructure.hands.oneHanded;
 
       // Non compatible item
       if (!itemCounts) return;
