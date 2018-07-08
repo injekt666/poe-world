@@ -7,6 +7,7 @@ const REGAL_HIGH_LEVEL = 100;
 const RARE_RARITY = 'rare';
 const ONE_HANDED_REGEXP = /(one|claw|shield|wand|dagger)/i;
 const TWO_HANDED_REGEXP = /(two|staff)/i;
+const WARNING_QUANTITY_TRESHOLD = 5;
 
 export default Service.extend({
   initializeDataStructure() {
@@ -14,37 +15,51 @@ export default Service.extend({
       helmet: {
         itemChaosCount: 0,
         itemRegalCount: 0,
-        recipeCount: 0
+        recipeCount: 0,
+        isError: false,
+        isWarning: false
       },
       boots: {
         itemChaosCount: 0,
         itemRegalCount: 0,
-        recipeCount: 0
+        recipeCount: 0,
+        isError: false,
+        isWarning: false
       },
       gloves: {
         itemChaosCount: 0,
         itemRegalCount: 0,
-        recipeCount: 0
+        recipeCount: 0,
+        isError: false,
+        isWarning: false
       },
       belt: {
         itemChaosCount: 0,
         itemRegalCount: 0,
-        recipeCount: 0
+        recipeCount: 0,
+        isError: false,
+        isWarning: false
       },
       chest: {
         itemChaosCount: 0,
         itemRegalCount: 0,
-        recipeCount: 0
+        recipeCount: 0,
+        isError: false,
+        isWarning: false
       },
       ring: {
         itemChaosCount: 0,
         itemRegalCount: 0,
-        recipeCount: 0
+        recipeCount: 0,
+        isError: false,
+        isWarning: false
       },
       amulet: {
         itemChaosCount: 0,
         itemRegalCount: 0,
-        recipeCount: 0
+        recipeCount: 0,
+        isError: false,
+        isWarning: false
       },
       hands: {
         oneHanded: {
@@ -55,7 +70,9 @@ export default Service.extend({
           itemChaosCount: 0,
           itemRegalCount: 0
         },
-        recipeCount: 0
+        recipeCount: 0,
+        isError: false,
+        isWarning: false
       },
       summary: {
         recipeCount: 0
@@ -106,7 +123,7 @@ export default Service.extend({
     const oneHandedSets = Math.floor((dataStructure.hands.oneHanded.itemChaosCount + dataStructure.hands.oneHanded.itemRegalCount) / 2);
     dataStructure.hands.recipeCount = twoHandedSets + oneHandedSets;
 
-    dataStructure.summary.recipeCount = Math.min(
+    const recipeTotal = dataStructure.summary.recipeCount = Math.min(
       dataStructure.helmet.recipeCount,
       dataStructure.boots.recipeCount,
       dataStructure.gloves.recipeCount,
@@ -116,6 +133,24 @@ export default Service.extend({
       dataStructure.amulet.recipeCount,
       dataStructure.hands.recipeCount
     );
+
+    dataStructure.helmet.isError = dataStructure.helmet.recipeCount === recipeTotal;
+    dataStructure.boots.isError = dataStructure.boots.recipeCount === recipeTotal;
+    dataStructure.gloves.isError = dataStructure.gloves.recipeCount === recipeTotal;
+    dataStructure.belt.isError = dataStructure.belt.recipeCount === recipeTotal;
+    dataStructure.chest.isError = dataStructure.chest.recipeCount === recipeTotal;
+    dataStructure.ring.isError = dataStructure.ring.recipeCount === recipeTotal;
+    dataStructure.amulet.isError = dataStructure.amulet.recipeCount === recipeTotal;
+    dataStructure.hands.isError = dataStructure.hands.recipeCount === recipeTotal;
+
+    dataStructure.helmet.isWarning = (dataStructure.helmet.recipeCount - WARNING_QUANTITY_TRESHOLD) <= recipeTotal;
+    dataStructure.boots.isWarning = (dataStructure.boots.recipeCount - WARNING_QUANTITY_TRESHOLD) <= recipeTotal;
+    dataStructure.gloves.isWarning = (dataStructure.gloves.recipeCount - WARNING_QUANTITY_TRESHOLD) <= recipeTotal;
+    dataStructure.belt.isWarning = (dataStructure.belt.recipeCount - WARNING_QUANTITY_TRESHOLD) <= recipeTotal;
+    dataStructure.chest.isWarning = (dataStructure.chest.recipeCount - WARNING_QUANTITY_TRESHOLD) <= recipeTotal;
+    dataStructure.ring.isWarning = (dataStructure.ring.recipeCount - WARNING_QUANTITY_TRESHOLD) <= recipeTotal;
+    dataStructure.amulet.isWarning = (dataStructure.amulet.recipeCount - WARNING_QUANTITY_TRESHOLD) <= recipeTotal;
+    dataStructure.hands.isWarning = (dataStructure.hands.recipeCount - WARNING_QUANTITY_TRESHOLD) <= recipeTotal;
 
     return dataStructure;
   }

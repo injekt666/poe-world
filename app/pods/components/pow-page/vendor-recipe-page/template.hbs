@@ -75,7 +75,7 @@
         </div>
       </div>
 
-      <div class="vendor-recipe-page__recipe-card {{if (eq chaosRecipe.hands.recipeCount chaosRecipe.summary.recipeCount) 'vendor-recipe-page__recipe-card--error'}}">
+      <div class="vendor-recipe-page__recipe-card {{if chaosRecipe.hands.isError 'vendor-recipe-page__recipe-card--error' (if chaosRecipe.hands.isWarning 'vendor-recipe-page__recipe-card--warning')}}">
         <div class="vendor-recipe-page__recipe-card-header">
           {{t 'components.page.vendor_recipe_page.hand'}}
         </div>
@@ -123,7 +123,7 @@
     <div class="vendor-recipe-page__chaos-misc">
       <div class="vendor-recipe-page__chaos-misc-row">
         <div class="vendor-recipe-page__chaos-misc-col">
-          <div class="vendor-recipe-page__recipe-card {{if (eq chaosRecipe.helmet.recipeCount chaosRecipe.summary.recipeCount) 'vendor-recipe-page__recipe-card--error'}}">
+          <div class="vendor-recipe-page__recipe-card {{if chaosRecipe.helmet.isError 'vendor-recipe-page__recipe-card--error' (if chaosRecipe.helmet.isWarning 'vendor-recipe-page__recipe-card--warning')}}">
             <div class="vendor-recipe-page__recipe-card-header">
               {{t 'components.page.vendor_recipe_page.helmet'}}
             </div>
@@ -149,7 +149,7 @@
         </div>
 
         <div class="vendor-recipe-page__chaos-misc-col">
-          <div class="vendor-recipe-page__recipe-card {{if (eq chaosRecipe.chest.recipeCount chaosRecipe.summary.recipeCount) 'vendor-recipe-page__recipe-card--error'}}">
+          <div class="vendor-recipe-page__recipe-card {{if chaosRecipe.chest.isError 'vendor-recipe-page__recipe-card--error' (if chaosRecipe.chest.isWarning 'vendor-recipe-page__recipe-card--warning')}}">
             <div class="vendor-recipe-page__recipe-card-header">
               {{t 'components.page.vendor_recipe_page.chest'}}
             </div>
@@ -177,7 +177,7 @@
 
       <div class="vendor-recipe-page__chaos-misc-row">
         <div class="vendor-recipe-page__chaos-misc-col">
-          <div class="vendor-recipe-page__recipe-card {{if (eq chaosRecipe.belt.recipeCount chaosRecipe.summary.recipeCount) 'vendor-recipe-page__recipe-card--error'}}">
+          <div class="vendor-recipe-page__recipe-card {{if chaosRecipe.belt.isError 'vendor-recipe-page__recipe-card--error' (if chaosRecipe.belt.isWarning 'vendor-recipe-page__recipe-card--warning')}}">
             <div class="vendor-recipe-page__recipe-card-header">
               {{t 'components.page.vendor_recipe_page.belt'}}
             </div>
@@ -203,7 +203,7 @@
         </div>
 
         <div class="vendor-recipe-page__chaos-misc-col">
-          <div class="vendor-recipe-page__recipe-card {{if (eq chaosRecipe.boots.recipeCount chaosRecipe.summary.recipeCount) 'vendor-recipe-page__recipe-card--error'}}">
+          <div class="vendor-recipe-page__recipe-card {{if chaosRecipe.boots.isError 'vendor-recipe-page__recipe-card--error' (if chaosRecipe.boots.isWarning 'vendor-recipe-page__recipe-card--warning')}}">
             <div class="vendor-recipe-page__recipe-card-header">
               {{t 'components.page.vendor_recipe_page.boots'}}
             </div>
@@ -231,7 +231,7 @@
 
       <div class="vendor-recipe-page__chaos-misc-row">
         <div class="vendor-recipe-page__chaos-misc-col">
-          <div class="vendor-recipe-page__recipe-card {{if (eq chaosRecipe.amulet.recipeCount chaosRecipe.summary.recipeCount) 'vendor-recipe-page__recipe-card--error'}}">
+          <div class="vendor-recipe-page__recipe-card {{if chaosRecipe.amulet.isError 'vendor-recipe-page__recipe-card--error' (if chaosRecipe.amulet.isWarning 'vendor-recipe-page__recipe-card--warning')}}">
             <div class="vendor-recipe-page__recipe-card-header">
               {{t 'components.page.vendor_recipe_page.amulet'}}
             </div>
@@ -257,7 +257,7 @@
         </div>
 
         <div class="vendor-recipe-page__chaos-misc-col">
-          <div class="vendor-recipe-page__recipe-card {{if (eq chaosRecipe.gloves.recipeCount chaosRecipe.summary.recipeCount) 'vendor-recipe-page__recipe-card--error'}}">
+          <div class="vendor-recipe-page__recipe-card {{if chaosRecipe.gloves.isError 'vendor-recipe-page__recipe-card--error' (if chaosRecipe.gloves.isWarning 'vendor-recipe-page__recipe-card--warning')}}">
             <div class="vendor-recipe-page__recipe-card-header">
               {{t 'components.page.vendor_recipe_page.gloves'}}
             </div>
@@ -285,7 +285,7 @@
 
       <div class="vendor-recipe-page__chaos-misc-row">
         <div class="vendor-recipe-page__chaos-misc-col">
-          <div class="vendor-recipe-page__recipe-card {{if (eq chaosRecipe.ring.recipeCount chaosRecipe.summary.recipeCount) 'vendor-recipe-page__recipe-card--error'}}">
+          <div class="vendor-recipe-page__recipe-card {{if chaosRecipe.ring.isError 'vendor-recipe-page__recipe-card--error' (if chaosRecipe.ring.isWarning 'vendor-recipe-page__recipe-card--warning')}}">
             <div class="vendor-recipe-page__recipe-card-header">
               {{t 'components.page.vendor_recipe_page.ring'}}
             </div>
