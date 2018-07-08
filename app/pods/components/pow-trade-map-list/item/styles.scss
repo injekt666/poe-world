@@ -76,3 +76,18 @@
   top: 4px;
   left: 0;
 }
+
+.trade-map-list-item__listing-time {
+  font-style: italic;
+}
+
+.trade-map-list-item__listing-account {
+  margin: 10px 0 5px;
+}
+
+.trade-map-list-item__listing-account-afk {
+  padding: 0 5px;
+  border-radius: $border-radius;
+  margin-left: 5px;
+  background-color: rgba($warning-color, 0.7);
+}

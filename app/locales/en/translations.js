@@ -16,7 +16,8 @@ export default {
       item_quantity: "{{itemQuantity}} IIQ",
       item_rarity: "{{itemRarity}} IIR",
       monster_pack_size: "{{monsterPackSize}} MPS",
-      sold_by: "Sold by {{account}}"
+      sold_by: "Sold by {{account}}",
+      afk: "AFK"
     },
     clipboard_button: {
       copy: "Copy to clipboard",

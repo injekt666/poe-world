@@ -4,6 +4,7 @@ import TRADE_API from 'poe-world/constants/trade-api';
 import FRAME_TYPES from 'poe-world/constants/frame-types';
 
 // Constants
+const AFK_STATUS = 'afk';
 const NORMAL_QUERY = {
   query: {
     status: {
@@ -91,7 +92,8 @@ export default Service.extend({
         whisper: mapResult.listing.whisper,
         account: mapResult.listing.account.name,
         priceAmount: mapResult.listing.price.amount,
-        priceCurrency: mapResult.listing.price.currency
+        priceCurrency: mapResult.listing.price.currency,
+        isAfk: mapResult.listing.account.online.status === AFK_STATUS
       });
     });
   }

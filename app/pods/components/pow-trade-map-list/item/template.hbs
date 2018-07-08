@@ -59,6 +59,12 @@
 
   <div class="trade-map-list-item__listing-account">
     {{t 'components.map_trade_list.sold_by' account=tradeMap.account}}
+
+    {{#if tradeMap.isAfk}}
+      <span class="trade-map-list-item__listing-account-afk">
+        {{t 'components.map_trade_list.afk'}}
+      </span>
+    {{/if}}
   </div>
 
   {{pow-clipboard-button value=tradeMap.whisper}}
