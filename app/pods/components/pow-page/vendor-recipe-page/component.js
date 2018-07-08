@@ -53,9 +53,15 @@ export default Component.extend({
   }).drop(),
 
   vendorRecipePollingTask: task(function *() {
-    yield timeout(RECIPE_POLLING_INTERVAL);
-    yield this.vendorRecipeLoadTask.perform();
-    this.vendorRecipePollingTask.perform();
+    while (true) {
+      yield timeout(RECIPE_POLLING_INTERVAL);
+
+      try {
+        yield this.vendorRecipeLoadTask.perform();
+      } catch (_error) {
+        // Prevent an API glitch from stopping the poll
+      }
+    }
   }).drop(),
 
   vendorRecipeInitialLoadTask: task(function *() {

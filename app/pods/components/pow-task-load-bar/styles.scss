@@ -1,0 +1,27 @@
+@keyframes task-load-progress {
+  to {
+    background-position: 60px 100%;
+  }
+}
+
+.task-load-bar__loader {
+  position: fixed;
+  top: $navigation-height;
+  left: 0;
+  width: 100vw;
+  height: 0;
+  background: linear-gradient(
+      135deg,
+      rgba($primary-color, 0.35) 25%,
+      rgba($primary-color, 1) 25%,
+      rgba($primary-color, 1) 75%,
+      rgba($primary-color, 0.35) 75%
+  );
+  animation: task-load-progress 1000ms linear infinite;
+  background-size: 60px 100%;
+  transition: height linear 100ms;
+}
+
+.task-load-bar__loader--loading {
+  height: 6px;
+}

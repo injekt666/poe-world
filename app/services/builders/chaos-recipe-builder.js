@@ -6,7 +6,7 @@ const REGAL_LOW_LEVEL = 75;
 const REGAL_HIGH_LEVEL = 100;
 const RARE_RARITY = 'rare';
 const ONE_HANDED_REGEXP = /(one|claw|shield|wand|dagger)/i;
-const TWO_HANDED_REGEXP = /(two)/i;
+const TWO_HANDED_REGEXP = /(two|staff)/i;
 
 export default Service.extend({
   initializeDataStructure() {
