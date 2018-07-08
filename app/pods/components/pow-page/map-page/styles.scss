@@ -1,10 +1,16 @@
+$map-page-nav-height: 35px;
+$map-page-header-height: 160px;
+$map-page-width: 700px;
+
 & {
   position: fixed;
   top: $navigation-height;
   right: 0;
+  overflow-x: hidden;
   overflow-y: auto;
-  width: 700px;
+  width: $map-page-width;
   height: calc(100vh - #{$navigation-height});
+  padding-top: $map-page-header-height + $map-page-nav-height;
   background-color: $background-color;
 }
 
@@ -16,6 +22,14 @@
 }
 
 .map-page__header {
+  display: flex;
+  position: fixed;
+  top: $navigation-height;
+  right: 0;
+  flex-direction: column;
+  justify-content: space-between;
+  width: $map-page-width;
+  height: $map-page-header-height;
   padding: $padding $padding ($padding * 2);
   background-color: $background-darker-color;
 }
@@ -89,13 +103,28 @@
 
 .map-page__nav {
   display: flex;
+  position: fixed;
+  top: $navigation-height + $map-page-header-height;
+  right: 0;
+  overflow: hidden;
+  width: $map-page-width;
+  padding-bottom: 50px;
+
+  &::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: $map-page-nav-height - 5px;
+    width: 100%;
+    box-shadow: 0 5px 15px 10px $background-color;
+  }
 }
 
 .map-page__nav-link {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: ($padding / 2) 0;
+  height: $map-page-nav-height;
   background-color: lighten($background-color, 7.5%);
   text-decoration: none;
   font-family: $font-family-accent;
@@ -118,4 +147,9 @@
 
 .map-page__nav-link-label {
   margin-left: $padding / 2;
+}
+
+.map-page__wrapper {
+  position: relative;
+  z-index: -1;
 }

@@ -2,8 +2,11 @@ $navigation-spacing: 15px;
 
 & {
   display: flex;
-  position: relative;
+  position: fixed;
   z-index: $navigation-z-index;
+  top: 0;
+  right: 0;
+  left: 0;
   justify-content: space-between;
   align-items: center;
   height: $navigation-height;
