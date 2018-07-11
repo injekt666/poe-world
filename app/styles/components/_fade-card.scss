@@ -5,6 +5,10 @@
   background: linear-gradient(to right, rgba($primary-color, 0.25), $background-color);
 }
 
+.fade-card--success {
+  background: linear-gradient(to right, rgba($success-color, 0.25), $background-color);
+}
+
 .fade-card--error {
   background: linear-gradient(to right, rgba($error-color, 0.25), $background-color);
 }

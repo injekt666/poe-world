@@ -7,11 +7,14 @@
     <ul class="settings-vendor-recipe-page__stashes">
       {{#each stashes as |stash|}}
         <li
-          class="settings-vendor-recipe-page__stashes-card {{if stash.isDisabled 'settings-vendor-recipe-page__stashes-card--disabled'}}"
-          style={{css-style 'color' stash.color}}
-            {{action toggleStash stash}}
+          class="fade-card settings-vendor-recipe-page__stashes-card {{if stash.isDisabled 'fade-card--error settings-vendor-recipe-page__stashes-card--disabled' (if stash.isSelected 'fade-card--success')}}"
+          {{action toggleStash stash}}
         >
-          <div class="settings-vendor-recipe-page__stashes-card-name">{{stash.name}}</div>
+          <div class="settings-vendor-recipe-page__stashes-card-name">
+            <div class="settings-vendor-recipe-page__stashes-card-name-color" style={{css-style 'background-color' stash.color}}></div>
+            {{stash.name}}
+          </div>
+
           <div class="settings-vendor-recipe-page__stashes-card-type">{{stash.type}}</div>
 
           {{#unless stash.isDisabled}}
