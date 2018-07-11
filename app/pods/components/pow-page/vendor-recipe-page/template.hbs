@@ -7,7 +7,7 @@
         {{t 'components.page.vendor_recipe_page.chromatic_title'}}
       </h2>
 
-      <div class="vendor-recipe-page__recipe-card">
+      <div class="fade-card">
         <div class="vendor-recipe-page__recipe-card-count">
           <div class="vendor-recipe-page__recipe-card-count-value">{{chromaticRecipe.recipeCount}}</div>
           {{fa-icon 'times' class='vendor-recipe-page__recipe-card-count-times'}}
@@ -25,7 +25,7 @@
         {{t 'components.page.vendor_recipe_page.jeweller_title'}}
       </h2>
 
-      <div class="vendor-recipe-page__recipe-card">
+      <div class="fade-card">
         <div class="vendor-recipe-page__recipe-card-count">
           <div class="vendor-recipe-page__recipe-card-count-value">{{jewellerRecipe.recipeCount}}</div>
           {{fa-icon 'times' class='vendor-recipe-page__recipe-card-count-times'}}
@@ -43,7 +43,7 @@
         {{t 'components.page.vendor_recipe_page.divine_title'}}
       </h2>
 
-      <div class="vendor-recipe-page__recipe-card">
+      <div class="fade-card">
         <div class="vendor-recipe-page__recipe-card-count">
           <div class="vendor-recipe-page__recipe-card-count-value">{{divineRecipe.recipeCount}}</div>
           {{fa-icon 'times' class='vendor-recipe-page__recipe-card-count-times'}}
@@ -63,8 +63,8 @@
 
   <div class="vendor-recipe-page__chaos">
     <div class="vendor-recipe-page__chaos-hands">
-      <div class="vendor-recipe-page__recipe-card">
-        <div class="vendor-recipe-page__recipe-card-header">
+      <div class="fade-card">
+        <div class="fade-card__title">
           {{t 'components.page.vendor_recipe_page.summary'}}
         </div>
 
@@ -75,8 +75,8 @@
         </div>
       </div>
 
-      <div class="vendor-recipe-page__recipe-card {{if chaosRecipe.hands.isError 'vendor-recipe-page__recipe-card--error' (if chaosRecipe.hands.isWarning 'vendor-recipe-page__recipe-card--warning')}}">
-        <div class="vendor-recipe-page__recipe-card-header">
+      <div class="fade-card {{if chaosRecipe.hands.isError 'fade-card--error' (if chaosRecipe.hands.isWarning 'fade-card--warning')}}">
+        <div class="fade-card__title">
           {{t 'components.page.vendor_recipe_page.hand'}}
         </div>
 
@@ -123,8 +123,8 @@
     <div class="vendor-recipe-page__chaos-misc">
       <div class="vendor-recipe-page__chaos-misc-row">
         <div class="vendor-recipe-page__chaos-misc-col">
-          <div class="vendor-recipe-page__recipe-card {{if chaosRecipe.helmet.isError 'vendor-recipe-page__recipe-card--error' (if chaosRecipe.helmet.isWarning 'vendor-recipe-page__recipe-card--warning')}}">
-            <div class="vendor-recipe-page__recipe-card-header">
+          <div class="fade-card {{if chaosRecipe.helmet.isError 'fade-card--error' (if chaosRecipe.helmet.isWarning 'fade-card--warning')}}">
+            <div class="fade-card__title">
               {{t 'components.page.vendor_recipe_page.helmet'}}
             </div>
 
@@ -149,8 +149,8 @@
         </div>
 
         <div class="vendor-recipe-page__chaos-misc-col">
-          <div class="vendor-recipe-page__recipe-card {{if chaosRecipe.chest.isError 'vendor-recipe-page__recipe-card--error' (if chaosRecipe.chest.isWarning 'vendor-recipe-page__recipe-card--warning')}}">
-            <div class="vendor-recipe-page__recipe-card-header">
+          <div class="fade-card {{if chaosRecipe.chest.isError 'fade-card--error' (if chaosRecipe.chest.isWarning 'fade-card--warning')}}">
+            <div class="fade-card__title">
               {{t 'components.page.vendor_recipe_page.chest'}}
             </div>
 
@@ -177,8 +177,8 @@
 
       <div class="vendor-recipe-page__chaos-misc-row">
         <div class="vendor-recipe-page__chaos-misc-col">
-          <div class="vendor-recipe-page__recipe-card {{if chaosRecipe.belt.isError 'vendor-recipe-page__recipe-card--error' (if chaosRecipe.belt.isWarning 'vendor-recipe-page__recipe-card--warning')}}">
-            <div class="vendor-recipe-page__recipe-card-header">
+          <div class="fade-card {{if chaosRecipe.belt.isError 'fade-card--error' (if chaosRecipe.belt.isWarning 'fade-card--warning')}}">
+            <div class="fade-card__title">
               {{t 'components.page.vendor_recipe_page.belt'}}
             </div>
 
@@ -203,8 +203,8 @@
         </div>
 
         <div class="vendor-recipe-page__chaos-misc-col">
-          <div class="vendor-recipe-page__recipe-card {{if chaosRecipe.boots.isError 'vendor-recipe-page__recipe-card--error' (if chaosRecipe.boots.isWarning 'vendor-recipe-page__recipe-card--warning')}}">
-            <div class="vendor-recipe-page__recipe-card-header">
+          <div class="fade-card {{if chaosRecipe.boots.isError 'fade-card--error' (if chaosRecipe.boots.isWarning 'fade-card--warning')}}">
+            <div class="fade-card__title">
               {{t 'components.page.vendor_recipe_page.boots'}}
             </div>
 
@@ -231,8 +231,8 @@
 
       <div class="vendor-recipe-page__chaos-misc-row">
         <div class="vendor-recipe-page__chaos-misc-col">
-          <div class="vendor-recipe-page__recipe-card {{if chaosRecipe.amulet.isError 'vendor-recipe-page__recipe-card--error' (if chaosRecipe.amulet.isWarning 'vendor-recipe-page__recipe-card--warning')}}">
-            <div class="vendor-recipe-page__recipe-card-header">
+          <div class="fade-card {{if chaosRecipe.amulet.isError 'fade-card--error' (if chaosRecipe.amulet.isWarning 'fade-card--warning')}}">
+            <div class="fade-card__title">
               {{t 'components.page.vendor_recipe_page.amulet'}}
             </div>
 
@@ -257,8 +257,8 @@
         </div>
 
         <div class="vendor-recipe-page__chaos-misc-col">
-          <div class="vendor-recipe-page__recipe-card {{if chaosRecipe.gloves.isError 'vendor-recipe-page__recipe-card--error' (if chaosRecipe.gloves.isWarning 'vendor-recipe-page__recipe-card--warning')}}">
-            <div class="vendor-recipe-page__recipe-card-header">
+          <div class="fade-card {{if chaosRecipe.gloves.isError 'fade-card--error' (if chaosRecipe.gloves.isWarning 'fade-card--warning')}}">
+            <div class="fade-card__title">
               {{t 'components.page.vendor_recipe_page.gloves'}}
             </div>
 
@@ -285,8 +285,8 @@
 
       <div class="vendor-recipe-page__chaos-misc-row">
         <div class="vendor-recipe-page__chaos-misc-col">
-          <div class="vendor-recipe-page__recipe-card {{if chaosRecipe.ring.isError 'vendor-recipe-page__recipe-card--error' (if chaosRecipe.ring.isWarning 'vendor-recipe-page__recipe-card--warning')}}">
-            <div class="vendor-recipe-page__recipe-card-header">
+          <div class="fade-card {{if chaosRecipe.ring.isError 'fade-card--error' (if chaosRecipe.ring.isWarning 'fade-card--warning')}}">
+            <div class="fade-card__title">
               {{t 'components.page.vendor_recipe_page.ring'}}
             </div>
 

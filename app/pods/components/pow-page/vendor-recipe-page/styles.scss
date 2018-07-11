@@ -26,28 +26,6 @@
   }
 }
 
-.vendor-recipe-page__recipe-card {
-  padding: 10px 0 10px 20px;
-  border-radius: $border-radius;
-  margin-top: 10px;
-  background: linear-gradient(to right, rgba($primary-color, 0.25), $background-color);
-}
-
-.vendor-recipe-page__recipe-card--error {
-  background: linear-gradient(to right, rgba($error-color, 0.25), $background-color);
-}
-
-.vendor-recipe-page__recipe-card--warning {
-  background: linear-gradient(to right, rgba($warning-color, 0.25), $background-color);
-}
-
-.vendor-recipe-page__recipe-card-header {
-  margin-bottom: 10px;
-  font-family: $font-family-accent;
-  font-size: 1.2rem;
-  letter-spacing: 1px;
-}
-
 .vendor-recipe-page__recipe-card-label {
   margin: 20px 0 10px;
   font-family: $font-family-accent;
