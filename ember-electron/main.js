@@ -4,6 +4,9 @@ const { dirname, join, resolve } = require('path');
 const protocolServe = require('electron-protocol-serve');
 const rp = require('request-promise');
 
+// Handling Windows event/integration
+if (require('electron-squirrel-startup')) app.quit();
+
 let mainWindow = null;
 
 // Registering a protocol & schema to serve our Ember application
