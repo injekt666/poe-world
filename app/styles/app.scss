@@ -4,13 +4,16 @@
 // Vendors
 @import 'ember-modal-dialog/ember-modal-structure';
 @import 'vendors/ember-modal-dialog';
+@import 'vendors/toastr';
 
 // Mixins
 @import 'mixins/titles';
 @import 'mixins/button';
 @import 'mixins/page';
 
-// CSS Component
+// CSS Components
 @import 'components/alert';
 @import 'components/fade-card';
+
+// Ember Components
 @import 'pod-styles';

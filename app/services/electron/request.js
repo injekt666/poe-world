@@ -1,11 +1,15 @@
 import Service, {inject as service} from '@ember/service';
 import {Promise} from 'rsvp';
+import PoeAuthenticationError from 'poe-world/errors/poe-authentication-error';
 import uuid from 'poe-world/utilities/uuid';
 
 // Constants
 const IPC_CHANNEL = 'REQUEST';
+const FORBIDDEN_STATUS_CODE = 403;
 
 export default Service.extend({
+  i18n: service('i18n'),
+  toaster: service('toaster'),
   authenticationSetting: service('settings/authentication-setting'),
 
   fetch(url, params = {}) {
@@ -14,7 +18,8 @@ export default Service.extend({
 
   _fetch(method, url, params = {}) {
     const poesessid = this.authenticationSetting.poesessid;
-    if (!poesessid) return Promise.reject();
+
+    if (!poesessid) return Promise.reject(this._createAuthenticationError());
 
     const {ipcRenderer} = requireNode('electron');
 
@@ -41,8 +46,17 @@ export default Service.extend({
 
       ipcRenderer.once(responseErrorChannel, (_event, error) => {
         ipcRenderer.removeAllListeners(responseSuccessChannel);
+
+        if (error.statusCode === FORBIDDEN_STATUS_CODE) return reject(this._createAuthenticationError());
         return reject(error);
       });
     });
+  },
+
+  _createAuthenticationError() {
+    const message = this.i18n.t('services.electron.request.unauthenticated_error').string;
+    this.toaster.toastError(message);
+
+    return new PoeAuthenticationError();
   }
 });

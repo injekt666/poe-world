@@ -103,6 +103,16 @@ export default {
         title: "Vendor recipe stash tabs"
       }
     }
+  },
+  services: {
+    electron: {
+      request: {
+        unauthenticated_error: "A valid POESESSID is required to perform this action, go set it in your settings."
+      }
+    },
+    toaster: {
+      unexpected_error: "An unexpected error occurred. Try again later."
+    }
   }
 };
 /* eslint-enable */
