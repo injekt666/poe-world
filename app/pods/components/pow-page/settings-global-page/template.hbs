@@ -32,7 +32,7 @@
       value=currentPoesessid
       onChange=(action applyPoesessid)}}
 
-    {{#pow-task-load-container task=testAuthenticationTask}}
+    {{#pow-task-load-container task=testAuthenticationTask loaderAlignment='left'}}
       <div class="settings-global-page__authentication-section-test">
         {{#if isAuthenticated}}
           {{fa-icon 'check'}} {{t 'components.page.settings_global_page.authenticated'}}

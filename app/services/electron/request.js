@@ -19,7 +19,7 @@ export default Service.extend({
   _fetch(method, url, params = {}) {
     const poesessid = this.authenticationSetting.poesessid;
 
-    if (!poesessid) return Promise.reject(this._createAuthenticationError());
+    if (!poesessid) return Promise.reject(this._createAuthenticationError(params));
 
     const {ipcRenderer} = requireNode('electron');
 
@@ -47,16 +47,18 @@ export default Service.extend({
       ipcRenderer.once(responseErrorChannel, (_event, error) => {
         ipcRenderer.removeAllListeners(responseSuccessChannel);
 
-        if (error.statusCode === FORBIDDEN_STATUS_CODE) return reject(this._createAuthenticationError());
+        if (error.statusCode === FORBIDDEN_STATUS_CODE) return reject(this._createAuthenticationError(params));
         return reject(error);
       });
     });
   },
 
-  _createAuthenticationError() {
-    const message = this.i18n.t('services.electron.request.unauthenticated_error').string;
-    this.toaster.toastError(message);
-
+  _createAuthenticationError({toastAuthenticationError = true}) {
+    if (toastAuthenticationError) {
+      const message = this.i18n.t('services.electron.request.unauthenticated_error').string;
+      this.toaster.toastError(message);
+    }
+    
     return new PoeAuthenticationError();
   }
 });

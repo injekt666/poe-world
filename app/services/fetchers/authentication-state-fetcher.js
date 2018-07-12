@@ -14,6 +14,8 @@ export default Service.extend({
 
     if (!this.globalState.isElectron || !account) return Promise.reject(null);
 
-    return this.electronRequest.fetch(`${PRIVATE_API.CHARACTER_WINDOW_BASE_URL}/get-stash-items?accountName=${account}&league=${leagueId}`);
+    return this.electronRequest.fetch(`${PRIVATE_API.CHARACTER_WINDOW_BASE_URL}/get-stash-items?accountName=${account}&league=${leagueId}`, {
+      toastAuthenticationError: false
+    });
   }
 });
