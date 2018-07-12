@@ -68,6 +68,8 @@ export default {
         }
       },
       vendor_recipe_page: {
+        missing_stashes_selection: "To use this feature, you need to select which stash tabs you want to track.",
+        missing_stashes_button: "Configure",
         chromatic_title: "Chromatic",
         jeweller_title: "Jeweller",
         divine_title: "Divine",

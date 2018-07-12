@@ -2,6 +2,16 @@
   @include page;
 }
 
+.vendor-recipe-page__empty-warning {
+  margin-bottom: 20px;
+}
+
+.vendor-recipe-page__empty-warning-button {
+  @include button;
+
+  margin-left: 15px;
+}
+
 .vendor-recipe-page__title {
   @include subtitle;
 

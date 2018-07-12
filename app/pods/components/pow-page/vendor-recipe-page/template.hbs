@@ -1,3 +1,13 @@
+{{#unless hasVendorRecipeStashes}}
+  <div class="vendor-recipe-page__empty-warning alert alert--warning">
+    {{t 'components.page.vendor_recipe_page.missing_stashes_selection'}}
+
+    {{#pow-link 'settings.vendor-recipe' class='vendor-recipe-page__empty-warning-button'}}
+      {{fa-icon 'wrench'}} {{t 'components.page.vendor_recipe_page.missing_stashes_button'}}
+    {{/pow-link}}
+  </div>
+{{/unless}}
+
 {{#pow-task-load-container task=vendorRecipeInitialLoadTask}}
   {{pow-task-load-bar task=vendorRecipeLoadTask}}
 

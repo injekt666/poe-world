@@ -15,7 +15,7 @@ export default Component.extend({
   divineRecipeBuilder: service('builders/divine-recipe-builder'),
   chaosRecipeBuilder: service('builders/chaos-recipe-builder'),
 
-  hasNoStashToLoad: false,
+  hasVendorRecipeStashes: false,
 
   chromaticImageUrl: CURRENCIES.chrom.imageUrl,
   jewellerImageUrl: CURRENCIES.jew.imageUrl,
@@ -29,9 +29,10 @@ export default Component.extend({
 
   vendorRecipeLoadTask: task(function *() {
     const stashIdsToLoad = this.vendorRecipeSetting.stashIds;
+    const hasVendorRecipeStashes = stashIdsToLoad.length > 0;
     let stashIndexes = [];
 
-    if (stashIdsToLoad.length) {
+    if (hasVendorRecipeStashes) {
       const stashTabs = yield this.stashTabsFetcher.fetch();
       stashIndexes = stashTabs
         .filter((stashTab) => stashIdsToLoad.includes(stashTab.id))
@@ -45,6 +46,7 @@ export default Component.extend({
     }
 
     this.setProperties({
+      hasVendorRecipeStashes,
       chromaticRecipe: this.chromaticRecipeBuilder.build(stashItems),
       jewellerRecipe: this.jewellerRecipeBuilder.build(stashItems),
       divineRecipe: this.divineRecipeBuilder.build(stashItems),
