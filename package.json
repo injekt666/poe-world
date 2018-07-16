@@ -15,7 +15,7 @@
     "start-web": "ember serve",
     "test-web": "ember test",
     "build-electron": "ember electron:make",
-    "start-electron": "DEBUG=true ember electron",
+    "start-electron": "ember electron",
     "test-electron": "ember electron:test",
     "lint": "npm run lint-js && npm run lint-scss",
     "lint-js": "./node_modules/.bin/eslint './*.js' 'app' 'blueprints' 'config' 'lib' 'server' 'tests'",

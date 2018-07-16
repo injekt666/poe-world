@@ -1,7 +1,7 @@
 import EmberRouter from '@ember/routing/router';
 import config from './config/environment';
 
-const {locationType, rootURL, APP: {DEV_MODE}} = config;
+const {locationType, rootURL, APP: {DEBUG}} = config;
 
 const Router = EmberRouter.extend({
   location: locationType,
@@ -11,7 +11,7 @@ const Router = EmberRouter.extend({
 /* eslint-disable max-nested-callbacks */
 Router.map(function() {
   // Dev routes
-  if (DEV_MODE) {
+  if (DEBUG) {
     this.route('atlas-offsets');
   }
 

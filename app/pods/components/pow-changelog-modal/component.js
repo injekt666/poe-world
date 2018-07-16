@@ -5,7 +5,7 @@ import ENV from 'poe-world/config/environment';
 import STORAGE_KEYS from 'poe-world/constants/storage-keys';
 
 // Constants
-const {APP: {VERSION: CURRENT_VERSION, CHANGELOG}} = ENV;
+const {APP: {VERSION: CURRENT_VERSION, CHANGELOG, DEBUG}} = ENV;
 
 export default Component.extend({
   storage: service('storage'),
@@ -18,7 +18,7 @@ export default Component.extend({
   verifyVersionsTask: task(function *() {
     const lastSessionVersion = this.storage.getValue(STORAGE_KEYS.LAST_SESSION_VERSION);
 
-    if (lastSessionVersion < CURRENT_VERSION) {
+    if (lastSessionVersion < CURRENT_VERSION || DEBUG) {
       return this.setProperties({
         changelogMarkdown: CHANGELOG,
         isOpened: true

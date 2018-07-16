@@ -30,7 +30,7 @@ module.exports = function(environment) {
     },
 
     APP: {
-      DEV_MODE: Boolean(process.env.DEV_MODE),
+      DEBUG: Boolean(process.env.DEBUG),
       VERSION: npmPackage.version,
       CHANGELOG: fs.readFileSync(`./changelogs/${npmPackage.version.replace(/\./g, '_')}.md`, 'utf-8'),
       GITHUB_HANDLE: npmPackage.repository.match(/github\.com\/(.+)/)[1]
