@@ -11,15 +11,15 @@
 
 .alert--warning {
   border: 1px solid rgba($warning-color, 0.75);
-  background-color: rgba($warning-color, 0.65);
+  background-color: $warning-color;
 }
 
 .alert--success {
   border: 1px solid rgba($success-color, 0.75);
-  background-color: rgba($success-color, 0.65);
+  background-color: $success-color;
 }
 
 .alert--error {
   border: 1px solid rgba($error-color, 0.75);
-  background-color: rgba($error-color, 0.65);
+  background-color: $error-color;
 }

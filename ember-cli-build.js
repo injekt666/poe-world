@@ -26,7 +26,6 @@ module.exports = function(defaults) {
   });
 
   app.import('vendor/panzoom.js');
-  app.import('vendor/toastr.js');
 
   return app.toTree();
 };

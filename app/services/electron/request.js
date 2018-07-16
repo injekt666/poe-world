@@ -58,7 +58,7 @@ export default Service.extend({
       const message = this.i18n.t('services.electron.request.unauthenticated_error').string;
       this.toaster.toastError(message);
     }
-    
+
     return new PoeAuthenticationError();
   }
 });

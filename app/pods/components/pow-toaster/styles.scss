@@ -1,0 +1,29 @@
+$toaster-spacing: 20px;
+
+@keyframes toast-slide-in {
+  0% { left: calc(-100% - #{$toaster-spacing}); }
+  100% { left: 0; }
+}
+
+@keyframes toast-slide-out {
+  0% { left: 0; }
+  100% { left: calc(-100% - #{$toaster-spacing}); }
+}
+
+& {
+  position: fixed;
+  z-index: $toaster-z-index;
+  bottom: $toaster-spacing;
+  left: $toaster-spacing;
+}
+
+.toaster__toast {
+  position: relative;
+  margin-bottom: $toaster-spacing;
+  box-shadow: 0 0 20px 5px rgba($background-color, 0.75);
+  animation: toast-slide-in 250ms ease-in forwards;
+}
+
+.toaster__toast--out {
+  animation: toast-slide-out 150ms ease-out forwards;
+}

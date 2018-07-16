@@ -19,7 +19,7 @@ $rare-color: #ff7;
 $magic-color: #88f;
 
 $success-color: #64a747;
-$warning-color: #bdb330;
+$warning-color: #bd9f43;
 $error-color: #a72932;
 
 $border-radius: 5px;
@@ -38,6 +38,7 @@ $atlas-sextants-item-radius: 150px;
 $map-fading-in-duration: 1500ms;
 
 // Z-Indexes
+$toaster-z-index: 2200;
 $modal-z-index: 2100;
 $navigation-z-index: 2000;
 $atlas-map-z-index: 1000;

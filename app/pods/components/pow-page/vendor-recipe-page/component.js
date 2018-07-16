@@ -49,7 +49,7 @@ export default Component.extend({
       }
 
     } catch (error) {
-      if (!(error instanceof PoeAuthenticationError)) return this.toaster.toastUnexpectedError();
+      if (!(error instanceof PoeAuthenticationError)) this.toaster.toastUnexpectedError();
     }
 
     this.setProperties({
