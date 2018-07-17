@@ -38,7 +38,7 @@ app.on('ready', () => {
     height: 800
   });
 
-  if (process.env.DEBUG || true) mainWindow.openDevTools();
+  if (process.env.DEBUG) mainWindow.openDevTools();
 
   const emberAppLocation = 'serve://dist';
 
