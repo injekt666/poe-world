@@ -4,6 +4,9 @@ const { dirname, join, resolve } = require('path');
 const protocolServe = require('electron-protocol-serve');
 const rp = require('request-promise');
 
+// Environment utilities
+const parseBooleanString = (booleanString) => /^true$/i.test(booleanString);
+
 // Handling Windows event/integration
 if (require('electron-squirrel-startup')) app.quit();
 
@@ -38,7 +41,7 @@ app.on('ready', () => {
     height: 800
   });
 
-  if (process.env.DEBUG) mainWindow.openDevTools();
+  if (parseBooleanString(process.env.DEBUG)) mainWindow.openDevTools();
 
   const emberAppLocation = 'serve://dist';
 

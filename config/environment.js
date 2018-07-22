@@ -3,6 +3,9 @@
 const npmPackage = require('../package.json');
 const fs = require('fs');
 
+// Environment utilities
+const parseBooleanString = (booleanString) => /^true$/i.test(booleanString);
+
 module.exports = function(environment) {
   const ENV = {
     modulePrefix: 'poe-world',
@@ -30,7 +33,8 @@ module.exports = function(environment) {
     },
 
     APP: {
-      DEBUG: Boolean(process.env.DEBUG),
+      DEBUG: parseBooleanString(process.env.DEBUG),
+      FORCE_CHANGELOG: parseBooleanString(process.env.FORCE_CHANGELOG),
       VERSION: npmPackage.version,
       CHANGELOG: fs.readFileSync(`./changelogs/${npmPackage.version.replace(/\./g, '_')}.md`, 'utf-8'),
       GITHUB_HANDLE: npmPackage.repository.match(/github\.com\/(.+)/)[1]
