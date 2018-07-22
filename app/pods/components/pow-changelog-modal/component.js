@@ -16,7 +16,7 @@ export default Component.extend({
   nextRelease: null,
 
   verifyVersionsTask: task(function *() {
-    const lastSessionVersion = this.storage.getValue(STORAGE_KEYS.LAST_SESSION_VERSION);
+    const lastSessionVersion = this.storage.getValue(STORAGE_KEYS.LAST_SESSION_VERSION, '0.0.0');
 
     if (lastSessionVersion < CURRENT_VERSION || DEBUG) {
       return this.setProperties({
