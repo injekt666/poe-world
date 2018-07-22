@@ -3,13 +3,27 @@
 
   <div class="navigation__left-section-brand">PoeWorld</div>
 
-  {{#pow-link 'atlas' class='navigation__left-section-link'}}
-    {{t 'components.navigation.atlas'}}
-  {{/pow-link}}
+  <ul class="navigation__menu">
+    <li class="navigation__menu-link-wrapper">
+      {{#pow-link 'atlas' class='navigation__menu-link'}}
+        {{t 'components.navigation.atlas'}}
+      {{/pow-link}}
+    </li>
 
-  {{#pow-link 'vendor-recipe' class='navigation__left-section-link'}}
-    {{t 'components.navigation.vendor_recipe'}}
-  {{/pow-link}}
+    <li class="navigation__menu-link-wrapper">
+      {{#pow-link 'stash' class='navigation__menu-link'}}
+        {{t 'components.navigation.stash'}}
+
+        <ul class="navigation__submenu">
+          <li class="navigation__submenu-link-wrapper">
+            {{#pow-link 'stash.vendor-recipe' class='navigation__submenu-link'}}
+              {{t 'components.navigation.vendor_recipe'}}
+            {{/pow-link}}
+          </li>
+        </ul>
+      {{/pow-link}}
+    </li>
+  </ul>
 </div>
 
 <div class="navigation__right-section">
@@ -17,7 +31,11 @@
     {{leagueName}}
   </div>
 
-  {{#pow-link 'settings' class='navigation__right-section-link'}}
-    {{t 'components.navigation.settings'}}
-  {{/pow-link}}
+  <ul class="navigation__menu">
+    <li class="navigation__menu-link-wrapper">
+      {{#pow-link 'settings' class='navigation__menu-link'}}
+        {{t 'components.navigation.settings'}}
+      {{/pow-link}}
+    </li>
+  </ul>
 </div>

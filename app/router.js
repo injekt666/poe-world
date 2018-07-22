@@ -25,7 +25,9 @@ Router.map(function() {
     });
   });
 
-  this.route('vendor-recipe');
+  this.route('stash', function() {
+    this.route('vendor-recipe', {path: '/'});
+  });
 
   this.route('settings', function() {
     this.route('global', {path: '/'});

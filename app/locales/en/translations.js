@@ -24,7 +24,8 @@ export default {
       copied: "Copied"
     },
     navigation: {
-      atlas: "Atlas",
+      atlas: "Your atlas",
+      stash: "Your stash",
       vendor_recipe: "Vendor recipe",
       settings: "Settings"
     },
