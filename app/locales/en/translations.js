@@ -101,7 +101,10 @@ export default {
         not_authenticated: "Not authenticated"
       },
       settings_vendor_recipe_page: {
-        title: "Vendor recipe stash tabs"
+        title: "Vendor recipe stash tabs",
+        stash_name: "Stash name",
+        stash_type: "Stash type",
+        vendor_recipe: "Vendor recipe"
       }
     }
   },
