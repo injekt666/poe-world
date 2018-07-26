@@ -13,24 +13,3 @@
 .badge-league {
   font-size: 0.95rem;
 }
-
-.nav-link {
-  position: relative;
-
-  &::before {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 4px;
-    background-color: $white;
-    transition: width 100ms;
-    border-bottom-left-radius: 2px;
-    border-bottom-right-radius: 2px;
-  }
-
-  &.active::before {
-    width: 100%;
-  }
-}
