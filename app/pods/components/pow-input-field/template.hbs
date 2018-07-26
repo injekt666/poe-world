@@ -1,10 +1,12 @@
-<label for={{id}} class="input-field__label">
-  {{label}}
-</label>
+<div class="form-group">
+  <label for={{id}}>{{label}}</label>
 
-<input
-  type="text"
-  id={{id}}
-  class="input-field__input"
-  value={{value}}
-  oninput={{action inputChange}}>
+  <input
+    type="text"
+    id={{id}}
+    class="form-control"
+    value={{value}}
+    oninput={{action inputChange}}/>
+
+  {{yield}}
+</div>

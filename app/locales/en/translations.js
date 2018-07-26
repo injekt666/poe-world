@@ -104,7 +104,10 @@ export default {
         title: "Vendor recipe stash tabs",
         stash_name: "Stash name",
         stash_type: "Stash type",
-        vendor_recipe: "Vendor recipe"
+        vendor_recipe: "Vendor recipe",
+        include: "Include",
+        exclude: "Exclude",
+        not_supported: "Not supported"
       }
     }
   },

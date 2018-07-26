@@ -1,45 +1,50 @@
-<h1 class="settings-global-page__title">
-  {{t 'components.page.settings_global_page.leagues_title'}}
-</h1>
+<div class="container-fluid">
+  <h2>{{t 'components.page.settings_global_page.leagues_title'}}</h2>
 
-{{#pow-task-load-container task=leaguesLoadTask}}
-  <ul class="settings-global-page__leagues">
-    {{#each leagues as |league|}}
-      <li {{action applyLeague league}} class="settings-global-page__leagues-item">
-        {{#if (eq league.slug currentLeagueSlug)}}
-          {{fa-icon 'check'}}
-        {{/if}}
+  {{#pow-task-load-container task=leaguesLoadTask}}
+    <div class="btn-group">
+      {{#each leagues as |league|}}
+        <button type="button" class="btn btn-primary" {{action applyLeague league}}>
+          {{#if (eq league.slug currentLeagueSlug)}}
+            {{fa-icon 'check'}}
+          {{/if}}
 
-        {{league.name}}
-      </li>
-    {{/each}}
-  </ul>
-{{/pow-task-load-container}}
+          {{league.name}}
+        </button>
+      {{/each}}
+    </div>
+  {{/pow-task-load-container}}
 
-<h1 class="settings-global-page__title">
-  {{t 'components.page.settings_global_page.authentication_title'}}
-</h1>
+  <h2 class="mt-4">
+    {{t 'components.page.settings_global_page.authentication_title'}}
+  </h2>
 
-{{#pow-electron-container}}
-  <div class="settings-global-page__authentication-section">
-    {{pow-input-field
-      label=(t 'components.page.settings_global_page.account_label')
-      value=currentAccount
-      onChange=(action applyAccount)}}
+  {{#pow-electron-container}}
+    <div class="form-group w-25">
+      {{pow-input-field
+        label=(t 'components.page.settings_global_page.account_label')
+        value=currentAccount
+        onChange=(action applyAccount)}}
 
-    {{pow-input-field
-      label=(t 'components.page.settings_global_page.poesessid_label')
-      value=currentPoesessid
-      onChange=(action applyPoesessid)}}
+      {{#pow-input-field
+        label=(t 'components.page.settings_global_page.poesessid_label')
+        value=currentPoesessid
+        onChange=(action applyPoesessid)}}
+      {{/pow-input-field}}
 
-    {{#pow-task-load-container task=testAuthenticationTask loaderAlignment='left'}}
-      <div class="settings-global-page__authentication-section-test">
-        {{#if isAuthenticated}}
-          {{fa-icon 'check'}} {{t 'components.page.settings_global_page.authenticated'}}
+      <p class="text-center">
+        {{#if testAuthenticationTask.isRunning}}
+            {{fa-icon 'spinner' spin=true}}
         {{else}}
-          {{fa-icon 'times'}} {{t 'components.page.settings_global_page.not_authenticated'}}
+          {{#if isAuthenticated}}
+            {{fa-icon 'check'}} {{t 'components.page.settings_global_page.authenticated'}}
+          {{else}}
+            {{fa-icon 'times'}} {{t 'components.page.settings_global_page.not_authenticated'}}
+          {{/if}}
         {{/if}}
-      </div>
-    {{/pow-task-load-container}}
-  </div>
-{{/pow-electron-container}}
+      </p>
+    </div>
+  {{/pow-electron-container}}
+</div>
+
+

@@ -1,38 +1,56 @@
-<h1 class="settings-vendor-recipe-page__title">
-  {{t 'components.page.settings_vendor_recipe_page.title'}}
-</h1>
+<div class="container-fluid">
+  <h2>{{t 'components.page.settings_vendor_recipe_page.title'}}</h2>
 
-{{#pow-electron-container}}
-  {{#pow-task-load-container task=stashTabsLoadTask}}
-    <table class="rich-table">
-      <tr>
-        <th class="rich-table__head-row-cell">
-          {{t 'components.page.settings_vendor_recipe_page.stash_name'}}
-        </th>
-        <th class="rich-table__head-row-cell">
-          {{t 'components.page.settings_vendor_recipe_page.stash_type'}}
-        </th>
-        <th class="rich-table__head-row-cell rich-table__head-row-cell--centered">
-          {{t 'components.page.settings_vendor_recipe_page.vendor_recipe'}}
-        </th>
-      </tr>
-
-      {{#each stashes as |stash|}}
-        <tr class="rich-table__body-row settings-vendor-recipe-page__stash--disabled">
-          <td class="rich-table__body-row-cell">
-            <div class="settings-vendor-recipe-page__stash-color" style={{css-style 'background-color' stash.color}}></div>
-            {{stash.name}}
-          </td>
-          <td class="rich-table__body-row-cell">
-            {{stash.type}}
-          </td>
-          <td class="rich-table__body-row-cell rich-table__body-row-cell--button" {{action toggleStash stash}}>
-            {{#unless stash.isDisabled}}
-              {{fa-icon (if stash.isSelected 'check-square' 'square')}}
-            {{/unless}}
-          </td>
+  {{#pow-electron-container}}
+    {{#pow-task-load-container task=stashTabsLoadTask}}
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th class="rich-table__head-row-cell">
+            {{t 'components.page.settings_vendor_recipe_page.stash_name'}}
+          </th>
+          <th class="rich-table__head-row-cell">
+            {{t 'components.page.settings_vendor_recipe_page.stash_type'}}
+          </th>
+          <th class="rich-table__head-row-cell rich-table__head-row-cell--centered">
+            {{t 'components.page.settings_vendor_recipe_page.vendor_recipe'}}
+          </th>
         </tr>
-      {{/each}}
-    </table>
-  {{/pow-task-load-container}}
-{{/pow-electron-container}}
+        </thead>
+
+        <tbody>
+        {{#each stashes as |stash|}}
+          <tr>
+            <td>
+              <div class="d-flex align-items-center">
+                <div class="stash-color d-block" style={{css-style 'background-color' stash.color}}></div>
+                <span class="ml-2">{{stash.name}}</span>
+              </div>
+            </td>
+            <td>
+              {{stash.type}}
+            </td>
+            <td>
+              {{#unless stash.isDisabled}}
+                <button type="button" class="btn btn-{{if stash.isSelected 'danger' 'primary'}} btn-sm" {{action toggleStash stash}}>
+                  {{#if stash.isSelected}}
+                    {{fa-icon 'minus' class='mr-1'}}
+                    {{t 'components.page.settings_vendor_recipe_page.exclude'}}
+                  {{else}}
+                    {{fa-icon 'plus' class='mr-1'}}
+                    {{t 'components.page.settings_vendor_recipe_page.include'}}
+                  {{/if}}
+                </button>
+              {{else}}
+                <span class="text-white-50">
+                  {{t 'components.page.settings_vendor_recipe_page.not_supported'}}
+                </span>
+              {{/unless}}
+            </td>
+          </tr>
+        {{/each}}
+        </tbody>
+      </table>
+    {{/pow-task-load-container}}
+  {{/pow-electron-container}}
+</div>

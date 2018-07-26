@@ -1,7 +1,15 @@
-{{#pow-link 'settings.global' class='settings-navigation__link'}}
-  {{t 'components.settings_navigation.global'}}
-{{/pow-link}}
+<div class="container-fluid mb-3">
+  <ul class="nav nav-pills">
+    <li class="nav-item">
+      {{#pow-link 'settings.global' class='nav-link'}}
+        {{t 'components.settings_navigation.global'}}
+      {{/pow-link}}
+    </li>
 
-{{#pow-link 'settings.vendor-recipe' class='settings-navigation__link'}}
-  {{t 'components.settings_navigation.vendor_recipe'}}
-{{/pow-link}}
+    <li class="nav-item ml-1">
+      {{#pow-link 'settings.vendor-recipe' class='nav-link'}}
+        {{t 'components.settings_navigation.vendor_recipe'}}
+      {{/pow-link}}
+    </li>
+  </ul>
+</div>

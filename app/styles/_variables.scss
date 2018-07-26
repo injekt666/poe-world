@@ -66,10 +66,10 @@ $black: #111;
 
 $primary: #566082;
 $secondary: #64512d;
-$success: $green;
-$info: $cyan;
-$warning: $yellow;
-$danger: $red;
+//$success: $green;
+//$info: $cyan;
+//$warning: $yellow;
+//$danger: $red;
 $light: #8d98be;
 $dark: #292c36;
 
@@ -90,6 +90,12 @@ $spacer: 1.5rem;
 //
 $body-bg: lighten($dark, 5%);
 $body-color: $white;
+$link-color: $white;
+
+//
+// Tables
+//
+$table-border-color: rgba($white, 0.1);
 
 //
 // Fonts
