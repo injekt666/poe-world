@@ -7,11 +7,6 @@ module.exports = function(defaults) {
     babel: {
       plugins: ['transform-object-rest-spread']
     },
-    nodeAssets: {
-      'simple-css-reset': {
-        import: ['reset.css']
-      }
-    },
     fontawesome: {
       icons: {
         'free-solid-svg-icons': [
@@ -22,10 +17,14 @@ module.exports = function(defaults) {
           'github'
         ]
       }
+    },
+    sassOptions: {
+      includePaths: 'node_modules/bootstrap/scss'
     }
   });
 
   app.import('vendor/panzoom.js');
+  app.import('node_modules/bootstrap/dist/js/bootstrap.js');
 
   return app.toTree();
 };

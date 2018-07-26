@@ -1,41 +1,32 @@
-<div class="navigation__left-section">
-  <img src="assets/images/logo-small.png" alt="Logo" class="navigation__left-section-logo">
+<div class="navbar-brand d-flex align-items-center">
+  <img src="assets/images/logo-small.png" class="mr-2" alt="">
+  PoeWorld
+</div>
 
-  <div class="navigation__left-section-brand">PoeWorld</div>
-
-  <ul class="navigation__menu">
-    <li class="navigation__menu-link-wrapper">
-      {{#pow-link 'atlas' class='navigation__menu-link'}}
+<div class="collapse navbar-collapse">
+  <ul class="navbar-nav mr-auto">
+    <li class="nav-item">
+      {{#pow-link 'atlas' class='nav-link'}}
         {{t 'components.navigation.atlas'}}
       {{/pow-link}}
     </li>
 
-    <li class="navigation__menu-link-wrapper">
-      {{#pow-link 'stash' class='navigation__menu-link'}}
+    <li class="nav-item ml-2">
+      {{#pow-link 'stash.vendor-recipe' class='nav-link'}}
         {{t 'components.navigation.stash'}}
-
-        <ul class="navigation__submenu">
-          <li class="navigation__submenu-link-wrapper">
-            {{#pow-link 'stash.vendor-recipe' class='navigation__submenu-link'}}
-              {{t 'components.navigation.vendor_recipe'}}
-            {{/pow-link}}
-          </li>
-        </ul>
       {{/pow-link}}
     </li>
-  </ul>
-</div>
 
-<div class="navigation__right-section">
-  <div class="navigation__right-section-league">
-    {{leagueName}}
-  </div>
-
-  <ul class="navigation__menu">
-    <li class="navigation__menu-link-wrapper">
-      {{#pow-link 'settings' class='navigation__menu-link'}}
+    <li class="nav-item ml-2">
+      {{#pow-link 'settings' class='nav-link'}}
         {{t 'components.navigation.settings'}}
       {{/pow-link}}
     </li>
   </ul>
+
+  <div class="navbar-text">
+    <div class="badge badge-secondary badge-league px-2 py-1 ">
+      {{leagueName}}
+    </div>
+  </div>
 </div>

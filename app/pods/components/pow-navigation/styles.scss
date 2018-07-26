@@ -1,130 +1,36 @@
-$navigation-spacing: 15px;
-$navigation-background-color: lighten($background-color, 7.5%);
-
-& {
-  display: flex;
-  position: fixed;
-  z-index: $navigation-z-index;
-  top: 0;
-  right: 0;
-  left: 0;
-  justify-content: space-between;
-  align-items: center;
-  height: $navigation-height;
-  padding: 0 $padding;
-  background-color: $navigation-background-color;
-}
-
-.navigation__left-section,
-.navigation__right-section {
-  display: flex;
-  align-items: center;
-  height: 100%;
-}
-
-.navigation__left-section-logo {
-  height: $navigation-height - 15px;
-  margin-right: $navigation-spacing;
-}
-
-.navigation__left-section-brand {
-  margin-right: $navigation-spacing;
+.navbar-brand {
+  padding: 0;
   text-transform: uppercase;
   font-family: $font-family-accent;
   font-size: 1.5rem;
   letter-spacing: -2px;
+
+  img {
+    height: 35px;
+  }
 }
 
-.navigation__right-section-league {
-  padding: 5px 10px;
-  border-radius: $border-radius;
-  margin-right: $navigation-spacing;
-  background-color: $background-darker-color;
-  font-size: 0.8rem;
+.badge-league {
+  font-size: 0.95rem;
 }
 
-.navigation__menu {
-  display: flex;
-  height: 100%;
-}
-
-.navigation__menu-link-wrapper {
+.nav-link {
   position: relative;
-  height: 100%;
-  font-family: $font-family-accent;
-  font-size: 1.2rem;
-  line-height: 2.7;
-  letter-spacing: 2px;
-  color: $white-color;
 
-  &:hover {
-    .navigation__submenu {
-      opacity: 1;
-      visibility: visible;
-    }
+  &::before {
+    content: '';
+    height: 4px;
+    width: 0px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: $white;
+    transition: width 100ms;
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
   }
-}
 
-.navigation__menu-link {
-  display: block;
-  height: 100%;
-  padding: 0 15px;
-  text-decoration: none;
-  color: inherit;
-
-  &:not(.navigation__menu-link--active) {
-    &:hover {
-      background-color: lighten($background-color, 2.5%);
-    }
+  &.active::before {
+    width: 100%;
   }
-}
-
-.navigation__menu-link--active {
-  background-color: $primary-color;
-}
-
-.navigation__submenu {
-  display: flex;
-  position: absolute;
-  z-index: -1;
-  top: $navigation-height;
-  left: 0;
-  opacity: 0;
-  flex-direction: column;
-  overflow: hidden;
-  width: 200px;
-  background-color: $navigation-background-color;
-  box-shadow: 0 0 20px 5px rgba($background-color, 0.75);
-  transition-duration: 250ms;
-  transition-property: opacity, visibility;
-  border-bottom-left-radius: $border-radius;
-  border-bottom-right-radius: $border-radius;
-  border-top-right-radius: $border-radius;
-  visibility: hidden;
-}
-
-.navigation__submenu-link-wrapper {
-  font-family: $font-family-regular;
-  font-size: 0.9rem;
-  line-height: 2;
-  color: inherit;
-}
-
-.navigation__submenu-link {
-  display: block;
-  padding: 5px 15px;
-  text-decoration: none;
-  white-space: nowrap;
-
-  color: inherit;
-  transition: padding-left 100ms;
-
-  &:not(.navigation__submenu-link--active):hover {
-    padding-left: 20px;
-    background-color: lighten($background-color, 2.5%);
-  }
-}
-
-.navigation__submenu-link--active {
-  background-color: darken($primary-color, 5%);
 }
