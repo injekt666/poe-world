@@ -19,11 +19,11 @@
 
   &::before {
     content: '';
-    height: 4px;
-    width: 0px;
     position: absolute;
     bottom: 0;
     left: 0;
+    width: 0;
+    height: 4px;
     background-color: $white;
     transition: width 100ms;
     border-bottom-left-radius: 2px;
