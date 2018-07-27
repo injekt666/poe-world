@@ -68,7 +68,7 @@ $primary: #566082;
 $secondary: #64512d;
 //$success: $green;
 //$info: $cyan;
-//$warning: $yellow;
+$warning: #b09212;
 //$danger: $red;
 $light: #8d98be;
 $dark: #292c36;
@@ -139,3 +139,8 @@ $modal-content-border-color: rgba($black, 0.1);
 // Close
 //
 $close-color: $white;
+
+//
+// Cards
+//
+$card-bg: darken($primary, 12.5%);
