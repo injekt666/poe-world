@@ -13,7 +13,7 @@ const TOAST_DATA = {
   isVisible: true
 };
 const OUT_DELAY = 200;
-const ERROR_TYPE = 'error';
+const DANGER_TYPE = 'danger';
 
 export default Service.extend({
   i18n: service('i18n'),
@@ -35,7 +35,7 @@ export default Service.extend({
   toastError(message) {
     return this._createToast({
       message,
-      type: ERROR_TYPE
+      type: DANGER_TYPE
     });
   },
 

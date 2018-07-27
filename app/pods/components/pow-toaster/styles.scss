@@ -17,13 +17,13 @@ $toaster-spacing: 20px;
   left: $toaster-spacing;
 }
 
-.toaster__toast {
+.toast {
   position: relative;
   margin-bottom: $toaster-spacing;
-  box-shadow: 0 0 20px 5px rgba($background-color, 0.75);
+  box-shadow: 0 0 20px 5px rgba($background-color, 0.65);
   animation: toast-slide-in 250ms ease-in forwards;
 }
 
-.toaster__toast--out {
+.toast-out {
   animation: toast-slide-out 150ms ease-out forwards;
 }

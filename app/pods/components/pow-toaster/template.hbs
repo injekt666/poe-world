@@ -1,5 +1,5 @@
 {{#each toasts as |toast|}}
-  <div class="toaster__toast {{unless toast.isVisible 'toaster__toast--out'}} alert alert--{{toast.type}}">
+  <div class="toast {{unless toast.isVisible 'toast-out'}} alert alert-{{toast.type}}">
     {{toast.message}}
   </div>
 {{/each}}
