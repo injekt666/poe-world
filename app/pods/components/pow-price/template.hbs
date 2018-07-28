@@ -1,13 +1,15 @@
-{{#unless loadCurrencyTask.isRunning}}
-  <span class="price__amount">
-    {{amount}}
-  </span>
+<div class="d-inline-flex align-items-center">
+  {{#unless loadCurrencyTask.isRunning}}
+    <span class="amount mr-1">
+      {{amount}}
+    </span>
 
-  {{fa-icon 'times'}}
+    {{fa-icon 'times'}}
 
-  {{#if currency}}
-    <img src={{currency.imageUrl}} class="price__image">
-  {{else}}
-    {{currencyId}}
-  {{/if}}
-{{/unless}}
+    {{#if currency}}
+      <img src={{currency.imageUrl}} class="image">
+    {{else}}
+      {{currencyId}}
+    {{/if}}
+  {{/unless}}
+</div>

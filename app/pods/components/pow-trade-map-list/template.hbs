@@ -1,17 +1,6 @@
-<li class="trade-map-list__header">
-  <div class="trade-map-list__header-properties">
-      {{t 'components.map_trade_list.properties'}}
-  </div>
+<ul class="list-group list-group-striped">
+  {{#each tradeMaps as |tradeMap|}}
+    {{pow-trade-map-list/item tradeMap=tradeMap}}
+  {{/each}}
+</ul>
 
-  <div class="trade-map-list__header-mods">
-    {{t 'components.map_trade_list.mods'}}
-  </div>
-
-  <div class="trade-map-list__header-listing">
-    {{t 'components.map_trade_list.listing'}}
-  </div>
-</li>
-
-{{#each tradeMaps as |tradeMap|}}
-  {{pow-trade-map-list/item tradeMap=tradeMap}}
-{{/each}}

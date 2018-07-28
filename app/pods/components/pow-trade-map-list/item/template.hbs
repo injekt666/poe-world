@@ -1,71 +1,88 @@
-<div class="trade-map-list-item__rarity trade-map-list-item__rarity--{{tradeMap.rarity}}"></div>
+<div class="row align-items-center py-1">
+  <div class="col-3 d-flex align-items-center">
+    <div class="rarity rarity-{{tradeMap.rarity}} mr-3 ml-1"></div>
 
-<div class="trade-map-list-item__properties">
-  {{#if hasProperties}}
-    {{#if tradeMap.itemQuantity}}
-      <div class="trade-map-list-item__properties-quantity">
-        {{t 'components.map_trade_list.item_quantity' itemQuantity=tradeMap.itemQuantity}}
-      </div>
-    {{/if}}
+    <div class="">
+      {{#if hasProperties}}
+        {{#if tradeMap.itemQuantity}}
+          <p class="my-1">
+            {{t 'components.map_trade_list.item_quantity' itemQuantity=tradeMap.itemQuantity}}
+          </p>
+        {{/if}}
 
-    {{#if tradeMap.itemRarity}}
-      <div class="trade-map-list-item__properties-rarity">
-        {{t 'components.map_trade_list.item_rarity' itemRarity=tradeMap.itemRarity}}
-      </div>
-    {{/if}}
+        {{#if tradeMap.itemRarity}}
+          <p class="my-1">
+            {{t 'components.map_trade_list.item_rarity' itemRarity=tradeMap.itemRarity}}
+          </p>
+        {{/if}}
 
-    {{#if tradeMap.monsterPackSize}}
-      <div class="trade-map-list-item__properties-monster-pack-size">
-        {{t 'components.map_trade_list.monster_pack_size' monsterPackSize=tradeMap.monsterPackSize}}
-      </div>
-    {{/if}}
+        {{#if tradeMap.monsterPackSize}}
+          <p class="my-1">
+            {{t 'components.map_trade_list.monster_pack_size' monsterPackSize=tradeMap.monsterPackSize}}
+          </p>
+        {{/if}}
 
-    {{#if tradeMap.corrupted}}
-      <div class="trade-map-list-item__properties-corrupted">
-        {{t 'components.map_trade_list.corrupted'}}
-      </div>
-    {{/if}}
-  {{else}}
-    {{fa-icon 'minus'}}
-  {{/if}}
-</div>
-
-<ul class="trade-map-list-item__mods">
-  {{#if hasMods}}
-    {{#unless tradeMap.identified}}
-      <div class="trade-map-list-item__properties-unidentified">
-        {{t 'components.map_trade_list.unidentified'}}
-      </div>
-    {{else}}
-      {{#each tradeMap.mods as |mod|}}
-        <li class="trade-map-list-item__mods-line">
-          {{fa-icon 'caret-right' class='trade-map-list-item__mods-line-caret'}} {{mod}}
-        </li>
-      {{/each}}
-    {{/unless}}
-  {{else}}
-    {{fa-icon 'minus'}}
-  {{/if}}
-</ul>
-
-<div class="trade-map-list-item__listing">
-  {{pow-price
-    amount=tradeMap.priceAmount
-    currencyId=tradeMap.priceCurrency}}
-
-  <div class="trade-map-list-item__listing-time">
-    {{moment-from-now tradeMap.indexedAt}}
+        {{#if tradeMap.corrupted}}
+          <p class="my-1">
+            <span class="badge badge-danger">
+              {{t 'components.map_trade_list.corrupted'}}
+            </span>
+          </p>
+        {{/if}}
+      {{else}}
+        <span class="text-muted">
+          {{t 'components.map_trade_list.no_properties'}}
+        </span>
+      {{/if}}
+    </div>
   </div>
 
-  <div class="trade-map-list-item__listing-account">
-    {{t 'components.map_trade_list.sold_by' account=tradeMap.account}}
-
-    {{#if tradeMap.isAfk}}
-      <span class="trade-map-list-item__listing-account-afk">
-        {{t 'components.map_trade_list.afk'}}
-      </span>
-    {{/if}}
+  <div class="col-5">
+    <ul class="list-unstyled">
+      {{#if hasMods}}
+        {{#unless tradeMap.identified}}
+          <li>
+            <span class="badge badge-warning p-1">
+              {{t 'components.map_trade_list.unidentified'}}
+            </span>
+          </li>
+        {{else}}
+          {{#each tradeMap.mods as |mod|}}
+            <li class="mod">
+              {{fa-icon 'caret-right' class='trade-map-list-item__mods-line-caret'}} {{mod}}
+            </li>
+          {{/each}}
+        {{/unless}}
+      {{else}}
+        <span class="text-muted">
+          {{t 'components.map_trade_list.no_mods'}}
+        </span>
+      {{/if}}
+    </ul>
   </div>
 
-  {{pow-clipboard-button value=tradeMap.whisper}}
+  <div class="col-4 text-right">
+    {{pow-price
+      amount=tradeMap.priceAmount
+      currencyId=tradeMap.priceCurrencyId}}
+
+    <p class="my-0">
+      {{moment-from-now tradeMap.indexedAt}}
+    </p>
+
+    <p class="my-0">
+      {{t 'components.map_trade_list.sold_by' account=tradeMap.account}}
+
+      {{#if tradeMap.isAfk}}
+        <span class="badge badge-warning">
+          {{t 'components.map_trade_list.afk'}}
+        </span>
+      {{/if}}
+    </p>
+
+    {{pow-clipboard-button
+      class='mt-2'
+      value=tradeMap.whisper
+    }}
+  </div>
 </div>

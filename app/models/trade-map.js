@@ -19,7 +19,7 @@ export default EmberObject.extend({
   whisper: null,
   account: null,
   priceAmount: null,
-  priceCurrency: null,
+  priceCurrencyId: null,
   isAfk: false,
 
   isUnidentified: not('identified')

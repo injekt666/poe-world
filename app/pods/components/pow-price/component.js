@@ -3,6 +3,8 @@ import {computed} from '@ember/object';
 import CURRENCIES from 'poe-world/constants/currencies';
 
 export default Component.extend({
+  classNames: ['d-inline-flex', 'align-items-center'],
+
   amount: null,
   currencyId: null,
 

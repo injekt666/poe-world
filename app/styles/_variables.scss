@@ -31,7 +31,7 @@ $font-family-accent: 'Marcellus SC', serif;
 
 $padding: 15px;
 
-$navigation-height: 50px;
+$navigation-height: 59px;
 
 // Atlas
 $atlas-sextants-item-radius: 150px;
@@ -70,8 +70,13 @@ $secondary: #64512d;
 //$info: $cyan;
 $warning: #b09212;
 $danger: #973139;
-$light: #8d98be;
-$dark: #292c36;
+$light: #80869b;
+$dark: #363842;
+$darker: #22242d;
+
+$theme-colors: (
+  'darker': $darker
+);
 
 $yiq-contrasted-threshold: 200;
 
@@ -88,7 +93,7 @@ $spacer: 1.5rem;
 //
 // Body
 //
-$body-bg: lighten($dark, 5%);
+$body-bg: $dark;
 $body-color: $white;
 $link-color: $white;
 
@@ -112,9 +117,9 @@ $headings-font-family: $font-family-accent;
 //
 // Navs
 //
-$nav-tabs-border-color: $gray-200;
+$nav-tabs-border-color: rgba($gray-200, 0.45);
 $nav-tabs-link-hover-border-color: $nav-tabs-border-color;
-$nav-tabs-link-active-color: $gray-900;
+$nav-tabs-link-active-color: $white;
 $nav-tabs-link-active-border-color: $nav-tabs-border-color;
 
 //
@@ -123,16 +128,6 @@ $nav-tabs-link-active-border-color: $nav-tabs-border-color;
 $navbar-padding-y: ($spacer / 4);
 $navbar-dark-color: rgba($white, 0.65);
 $navbar-dark-hover-color: rgba($white, 0.85);
-
-//
-// Pagination
-//
-$pagination-color: $gray-700;
-$pagination-bg: $gray-200;
-$pagination-hover-color: $pagination-color;
-$pagination-hover-bg: $pagination-bg;
-$pagination-active-border-color: darken($primary, 5%);
-$pagination-disabled-bg: $pagination-bg;
 
 //
 // Modals
@@ -155,3 +150,14 @@ $close-color: $white;
 // Cards
 //
 $card-bg: darken($primary, 12.5%);
+
+//
+// List group
+//
+$list-group-bg: rgba($darker, 0.65);
+$list-group-alt-bg: rgba($darker, 0.85);
+$list-group-border-color: $darker;
+$list-group-hover-bg: rgba($darker, 0.9);
+$list-group-action-active-bg: $darker;
+$list-group-item-padding-y: 0.35rem;
+$list-group-item-padding-x: 0.65rem;

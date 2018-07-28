@@ -5,9 +5,8 @@ export default {
       popover_content: "Tier {{tier}}<br/>Area Level {{level}}"
     },
     map_trade_list: {
-      properties: "Props.",
-      mods: "Mods",
-      listing: "Listing",
+      no_properties: "No props.",
+      no_mods: "No mods",
       corrupted: "Corrupted",
       unidentified: "Unidentified",
       item_quantity: "{{itemQuantity}} IIQ",

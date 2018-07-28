@@ -1,21 +1,10 @@
-& {
+.hidden-field-wrapper {
   position: relative;
   overflow-x: hidden;
 }
 
-.clipboard-button__hidden-field {
+.hidden-field {
   position: absolute;
   right: -25px;
   width: 20px;
 }
-
-.clipboard-button__button {
-  @include button;
-
-  margin-top: $padding / 2;
-}
-
-.clipboard-button__button--copied {
-  opacity: 0.8;
-}
-

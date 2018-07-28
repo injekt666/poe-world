@@ -92,7 +92,7 @@ export default Service.extend({
         whisper: mapResult.listing.whisper,
         account: mapResult.listing.account.name,
         priceAmount: mapResult.listing.price.amount,
-        priceCurrency: mapResult.listing.price.currency,
+        priceCurrencyId: mapResult.listing.price.currency,
         isAfk: mapResult.listing.account.online.status === AFK_STATUS
       });
     });

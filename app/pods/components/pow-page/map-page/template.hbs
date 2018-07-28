@@ -1,63 +1,47 @@
-<div class="map-page__header">
-  <div class="map-page__header-title-wrapper">
-    <button class="map-page__back" {{action back}}>
-      {{fa-icon 'times'}}
-    </button>
+<div class="header bg-darker">
+  <div class="p-3">
+    <div class="d-flex justify-content-between align-items-center">
+      <button class="btn btn-light d-block h-75" {{action back}}>
+        {{fa-icon 'times'}}
+      </button>
 
-    <div class="map-page__header-title">
-      {{map.name}}
-
-      <img src={{map.imageUrl}} class="map-page__header-title-image" alt={{map.name}}>
-    </div>
-  </div>
-
-  <div class="map-page__header-subtitle">
-    <div class="map-page__header-subtitle-tier map-page__header-subtitle-tier--{{map.tierColor}}">
-      {{t 'components.page.map_page.tier'}}
-
-      <div class="map-page__header-subtitle-tier-value">
-        {{map.tier}}
+      <div class="d-flex align-items-center">
+        <h1>{{map.name}}</h1>
+        <img src={{map.imageUrl}} class="header-map-icon ml-2" alt="">
       </div>
     </div>
 
-    <div class="map-page__header-subtitle-area-level">
-      {{t 'components.page.map_page.area_level' level=map.areaLevel}}
+    <div class="row mt-2 mb-1">
+      <div class="header-stat col text-center bg-dark py-2 mx-1">
+        {{t 'components.page.map_page.tier'}}
+        <span class="header-tier header-tier-{{map.tierColor}} px-2 py-0 ml-2">
+          {{map.tier}}
+        </span>
+      </div>
+
+      <div class="header-stat col text-center bg-dark py-2 mx-1">
+        {{t 'components.page.map_page.area_level' level=map.areaLevel}}
+      </div>
     </div>
   </div>
+
+  <ul class="nav nav-tabs px-3">
+    <li class="nav-item">
+      {{#pow-link 'atlas.map.information' class='nav-link'}}
+        {{fa-icon 'info' class='mr-1'}}
+        {{t 'components.page.map_page.information'}}
+      {{/pow-link}}
+    </li>
+
+    <li class="nav-item">
+      {{#pow-link 'atlas.map.trade' class='nav-link'}}
+        {{fa-icon 'balance-scale' class='mr-1'}}
+        {{t 'components.page.map_page.trade'}}
+      {{/pow-link}}
+    </li>
+  </ul>
 </div>
 
-<nav class="map-page__nav">
-  {{#pow-link 'atlas.map.information' class='map-page__nav-link'}}
-    {{fa-icon 'info'}}
-
-    <span class="map-page__nav-link-label">
-      {{t 'components.page.map_page.information'}}
-    </span>
-  {{/pow-link}}
-
-  {{#pow-link 'atlas.map.trade' class='map-page__nav-link'}}
-    {{fa-icon 'balance-scale'}}
-
-    <span class="map-page__nav-link-label">
-      {{t 'components.page.map_page.trade'}}
-    </span>
-  {{/pow-link}}
-
-  {{!--
-  {{#pow-link 'atlas.map.friends' class='map-page__nav-link'}}
-    {{t 'components.page.map_page.friends'}}
-  {{/pow-link}}
-
-  {{#pow-link 'atlas.map.stash' class='map-page__nav-link'}}
-    {{t 'components.page.map_page.stash'}}
-  {{/pow-link}}
-
-  {{#pow-link 'atlas.map.stats' class='map-page__nav-link'}}
-    {{t 'components.page.map_page.stats'}}
-  {{/pow-link}}
-  --}}
-</nav>
-
-<div class="map-page__wrapper">
+<div class="container px-3 py-2">
   {{yield}}
 </div>

@@ -1,93 +1,26 @@
-& {
-  display: flex;
-  position: relative;
-  align-items: center;
-  padding: ($padding / 2) $padding;
-  margin-top: 4px;
-  font-size: 0.85rem;
-
-  &:first-of-type {
-    margin-top: 0;
-  }
-
-  &:nth-child(even) {
-    background-color: darken($background-color, 2%);
-  }
-}
-
-.trade-map-list-item__rarity {
-  width: 10px;
-  height: 10px;
+.rarity {
+  width: 15px;
+  height: 15px;
+  border: 2px solid $white;
   border-radius: 50%;
-  margin-right: $padding;
 }
 
-.trade-map-list-item__rarity--normal {
+.rarity-normal {
   background-color: $normal-color;
 }
 
-.trade-map-list-item__rarity--magic {
+.rarity-magic {
   background-color: $magic-color;
 }
 
-.trade-map-list-item__rarity--rare {
+.rarity-rare {
   background-color: $rare-color;
 }
 
-.trade-map-list-item__rarity--unique {
+.rarity-unique {
   background-color: $unique-color;
 }
 
-.trade-map-list-item__properties {
-  width: 15%;
-}
-
-.trade-map-list-item__mods {
-  width: 55%;
-}
-
-.trade-map-list-item__listing {
-  width: 30%;
-  text-align: right;
-}
-
-.trade-map-list-item__properties-corrupted {
-  display: inline-block;
-  padding: ($padding / 4);
-  border-radius: $border-radius / 2;
-  margin: ($padding / 2) ($padding / 2) 0 0;
-  background-color: #cc2b22;
-  text-align: center;
-  font-size: 0.75rem;
-  font-weight: bold;
-
-  &:first-child {
-    margin-top: 0;
-  }
-}
-
-.trade-map-list-item__mods-line {
-  position: relative;
-  padding-left: ($padding / 2);
-}
-
-.trade-map-list-item__mods-line-caret {
-  position: absolute;
-  top: 4px;
-  left: 0;
-}
-
-.trade-map-list-item__listing-time {
-  font-style: italic;
-}
-
-.trade-map-list-item__listing-account {
-  margin: 10px 0 5px;
-}
-
-.trade-map-list-item__listing-account-afk {
-  padding: 0 5px;
-  border-radius: $border-radius;
-  margin-left: 5px;
-  background-color: rgba($warning-color, 0.7);
+.mod {
+  font-size: 0.9rem;
 }

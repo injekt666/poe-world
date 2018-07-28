@@ -1,14 +1,8 @@
-& {
-  display: inline-flex;
-  align-items: center;
-}
-
-.price__amount {
-  margin-right: $padding / 2;
+.amount {
   font-size: 1.2rem;
 }
 
-.price__image {
+.image {
   width: auto;
   height: 30px;
 }
