@@ -1,4 +1,4 @@
-.atlas-sextants__item {
+.sextant {
   position: absolute;
   z-index: $atlas-sextants-z-index;
   width: $atlas-sextants-item-radius * 2;
@@ -8,14 +8,14 @@
   margin: ($atlas-sextants-item-radius * -1) 0 0 ($atlas-sextants-item-radius * -1);
 }
 
-.atlas-sextants__item--white {
+.sextant-white {
   border-color: $white-tier-color;
 }
 
-.atlas-sextants__item--yellow {
+.sextant-yellow {
   border-color: $yellow-tier-color;
 }
 
-.atlas-sextants__item--red {
+.sextant-red {
   border-color: $red-tier-color;
 }

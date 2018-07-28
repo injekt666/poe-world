@@ -2,10 +2,7 @@
 export default {
   components: {
     atlas: {
-      popover: {
-        tier: "Tier",
-        area_level: "Area Level"
-      }
+      popover_content: "Tier {{tier}}<br/>Area Level {{level}}"
     },
     map_trade_list: {
       properties: "Props.",

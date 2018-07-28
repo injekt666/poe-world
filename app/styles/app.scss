@@ -7,6 +7,9 @@
 @import 'ember-modal-dialog/ember-modal-structure';
 @import 'vendors/ember-modal-dialog';
 
+// Bootstrap overrides
+@import 'bootstrap/popover';
+
 // Mixins
 @import 'mixins/titles';
 @import 'mixins/button';

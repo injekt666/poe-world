@@ -72,6 +72,7 @@
     "eslint-plugin-mirego": "0.0.1",
     "loader.js": "^4.2.3",
     "panzoom": "^4.5.0",
+    "popper.js": "^1.14.3",
     "stylelint": "^9.3.0",
     "stylelint-mirego": "^0.2.2",
     "stylelint-order": "^0.8.1"

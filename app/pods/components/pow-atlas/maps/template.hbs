@@ -1,13 +1,14 @@
 {{#each maps as |map|}}
   <li
-    class="atlas-maps__item {{if (eq currentMap map) 'atlas-maps__item--active'}}"
+    class="item {{if (eq currentMap map) 'active'}}"
     style={{css-offset map.offsetLeft map.offsetTop}}
-    {{action onMapEnter map on='mouseEnter'}}
-    {{action onMapLeave on='mouseLeave'}}
+    data-toggle="popover"
+    data-title={{map.name}}
+    data-content={{t 'components.atlas.popover_content' tier=map.tier level=map.areaLevel}}
     {{action onMapClick map on='click'}}
   >
     <img
-      class="atlas-maps__item-map"
+      class="item-map"
       src={{map.imageUrl}}
       alt={{map.name}}
     >

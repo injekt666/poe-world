@@ -103,6 +103,10 @@ $table-border-color: rgba($white, 0.1);
 $font-family-sans-serif: 'Open Sans', sans-serif;
 $font-family-accent: 'Marcellus SC', serif;
 
+$font-size-base: 1rem;
+$font-size-lg: ($font-size-base * 1.25);
+$font-size-sm: ($font-size-base * .875);
+
 $headings-font-family: $font-family-accent;
 
 //
@@ -134,6 +138,13 @@ $pagination-disabled-bg: $pagination-bg;
 // Modals
 //
 $modal-content-border-color: rgba($black, 0.1);
+
+//
+// Popovers
+//
+$popover-bg: $dark;
+$popover-font-size: $font-size-lg;
+$popover-header-padding-x: 1.25rem;
 
 //
 // Close

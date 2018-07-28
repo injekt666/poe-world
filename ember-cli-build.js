@@ -24,6 +24,7 @@ module.exports = function(defaults) {
   });
 
   app.import('vendor/panzoom.js');
+  app.import('node_modules/popper.js/dist/umd/popper.js');
   app.import('node_modules/bootstrap/dist/js/bootstrap.js');
 
   return app.toTree();

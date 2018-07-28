@@ -1,20 +1,20 @@
 {{#pow-panzoom-container
-  class='atlas__panzoom-container'
+  class='panzoom-container'
   minZoom=0.5
   maxZoom=1
   zoomSpeed=0.075
   onPanzoom=(action panzoom)
   onPanzoomInitialize=(action panzoomInitialize)
 }}
-  <div class="atlas__map-background"></div>
+  <div class="map-background"></div>
 
-  {{pow-atlas/maps
-    currentMap=currentMap
-    maps=maps
-    onMapEnter=(action mapEnter)
-    onMapLeave=(action mapLeave)
-    onMapClick=(action mapClick)
-  }}
+  {{#if maps}}
+    {{pow-atlas/maps
+      currentMap=currentMap
+      maps=maps
+      onMapClick=(action mapClick)
+    }}
+  {{/if}}
 
   {{#if currentMap}}
     {{pow-atlas/sextants
@@ -22,10 +22,3 @@
     }}
   {{/if}}
 {{/pow-panzoom-container}}
-
-{{pow-atlas/popover
-  map=hoveredMap
-  zoom=zoom
-  panTop=panTop
-  panLeft=panLeft
-}}

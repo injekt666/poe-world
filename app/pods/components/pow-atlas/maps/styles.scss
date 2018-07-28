@@ -4,17 +4,15 @@
   100% { opacity: 1; }
 }
 
-.atlas-maps__item {
+.item {
   position: absolute;
   width: 50px;
   height: 50px;
   border-radius: 50%;
   margin: -25px 0 0 -25px;
   cursor: pointer;
-}
 
-.atlas-maps__item--active {
-  &::before {
+  &.active::before {
     content: '';
     position: absolute;
     z-index: $atlas-map-glow-z-index;
@@ -28,7 +26,7 @@
   }
 }
 
-.atlas-maps__item-map {
+.item-map {
   position: absolute;
   z-index: $atlas-map-z-index;
   width: 100%;

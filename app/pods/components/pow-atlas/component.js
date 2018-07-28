@@ -10,7 +10,6 @@ export default Component.extend({
   currentMap: null,
 
   maps: [],
-  hoveredMap: null,
   zoom: 1,
   panTop: 0,
   panLeft: 0,
@@ -22,14 +21,6 @@ export default Component.extend({
 
   willInsertElement() {
     this.mapsLoadTask.perform();
-  },
-
-  mapEnter(map) {
-    this.set('hoveredMap', map);
-  },
-
-  mapLeave() {
-    this.set('hoveredMap', null);
   },
 
   mapClick(map) {
