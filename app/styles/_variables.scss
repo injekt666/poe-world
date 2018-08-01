@@ -68,8 +68,8 @@ $primary: #566082;
 $secondary: #64512d;
 //$success: $green;
 //$info: $cyan;
-$warning: #b09212;
-$danger: #973139;
+$warning: #816710;
+$danger: #7a2928;
 $light: #80869b;
 $dark: #363842;
 $darker: #22242d;
@@ -149,7 +149,7 @@ $close-color: $white;
 //
 // Cards
 //
-$card-bg: darken($primary, 12.5%);
+$card-bg: $darker;
 
 //
 // List group
