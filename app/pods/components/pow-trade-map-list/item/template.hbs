@@ -1,8 +1,8 @@
 <div class="row align-items-center py-1">
   <div class="col-3 d-flex align-items-center">
-    <div class="rarity rarity-{{tradeMap.rarity}} mr-3 ml-1"></div>
+    <div local-class="rarity rarity-{{tradeMap.rarity}}" class="mr-3 ml-1"></div>
 
-    <div class="">
+    <div>
       {{#if hasProperties}}
         {{#if tradeMap.itemQuantity}}
           <p class="my-1">
@@ -48,7 +48,7 @@
           </li>
         {{else}}
           {{#each tradeMap.mods as |mod|}}
-            <li class="mod">
+            <li local-class="mod">
               {{fa-icon 'caret-right'}} {{mod}}
             </li>
           {{/each}}

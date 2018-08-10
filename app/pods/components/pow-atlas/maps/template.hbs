@@ -1,6 +1,6 @@
 {{#each maps as |map|}}
   <li
-    class="item {{if (eq currentMap map) 'active'}}"
+    local-class="item {{if (eq currentMap map) 'active'}}"
     style={{css-offset map.offsetLeft map.offsetTop}}
     data-toggle="popover"
     data-title={{map.name}}
@@ -8,7 +8,7 @@
     {{action onMapClick map on='click'}}
   >
     <img
-      class="item-map"
+      local-class="item-map"
       src={{map.imageUrl}}
       alt={{map.name}}
     >

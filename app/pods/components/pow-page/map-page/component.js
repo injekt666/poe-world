@@ -2,6 +2,8 @@ import Component from '@ember/component';
 import {inject as service} from '@ember/service';
 
 export default Component.extend({
+  localClassNames: 'map-page',
+
   router: service('router'),
   atlasReframer: service('reframers/atlas-reframer'),
 

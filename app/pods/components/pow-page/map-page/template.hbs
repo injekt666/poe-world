@@ -1,4 +1,4 @@
-<div class="header bg-darker">
+<div local-class="header" class="bg-darker">
   <div class="p-3">
     <div class="d-flex justify-content-between align-items-center">
       <button class="btn btn-light d-block h-75" {{action back}}>
@@ -7,19 +7,19 @@
 
       <div class="d-flex align-items-center">
         <h1>{{map.name}}</h1>
-        <img src={{map.imageUrl}} class="header-map-icon ml-2" alt="">
+        <img src={{map.imageUrl}} local-class="header-map-icon" class="ml-2" alt="">
       </div>
     </div>
 
     <div class="row mt-2 mb-1">
-      <div class="header-stat col text-center bg-dark py-2 mx-1">
+      <div local-class="header-stat" class="col text-center bg-dark py-2 mx-1">
         {{t 'components.page.map_page.tier'}}
-        <span class="header-tier header-tier-{{map.tierColor}} px-2 py-0 ml-2">
+        <span local-class="header-tier header-tier-{{map.tierColor}}" class="px-2 py-0 ml-2">
           {{map.tier}}
         </span>
       </div>
 
-      <div class="header-stat col text-center bg-dark py-2 mx-1">
+      <div local-class="header-stat" class="col text-center bg-dark py-2 mx-1">
         {{t 'components.page.map_page.area_level' level=map.areaLevel}}
       </div>
     </div>
@@ -42,6 +42,6 @@
   </ul>
 </div>
 
-<div class="container px-3 py-2">
+<div local-class="yield-wrapper" class="px-3 py-2">
   {{yield}}
 </div>

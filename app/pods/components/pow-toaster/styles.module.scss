@@ -10,7 +10,7 @@ $toaster-spacing: 20px;
   100% { left: calc(-100% - #{$toaster-spacing}); }
 }
 
-& {
+.toaster {
   position: fixed;
   z-index: $toaster-z-index;
   bottom: $toaster-spacing;

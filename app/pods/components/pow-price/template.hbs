@@ -1,13 +1,13 @@
 <div class="d-inline-flex align-items-center">
   {{#unless loadCurrencyTask.isRunning}}
-    <span class="amount mr-1">
+    <span local-class="amount" class="mr-1">
       {{amount}}
     </span>
 
     {{fa-icon 'times'}}
 
     {{#if currency}}
-      <img src={{currency.imageUrl}} class="image">
+      <img src={{currency.imageUrl}} local-class="image">
     {{else}}
       {{currencyId}}
     {{/if}}

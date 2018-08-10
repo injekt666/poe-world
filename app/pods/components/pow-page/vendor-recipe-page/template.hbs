@@ -18,11 +18,11 @@
 
         <div class="card">
           <div class="card-body">
-            <span class="quantity mr-1">
+            <span local-class="quantity" class="mr-1">
               {{chromaticRecipe.recipeCount}}
             </span>
             {{fa-icon 'times'}}
-            <img src={{chromaticImageUrl}} alt="chrom" class="currency-icon ml-1">
+            <img src={{chromaticImageUrl}} alt="chrom" local-class="currency-icon" class="ml-1">
 
             <span class="badge badge-dark p-2 ml-2">
               {{t 'components.page.vendor_recipe_page.item_count' count=chromaticRecipe.itemCount}}
@@ -39,7 +39,7 @@
               {{jewellerRecipe.recipeCount}}
             </span>
             {{fa-icon 'times'}}
-            <img src={{jewellerImageUrl}} alt="jew" class="currency-icon ml-1">
+            <img src={{jewellerImageUrl}} alt="jew" local-class="currency-icon" class="ml-1">
 
             <span class="badge badge-dark p-2 ml-2">
               {{t 'components.page.vendor_recipe_page.item_count' count=jewellerRecipe.itemCount}}
@@ -56,7 +56,7 @@
               {{divineRecipe.recipeCount}}
             </span>
             {{fa-icon 'times'}}
-            <img src={{divineImageUrl}} alt="divine" class="currency-icon ml-1">
+            <img src={{divineImageUrl}} alt="divine" local-class="currency-icon" class="ml-1">
 
             <span class="badge badge-dark p-2 ml-2">
               {{t 'components.page.vendor_recipe_page.item_count' count=divineRecipe.itemCount}}
@@ -83,14 +83,14 @@
                 {{chaosRecipe.hands.recipeCount}}
               </span>
               {{fa-icon 'times'}}
-              <img src="assets/images/regal-chaos.png" alt="chaos/regal" class="currency-icon ml-1">
+              <img src="assets/images/regal-chaos.png" alt="chaos/regal" local-class="currency-icon" class="ml-1">
 
               <span class="badge badge-dark px-1 ml-2">
-                <img src={{chaosImageUrl}} alt="chaos" class="currency-icon-sm">
+                <img src={{chaosImageUrl}} alt="chaos" local-class="currency-icon-sm">
                 {{t 'components.page.vendor_recipe_page.item_count' count=chaosRecipe.belt.itemChaosCount}}
               </span>
               <span class="badge badge-dark px-1 ml-1">
-                <img src={{regalImageUrl}} alt="regal" class="currency-icon-sm">
+                <img src={{regalImageUrl}} alt="regal" local-class="currency-icon-sm">
                 {{t 'components.page.vendor_recipe_page.item_count' count=chaosRecipe.belt.itemRegalCount}}
               </span>
             </div>
@@ -99,11 +99,11 @@
               <h6>{{t 'components.page.vendor_recipe_page.two_handed'}}</h6>
 
               <span class="badge badge-dark px-1 ml-2">
-                <img src={{chaosImageUrl}} alt="chaos" class="currency-icon-sm">
+                <img src={{chaosImageUrl}} alt="chaos" local-class="currency-icon-sm">
                 {{t 'components.page.vendor_recipe_page.item_count' count=chaosRecipe.hands.twoHanded.itemChaosCount}}
               </span>
               <span class="badge badge-dark px-1 ml-1">
-                <img src={{regalImageUrl}} alt="regal" class="currency-icon-sm">
+                <img src={{regalImageUrl}} alt="regal" local-class="currency-icon-sm">
                 {{t 'components.page.vendor_recipe_page.item_count' count=chaosRecipe.hands.twoHanded.itemRegalCount}}
               </span>
             </div>
@@ -112,11 +112,11 @@
               <h6>{{t 'components.page.vendor_recipe_page.one_handed'}}</h6>
 
               <span class="badge badge-dark px-1 ml-2">
-                <img src={{chaosImageUrl}} alt="chaos" class="currency-icon-sm">
+                <img src={{chaosImageUrl}} alt="chaos" local-class="currency-icon-sm">
                 {{t 'components.page.vendor_recipe_page.item_count' count=chaosRecipe.hands.oneHanded.itemChaosCount}}
               </span>
               <span class="badge badge-dark px-1 ml-1">
-                <img src={{regalImageUrl}} alt="regal" class="currency-icon-sm">
+                <img src={{regalImageUrl}} alt="regal" local-class="currency-icon-sm">
                 {{t 'components.page.vendor_recipe_page.item_count' count=chaosRecipe.hands.oneHanded.itemRegalCount}}
               </span>
             </div>
@@ -134,14 +134,14 @@
                 {{chaosRecipe.gloves.recipeCount}}
               </span>
               {{fa-icon 'times'}}
-              <img src="assets/images/regal-chaos.png" alt="chaos/regal" class="currency-icon ml-1">
+              <img src="assets/images/regal-chaos.png" alt="chaos/regal" local-class="currency-icon" class="ml-1">
 
               <span class="badge badge-dark px-1 ml-2">
-                <img src={{chaosImageUrl}} alt="chaos" class="currency-icon-sm">
+                <img src={{chaosImageUrl}} alt="chaos" local-class="currency-icon-sm">
                 {{t 'components.page.vendor_recipe_page.item_count' count=chaosRecipe.gloves.itemChaosCount}}
               </span>
               <span class="badge badge-dark px-1 ml-1">
-                <img src={{regalImageUrl}} alt="regal" class="currency-icon-sm">
+                <img src={{regalImageUrl}} alt="regal" local-class="currency-icon-sm">
                 {{t 'components.page.vendor_recipe_page.item_count' count=chaosRecipe.gloves.itemRegalCount}}
               </span>
             </div>
@@ -160,14 +160,14 @@
                 {{chaosRecipe.helmet.recipeCount}}
               </span>
               {{fa-icon 'times'}}
-              <img src="assets/images/regal-chaos.png" alt="chaos/regal" class="currency-icon ml-1">
+              <img src="assets/images/regal-chaos.png" alt="chaos/regal" local-class="currency-icon" class="ml-1">
 
               <span class="badge badge-dark px-1 ml-2">
-                <img src={{chaosImageUrl}} alt="chaos" class="currency-icon-sm">
+                <img src={{chaosImageUrl}} alt="chaos" local-class="currency-icon-sm">
                 {{t 'components.page.vendor_recipe_page.item_count' count=chaosRecipe.helmet.itemChaosCount}}
               </span>
               <span class="badge badge-dark px-1 ml-1">
-                <img src={{regalImageUrl}} alt="regal" class="currency-icon-sm">
+                <img src={{regalImageUrl}} alt="regal" local-class="currency-icon-sm">
                 {{t 'components.page.vendor_recipe_page.item_count' count=chaosRecipe.helmet.itemRegalCount}}
               </span>
             </div>
@@ -185,14 +185,14 @@
                 {{chaosRecipe.chest.recipeCount}}
               </span>
               {{fa-icon 'times'}}
-              <img src="assets/images/regal-chaos.png" alt="chaos/regal" class="currency-icon ml-1">
+              <img src="assets/images/regal-chaos.png" alt="chaos/regal" local-class="currency-icon" class="ml-1">
 
               <span class="badge badge-dark px-1 ml-2">
-                <img src={{chaosImageUrl}} alt="chaos" class="currency-icon-sm">
+                <img src={{chaosImageUrl}} alt="chaos" local-class="currency-icon-sm">
                 {{t 'components.page.vendor_recipe_page.item_count' count=chaosRecipe.chest.itemChaosCount}}
               </span>
               <span class="badge badge-dark px-1 ml-1">
-                <img src={{regalImageUrl}} alt="regal" class="currency-icon-sm">
+                <img src={{regalImageUrl}} alt="regal" local-class="currency-icon-sm">
                 {{t 'components.page.vendor_recipe_page.item_count' count=chaosRecipe.chest.itemRegalCount}}
               </span>
             </div>
@@ -210,14 +210,14 @@
                 {{chaosRecipe.belt.recipeCount}}
               </span>
               {{fa-icon 'times'}}
-              <img src="assets/images/regal-chaos.png" alt="chaos/regal" class="currency-icon ml-1">
+              <img src="assets/images/regal-chaos.png" alt="chaos/regal" local-class="currency-icon" class="ml-1">
 
               <span class="badge badge-dark px-1 ml-2">
-                <img src={{chaosImageUrl}} alt="chaos" class="currency-icon-sm">
+                <img src={{chaosImageUrl}} alt="chaos" local-class="currency-icon-sm">
                 {{t 'components.page.vendor_recipe_page.item_count' count=chaosRecipe.belt.itemChaosCount}}
               </span>
               <span class="badge badge-dark px-1 ml-1">
-                <img src={{regalImageUrl}} alt="regal" class="currency-icon-sm">
+                <img src={{regalImageUrl}} alt="regal" local-class="currency-icon-sm">
                 {{t 'components.page.vendor_recipe_page.item_count' count=chaosRecipe.belt.itemRegalCount}}
               </span>
             </div>
@@ -236,14 +236,14 @@
                 {{chaosRecipe.amulet.recipeCount}}
               </span>
               {{fa-icon 'times'}}
-              <img src="assets/images/regal-chaos.png" alt="chaos/regal" class="currency-icon ml-1">
+              <img src="assets/images/regal-chaos.png" alt="chaos/regal" local-class="currency-icon" class="ml-1">
 
               <span class="badge badge-dark px-1 ml-2">
-                <img src={{chaosImageUrl}} alt="chaos" class="currency-icon-sm">
+                <img src={{chaosImageUrl}} alt="chaos" local-class="currency-icon-sm">
                 {{t 'components.page.vendor_recipe_page.item_count' count=chaosRecipe.amulet.itemChaosCount}}
               </span>
               <span class="badge badge-dark px-1 ml-1">
-                <img src={{regalImageUrl}} alt="regal" class="currency-icon-sm">
+                <img src={{regalImageUrl}} alt="regal" local-class="currency-icon-sm">
                 {{t 'components.page.vendor_recipe_page.item_count' count=chaosRecipe.amulet.itemRegalCount}}
               </span>
             </div>
@@ -261,14 +261,14 @@
                 {{chaosRecipe.ring.recipeCount}}
               </span>
               {{fa-icon 'times'}}
-              <img src="assets/images/regal-chaos.png" alt="chaos/regal" class="currency-icon ml-1">
+              <img src="assets/images/regal-chaos.png" alt="chaos/regal" local-class="currency-icon" class="ml-1">
 
               <span class="badge badge-dark px-1 ml-2">
-                <img src={{chaosImageUrl}} alt="chaos" class="currency-icon-sm">
+                <img src={{chaosImageUrl}} alt="chaos" local-class="currency-icon-sm">
                 {{t 'components.page.vendor_recipe_page.item_count' count=chaosRecipe.ring.itemChaosCount}}
               </span>
               <span class="badge badge-dark px-1 ml-1">
-                <img src={{regalImageUrl}} alt="regal" class="currency-icon-sm">
+                <img src={{regalImageUrl}} alt="regal" local-class="currency-icon-sm">
                 {{t 'components.page.vendor_recipe_page.item_count' count=chaosRecipe.ring.itemRegalCount}}
               </span>
             </div>
@@ -286,14 +286,14 @@
                 {{chaosRecipe.boots.recipeCount}}
               </span>
               {{fa-icon 'times'}}
-              <img src="assets/images/regal-chaos.png" alt="chaos/regal" class="currency-icon ml-1">
+              <img src="assets/images/regal-chaos.png" alt="chaos/regal" local-class="currency-icon" class="ml-1">
 
               <span class="badge badge-dark px-1 ml-2">
-                <img src={{chaosImageUrl}} alt="chaos" class="currency-icon-sm">
+                <img src={{chaosImageUrl}} alt="chaos" local-class="currency-icon-sm">
                 {{t 'components.page.vendor_recipe_page.item_count' count=chaosRecipe.boots.itemChaosCount}}
               </span>
               <span class="badge badge-dark px-1 ml-1">
-                <img src={{regalImageUrl}} alt="regal" class="currency-icon-sm">
+                <img src={{regalImageUrl}} alt="regal" local-class="currency-icon-sm">
                 {{t 'components.page.vendor_recipe_page.item_count' count=chaosRecipe.boots.itemRegalCount}}
               </span>
             </div>
@@ -309,7 +309,7 @@
               {{chaosRecipe.summary.recipeCount}}
             </span>
             {{fa-icon 'times'}}
-            <img src="assets/images/regal-chaos.png" alt="chaos/regal" class="currency-icon ml-1">
+            <img src="assets/images/regal-chaos.png" alt="chaos/regal" local-class="currency-icon" class="ml-1">
           </div>
         </div>
       </div>

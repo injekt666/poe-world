@@ -3,6 +3,8 @@ import {inject as service} from '@ember/service';
 import {task} from 'ember-concurrency';
 
 export default Component.extend({
+  localClassNames: 'atlas',
+
   router: service('router'),
   mapsFetcher: service('fetchers/maps-fetcher'),
   atlasReframer: service('reframers/atlas-reframer'),

@@ -18,8 +18,17 @@ module.exports = function(defaults) {
         ]
       }
     },
+
     sassOptions: {
       includePaths: 'node_modules/bootstrap/scss'
+    },
+
+    cssModules: {
+      intermediateOutputPath: 'app/styles/_pods.scss',
+      extension: 'module.scss',
+      postcssOptions: {
+        syntax: require('postcss-scss')
+      }
     }
   });
 

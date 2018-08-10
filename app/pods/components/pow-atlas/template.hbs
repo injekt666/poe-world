@@ -1,12 +1,12 @@
 {{#pow-panzoom-container
-  class='panzoom-container'
+  local-class='panzoom-container'
   minZoom=0.5
   maxZoom=1
   zoomSpeed=0.075
   onPanzoom=(action panzoom)
   onPanzoomInitialize=(action panzoomInitialize)
 }}
-  <div class="map-background"></div>
+  <div local-class="map-background"></div>
 
   {{#if maps}}
     {{pow-atlas/maps
