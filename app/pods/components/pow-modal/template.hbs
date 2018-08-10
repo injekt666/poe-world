@@ -1,25 +1,19 @@
-{{#if isOpened}}
-  {{#modal-dialog
-    onClose=(action onClose)
-    translucentOverlay=true
-  }}
-    <div class="modal-dialog {{if isSmall 'modal-sm'}} {{if isLarge 'modal-lg'}}">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">
-            {{title}}
-          </h5>
+<div class="modal" data-toggle="modal">
+  <div class="modal-dialog modal-dialog-centered {{if isSmall 'modal-sm'}} {{if isLarge 'modal-lg'}}">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">
+          {{title}}
+        </h5>
 
-          <button type="button" class="close" {{action onClose}}>
-            {{fa-icon 'times'}}
-          </button>
-        </div>
+        <button type="button" class="close text-white" data-dismiss="modal">
+          {{fa-icon 'times'}}
+        </button>
+      </div>
 
-        <div class="modal-body">
-          {{yield}}
-        </div>
+      <div class="modal-body">
+        {{yield}}
       </div>
     </div>
-  {{/modal-dialog}}
-{{/if}}
-
+  </div>
+</div>
