@@ -3,19 +3,23 @@
     onClose=(action onClose)
     translucentOverlay=true
   }}
-    <div class={{styleNamespace}}>
-      <div class="modal__content">
-        <div class="modal__content-header">
-          <div class="modal__content-header-title">
+    <div class="modal-dialog {{if isSmall 'modal-sm'}} {{if isLarge 'modal-lg'}}">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">
             {{title}}
-          </div>
+          </h5>
 
-          <button class="modal__content-header__close" {{action onClose}}>
+          <button type="button" class="close" {{action onClose}}>
             {{fa-icon 'times'}}
           </button>
         </div>
-        {{yield}}
+
+        <div class="modal-body">
+          {{yield}}
+        </div>
       </div>
     </div>
   {{/modal-dialog}}
 {{/if}}
+

@@ -1,41 +1,11 @@
-& {
+.markdown {
+  font-size: 0.75rem;
+
   h1 {
-    padding: 5px 0 5px 20px;
-    margin: 0 -20px;
-    background-color: $background-darker-color;
-    font-family: $font-family-accent;
-    font-size: 1.35rem;
-    letter-spacing: 3px;
+    font-size: 2rem;
   }
 
   h2 {
-    margin: 15px 0 5px;
-    font-family: $font-family-accent;
-    font-size: 1.15rem;
-    letter-spacing: 2px;
+    font-size: 1.5rem;
   }
-
-  ul {
-    margin-left: 20px;
-    list-style: disc;
-    font-size: 0.9rem;
-  }
-
-  li {
-    margin: 2px 0;
-  }
-}
-
-.changelog-modal__download-warning {
-  margin-bottom: 15px;
-}
-
-.changelog-modal__download-links {
-  margin-top: 15px;
-}
-
-.changelog-modal__download-link {
-  @include button;
-
-  margin-right: 10px;
 }
