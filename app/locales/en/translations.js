@@ -77,8 +77,8 @@ export default {
           other: "{{count}} items"
         },
         hand: "Hand",
-        one_handed: "One-Handed",
-        two_handed: "Two-Handed",
+        one_hand: "1H",
+        two_hand: "2H",
         helmet: "Helmet",
         chest: "Chest armor",
         belt: "Belt",

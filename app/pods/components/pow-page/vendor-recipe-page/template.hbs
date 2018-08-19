@@ -72,7 +72,20 @@
 
     <div class="row">
       <div class="col-4">
-        <div class="card {{if chaosRecipe.hands.isError 'bg-danger' (if chaosRecipe.hands.isWarning 'bg-warning')}}">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">
+              {{t 'components.page.vendor_recipe_page.summary'}}
+            </h5>
+            <span class="quantity mr-1">
+              {{chaosRecipe.summary.recipeCount}}
+            </span>
+            {{fa-icon 'times'}}
+            <img src="assets/images/regal-chaos.png" alt="chaos/regal" local-class="currency-icon" class="ml-1">
+          </div>
+        </div>
+
+        <div class="mt-2 card {{if chaosRecipe.hands.isError 'bg-danger' (if chaosRecipe.hands.isWarning 'bg-warning')}}">
           <div class="card-body">
             <h5 class="card-title">
               {{t 'components.page.vendor_recipe_page.hand'}}
@@ -87,37 +100,15 @@
 
               <span class="badge badge-dark px-1 ml-2">
                 <img src={{chaosImageUrl}} alt="chaos" local-class="currency-icon-sm">
-                {{t 'components.page.vendor_recipe_page.item_count' count=chaosRecipe.belt.itemChaosCount}}
+                {{chaosRecipe.hands.oneHanded.itemChaosCount}} {{fa-icon 'times'}} {{t 'components.page.vendor_recipe_page.one_hand'}}
+                &mdash;
+                {{chaosRecipe.hands.twoHanded.itemChaosCount}} {{fa-icon 'times'}} {{t 'components.page.vendor_recipe_page.two_hand'}}
               </span>
               <span class="badge badge-dark px-1 ml-1">
                 <img src={{regalImageUrl}} alt="regal" local-class="currency-icon-sm">
-                {{t 'components.page.vendor_recipe_page.item_count' count=chaosRecipe.belt.itemRegalCount}}
-              </span>
-            </div>
-
-            <div class="d-flex align-items-center mt-3">
-              <h6>{{t 'components.page.vendor_recipe_page.two_handed'}}</h6>
-
-              <span class="badge badge-dark px-1 ml-2">
-                <img src={{chaosImageUrl}} alt="chaos" local-class="currency-icon-sm">
-                {{t 'components.page.vendor_recipe_page.item_count' count=chaosRecipe.hands.twoHanded.itemChaosCount}}
-              </span>
-              <span class="badge badge-dark px-1 ml-1">
-                <img src={{regalImageUrl}} alt="regal" local-class="currency-icon-sm">
-                {{t 'components.page.vendor_recipe_page.item_count' count=chaosRecipe.hands.twoHanded.itemRegalCount}}
-              </span>
-            </div>
-
-            <div class="d-flex align-items-center mt-3">
-              <h6>{{t 'components.page.vendor_recipe_page.one_handed'}}</h6>
-
-              <span class="badge badge-dark px-1 ml-2">
-                <img src={{chaosImageUrl}} alt="chaos" local-class="currency-icon-sm">
-                {{t 'components.page.vendor_recipe_page.item_count' count=chaosRecipe.hands.oneHanded.itemChaosCount}}
-              </span>
-              <span class="badge badge-dark px-1 ml-1">
-                <img src={{regalImageUrl}} alt="regal" local-class="currency-icon-sm">
-                {{t 'components.page.vendor_recipe_page.item_count' count=chaosRecipe.hands.oneHanded.itemRegalCount}}
+                {{chaosRecipe.hands.oneHanded.itemRegalCount}} {{fa-icon 'times'}} {{t 'components.page.vendor_recipe_page.one_hand'}}
+                &mdash;
+                {{chaosRecipe.hands.twoHanded.itemRegalCount}} {{fa-icon 'times'}} {{t 'components.page.vendor_recipe_page.two_hand'}}
               </span>
             </div>
           </div>
@@ -297,19 +288,6 @@
                 {{t 'components.page.vendor_recipe_page.item_count' count=chaosRecipe.boots.itemRegalCount}}
               </span>
             </div>
-          </div>
-        </div>
-
-        <div class="mt-2 card">
-          <div class="card-body">
-            <h5 class="card-title">
-              {{t 'components.page.vendor_recipe_page.summary'}}
-            </h5>
-            <span class="quantity mr-1">
-              {{chaosRecipe.summary.recipeCount}}
-            </span>
-            {{fa-icon 'times'}}
-            <img src="assets/images/regal-chaos.png" alt="chaos/regal" local-class="currency-icon" class="ml-1">
           </div>
         </div>
       </div>
