@@ -1,0 +1,12 @@
+{{#if isSupported}}
+  <div class="custom-control custom-checkbox" {{action toggleStash stash}}>
+    <input id="{{elementId}}-checkbox" type="checkbox" class="custom-control-input" checked={{isIncluded}}>
+    <label class="custom-control-label" for="{{elementId}}-checkbox">
+      {{t (if isIncluded 'components.stash_setting.included' 'components.stash_setting.excluded')}}
+    </label>
+  </div>
+{{else}}
+  <span class="text-white-50">
+    {{t 'components.stash_setting.not_supported'}}
+  </span>
+{{/if}}

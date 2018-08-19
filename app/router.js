@@ -31,7 +31,7 @@ Router.map(function() {
 
   this.route('settings', function() {
     this.route('global', {path: '/'});
-    this.route('vendor-recipe');
+    this.route('stash-tabs');
   });
 });
 /* eslint-enable max-nested-callbacks */

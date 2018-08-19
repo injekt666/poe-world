@@ -27,7 +27,7 @@ export default {
     },
     settings_navigation: {
       global: "Global",
-      vendor_recipe: "Vendor recipe"
+      stash_tabs: "Stash tabs"
     },
     electron_container: {
       warning_message: "This feature is only available on the native version of PoeWorld."
@@ -38,6 +38,11 @@ export default {
       download_warning: "Automatic updates cannot be implemented yet. To do so, the application would need to be code-signed, and doing so cost money. Once the project gets more serious, it will happen.",
       download_button: "Download",
       see_on_github: "Open on GitHub"
+    },
+    stash_setting: {
+      included: "Included",
+      excluded: "Excluded",
+      not_supported: "Not supported"
     },
     page: {
       map_page: {
@@ -96,14 +101,11 @@ export default {
         authenticated: "Authenticated",
         not_authenticated: "Not authenticated"
       },
-      settings_vendor_recipe_page: {
-        title: "Vendor recipe stash tabs",
+      settings_stash_tabs_page: {
+        title: "Stash tabs",
         stash_name: "Stash name",
         stash_type: "Stash type",
-        vendor_recipe: "Vendor recipe",
-        included: "Included",
-        excluded: "Excluded",
-        not_supported: "Not supported"
+        vendor_recipe: "Vendor recipe"
       }
     }
   },
