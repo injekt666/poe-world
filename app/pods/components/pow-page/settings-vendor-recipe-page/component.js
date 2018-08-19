@@ -18,7 +18,7 @@ export default Component.extend({
   stashTabsLoadTask: task(function *() {
     const stashes = yield this.stashTabsFetcher.fetch();
     stashes.forEach((stash) => {
-      stash.set('isSelected', this.selectedStashIds.includes(stash.id));
+      stash.set('isIncluded', this.selectedStashIds.includes(stash.id));
       stash.set('isDisabled', !SUPPORTED_STASH_TYPES.includes(stash.type));
     });
 

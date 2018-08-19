@@ -101,8 +101,8 @@ export default {
         stash_name: "Stash name",
         stash_type: "Stash type",
         vendor_recipe: "Vendor recipe",
-        include: "Include",
-        exclude: "Exclude",
+        included: "Included",
+        excluded: "Excluded",
         not_supported: "Not supported"
       }
     }
