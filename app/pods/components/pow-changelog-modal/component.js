@@ -1,11 +1,12 @@
 import Component from '@ember/component';
 import {inject as service} from '@ember/service';
-import {task} from 'ember-concurrency';
+import {task, timeout} from 'ember-concurrency';
 import ENV from 'poe-world/config/environment';
 import STORAGE_KEYS from 'poe-world/constants/storage-keys';
 
 // Constants
 const {APP: {VERSION: CURRENT_VERSION, CHANGELOG, FORCE_CHANGELOG}} = ENV;
+const CHANGELOG_MODAL_DELAY = 1500;
 
 export default Component.extend({
   storage: service('storage'),
@@ -19,6 +20,7 @@ export default Component.extend({
     const lastSessionVersion = this.storage.getValue(STORAGE_KEYS.LAST_SESSION_VERSION, '0.0.0');
 
     if (lastSessionVersion < CURRENT_VERSION || FORCE_CHANGELOG) {
+      yield timeout(CHANGELOG_MODAL_DELAY);
       return this.setProperties({
         changelogMarkdown: CHANGELOG,
         isOpened: true
@@ -28,6 +30,7 @@ export default Component.extend({
     const latestRelease = yield this.releasesFetcher.fetchLatest();
 
     if (latestRelease.version > CURRENT_VERSION) {
+      yield timeout(CHANGELOG_MODAL_DELAY);
       return this.setProperties({
         changelogMarkdown: latestRelease.changelog,
         nextRelease: latestRelease,
