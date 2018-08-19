@@ -17,7 +17,9 @@ export default Service.extend({
     this.storage.setValue(STORAGE_KEYS.POESESSID, poesessid);
   },
 
-  initializeSync() {
+  init() {
+    this._super(...arguments);
+
     this.setProperties({
       poesessid: this.storage.getValue(STORAGE_KEYS.POESESSID, {defaultValue: ''}),
       account: this.storage.getValue(STORAGE_KEYS.ACCOUNT, {defaultValue: ''})

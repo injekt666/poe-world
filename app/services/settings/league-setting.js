@@ -6,25 +6,19 @@ export default Service.extend({
   leaguesFetcher: service('fetchers/leagues-fetcher'),
 
   league: null,
-  leaguePromise: null,
 
   apply(league) {
     this.storage.setValue(STORAGE_KEYS.LEAGUE, league.slug);
     return this.set('league', league);
   },
 
-  initialize() {
-    const leaguePromise = this.leaguesFetcher.fetch().then((leagues) => {
-      const currentLeague = this._getCurrentLeagueFrom(leagues);
-      const defaultLeague = this._getDefaultLeagueFrom(leagues);
+  initializeFrom(leagues) {
+    const currentLeague = this._getCurrentLeagueFrom(leagues);
+    const defaultLeague = this._getDefaultLeagueFrom(leagues);
 
-      if (currentLeague) return this.set('league', currentLeague);
+    if (currentLeague) return this.set('league', currentLeague);
 
-      return this.apply(defaultLeague);
-    });
-
-    this.set('leaguePromise', leaguePromise);
-    return leaguePromise;
+    return this.apply(defaultLeague);
   },
 
   _getCurrentLeagueFrom(leagues) {

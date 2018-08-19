@@ -14,13 +14,13 @@ export default Service.extend({
     });
   },
 
-  initialize() {
-    return this.leagueSetting.leaguePromise.then((activeLeague) => {
-      this.set('stashIds', this.storage.getValue(this.storageKey, {
-        defaultValue: [],
-        leagueSlug: activeLeague.slug
-      }));
-    });
+  init() {
+    this._super(...arguments);
+
+    this.set('stashIds', this.storage.getValue(this.storageKey, {
+      defaultValue: [],
+      leagueSlug: this.leagueSetting.league.slug
+    }));
   }
 });
 
