@@ -105,7 +105,8 @@ export default {
         title: "Stash tabs",
         stash_name: "Stash name",
         stash_type: "Stash type",
-        vendor_recipe: "Vendor recipe"
+        vendor_recipe: "Vendor recipe",
+        divination_summary: "Divination cards summary"
       }
     }
   },
