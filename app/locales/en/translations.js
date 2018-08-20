@@ -29,6 +29,10 @@ export default {
       global: "Global",
       stash_tabs: "Stash tabs"
     },
+    stash_navigation: {
+      vendor_recipe: "Vendor recipe",
+      divination_summary: "Divination summary"
+    },
     electron_container: {
       warning_message: "This feature is only available on the native version of PoeWorld."
     },
@@ -92,6 +96,14 @@ export default {
         gloves: "Gloves",
         ring: "Ring",
         summary: "Summary"
+      },
+      divination_summary_page: {
+        missing_stashes_selection: "To use this feature, you need to select which stash tabs you want to track.",
+        missing_stashes_button: "Configure",
+        title: "Divination summary",
+        no_divination_card_found: "No divination card card has been found in your tabs.",
+        card_name: "Card name",
+        stock_quantity: "Stock quantity"
       },
       settings_global_page: {
         leagues_title: "Active league",

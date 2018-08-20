@@ -1,6 +1,8 @@
 import EmberObject, {computed} from '@ember/object';
 
 export default EmberObject.extend({
+  name: null,
+  slug: null,
   imageUrl: null,
   itemLevel: null,
   topCategory: null,
@@ -9,6 +11,7 @@ export default EmberObject.extend({
   identified: null,
   socketCount: null,
   socketGroups: [],
+  quantity: null,
 
   defaultCategory: computed('subCategories', function() {
     if (this.subCategories.length > 0) return this.subCategories[0];

@@ -14,7 +14,7 @@ const STASH_FEATURES = [
   {
     titleKey: 'components.page.settings_stash_tabs_page.divination_summary',
     settingService: 'settings/divination-summary-setting',
-    supportedTypes: ['Premium', 'Normal', 'Quad']
+    supportedTypes: ['Premium', 'Normal', 'Quad', 'DivinationCard']
   }
 ];
 

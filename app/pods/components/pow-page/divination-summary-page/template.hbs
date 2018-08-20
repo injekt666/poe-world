@@ -1,0 +1,41 @@
+<div class="container-fluid">
+  {{#pow-task-load-container task=divinationSummaryInitialLoadTask}}
+    {{#unless hasDivinationSummaryStashes}}
+      <div class="alert alert-warning d-flex align-items-center">
+        {{t 'components.page.divination_summary_page.missing_stashes_selection'}}
+
+        {{#pow-link 'settings.stash-tabs' class='btn btn-primary ml-2'}}
+          {{fa-icon 'wrench' class='mr-1'}} {{t 'components.page.divination_summary_page.missing_stashes_button'}}
+        {{/pow-link}}
+      </div>
+    {{/unless}}
+
+    {{pow-task-load-bar task=divinationSummaryLoadTask}}
+
+    <h2>{{t 'components.page.divination_summary_page.title'}}</h2>
+
+    {{#if divinationSummary}}
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th>{{t 'components.page.divination_summary_page.card_name'}}</th>
+          <th>{{t 'components.page.divination_summary_page.stock_quantity'}}</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        {{#each divinationSummary as |item|}}
+          <tr>
+            <td>{{item.cardName}}</td>
+            <td>{{item.quantity}}</td>
+          </tr>
+        {{/each}}
+        </tbody>
+      </table>
+    {{else}}
+      <div class="alert alert-warning">
+        {{t 'components.page.divination_summary_page.no_divination_card_found'}}
+      </div>
+    {{/if}}
+  {{/pow-task-load-container}}
+</div>

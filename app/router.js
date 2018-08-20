@@ -27,6 +27,7 @@ Router.map(function() {
 
   this.route('stash', function() {
     this.route('vendor-recipe', {path: '/'});
+    this.route('divination-summary');
   });
 
   this.route('settings', function() {
