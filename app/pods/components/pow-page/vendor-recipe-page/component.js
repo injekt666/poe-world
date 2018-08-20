@@ -3,11 +3,12 @@ import {inject as service} from '@ember/service';
 import {task, timeout} from 'ember-concurrency';
 import CURRENCIES from 'poe-world/constants/currencies';
 import PoeAuthenticationError from 'poe-world/errors/poe-authentication-error';
+import StashTabsLoadable from 'poe-world/mixins/stash-tabs-loadable';
 
 // Constants
 const RECIPE_POLLING_INTERVAL = 60000; // 60 seconds
 
-export default Component.extend({
+export default Component.extend(StashTabsLoadable, {
   toaster: service('toaster'),
   stashTabsFetcher: service('fetchers/stash-tabs-fetcher'),
   stashItemsFetcher: service('fetchers/stash-items-fetcher'),
@@ -30,27 +31,10 @@ export default Component.extend({
   chaosRecipe: null,
 
   vendorRecipeLoadTask: task(function *() {
-    const stashIdsToLoad = this.vendorRecipeSetting.stashIds;
-    const hasVendorRecipeStashes = stashIdsToLoad.length > 0;
-    let stashIndexes = [];
-    let stashItems = [];
+    const stashIds = this.vendorRecipeSetting.stashIds;
+    const hasVendorRecipeStashes = stashIds.length > 0;
 
-    try {
-      if (hasVendorRecipeStashes) {
-        const stashTabs = yield this.stashTabsFetcher.fetch();
-        stashIndexes = stashTabs
-          .filter((stashTab) => stashIdsToLoad.includes(stashTab.id))
-          .map((stashTab) => stashTab.index);
-      }
-
-      while (stashIndexes.length) {
-        const newStashItems = yield this.stashItemsFetcher.fetchFromStashIndex(stashIndexes.shift());
-        stashItems = stashItems.concat(newStashItems);
-      }
-
-    } catch (error) {
-      if (!(error instanceof PoeAuthenticationError)) this.toaster.toastUnexpectedError();
-    }
+    const stashItems = yield this.loadStashItemsTask.perform(stashIds);
 
     this.setProperties({
       hasVendorRecipeStashes,
