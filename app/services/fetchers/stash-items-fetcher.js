@@ -20,7 +20,7 @@ export default Service.extend({
 
     if (!this.globalState.isElectron || !account) return Promise.reject(null);
 
-    return this.electronRequest.fetch(`${PRIVATE_API.CHARACTER_WINDOW_BASE_URL}/get-stash-items?accountName=${account}&league=${leagueId}&tabIndex=${stashIndex}`)
+    return this.electronRequest.privateFetch(`${PRIVATE_API.CHARACTER_WINDOW_BASE_URL}/get-stash-items?accountName=${account}&league=${leagueId}&tabIndex=${stashIndex}`)
       .then(({items: rawStashItems}) => this._buildStashItems(rawStashItems));
   },
 
@@ -35,6 +35,7 @@ export default Service.extend({
         imageUrl: rawStashItem.icon,
         itemLevel: rawStashItem.ilvl,
         quantity: rawStashItem.stackSize || 1,
+        maxStackSize: rawStashItem.maxStackSize || null,
         topCategory,
         subCategories,
         rarity: FRAME_TYPES[rawStashItem.frameType],

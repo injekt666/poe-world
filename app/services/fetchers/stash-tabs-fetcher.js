@@ -16,7 +16,7 @@ export default Service.extend({
 
     if (!this.globalState.isElectron || !account) return Promise.reject(null);
 
-    return this.electronRequest.fetch(`${PRIVATE_API.CHARACTER_WINDOW_BASE_URL}/get-stash-items?accountName=${account}&league=${leagueId}&tabs=1`)
+    return this.electronRequest.privateFetch(`${PRIVATE_API.CHARACTER_WINDOW_BASE_URL}/get-stash-items?accountName=${account}&league=${leagueId}&tabs=1`)
       .then(({tabs: rawTabs}) => {
         return rawTabs.map((rawTab) => StashTab.create({
           id: rawTab.id,

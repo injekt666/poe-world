@@ -48,6 +48,10 @@ export default {
       excluded: "Excluded",
       not_supported: "Not supported"
     },
+    poe_ninja_credit: {
+      credit: "Pricing analytics powered by",
+      poe_ninja: "poe.ninja"
+    },
     page: {
       map_page: {
         tier: "Tier",
@@ -103,7 +107,15 @@ export default {
         title: "Divination summary",
         no_divination_card_found: "No divination card card has been found in your tabs.",
         card_name: "Card name",
-        stock_quantity: "Stock quantity"
+        stock_quantity: "Stock quantity",
+        stack_size: "Stack size",
+        unit_value: "Unit value",
+        total_value: "Total value",
+        stack_count: {
+          zero: "No complete stack",
+          one: "1 complete stack",
+          other: "{{count}} complete stacks"
+        }
       },
       settings_global_page: {
         leagues_title: "Active league",

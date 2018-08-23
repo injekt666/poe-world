@@ -74,11 +74,10 @@ app.on('ready', () => {
   ipcMain.on('REQUEST', (event, params) => {
     const rpParams = {
       uri: params.url,
-      headers: {
-        ...params.headers,
-        Cookie: `POESESSID=${params.poesessid}`
-      }
+      headers: params.headers || {}
     };
+
+    if (params.poesessid) rpParams.headers.Cookie = `POESESSID=${params.poesessid}`;
 
     rp(rpParams)
       .then((response) => event.sender.send(params.responseSuccessChannel, response))

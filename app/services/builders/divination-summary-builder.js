@@ -4,13 +4,15 @@ import Service from '@ember/service';
 const DIVINATION_CARD_TOP_CATEGORY = 'cards';
 
 export default Service.extend({
-  build(stashItems) {
+  build(stashItems, divinationPricingMap) {
     const divinationStashItemsMap = stashItems.reduce((divinationStashItemsMap, stashItem) => {
       if (stashItem.topCategory !== DIVINATION_CARD_TOP_CATEGORY) return divinationStashItemsMap;
 
       if (!divinationStashItemsMap[stashItem.slug]) {
         divinationStashItemsMap[stashItem.slug] = {
           cardName: stashItem.name,
+          cardSlug: stashItem.slug,
+          stackSize: stashItem.maxStackSize,
           quantity: 0
         };
       }
@@ -20,6 +22,21 @@ export default Service.extend({
       return divinationStashItemsMap;
     }, {});
 
-    return Object.values(divinationStashItemsMap);
+    return Object.values(divinationStashItemsMap)
+      .map((stashItem) => {
+        const matchingPricing = divinationPricingMap[stashItem.cardSlug];
+        const chaosValue = matchingPricing ? matchingPricing.chaosValue : 0;
+        const exaltedValue = matchingPricing ? matchingPricing.exaltedValue : 0;
+
+        return {
+          ...stashItem,
+          stackCount: Math.floor(stashItem.quantity / stashItem.stackSize),
+          chaosValue,
+          exaltedValue,
+          chaosTotalValue: chaosValue * stashItem.quantity,
+          exaltedTotalValue: exaltedValue * stashItem.quantity
+        };
+      })
+      .sort((itemA, itemB) => itemB.chaosTotalValue - itemA.chaosTotalValue);
   }
 });

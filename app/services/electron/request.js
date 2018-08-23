@@ -16,11 +16,17 @@ export default Service.extend({
     return this._fetch('GET', url, params);
   },
 
-  _fetch(method, url, params = {}) {
+  privateFetch(url, params = {}) {
     const poesessid = this.authenticationSetting.poesessid;
-
     if (!poesessid) return Promise.reject(this._createAuthenticationError(params));
 
+    return this._fetch('GET', url, {
+      poesessid,
+      ...params
+    });
+  },
+
+  _fetch(method, url, params = {}) {
     const {ipcRenderer} = requireNode('electron');
 
     const id = uuid();
@@ -29,7 +35,6 @@ export default Service.extend({
 
     const requestParams = {
       ...params,
-      poesessid,
       responseSuccessChannel,
       responseErrorChannel,
       url,

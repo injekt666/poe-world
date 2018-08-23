@@ -12,6 +12,7 @@ export default EmberObject.extend({
   socketCount: null,
   socketGroups: [],
   quantity: null,
+  maxStackSize: null,
 
   defaultCategory: computed('subCategories', function() {
     if (this.subCategories.length > 0) return this.subCategories[0];

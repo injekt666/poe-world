@@ -95,7 +95,14 @@ $spacer: 1.5rem;
 //
 $body-bg: $dark;
 $body-color: $white;
+
+//
+// Links
+//
 $link-color: $white;
+$link-decoration: none;
+$link-hover-color: lighten($primary, 15%);
+$link-hover-decoration: none;
 
 //
 // Tables

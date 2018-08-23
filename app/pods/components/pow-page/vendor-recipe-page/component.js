@@ -2,7 +2,6 @@ import Component from '@ember/component';
 import {inject as service} from '@ember/service';
 import {task, timeout} from 'ember-concurrency';
 import CURRENCIES from 'poe-world/constants/currencies';
-import PoeAuthenticationError from 'poe-world/errors/poe-authentication-error';
 import StashTabsLoadable from 'poe-world/mixins/stash-tabs-loadable';
 
 // Constants
