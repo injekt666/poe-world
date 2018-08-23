@@ -6,7 +6,7 @@ export default {
     },
     map_trade_list: {
       no_properties: "No props.",
-      no_mods: "No mods",
+      no_explicit_mods: "No explicit mods",
       corrupted: "Corrupted",
       unidentified: "Unidentified",
       item_quantity: "{{itemQuantity}} IIQ",

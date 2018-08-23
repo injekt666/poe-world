@@ -84,7 +84,7 @@ export default Service.extend({
         corrupted: mapResult.item.corrupted || false,
         identified: mapResult.item.identified || false,
         verified: mapResult.item.verified || false,
-        mods: mapResult.item.explicitMods,
+        explicitMods: mapResult.item.explicitMods,
         itemQuantity: iiqProperty ? iiqProperty.values[0][0] : null,
         itemRarity: iirProperty ? iirProperty.values[0][0] : null,
         monsterPackSize: mpsProperty ? mpsProperty.values[0][0] : null,

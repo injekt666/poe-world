@@ -39,7 +39,7 @@
 
   <div class="col-5">
     <ul class="list-unstyled">
-      {{#if hasMods}}
+      {{#if hasExplicitMods}}
         {{#unless tradeMap.identified}}
           <li>
             <span class="badge badge-warning p-1">
@@ -47,7 +47,7 @@
             </span>
           </li>
         {{else}}
-          {{#each tradeMap.mods as |mod|}}
+          {{#each tradeMap.explicitMods as |mod|}}
             <li local-class="mod">
               {{fa-icon 'caret-right'}} {{mod}}
             </li>
@@ -55,7 +55,7 @@
         {{/unless}}
       {{else}}
         <span class="text-muted">
-          {{t 'components.map_trade_list.no_mods'}}
+          {{t 'components.map_trade_list.no_explicit_mods'}}
         </span>
       {{/if}}
     </ul>

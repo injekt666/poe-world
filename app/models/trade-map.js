@@ -9,7 +9,7 @@ export default EmberObject.extend({
   corrupted: null,
   identified: null,
   verified: null,
-  mods: null,
+  explicitMods: null,
   itemQuantity: null,
   itemRarity: null,
   monsterPackSize: null,

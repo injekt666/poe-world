@@ -8,5 +8,5 @@ export default Component.extend({
   tradeMap: null,
 
   hasProperties: or('tradeMap.itemQuantity', 'tradeMap.itemRarity', 'tradeMap.monsterPackSize', 'tradeMap.corrupted'),
-  hasMods: or('tradeMap.isUnidentified', 'tradeMap.mods')
+  hasExplicitMods: or('tradeMap.isUnidentified', 'tradeMap.explicitMods')
 });
