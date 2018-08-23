@@ -1,3 +1,5 @@
+$map-fading-in-duration: 1500ms;
+
 @keyframes maps-fade-in {
   0% { opacity: 0; }
   25% { opacity: 0; }
@@ -15,20 +17,20 @@
   &.active::before {
     content: '';
     position: absolute;
-    z-index: $atlas-map-glow-z-index;
+    z-index: $zindex-fixed - 1;
     top: 15px;
     left: 15px;
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    box-shadow: 0 0 50px 30px $white-color;
+    box-shadow: 0 0 50px 30px $white;
     animation-delay: $map-fading-in-duration;
   }
 }
 
 .item-map {
   position: absolute;
-  z-index: $atlas-map-z-index;
+  z-index: $zindex-fixed;
   width: 100%;
   height: 100%;
   animation-duration: $map-fading-in-duration;

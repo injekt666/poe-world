@@ -12,7 +12,7 @@ $toaster-spacing: 20px;
 
 .toaster {
   position: fixed;
-  z-index: $toaster-z-index;
+  z-index: $zindex-toaster;
   bottom: $toaster-spacing;
   left: $toaster-spacing;
 }
@@ -20,7 +20,7 @@ $toaster-spacing: 20px;
 .toast {
   position: relative;
   margin-bottom: $toaster-spacing;
-  box-shadow: 0 0 20px 5px rgba($background-color, 0.65);
+  box-shadow: 0 0 20px 5px rgba($darker, 0.65);
   animation: toast-slide-in 250ms ease-in forwards;
 }
 

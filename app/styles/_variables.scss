@@ -1,54 +1,28 @@
 @import url('https://fonts.googleapis.com/css?family=Marcellus+SC|Open+Sans:300,400');
 
-// LEGACY BEGIN
-
-$atlas-width: 4096px;
-$atlas-height: 2304px;
-
-$white-color: #fdfdfd;
-$black-color: #161616;
-$background-color: #292c36;
-$background-darker-color: #1e2028;
-$primary-color: #566082;
-
-$white-tier-color: #d7cfd5;
-$yellow-tier-color: #c78a30;
-$red-tier-color: #be3925;
-
-$normal-color: #fff;
-$unique-color: #af6025;
-$rare-color: #ff7;
-$magic-color: #88f;
-$currency-color: #e6b489;
-
-$success-color: #64a747;
-$warning-color: #bd9f43;
-$error-color: #a72932;
-
-$border-radius: 5px;
-
-$font-family-regular: 'Open Sans', sans-serif;
-$font-family-accent: 'Marcellus SC', serif;
-
-$padding: 15px;
-
+//
+// Global
+//
 $navigation-height: 59px;
 
-// Atlas
-$atlas-sextants-item-radius: 150px;
-
-// Animations
-$map-fading-in-duration: 1500ms;
-
+//
 // Z-Indexes
-$toaster-z-index: 2200;
-$modal-z-index: 2100;
-$navigation-z-index: 2000;
-$atlas-map-z-index: 1000;
-$atlas-map-glow-z-index: 900;
-$atlas-sextants-z-index: 800;
+//
+$zindex-dropdown: 1000;
+$zindex-sticky: 1020;
+$zindex-fixed: 1030;
+$zindex-modal-backdrop: 1040;
+$zindex-modal: 1050;
+$zindex-popover: 1060;
+$zindex-tooltip: 1070;
+$zindex-toaster: 1100;
 
-// LEGACY END
+//
+// Atlas
+//
+$atlas-sextants-item-radius: 150px;
+$atlas-width: 4096px;
+$atlas-height: 2304px;
 
 //
 // Color system
@@ -80,6 +54,16 @@ $theme-colors: (
 );
 
 $yiq-contrasted-threshold: 200;
+
+$white-tier-color: #d7cfd5;
+$yellow-tier-color: #c78a30;
+$red-tier-color: #be3925;
+
+$normal-color: #fff;
+$unique-color: #af6025;
+$rare-color: #ff7;
+$magic-color: #88f;
+$currency-color: #e6b489;
 
 //
 // Options

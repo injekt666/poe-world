@@ -1,9 +1,9 @@
 .sextant {
   position: absolute;
-  z-index: $atlas-sextants-z-index;
+  z-index: $zindex-fixed - 2;
   width: $atlas-sextants-item-radius * 2;
   height: $atlas-sextants-item-radius * 2;
-  border: 2px solid $white-color;
+  border: 2px solid $white;
   border-radius: 50%;
   margin: ($atlas-sextants-item-radius * -1) 0 0 ($atlas-sextants-item-radius * -1);
 }
