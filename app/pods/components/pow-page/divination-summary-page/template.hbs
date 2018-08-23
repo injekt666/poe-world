@@ -23,7 +23,7 @@
         <thead>
         <tr>
           <th>{{t 'components.page.divination_summary_page.card_name'}}</th>
-          <th>{{t 'components.page.divination_summary_page.stack_size'}}</th>
+          <th>{{t 'components.page.divination_summary_page.card_result'}}</th>
           <th>{{t 'components.page.divination_summary_page.stock_quantity'}}</th>
           <th class="text-right">{{t 'components.page.divination_summary_page.unit_value'}}</th>
           <th class="text-right">{{t 'components.page.divination_summary_page.total_value'}}</th>
@@ -37,10 +37,16 @@
               {{item.cardName}}
             </td>
             <td>
-              {{item.stackSize}}
+              <div class="card px-2 py-1">
+                <ul class="list-unstyled m-0">
+                  {{#each item.cardMods as |mod|}}
+                    <li>{{pow-mod mod=mod}}</li>
+                  {{/each}}
+                </ul>
+              </div>
             </td>
             <td>
-              {{item.quantity}}
+              {{item.quantity}} / {{item.stackSize}}
 
               <em class="text-muted small ml-1">
                 {{t 'components.page.divination_summary_page.stack_count' count=item.stackCount}}

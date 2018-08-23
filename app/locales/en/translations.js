@@ -107,8 +107,8 @@ export default {
         title: "Divination summary",
         no_divination_card_found: "No divination card card has been found in your tabs.",
         card_name: "Card name",
+        card_result: "Card result",
         stock_quantity: "Stock quantity",
-        stack_size: "Stack size",
         unit_value: "Unit value",
         total_value: "Total value",
         stack_count: {

@@ -1,0 +1,24 @@
+.uniqueitem {
+  color: $unique-color;
+}
+
+.magicitem {
+  color: $magic-color;
+}
+
+.rareitem {
+  color: $rare-color;
+}
+
+.whiteitem,
+.normal {
+  color: $normal-color;
+}
+
+.currencyitem {
+  color: $currency-color;
+}
+
+.corrupted {
+  color: lighten($danger, 15%);
+}

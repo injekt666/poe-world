@@ -1,3 +1,4 @@
+// Vendors
 import Service from '@ember/service';
 
 // Constants
@@ -11,6 +12,7 @@ export default Service.extend({
       if (!divinationStashItemsMap[stashItem.slug]) {
         divinationStashItemsMap[stashItem.slug] = {
           cardName: stashItem.name,
+          cardMods: stashItem.explicitMods,
           cardSlug: stashItem.slug,
           stackSize: stashItem.maxStackSize,
           quantity: 0

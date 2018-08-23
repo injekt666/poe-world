@@ -1,3 +1,4 @@
+// Vendors
 import EmberObject, {computed} from '@ember/object';
 
 export default EmberObject.extend({
@@ -13,6 +14,7 @@ export default EmberObject.extend({
   socketGroups: [],
   quantity: null,
   maxStackSize: null,
+  explicitMods: [],
 
   defaultCategory: computed('subCategories', function() {
     if (this.subCategories.length > 0) return this.subCategories[0];

@@ -1,9 +1,14 @@
+// Vendors
 import Service, {inject as service} from '@ember/service';
 import StashItem from 'poe-world/models/stash-item';
 import {Promise} from 'rsvp';
+
+// Utilities
+import slugify from 'poe-world/utilities/slugify';
+
+// Global constants
 import PRIVATE_API from 'poe-world/constants/private-api';
 import FRAME_TYPES from 'poe-world/constants/frame-types';
-import slugify from 'poe-world/utilities/slugify';
 
 // Constants
 const MAXIMUM_SOCKETS_COUNT = 6;
@@ -41,7 +46,8 @@ export default Service.extend({
         rarity: FRAME_TYPES[rawStashItem.frameType],
         identified: rawStashItem.identified,
         socketCount: rawStashItem.sockets ? rawStashItem.sockets.length : 0,
-        socketGroups: this._getSocketGroupsFor(rawStashItem)
+        socketGroups: this._getSocketGroupsFor(rawStashItem),
+        explicitMods: this._parseMods(rawStashItem.explicitMods)
       });
     });
   },
@@ -65,5 +71,16 @@ export default Service.extend({
     if (subCategories.length === 0) return [topCategories[0], []];
 
     return [topCategories[0], subCategories];
+  },
+
+  _parseMods(rawMods) {
+    if (!rawMods) return [];
+
+    return rawMods.reduce((mods, rawMod) => {
+      return mods.concat(rawMod.split('\n'));
+      //if (rawMod.indexOf('>{') > -1) console.log(rawMod);
+      //mods.push(rawMod);
+      //return mods;
+    }, []);
   }
 });
