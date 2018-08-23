@@ -1,6 +1,9 @@
+// Vendors
 import Mixin from '@ember/object/mixin';
 import {inject as service} from '@ember/service';
 import {task} from 'ember-concurrency';
+
+// Errors
 import PoeAuthenticationError from 'poe-world/errors/poe-authentication-error';
 
 export default Mixin.create({

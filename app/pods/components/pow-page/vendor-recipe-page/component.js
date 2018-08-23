@@ -1,8 +1,13 @@
+// Vendors
 import Component from '@ember/component';
 import {inject as service} from '@ember/service';
 import {task, timeout} from 'ember-concurrency';
+
+// Mixins
+import StashTabsLoadable from 'poe-world/mixins/components/stash-tabs-loadable';
+
+// Global constants
 import CURRENCIES from 'poe-world/constants/currencies';
-import StashTabsLoadable from 'poe-world/mixins/stash-tabs-loadable';
 
 // Constants
 const RECIPE_POLLING_INTERVAL = 60000; // 60 seconds

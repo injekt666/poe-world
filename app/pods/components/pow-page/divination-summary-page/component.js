@@ -1,7 +1,10 @@
+// Vendors
 import Component from '@ember/component';
 import {inject as service} from '@ember/service';
 import {task, timeout} from 'ember-concurrency';
-import StashTabsLoadable from 'poe-world/mixins/stash-tabs-loadable';
+
+// Mixins
+import StashTabsLoadable from 'poe-world/mixins/components/stash-tabs-loadable';
 
 // Constants
 const SUMMARY_POLLING_INTERVAL = 300000; // 5 minutes

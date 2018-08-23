@@ -1,18 +1,14 @@
+// Vendors
 import Component from '@ember/component';
 
-export default Component.extend({
+// Mixins
+import Popoverable from 'poe-world/mixins/components/popoverable';
+
+export default Component.extend(Popoverable, {
   classNames: ['list-unstyled'],
   tagName: 'ul',
 
   currentMap: null,
   maps: [],
-  onMapClick: () => {},
-
-  didInsertElement() {
-    this.$('[data-toggle="popover"]').popover({
-      container: 'body',
-      trigger: 'hover',
-      html: true
-    });
-  }
+  onMapClick: () => {}
 });
