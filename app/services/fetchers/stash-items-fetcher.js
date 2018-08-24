@@ -76,11 +76,6 @@ export default Service.extend({
   _parseMods(rawMods) {
     if (!rawMods) return [];
 
-    return rawMods.reduce((mods, rawMod) => {
-      return mods.concat(rawMod.split('\n'));
-      //if (rawMod.indexOf('>{') > -1) console.log(rawMod);
-      //mods.push(rawMod);
-      //return mods;
-    }, []);
+    return rawMods.reduce((mods, rawMod) => mods.concat(rawMod.split('\n')), []);
   }
 });
