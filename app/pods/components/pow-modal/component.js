@@ -24,8 +24,6 @@ export default Component.extend({
         focus: false,
         show: this.isOpened
       })
-      .on('hidden.bs.modal', function() {
-        if (this.isOpened) this.onClose();
-      });
+      .on('hidden.bs.modal', () => this.onClose());
   }
 });
