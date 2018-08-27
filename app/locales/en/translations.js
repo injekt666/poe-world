@@ -4,6 +4,9 @@ export default {
     atlas: {
       popover_content: "Tier {{tier}}<br/>Area Level {{level}}"
     },
+    price: {
+      undefined: "Undefined pricing"
+    },
     map_trade_list: {
       no_properties: "No props.",
       no_explicit_mods: "No explicit mods",

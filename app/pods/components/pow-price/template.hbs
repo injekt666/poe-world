@@ -1,5 +1,5 @@
 <div class="d-inline-flex align-items-center">
-  {{#unless loadCurrencyTask.isRunning}}
+  {{#if amount}}
     <span class="mr-1">
       {{roundedAmount}}
     </span>
@@ -11,5 +11,9 @@
     {{else}}
       {{currencyId}}
     {{/if}}
-  {{/unless}}
+  {{else}}
+    <span class="text-warning">
+      {{t 'components.price.undefined'}}
+    </span>
+  {{/if}}
 </div>

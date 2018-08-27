@@ -91,8 +91,8 @@ export default Service.extend({
         indexedAt: mapResult.listing.indexed,
         whisper: mapResult.listing.whisper,
         account: mapResult.listing.account.name,
-        priceAmount: mapResult.listing.price.amount,
-        priceCurrencyId: mapResult.listing.price.currency,
+        priceAmount: mapResult.listing.price ? mapResult.listing.price.amount : null,
+        priceCurrencyId: mapResult.listing.price ? mapResult.listing.price.currency : null,
         isAfk: mapResult.listing.account.online.status === AFK_STATUS
       });
     });
