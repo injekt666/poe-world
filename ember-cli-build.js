@@ -11,7 +11,7 @@ module.exports = function(defaults) {
       icons: {
         'free-solid-svg-icons': [
           'times', 'info', 'coins', 'compass', 'skull', 'balance-scale', 'spinner', 'sync', 'copy', 'check',
-          'caret-right', 'minus', 'plus', 'square', 'check-square', 'download', 'wrench', 'bolt'
+          'caret-right', 'minus', 'plus', 'square', 'check-square', 'download', 'wrench', 'bolt', 'church'
         ],
         'free-brands-svg-icons': [
           'github'

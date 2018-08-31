@@ -1,6 +1,6 @@
 {{#each maps as |map|}}
   <li
-    local-class="item {{if (eq currentMap map) 'active'}}"
+    local-class="item"
     style={{css-offset map.offsetLeft map.offsetTop}}
     data-toggle="popover"
     data-title={{map.name}}
@@ -12,5 +12,19 @@
       src={{map.imageUrl}}
       alt={{map.name}}
     >
+
+    {{#if (eq currentMap map)}}
+      <div local-class="item-active"></div>
+    {{/if}}
+
+    {{#if map.pantheon}}
+      <div local-class="item-pantheon"></div>
+    {{/if}}
   </li>
 {{/each}}
+
+<div class="popover" role="tooltip">
+  <div class="arrow"></div>
+  <h3 class="popover-header"></h3>
+  <div class="popover-body"></div>
+</div>

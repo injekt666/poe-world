@@ -6,6 +6,12 @@ $map-fading-in-duration: 1500ms;
   100% { opacity: 1; }
 }
 
+@keyframes pantheon-rotation {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 .item {
   position: absolute;
   width: 50px;
@@ -13,19 +19,6 @@ $map-fading-in-duration: 1500ms;
   border-radius: 50%;
   margin: -25px 0 0 -25px;
   cursor: pointer;
-
-  &.active::before {
-    content: '';
-    position: absolute;
-    z-index: $zindex-fixed - 1;
-    top: 15px;
-    left: 15px;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    box-shadow: 0 0 50px 30px $white;
-    animation-delay: $map-fading-in-duration;
-  }
 }
 
 .item-map {
@@ -35,4 +28,30 @@ $map-fading-in-duration: 1500ms;
   height: 100%;
   animation-duration: $map-fading-in-duration;
   animation-name: maps-fade-in;
+}
+
+.item-active {
+  position: absolute;
+  z-index: $zindex-fixed - 2;
+  top: 15px;
+  left: 15px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  box-shadow: 0 0 50px 30px $white;
+  animation-delay: $map-fading-in-duration;
+}
+
+.item-pantheon {
+  position: absolute;
+  z-index: $zindex-fixed - 1;
+  top: -25%;
+  left: -25%;
+  width: 150%;
+  height: 150%;
+  border: 0;
+  border-top: 8px solid $pantheon-color;
+  border-bottom: 8px solid $pantheon-color;
+  border-radius: 50%;
+  animation: pantheon-rotation 20s linear infinite;
 }
