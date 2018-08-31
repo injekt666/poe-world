@@ -22,6 +22,7 @@ export default EmberObject.extend({
   offsetLeft: null,
   offsetTop: null,
   sextants: [],
+  isTradable: true,
 
   tierColor: computed('tier', function() {
     const tier = this.tier;

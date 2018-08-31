@@ -1,13 +1,19 @@
-{{#if isMapsInitiallyLoaded}}
-  <p class="lead">
-    {{t 'components.page.map_trade_page.total' count=total}}
-  </p>
-{{/if}}
+{{#if map.isTradable}}
+  {{#if isMapsInitiallyLoaded}}
+    <p class="lead">
+      {{t 'components.page.map_trade_page.total' count=total}}
+    </p>
+  {{/if}}
 
-{{#pow-task-load-container task=initialLoadTask}}
-  {{pow-trade-map-list tradeMaps=tradeMaps}}
-{{/pow-task-load-container}}
+  {{#pow-task-load-container task=initialLoadTask}}
+    {{pow-trade-map-list tradeMaps=tradeMaps}}
+  {{/pow-task-load-container}}
 
-{{#if isMapsInitiallyLoaded}}
-  {{pow-lazy-loader lazyLoadableTask=lazyLoadTask}}
+  {{#if isMapsInitiallyLoaded}}
+    {{pow-lazy-loader lazyLoadableTask=lazyLoadTask}}
+  {{/if}}
+{{else}}
+  <div class="alert alert-warning">
+    {{t 'components.page.map_trade_page.not_tradable_warning'}}
+  </div>
 {{/if}}

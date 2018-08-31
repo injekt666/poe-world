@@ -38,6 +38,8 @@ export default Component.extend({
   }).drop(),
 
   didReceiveAttrs() {
+    if (!this.map.isTradable) return;
+
     this.tradeMaps.clear();
     this.initialLoadTask.perform();
   }

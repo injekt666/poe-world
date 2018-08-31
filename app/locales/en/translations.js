@@ -74,6 +74,7 @@ export default {
         boss_title: "Boss"
       },
       map_trade_page: {
+        not_tradable_warning: "This map is not available in any kind of currency. Therefore, it is not possible to get it via trading.",
         total: {
           zero: "No map found.",
           one: "One map found.",
