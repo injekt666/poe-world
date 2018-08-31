@@ -1,5 +1,7 @@
+// Vendors
 import Component from '@ember/component';
 import {task, timeout} from 'ember-concurrency';
+import $ from 'jquery';
 
 /* global panzoom */
 
@@ -26,7 +28,12 @@ export default Component.extend({
     const $container = this.$();
     const panzoomRef = panzoom($container[0], this.getProperties('minZoom', 'maxZoom', 'zoomSpeed', 'bounds', 'smoothScroll', 'autocenter'));
 
-    $container.on('pan panstart panend zoom', () => this.triggerPanzoomEventTask.perform());
+    $container.on('pan panstart panend zoom', () => {
+      this.triggerPanzoomEventTask.perform();
+
+      // Make sure we hide active popover to avoid having them floating around
+      $('[data-toggle="popover"]').popover('hide');
+    });
 
     this._panzoomRef = panzoomRef;
     this.onPanzoomInitialize(panzoomRef);

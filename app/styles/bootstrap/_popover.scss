@@ -6,3 +6,7 @@
 .popover-body {
   font-size: $popover-font-size * 0.75;
 }
+
+[data-popover] {
+  display: none;
+}

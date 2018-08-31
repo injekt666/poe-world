@@ -2,7 +2,9 @@
 export default {
   components: {
     atlas: {
-      popover_content: "Tier {{tier}}<br/>Area Level {{level}}"
+      popover_tier: "Tier: {{tier}}",
+      popover_area_level: "Area Level: {{areaLevel}}",
+      popover_pantheon: "Pantheon: {{pantheon}}"
     },
     price: {
       undefined: "Undefined pricing"

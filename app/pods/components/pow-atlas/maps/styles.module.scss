@@ -12,6 +12,10 @@ $map-fading-in-duration: 1500ms;
   }
 }
 
+.pantheon-color {
+  color: $pantheon-color;
+}
+
 .item {
   position: absolute;
   width: 50px;
