@@ -49,13 +49,22 @@ $map-fading-in-duration: 1500ms;
 .item-pantheon {
   position: absolute;
   z-index: $zindex-fixed - 1;
-  top: -25%;
-  left: -25%;
-  width: 150%;
-  height: 150%;
-  border: 0;
-  border-top: 8px solid $pantheon-color;
-  border-bottom: 8px solid $pantheon-color;
-  border-radius: 50%;
-  animation: pantheon-rotation 20s linear infinite;
+  top: -5%;
+  left: -5%;
+  width: 110%;
+  height: 110%;
+  animation: pantheon-rotation 20s infinite linear;
+
+  &::after {
+    content: '';
+    position: absolute;
+
+    top: 5px;
+    right: 5px;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: $pantheon-color;
+    box-shadow: 0 0 10px 10px $pantheon-color;
+  }
 }
