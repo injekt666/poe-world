@@ -15,6 +15,22 @@
               </h2>
             {{/if}}
           </div>
+
+          <div class="pl-2">
+            {{#if isEditing}}
+              {{pow-tags-field
+                placeholder=(t "components.page.trade_page.tags_placeholder")
+                tags=stagedTrade.tags}}
+            {{else}}
+              <h4 class="mb-0 mt-2">
+                {{#each currentTrade.tags as |tag|}}
+                  <span class="badge badge-primary badge-pill text-capitalize px-2 py-1">
+                    {{tag}}
+                  </span>
+                {{/each}}
+              </h4>
+            {{/if}}
+          </div>
         </div>
 
         <div class="col-5">
@@ -133,8 +149,3 @@
     </ul>
   </div>
 </div>
-
-
-
-
-

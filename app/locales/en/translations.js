@@ -142,6 +142,7 @@ export default {
       trade_page: {
         label_placeholder: "Label",
         notes_placeholder: "Notes",
+        tags_placeholder: "Tags",
         cancel: "Cancel",
         save: "Save",
         edit: "Edit",

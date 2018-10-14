@@ -9,20 +9,18 @@ import STORAGE_KEYS from 'poe-world/constants/storage-keys';
 
 export default Service.extend({
   storage: service('storage'),
+  tradeFetcher: service('trade/fetcher'),
 
   persist(trade) {
-    if (!trade.id) trade.id = uuid();
+    if (!trade.id) trade.set('id', uuid());
 
-    const trades = this.storage.getValue(STORAGE_KEYS.TRADE, {
-      defaultValue: []
-    });
-
+    const trades = this.tradeFetcher.fetchAll();
     const existingTrade = trades.find(({id}) => id === trade.id);
 
     if (existingTrade) {
-      Object.assign(existingTrade, trade);
+      Object.assign(existingTrade, trade.asJson());
     } else {
-      trades.unshift(trade);
+      trades.unshift(trade.asJson());
     }
 
     this.storage.setValue(STORAGE_KEYS.TRADE, trades);
