@@ -15,6 +15,22 @@
               </h2>
             {{/if}}
           </div>
+
+          <div class="pl-2">
+            {{#if isEditing}}
+              {{pow-tags-field
+                placeholder=(t "components.page.trade_page.tags_placeholder")
+                tags=stagedTrade.tags}}
+            {{else}}
+              <h4 class="mb-0 mt-2">
+                {{#each currentTrade.tags as |tag|}}
+                  <span class="badge badge-primary badge-pill text-capitalize px-2 py-1">
+                    {{tag}}
+                  </span>
+                {{/each}}
+              </h4>
+            {{/if}}
+          </div>
         </div>
 
         <div class="col-5">
@@ -125,6 +141,14 @@
             {{trade.label}}
           </h5>
 
+          <div class="my-1">
+            {{#each trade.tags as |tag|}}
+              <span class="badge badge-primary badge-pill text-capitalize">
+                {{tag}}
+              </span>
+            {{/each}}
+          </div>
+
           <small>
             {{t "components.page.trade_page.updated_at" timeAgo=(moment-from-now trade.updatedAt)}}
           </small>
@@ -133,8 +157,3 @@
     </ul>
   </div>
 </div>
-
-
-
-
-

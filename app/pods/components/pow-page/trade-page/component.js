@@ -3,11 +3,13 @@ import Component from '@ember/component';
 import {inject as service} from '@ember/service';
 import {computed} from '@ember/object';
 import {bool} from '@ember/object/computed';
-import moment from 'moment';
 
 // Constants
 import TRADE from 'poe-world/constants/trade';
 const TRADE_WEBSITE_OFFSET = 192;
+
+// Models
+import Trade from 'poe-world/models/trade';
 
 export default Component.extend({
   activeLeagueSetting: service('active-league/setting'),
@@ -65,16 +67,14 @@ export default Component.extend({
   },
 
   edit() {
-    this.set('stagedTrade', {
-      ...this.currentTrade
-    });
+    this.set('stagedTrade', this.currentTrade.clone());
   },
 
   save() {
-    this.set('stagedTrade.slug', this.currentTradeSlug);
-    this.set('stagedTrade.updatedAt', moment().toISOString());
-    if (!this.stagedTrade.label) this.set('stagedTrade.label', this.currentTradeSlug);
-
+    this.stagedTrade.updateProperties({
+      slug: this.currentTradeSlug,
+      label: this.stagedTrade.label || this.currentTradeSlug
+    });
     const savedTrade = this.tradePersister.persist(this.stagedTrade);
 
     this._refreshTrades();
@@ -94,19 +94,13 @@ export default Component.extend({
   create() {
     this.setProperties({
       currentTrade: null,
-      stagedTrade: {
-        label: '',
-        notes: '',
-        slug: '',
-        updatedAt: null
-      },
+      stagedTrade: Trade.create(),
       currentTradeSlug: ''
     });
   },
 
   updateTradeSlug() {
-    this.set('currentTrade.slug', this.currentTradeSlug);
-    this.set('currentTrade.updatedAt', moment().toISOString());
+    this.currentTrade.updateProperties({slug: this.currentTradeSlug});
     this.tradePersister.persist(this.currentTrade);
 
     this._refreshTrades();
