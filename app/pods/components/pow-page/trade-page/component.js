@@ -74,6 +74,20 @@ export default Component.extend({
     this._makeFirstTradeActive();
   },
 
+  duplicate() {
+    const duplicatedTrade = this.tradePersister.persist(this.currentTrade.clone({
+      id: null,
+      label: `${this.currentTrade.label} *`
+    }));
+
+    this._refreshTrades();
+    this.setProperties({
+      currentTrade: duplicatedTrade,
+      currentTradeSlug: duplicatedTrade.slug,
+      stagedTrade: null
+    });
+  },
+
   save() {
     this.stagedTrade.updateProperties({
       slug: this.currentTradeSlug,
@@ -84,6 +98,7 @@ export default Component.extend({
     this._refreshTrades();
     this.setProperties({
       currentTrade: savedTrade,
+      currentTradeSlug: savedTrade.slug,
       stagedTrade: null
     });
   },

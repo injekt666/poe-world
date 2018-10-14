@@ -22,13 +22,18 @@ export default EmberObject.extend({
     });
   },
 
-  clone() {
+  clone(properties) {
     const tradeJson = this.asJson();
 
-    return this.constructor.create({
+    const clone = this.constructor.create({
       ...tradeJson,
       tags: A(tradeJson.tags)
     });
+
+    if (!properties) return clone;
+
+    clone.updateProperties(properties);
+    return clone;
   },
 
   asJson() {
