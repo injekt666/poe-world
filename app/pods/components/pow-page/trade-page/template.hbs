@@ -141,6 +141,14 @@
             {{trade.label}}
           </h5>
 
+          <div class="my-1">
+            {{#each trade.tags as |tag|}}
+              <span class="badge badge-primary badge-pill text-capitalize">
+                {{tag}}
+              </span>
+            {{/each}}
+          </div>
+
           <small>
             {{t "components.page.trade_page.updated_at" timeAgo=(moment-from-now trade.updatedAt)}}
           </small>
