@@ -9,12 +9,13 @@ import STORAGE_KEYS from 'poe-world/constants/storage-keys';
 
 export default Service.extend({
   storage: service('storage'),
-  tradeFetcher: service('trade/fetcher'),
 
   persist(trade) {
     if (!trade.id) trade.set('id', uuid());
 
-    const trades = this.tradeFetcher.fetchAll();
+    const trades = this.storage.getValue(STORAGE_KEYS.TRADE, {
+      defaultValue: []
+    });
     const existingTrade = trades.find(({id}) => id === trade.id);
 
     if (existingTrade) {

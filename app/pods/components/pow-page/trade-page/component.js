@@ -15,6 +15,7 @@ export default Component.extend({
   activeLeagueSetting: service('active-league/setting'),
   tradeFetcher: service('trade/fetcher'),
   tradePersister: service('trade/persister'),
+  tradeDestroyer: service('trade/destroyer'),
 
   tradeWebsiteOffset: TRADE_WEBSITE_OFFSET,
 
@@ -45,11 +46,7 @@ export default Component.extend({
 
     if (!this.trades.length) return this.create();
 
-    const currentTrade = this.trades[0];
-    this.setProperties({
-      currentTrade,
-      currentTradeSlug: currentTrade.slug
-    });
+    this._makeFirstTradeActive();
   },
 
   tradeUrlUpdate(newTradeUrl) {
@@ -68,6 +65,13 @@ export default Component.extend({
 
   edit() {
     this.set('stagedTrade', this.currentTrade.clone());
+  },
+
+  delete() {
+    if (!this.tradeDestroyer.destroy(this.currentTrade)) return;
+
+    this._refreshTrades();
+    this._makeFirstTradeActive();
   },
 
   save() {
@@ -114,5 +118,13 @@ export default Component.extend({
     const trades = this.tradeFetcher.fetchAll();
 
     this.set('trades', trades);
+  },
+
+  _makeFirstTradeActive() {
+    const currentTrade = this.trades[0];
+    this.setProperties({
+      currentTrade,
+      currentTradeSlug: currentTrade.slug
+    });
   }
 });

@@ -146,6 +146,7 @@ export default {
         cancel: "Cancel",
         save: "Save",
         edit: "Edit",
+        delete: "Delete",
         update: "Update",
         revert: "Revert",
         create: "New trade query",
