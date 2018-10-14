@@ -147,6 +147,7 @@ export default {
         save: "Save",
         edit: "Edit",
         delete: "Delete",
+        duplicate: "Duplicate",
         update: "Update",
         revert: "Revert",
         create: "New trade query",
