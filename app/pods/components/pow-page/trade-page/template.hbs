@@ -45,10 +45,12 @@
                 onChange=(action (mut stagedTrade.notes))}}
             {{else}}
               <div class="position-relative h-100">
-                <div local-class="notes">
-                  {{fa-icon 'file-alt' size="2x" local-class="notes-icon"}}
-                  {{textarea-value currentTrade.notes}}
-                </div>
+                {{#if currentTrade.notes}}
+                  <div local-class="notes">
+                    {{fa-icon 'file-alt' size="2x" local-class="notes-icon"}}
+                    {{textarea-value currentTrade.notes}}
+                  </div>
+                {{/if}}
               </div>
             {{/if}}
           </div>
