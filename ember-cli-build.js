@@ -10,9 +10,9 @@ module.exports = function(defaults) {
     fontawesome: {
       icons: {
         'free-solid-svg-icons': [
-          'times', 'info', 'coins', 'compass', 'skull', 'balance-scale', 'spinner', 'sync', 'copy', 'check',
+          'times', 'info', 'info-circle', 'coins', 'compass', 'skull', 'balance-scale', 'spinner', 'sync', 'copy',
           'caret-right', 'minus', 'plus', 'square', 'check-square', 'download', 'wrench', 'bolt', 'church',
-          'file-alt', 'save', 'edit', 'undo', 'trash'
+          'file-alt', 'save', 'edit', 'undo', 'trash', 'check'
         ],
         'free-brands-svg-icons': [
           'github'

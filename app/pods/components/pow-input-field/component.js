@@ -13,6 +13,7 @@ export default Component.extend({
   rows: 5,
   label: null,
   placeholder: null,
+  helper: null,
   value: null,
   onChange: () => {},
 

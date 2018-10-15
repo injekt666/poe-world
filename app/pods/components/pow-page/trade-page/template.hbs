@@ -116,8 +116,16 @@
     </div>
   </div>
 
-  <div class="col-3 pl-0">
-    <h1>PLACEHOLDER</h1>
+  <div class="col-3 pl-0 pt-2">
+    <h2>
+      {{t "components.page.trade_page.trades_title"}}
+    </h2>
+
+    {{pow-input-field
+      placeholder=(t "components.page.trade_page.search_placeholder")
+      helper=(t "components.page.trade_page.search_helper")
+      value=searchValue
+      onChange=(action (mut searchValue))}}
   </div>
 </div>
 
@@ -141,7 +149,7 @@
     </div>
 
     <ul class="list-unstyled">
-      {{#each trades as |trade|}}
+      {{#each filteredTrades as |trade|}}
         <li
           local-class="filters-item"
           class="{{if (eq trade.id currentTrade.id) "pl-3" "pl-2"}} py-2 pr-2"

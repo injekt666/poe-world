@@ -14,6 +14,7 @@ import Trade from 'poe-world/models/trade';
 export default Component.extend({
   activeLeagueSetting: service('active-league/setting'),
   tradeFetcher: service('trade/fetcher'),
+  tradeFilterer: service('trade/filterer'),
   tradePersister: service('trade/persister'),
   tradeDestroyer: service('trade/destroyer'),
 
@@ -23,6 +24,7 @@ export default Component.extend({
   currentTrade: null,
   stagedTrade: null,
   trades: [],
+  searchValue: '',
 
   isEditing: bool('stagedTrade'),
 
@@ -39,6 +41,12 @@ export default Component.extend({
 
   currentTradeUrl: computed('tradeBaseUrl', 'currentTradeSlug', function() {
     return `${this.tradeBaseUrl}/${this.currentTradeSlug}`;
+  }),
+
+  filteredTrades: computed('trades', 'searchValue', function() {
+    if (!this.searchValue) return this.trades;
+
+    return this.tradeFilterer.filter(this.trades, this.searchValue);
   }),
 
   willInsertElement() {

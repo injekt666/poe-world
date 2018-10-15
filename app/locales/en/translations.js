@@ -150,6 +150,9 @@ export default {
         duplicate: "Duplicate",
         update: "Update",
         revert: "Revert",
+        trades_title: "Your trades",
+        search_placeholder: "Search…",
+        search_helper: "Multiple terms can be separated with a comma.",
         create: "New trade query",
         updated_at: "Updated {{timeAgo}}"
       }

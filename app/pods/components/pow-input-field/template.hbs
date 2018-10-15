@@ -1,6 +1,8 @@
 <div class="form-group">
   {{#if label}}
-    <label for={{id}}>{{label}}</label>
+    <label for={{id}}>
+      {{label}}
+    </label>
   {{/if}}
 
   {{#unless isTextarea}}
@@ -23,6 +25,13 @@
       oninput={{action inputChange}}
     ></textarea>
   {{/unless}}
+
+  {{#if helper}}
+    <small class="form-text text-white">
+      {{fa-icon "info-circle"}}
+      {{helper}}
+    </small>
+  {{/if}}
 
   {{yield}}
 </div>
