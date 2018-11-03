@@ -8,6 +8,21 @@ $trade-header-height: 150px;
   height: calc(100vh - #{$trade-header-height + $navigation-height});
 }
 
+.trade-tags {
+  position: relative;
+  overflow-x: hidden;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 20px;
+    height: 100%;
+    background: linear-gradient(to left, $darker, rgba($darker, 0));
+  }
+}
+
 .trade-url {
   position: relative;
   align-self: flex-end;

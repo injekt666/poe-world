@@ -22,11 +22,11 @@
                 placeholder=(t "components.page.trade_page.tags_placeholder")
                 tags=stagedTrade.tags}}
             {{else}}
-              <h4 class="mb-0 mt-2">
+              <h4 local-class="trade-tags" class="d-flex flex-nowrap mb-0 mt-2">
                 {{#each currentTrade.tags as |tag|}}
-                  <span class="badge badge-primary badge-pill text-capitalize px-2 py-1">
+                  <div class="badge badge-primary badge-pill text-capitalize px-2 py-1 mr-1">
                     {{tag}}
-                  </span>
+                  </div>
                 {{/each}}
               </h4>
             {{/if}}
