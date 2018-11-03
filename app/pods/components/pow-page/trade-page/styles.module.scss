@@ -8,6 +8,12 @@ $trade-header-height: 150px;
   height: calc(100vh - #{$trade-header-height + $navigation-height});
 }
 
+.trade-label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .trade-tags {
   position: relative;
   overflow-x: hidden;
