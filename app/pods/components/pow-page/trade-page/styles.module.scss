@@ -4,17 +4,13 @@ $trade-header-height: 150px;
   height: $trade-header-height;
 }
 
-.body {
-  height: calc(100vh - #{$trade-header-height + $navigation-height});
-}
-
-.trade-label {
+.label {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-.trade-tags {
+.tags {
   position: relative;
   overflow-x: hidden;
 
@@ -29,7 +25,7 @@ $trade-header-height: 150px;
   }
 }
 
-.trade-url {
+.url {
   position: relative;
   align-self: flex-end;
   padding: 5px 35px 5px 15px;
@@ -49,22 +45,24 @@ $trade-header-height: 150px;
   }
 }
 
-.trade-url-prefix {
+.url-prefix {
   opacity: 0.5;
 }
 
-.trade-url-slug {
+.url-slug {
   &::before {
     content: '/';
     opacity: 0.5;
   }
 }
 
-.trade-container {
-  height: 100%;
+.browser-container {
+  position: relative;
+  height: calc(100vh - #{$trade-header-height + $navigation-height});
 }
 
-.filters-list {
+.sidebar {
+  height: calc(100vh - #{$navigation-height});
   overflow-y: scroll;
 }
 
