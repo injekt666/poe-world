@@ -30,10 +30,6 @@ export default {
       trade: "Trade",
       settings: "Settings"
     },
-    stash_navigation: {
-      vendor_recipe: "Vendor recipe",
-      divination_summary: "Divination summary"
-    },
     electron_container: {
       warning_message: "This feature is only available on the native version of PoeWorld."
     },
@@ -79,6 +75,10 @@ export default {
           one: "One map found.",
           other: "{{count}} maps found !"
         }
+      },
+      stash_page: {
+        vendor_recipe: "Vendor recipe",
+        divination_summary: "Divination summary"
       },
       vendor_recipe_page: {
         missing_stashes_selection: "To use this feature, you need to select which stash tabs you want to track.",

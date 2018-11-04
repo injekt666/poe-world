@@ -2,14 +2,16 @@
   <ul class="nav nav-tabs px-3">
     <li class="nav-item">
       {{#pow-link 'stash.vendor-recipe' class='nav-link'}}
-        {{t 'components.stash_navigation.vendor_recipe'}}
+        {{t 'components.page.stash_page.vendor_recipe'}}
       {{/pow-link}}
     </li>
 
     <li class="nav-item">
       {{#pow-link 'stash.divination-summary' class='nav-link'}}
-        {{t 'components.stash_navigation.divination_summary'}}
+        {{t 'components.page.stash_page.divination_summary'}}
       {{/pow-link}}
     </li>
   </ul>
 </div>
+
+{{yield}}
