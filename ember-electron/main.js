@@ -83,6 +83,8 @@ app.on('ready', () => {
       .then((response) => event.sender.send(params.responseSuccessChannel, response))
       .catch((error) => event.sender.send(params.responseErrorChannel, error));
   });
+
+  ipcMain.on('DEV_TOOLS', () => mainWindow.openDevTools());
 });
 
 // Handle an unhandled error in the main thread

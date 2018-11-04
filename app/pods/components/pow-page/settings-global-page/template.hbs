@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid pb-2">
   <h2>{{t 'components.page.settings_global_page.leagues_title'}}</h2>
 
   {{#pow-task-load-container task=leaguesLoadTask}}
@@ -43,6 +43,19 @@
           {{/if}}
         {{/if}}
       </p>
+    </div>
+
+    <div class="card border-danger mt-4 w-50">
+      <div class="card-body">
+        <h5 class="card-title">
+          {{t "components.page.settings_global_page.danger_title"}}
+        </h5>
+        <div class="pt-2">
+          <button type="button" class="btn btn-danger" {{action openDevTools}}>
+            {{t "components.page.settings_global_page.open_dev_tools"}}
+          </button>
+        </div>
+      </div>
     </div>
   {{/pow-electron-container}}
 </div>

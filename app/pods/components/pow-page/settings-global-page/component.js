@@ -7,6 +7,7 @@ import {readOnly} from '@ember/object/computed';
 const TEST_AUTHENTICATION_DEBOUNCE = 1000; // 1 second
 
 export default Component.extend({
+  electronDevTools: service('-electron/dev-tools'),
   leaguesFetcher: service('leagues/fetcher'),
   activeLeagueSetting: service('active-league/setting'),
   authenticationSetting: service('authentication/setting'),
@@ -55,5 +56,9 @@ export default Component.extend({
   applyAccount(account) {
     this.authenticationSetting.applyAccount(account);
     this.debouncedTestAuthenticationTask.perform();
+  },
+
+  openDevTools() {
+    this.electronDevTools.open();
   }
 });

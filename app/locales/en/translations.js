@@ -128,7 +128,9 @@ export default {
         account_label: "Account name",
         poesessid_label: "Session cookie (POESESSID)",
         authenticated: "Authenticated",
-        not_authenticated: "Not authenticated"
+        not_authenticated: "Not authenticated",
+        danger_title: "Danger Zone",
+        open_dev_tools: "Open chrome developer tools"
       },
       settings_stash_tabs_page: {
         title: "Stash tabs",
