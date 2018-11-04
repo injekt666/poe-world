@@ -37,7 +37,7 @@ export default Service.extend({
       return StashItem.create({
         name,
         slug: slugify(name),
-        imageUrl: rawStashItem.icon,
+        imageUrl: rawStashItem.icon.replace(/\?.+$/, ''),
         itemLevel: rawStashItem.ilvl,
         quantity: rawStashItem.stackSize || 1,
         maxStackSize: rawStashItem.maxStackSize || null,

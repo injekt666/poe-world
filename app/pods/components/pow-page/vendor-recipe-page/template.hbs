@@ -100,15 +100,11 @@
 
               <span class="badge badge-dark px-1 ml-2">
                 <img src={{chaosImageUrl}} alt="chaos" local-class="currency-icon-sm">
-                {{chaos.hands.oneHanded.itemChaosCount}} {{fa-icon 'times'}} {{t 'components.page.vendor_recipe_page.one_hand'}}
-                &mdash;
-                {{chaos.hands.twoHanded.itemChaosCount}} {{fa-icon 'times'}} {{t 'components.page.vendor_recipe_page.two_hand'}}
+                {{t 'components.page.vendor_recipe_page.item_count' count=chaos.hands.itemChaosCount}}
               </span>
               <span class="badge badge-dark px-1 ml-1">
                 <img src={{regalImageUrl}} alt="regal" local-class="currency-icon-sm">
-                {{chaos.hands.oneHanded.itemRegalCount}} {{fa-icon 'times'}} {{t 'components.page.vendor_recipe_page.one_hand'}}
-                &mdash;
-                {{chaos.hands.twoHanded.itemRegalCount}} {{fa-icon 'times'}} {{t 'components.page.vendor_recipe_page.two_hand'}}
+                {{t 'components.page.vendor_recipe_page.item_count' count=chaos.hands.itemRegalCount}}
               </span>
             </div>
           </div>

@@ -70,6 +70,8 @@ export default Service.extend({
           itemChaosCount: 0,
           itemRegalCount: 0
         },
+        itemChaosCount: 0,
+        itemRegalCount: 0,
         recipeCount: 0,
         isError: false,
         isWarning: false
@@ -122,6 +124,8 @@ export default Service.extend({
     const twoHandedSets = dataStructure.hands.twoHanded.itemChaosCount + dataStructure.hands.twoHanded.itemRegalCount;
     const oneHandedSets = Math.floor((dataStructure.hands.oneHanded.itemChaosCount + dataStructure.hands.oneHanded.itemRegalCount) / 2);
     dataStructure.hands.recipeCount = twoHandedSets + oneHandedSets;
+    dataStructure.hands.itemChaosCount = dataStructure.hands.twoHanded.itemChaosCount + dataStructure.hands.oneHanded.itemChaosCount;
+    dataStructure.hands.itemRegalCount = dataStructure.hands.twoHanded.itemRegalCount + dataStructure.hands.oneHanded.itemRegalCount;
 
     const recipeTotal = dataStructure.summary.recipeCount = Math.min(
       dataStructure.helmet.recipeCount,
