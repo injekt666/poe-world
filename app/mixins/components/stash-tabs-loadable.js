@@ -7,6 +7,7 @@ import {task} from 'ember-concurrency';
 import PoeAuthenticationError from 'poe-world/errors/poe-authentication-error';
 
 export default Mixin.create({
+  toaster: service('toaster'),
   stashTabsFetcher: service('stash/tabs-fetcher'),
   stashItemsFetcher: service('stash/items-fetcher'),
 
