@@ -4,6 +4,7 @@
 // Global
 //
 $navigation-height: 59px;
+$application-height: calc(100vh - #{$navigation-height});
 
 //
 // Z-Indexes

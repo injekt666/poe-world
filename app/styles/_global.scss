@@ -1,15 +1,16 @@
-html,
-body {
-  min-height: 100vh;
+.application-outlet {
+  overflow-y: auto;
+  height: $application-height;
+  margin-top: $navigation-height;
 }
 
-body {
-  padding-top: $navigation-height;
+// Custom webkit scrollbars
+::-webkit-scrollbar {
+  width: 10px;
+  padding: 0 2px;
 }
 
-// This class is applied to Atlas routes
-// Because the panzoom UI, the scrolling patterns are different there.
-body.scroll-lock {
-  overflow: hidden;
-  height: 100vh;
+::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background-color: $primary;
 }

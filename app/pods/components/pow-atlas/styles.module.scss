@@ -1,4 +1,10 @@
 .atlas {
+  overflow: hidden;
+  width: 100%;
+  height: $application-height;
+}
+
+.wrapper {
   position: relative;
   width: $atlas-width;
   height: $atlas-height;
@@ -10,6 +16,7 @@
   position: absolute;
   top: 0;
   left: 0;
+  overflow: hidden;
   width: 100%;
   height: 100%;
 }

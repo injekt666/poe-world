@@ -2,22 +2,14 @@ $map-page-width: 700px;
 $map-header-height: 240px;
 
 .map-page {
+  display: flex;
   position: fixed;
   top: $navigation-height;
   right: 0;
-  overflow-x: hidden;
-  overflow-y: auto;
+  flex-direction: column;
   width: $map-page-width;
-  height: calc(100vh - #{$navigation-height});
-  padding-top: $map-header-height;
+  height: $application-height;
   background-color: $body-bg;
-}
-
-.header {
-  position: fixed;
-  top: $navigation-height;
-  right: 0;
-  width: $map-page-width;
 }
 
 .header-stat {
@@ -48,6 +40,6 @@ $map-header-height: 240px;
 }
 
 .yield-wrapper {
-  position: relative;
-  z-index: -1;
+  overflow-y: auto;
+  flex-grow: 1;
 }

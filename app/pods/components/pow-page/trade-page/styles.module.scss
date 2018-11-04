@@ -62,8 +62,8 @@ $trade-header-height: 150px;
 }
 
 .sidebar {
-  height: calc(100vh - #{$navigation-height});
   overflow-y: scroll;
+  height: calc(100vh - #{$navigation-height});
 }
 
 .filters-item {
