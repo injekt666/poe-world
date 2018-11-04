@@ -2,14 +2,16 @@
   <ul class="nav nav-tabs px-3">
     <li class="nav-item">
       {{#pow-link 'settings.global' class='nav-link'}}
-        {{t 'components.settings_navigation.global'}}
+        {{t 'components.page.settings_page.global'}}
       {{/pow-link}}
     </li>
 
     <li class="nav-item">
       {{#pow-link 'settings.stash-tabs' class='nav-link'}}
-        {{t 'components.settings_navigation.stash_tabs'}}
+        {{t 'components.page.settings_page.stash_tabs'}}
       {{/pow-link}}
     </li>
   </ul>
 </div>
+
+{{yield}}

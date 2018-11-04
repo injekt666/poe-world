@@ -30,10 +30,6 @@ export default {
       trade: "Trade",
       settings: "Settings"
     },
-    settings_navigation: {
-      global: "Global",
-      stash_tabs: "Stash tabs"
-    },
     stash_navigation: {
       vendor_recipe: "Vendor recipe",
       divination_summary: "Divination summary"
@@ -123,6 +119,10 @@ export default {
           one: "1 complete stack",
           other: "{{count}} complete stacks"
         }
+      },
+      settings_page: {
+        global: "Global",
+        stash_tabs: "Stash tabs"
       },
       settings_global_page: {
         leagues_title: "Active league",
