@@ -1,7 +1,7 @@
 import Component from '@ember/component';
 import {computed} from '@ember/object';
 import {getOwner} from '@ember/application';
-import toggleArray from 'poe-world/utilities/toggleArray';
+import toggleArray from 'poe-world/utilities/toggle-array';
 
 export default Component.extend({
   stash: null,
