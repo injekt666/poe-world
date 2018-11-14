@@ -6,11 +6,11 @@ module.exports = {
     win32: ['squirrel']
   },
   electronPackagerConfig: {
-    appCopyright: `Copyright (c) 2016-${(new Date().getFullYear())} PoeWorld`,
+    appCopyright: `Copyright (c) 2017-${(new Date().getFullYear())} PoeWorld`,
     name: 'PoeWorld',
     versionString: {
       CompanyName: 'PoeWorld',
-      FileDescription: 'for Desktops',
+      FileDescription: 'for Desktop',
       ProductName: 'PoeWorld',
       InternalName: 'PoeWorld'
     },
