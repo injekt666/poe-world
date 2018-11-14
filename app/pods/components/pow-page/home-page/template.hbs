@@ -1,0 +1,98 @@
+<div class="container-fluid py-2">
+  <div class="row">
+    <div class="col-8">
+      <div class="d-flex justify-content-center flex-wrap">
+        {{#pow-link "atlas" local-class="tile" class="mx-4 mb-4"}}
+          <img src="/assets/images/home-tiles/atlas.png" alt="atlas" local-class="tile-image" />
+          <div local-class="tile-label">
+            {{t "components.page.home_page.tiles.atlas"}}
+          </div>
+        {{/pow-link}}
+
+        {{#pow-link "stash" local-class="tile" class="mx-4 mb-4"}}
+          <img src="/assets/images/home-tiles/stash.png" alt="stash" local-class="tile-image" />
+          <div local-class="tile-label">
+            {{t "components.page.home_page.tiles.stash"}}
+          </div>
+        {{/pow-link}}
+
+        {{#pow-link "trade" local-class="tile" class="mx-4 mb-4"}}
+          <img src="/assets/images/home-tiles/trade.png" alt="trade" local-class="tile-image" />
+          <div local-class="tile-label">
+            {{t "components.page.home_page.tiles.trade"}}
+          </div>
+        {{/pow-link}}
+      </div>
+    </div>
+
+    <div class="col-4">
+      <ul class="list-unstyled">
+        <li class="mb-2">
+          {{#pow-external-link url=issuesUrl class="btn btn-primary btn-block text-left"}}
+            {{fa-icon "github" prefix="fab" class="mr-1"}}
+            {{t "components.page.home_page.poe_world_on.issue"}}
+          {{/pow-external-link}}
+        </li>
+        <li class="mb-2">
+          {{#pow-external-link url=releasesUrl class="btn btn-primary btn-block text-left"}}
+            {{fa-icon "github" prefix="fab" class="mr-1"}}
+            {{t "components.page.home_page.poe_world_on.releases"}}
+          {{/pow-external-link}}
+        </li>
+      </ul>
+
+      <h3 class="mt-3">
+        {{t "components.page.home_page.poe_world_on.title"}}
+      </h3>
+
+      <ul class="list-unstyled">
+        {{!--
+        <li class="mb-2">
+          <a href="#" class="btn btn-primary btn-block text-left">
+            {{fa-icon "link" class="mr-1"}}
+            {{t "components.page.home_page.poe_world_on.web"}}
+          </a>
+        </li>
+        --}}
+        <li class="mb-2">
+          {{#pow-external-link url=discordUrl class="btn btn-primary btn-block text-left"}}
+            {{fa-icon "discord" prefix="fab" class="mr-1"}}
+            {{t "components.page.home_page.poe_world_on.discord"}}
+          {{/pow-external-link}}
+        </li>
+        <li class="mb-2">
+          {{#pow-external-link url=githubUrl class="btn btn-primary btn-block text-left"}}
+            {{fa-icon "github" prefix="fab" class="mr-1"}}
+            {{t "components.page.home_page.poe_world_on.github"}}
+          {{/pow-external-link}}
+        </li>
+      </ul>
+
+      <h3 class="mt-3">
+        {{t "components.page.home_page.useful_links"}}
+      </h3>
+
+      <ul class="list-unstyled">
+        {{#each externalLinks as |link|}}
+          <li class="mb-2">
+            {{#pow-external-link url=link.url class="btn btn-primary btn-block text-left"}}
+              {{#if link.icon}}
+                {{fa-icon link.icon.id prefix=link.icon.prefix class="mr-1"}}
+              {{else}}
+                {{fa-icon "link" class="mr-1"}}
+              {{/if}}
+
+              {{link.name}}
+
+              {{#if link.description}}
+                <em class="d-block small mt-1">
+                  {{link.description}}
+                </em>
+              {{/if}}
+            {{/pow-external-link}}
+          </li>
+        {{/each}}
+      </ul>
+    </div>
+  </div>
+</div>

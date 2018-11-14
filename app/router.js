@@ -15,7 +15,9 @@ Router.map(function() {
     this.route('atlas-offsets');
   }
 
-  this.route('atlas', {path: '/'}, function() {
+  this.route('home', {path: '/'});
+
+  this.route('atlas', function() {
     this.route('map', {path: '/:slug'}, function() {
       this.route('information', {path: '/'});
       this.route('stash');

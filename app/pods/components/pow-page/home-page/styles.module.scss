@@ -1,0 +1,36 @@
+.tile {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  border-radius: $border-radius;
+
+  &:hover,
+  &:focus {
+    color: $white;
+
+    .tile-image {
+      filter: grayscale(0%);
+    }
+
+    .tile-label {
+      padding: 5px 185px 5px 65px;
+    }
+  }
+}
+
+.tile-image {
+  transition: filter ease 200ms;
+  filter: grayscale(50%);
+}
+
+.tile-label {
+  position: absolute;
+  top: -10px;
+  left: -40px;
+  transform: rotate(-25deg);
+  padding: 5px 200px 5px 50px;
+  background-color: $dark;
+  font-family: $font-family-accent;
+  font-size: 1.5rem;
+  transition: padding ease 200ms;
+}

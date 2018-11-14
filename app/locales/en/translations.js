@@ -46,6 +46,22 @@ export default {
       poe_ninja: "poe.ninja"
     },
     page: {
+      home_page: {
+        tiles: {
+          atlas: "Atlas",
+          stash: "Stash",
+          trade: "Trade"
+        },
+        poe_world_on: {
+          title: "PoeWorld on…",
+          web: "The web",
+          discord: "Discord",
+          github: "GitHub",
+          issue: "Report an issue",
+          releases: "See previous releases"
+        },
+        useful_links: "Useful links"
+      },
       map_page: {
         tier: "Tier",
         area_level: "Area Level {{level}}",
