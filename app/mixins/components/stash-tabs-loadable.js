@@ -1,4 +1,4 @@
-// Vendors
+// Vendor
 import Mixin from '@ember/object/mixin';
 import {inject as service} from '@ember/service';
 import {task} from 'ember-concurrency';

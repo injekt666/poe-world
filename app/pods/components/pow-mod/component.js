@@ -1,4 +1,4 @@
-// Vendors
+// Vendor
 import Component from '@ember/component';
 import {computed} from '@ember/object';
 

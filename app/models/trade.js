@@ -1,4 +1,4 @@
-// Vendors
+// Vendor
 import EmberObject from '@ember/object';
 import {A} from '@ember/array';
 import moment from 'moment';

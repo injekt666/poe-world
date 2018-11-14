@@ -1,4 +1,4 @@
-// Vendors
+// Vendor
 import Mixin from '@ember/object/mixin';
 import $ from 'jquery';
 

@@ -1,4 +1,4 @@
-// Vendors
+// Vendor
 import Service from '@ember/service';
 
 // Constants
