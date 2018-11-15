@@ -1,7 +1,11 @@
 .tile {
   display: block;
   position: relative;
+  flex: 1 1 auto;
   overflow: hidden;
+  min-width: 350px;
+  max-width: 450px;
+  height: 300px;
   border-radius: $border-radius;
 
   &:hover,
@@ -19,6 +23,10 @@
 }
 
 .tile-image {
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
   transition: filter ease 200ms;
   filter: grayscale(50%);
 }
