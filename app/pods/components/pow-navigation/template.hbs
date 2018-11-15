@@ -35,5 +35,23 @@
     <div local-class="badge-league" class="badge badge-secondary badge-league px-2 py-1">
       {{leagueName}}
     </div>
+
+    {{#if isAuthenticated}}
+      {{#pow-tooltip
+        class="d-inline ml-2 text-success"
+        placement="left"
+        title=(t "components.navigation.authenticated")
+      }}
+        {{fa-icon "user-check"}}
+      {{/pow-tooltip}}
+    {{else}}
+      {{#pow-tooltip
+        class="d-inline ml-2 text-danger"
+        placement="left"
+        title=(t "components.navigation.not_authenticated")
+      }}
+        {{fa-icon "user-slash"}}
+      {{/pow-tooltip}}
+    {{/if}}
   </div>
 </div>

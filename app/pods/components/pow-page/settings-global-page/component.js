@@ -8,6 +8,7 @@ const TEST_AUTHENTICATION_DEBOUNCE = 1000; // 1 second
 
 export default Component.extend({
   electronDevTools: service('-electron/dev-tools'),
+  globalState: service('global-state'),
   leaguesFetcher: service('leagues/fetcher'),
   activeLeagueSetting: service('active-league/setting'),
   authenticationSetting: service('authentication/setting'),
@@ -16,9 +17,9 @@ export default Component.extend({
   currentLeagueSlug: readOnly('activeLeagueSetting.league.slug'),
   currentPoesessid: readOnly('authenticationSetting.poesessid'),
   currentAccount: readOnly('authenticationSetting.account'),
+  isAuthenticated: readOnly('globalState.isAuthenticated'),
 
   leagues: [],
-  isAuthenticated: null,
 
   leaguesLoadTask: task(function *() {
     const leagues = yield this.leaguesFetcher.fetch();
@@ -31,12 +32,7 @@ export default Component.extend({
   }).restartable(),
 
   testAuthenticationTask: task(function *() {
-    try {
-      yield this.authenticationStateFetcher.fetch();
-      this.set('isAuthenticated', true);
-    } catch (_error) {
-      this.set('isAuthenticated', false);
-    }
+    yield this.authenticationStateFetcher.fetch();
   }).drop(),
 
   willInsertElement() {

@@ -1,15 +1,15 @@
 import Service, {inject as service} from '@ember/service';
 import {Promise} from 'rsvp';
-import PoeAuthenticationError from 'poe-world/errors/poe-authentication-error';
 import uuid from 'poe-world/utilities/uuid';
 
 // Constants
 const IPC_CHANNEL = 'REQUEST';
-const FORBIDDEN_STATUS_CODE = 403;
+const AUTHENTICATION_ERROR_CODES = [403, 404]; // 404 is raised for an invalid account name
 
 export default Service.extend({
   i18n: service('i18n'),
   toaster: service('toaster'),
+  globalState: service('global-state'),
   authenticationSetting: service('authentication/setting'),
 
   fetch(url, params = {}) {
@@ -18,7 +18,11 @@ export default Service.extend({
 
   privateFetch(url, params = {}) {
     const poesessid = this.authenticationSetting.poesessid;
-    if (!poesessid) return Promise.reject(this._createAuthenticationError(params));
+
+    if (!poesessid) {
+      this.globalState.set('isAuthenticated', false);
+      return Promise.reject();
+    }
 
     return this._fetch('GET', url, {
       poesessid,
@@ -46,24 +50,21 @@ export default Service.extend({
     return new Promise((resolve, reject) => {
       ipcRenderer.once(responseSuccessChannel, (_event, data) => {
         ipcRenderer.removeAllListeners(responseErrorChannel);
+
+        this.globalState.set('isAuthenticated', true);
+
         return resolve(JSON.parse(data));
       });
 
       ipcRenderer.once(responseErrorChannel, (_event, error) => {
         ipcRenderer.removeAllListeners(responseSuccessChannel);
 
-        if (error.statusCode === FORBIDDEN_STATUS_CODE) return reject(this._createAuthenticationError(params));
+        if (AUTHENTICATION_ERROR_CODES.includes(error.statusCode)) {
+          this.globalState.set('isAuthenticated', false);
+        }
+
         return reject(error);
       });
     });
-  },
-
-  _createAuthenticationError({toastAuthenticationError = true}) {
-    if (toastAuthenticationError) {
-      const message = this.i18n.t('services.electron.request.unauthenticated_error').string;
-      this.toaster.toastError(message);
-    }
-
-    return new PoeAuthenticationError();
   }
 });

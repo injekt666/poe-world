@@ -17,13 +17,10 @@ export default Service.extend({
   electronRequest: service('-electron/request'),
   authenticationSetting: service('authentication/setting'),
   activeLeagueSetting: service('active-league/setting'),
-  globalState: service('global-state'),
 
   fetchFromStashIndex(stashIndex) {
     const leagueId = this.activeLeagueSetting.league.id;
     const account = this.authenticationSetting.account;
-
-    if (!this.globalState.isElectron || !account) return Promise.reject(null);
 
     return this.electronRequest.privateFetch(`${PRIVATE_API.CHARACTER_WINDOW_BASE_URL}/get-stash-items?accountName=${account}&league=${leagueId}&tabIndex=${stashIndex}`)
       .then(({items: rawStashItems}) => this._buildStashItems(rawStashItems));

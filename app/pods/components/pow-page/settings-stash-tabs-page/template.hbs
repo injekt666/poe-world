@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <h2>{{t 'components.page.settings_stash_tabs_page.title'}}</h2>
 
-  {{#pow-electron-container}}
+  {{#pow-authenticated-container}}
     {{#pow-task-load-container task=stashTabsLoadTask}}
       <table class="table table-striped table-hover">
         <thead>
@@ -39,5 +39,5 @@
         </tbody>
       </table>
     {{/pow-task-load-container}}
-  {{/pow-electron-container}}
+  {{/pow-authenticated-container}}
 </div>

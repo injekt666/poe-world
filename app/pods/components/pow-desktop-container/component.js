@@ -5,5 +5,5 @@ import {inject as service} from '@ember/service';
 export default Component.extend({
   globalState: service('global-state'),
 
-  isElectron: readOnly('globalState.isElectron')
+  isDesktop: readOnly('globalState.isDesktop')
 });

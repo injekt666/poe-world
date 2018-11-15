@@ -28,10 +28,16 @@ export default {
       atlas: "Your atlas",
       stash: "Your stash",
       trade: "Trade",
+      settings: "Settings",
+      authenticated: "Authenticated",
+      not_authenticated: "Not authenticated"
+    },
+    authenticated_container: {
+      warning_message: "You need to set your authentication information in your settings to use this feature.",
       settings: "Settings"
     },
-    electron_container: {
-      warning_message: "This feature is only available on the native version of PoeWorld."
+    desktop_container: {
+      warning_message: "This feature is only available on the desktop version of PoeWorld."
     },
     changelog_modal: {
       title: "What's up !"
@@ -171,11 +177,6 @@ export default {
     }
   },
   services: {
-    electron: {
-      request: {
-        unauthenticated_error: "A valid POESESSID is required to perform this action, go set it in your settings."
-      }
-    },
     toaster: {
       unexpected_error: "An unexpected error occurred. Try again later."
     }

@@ -1,6 +1,17 @@
-import Service from '@ember/service';
+// Vendor
+import Service, {inject as service} from '@ember/service';
+import {not} from '@ember/object/computed';
 
 export default Service.extend({
-  isElectron: true,
-  isWeb: false
+  authenticationSetting: service('authentication/setting'),
+
+  isDesktop: null,
+  isAuthenticated: null,
+
+  isWeb: not('isDesktop'),
+
+  init() {
+    this.set('isDesktop', Boolean(window.requireNode));
+    this.set('isAuthenticated', Boolean(this.authenticationSetting.poesessid));
+  }
 });

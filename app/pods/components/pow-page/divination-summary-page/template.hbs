@@ -1,77 +1,79 @@
 <div class="container-fluid">
-  {{#pow-task-load-container task=divinationSummaryInitialLoadTask}}
-    {{#unless hasDivinationSummaryStashes}}
-      <div class="alert alert-warning d-flex align-items-center">
-        {{t 'components.page.divination_summary_page.missing_stashes_selection'}}
+  {{#pow-authenticated-container}}
+    {{#pow-task-load-container task=divinationSummaryInitialLoadTask}}
+      {{#unless hasDivinationSummaryStashes}}
+        <div class="alert alert-warning d-flex align-items-center">
+          {{t 'components.page.divination_summary_page.missing_stashes_selection'}}
 
-        {{#pow-link 'settings.stash-tabs' class='btn btn-primary ml-2'}}
-          {{fa-icon 'wrench' class='mr-1'}} {{t 'components.page.divination_summary_page.missing_stashes_button'}}
-        {{/pow-link}}
+          {{#pow-link 'settings.stash-tabs' class='btn btn-primary ml-2'}}
+            {{fa-icon 'wrench' class='mr-1'}} {{t 'components.page.divination_summary_page.missing_stashes_button'}}
+          {{/pow-link}}
+        </div>
+      {{/unless}}
+
+      {{pow-task-load-bar task=divinationSummaryLoadTask}}
+
+      <div class="d-flex align-items-center justify-content-between">
+        <h2>{{t 'components.page.divination_summary_page.title'}}</h2>
+
+        {{pow-poe-ninja-credit}}
       </div>
-    {{/unless}}
 
-    {{pow-task-load-bar task=divinationSummaryLoadTask}}
-
-    <div class="d-flex align-items-center justify-content-between">
-      <h2>{{t 'components.page.divination_summary_page.title'}}</h2>
-
-      {{pow-poe-ninja-credit}}
-    </div>
-
-    {{#if divinationSummary}}
-      <table class="table table-striped">
-        <thead>
-        <tr>
-          <th>{{t 'components.page.divination_summary_page.card_name'}}</th>
-          <th>{{t 'components.page.divination_summary_page.card_result'}}</th>
-          <th>{{t 'components.page.divination_summary_page.stock_quantity'}}</th>
-          <th class="text-right">{{t 'components.page.divination_summary_page.unit_value'}}</th>
-          <th class="text-right">{{t 'components.page.divination_summary_page.total_value'}}</th>
-        </tr>
-        </thead>
-
-        <tbody>
-        {{#each divinationSummary as |item|}}
+      {{#if divinationSummary}}
+        <table class="table table-striped">
+          <thead>
           <tr>
-            <td>
-              {{item.cardName}}
-            </td>
-            <td>
-              <div class="card px-2 py-1">
-                <ul class="list-unstyled m-0">
-                  {{#each item.cardMods as |mod|}}
-                    <li>{{pow-mod mod=mod}}</li>
-                  {{/each}}
-                </ul>
-              </div>
-            </td>
-            <td>
-              {{item.quantity}} / {{item.stackSize}}
-
-              <em class="text-muted small ml-1">
-                {{t 'components.page.divination_summary_page.stack_count' count=item.stackCount}}
-              </em>
-            </td>
-            <td class="text-right">
-              {{pow-price
-                amount=item.chaosValue
-                currencyId='chaos'
-              }}
-            </td>
-            <td class="text-right">
-              {{pow-price
-                amount=item.chaosTotalValue
-                currencyId='chaos'
-              }}
-            </td>
+            <th>{{t 'components.page.divination_summary_page.card_name'}}</th>
+            <th>{{t 'components.page.divination_summary_page.card_result'}}</th>
+            <th>{{t 'components.page.divination_summary_page.stock_quantity'}}</th>
+            <th class="text-right">{{t 'components.page.divination_summary_page.unit_value'}}</th>
+            <th class="text-right">{{t 'components.page.divination_summary_page.total_value'}}</th>
           </tr>
-        {{/each}}
-        </tbody>
-      </table>
-    {{else}}
-      <div class="alert alert-warning">
-        {{t 'components.page.divination_summary_page.no_divination_card_found'}}
-      </div>
-    {{/if}}
-  {{/pow-task-load-container}}
+          </thead>
+
+          <tbody>
+          {{#each divinationSummary as |item|}}
+            <tr>
+              <td>
+                {{item.cardName}}
+              </td>
+              <td>
+                <div class="card px-2 py-1">
+                  <ul class="list-unstyled m-0">
+                    {{#each item.cardMods as |mod|}}
+                      <li>{{pow-mod mod=mod}}</li>
+                    {{/each}}
+                  </ul>
+                </div>
+              </td>
+              <td>
+                {{item.quantity}} / {{item.stackSize}}
+
+                <em class="text-muted small ml-1">
+                  {{t 'components.page.divination_summary_page.stack_count' count=item.stackCount}}
+                </em>
+              </td>
+              <td class="text-right">
+                {{pow-price
+                  amount=item.chaosValue
+                  currencyId='chaos'
+                }}
+              </td>
+              <td class="text-right">
+                {{pow-price
+                  amount=item.chaosTotalValue
+                  currencyId='chaos'
+                }}
+              </td>
+            </tr>
+          {{/each}}
+          </tbody>
+        </table>
+      {{else}}
+        <div class="alert alert-warning">
+          {{t 'components.page.divination_summary_page.no_divination_card_found'}}
+        </div>
+      {{/if}}
+    {{/pow-task-load-container}}
+  {{/pow-authenticated-container}}
 </div>

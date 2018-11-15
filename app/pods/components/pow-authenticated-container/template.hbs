@@ -1,0 +1,11 @@
+{{#pow-desktop-container}}
+  {{#if isAuthenticated}}
+    {{yield}}
+  {{else}}
+    <p>{{t 'components.authenticated_container.warning_message'}}</p>
+    {{#link-to "settings.global" class="btn btn-primary"}}
+      {{fa-icon "cog" class="mr-1"}}
+      {{t 'components.authenticated_container.settings'}}
+    {{/link-to}}
+  {{/if}}
+{{/pow-desktop-container}}

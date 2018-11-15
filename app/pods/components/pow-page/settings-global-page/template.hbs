@@ -19,7 +19,7 @@
     {{t 'components.page.settings_global_page.authentication_title'}}
   </h2>
 
-  {{#pow-electron-container}}
+  {{#pow-desktop-container}}
     <div class="form-group w-25">
       {{pow-input-field
         label=(t 'components.page.settings_global_page.account_label')
@@ -32,7 +32,7 @@
         onChange=(action applyPoesessid)}}
       {{/pow-input-field}}
 
-      <p class="text-center">
+      <p>
         {{#if testAuthenticationTask.isRunning}}
             {{fa-icon 'spinner' spin=true}}
         {{else}}
@@ -57,7 +57,7 @@
         </div>
       </div>
     </div>
-  {{/pow-electron-container}}
+  {{/pow-desktop-container}}
 </div>
 
 
