@@ -73,12 +73,12 @@
 
           {{#if isTradeSlugDirty}}
             <div class="ml-3">
-              <button type="button" class="btn btn-sm btn-secondary" {{action updateTradeSlug}}>
+              <button type="button" class="btn btn-sm btn-warning" {{action updateTradeSlug}}>
                 {{fa-icon "save"}}
                 {{t "components.page.trade_page.update"}}
               </button>
 
-              <button type="button" class="btn btn-sm btn-outline-secondary" {{action revertTradeSlug}}>
+              <button type="button" class="btn btn-sm btn-outline-warning" {{action revertTradeSlug}}>
                 {{fa-icon "undo"}}
                 {{t "components.page.trade_page.revert"}}
               </button>
