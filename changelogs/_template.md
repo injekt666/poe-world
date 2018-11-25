@@ -1,4 +1,4 @@
-# v{{version}} - Title
+# {{version}} - Title
 
 ## New features ✨
 N/A
