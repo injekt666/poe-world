@@ -42,6 +42,10 @@ export default {
     changelog_modal: {
       title: "What's up !"
     },
+    release_banner: {
+      new_release_warning: "The version {{latestVersion}} is now available. (Currently on {{currentVersion}})",
+      github_release: "Changelog & download"
+    },
     stash_setting: {
       included: "Included",
       excluded: "Excluded",
