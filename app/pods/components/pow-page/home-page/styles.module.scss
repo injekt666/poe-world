@@ -1,44 +1,46 @@
 .tile {
-  display: block;
-  position: relative;
-  flex: 1 1 auto;
-  overflow: hidden;
-  min-width: 350px;
-  max-width: 450px;
-  height: 300px;
-  border-radius: $border-radius;
+  border-top-right-radius: $border-radius;
+  border-bottom-right-radius: $border-radius;
+  background-color: $darker;
+  transition: background-color ease-in-out 200ms;
 
   &:hover,
   &:focus {
-    color: $white;
+    color: inherit;
+    background-color: darken($primary, 7.5%);
 
     .tile-image {
-      filter: grayscale(0%);
+      filter: grayscale(0);
+      clip-path: polygon(0 0, 60% 0, 100% 100%, 0% 100%);
     }
 
-    .tile-label {
-      padding: 5px 185px 5px 65px;
+    .tile-title {
+      margin-left: -100px;
+    }
+
+    .tile-description {
+      margin-left: -75px;
     }
   }
 }
 
 .tile-image {
-  width: 100%;
-  height: 100%;
-  background-position: center;
-  background-size: cover;
-  transition: filter ease 200ms;
+  clip-path: polygon(0 0, 70% 0, 90% 100%, 0% 100%);
   filter: grayscale(50%);
+  transition: ease-in-out 200ms;
+  transition-property: filter, clip-path;
+  align-self: center;
 }
 
-.tile-label {
-  position: absolute;
-  top: -10px;
-  left: -40px;
-  transform: rotate(-25deg);
-  padding: 5px 200px 5px 50px;
-  background-color: $dark;
-  font-family: $font-family-accent;
-  font-size: 1.5rem;
-  transition: padding ease 200ms;
+.tile-title,
+.tile-description {
+  transition: margin-left ease-in-out 200ms;
+}
+
+.tile-title {
+  margin-left: -85px;
+}
+
+.tile-description {
+  margin-left: -70px;
 }

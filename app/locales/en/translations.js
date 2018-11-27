@@ -59,8 +59,11 @@ export default {
       home_page: {
         tiles: {
           atlas: "Atlas",
+          atlas_description: "Map information and trading",
           stash: "Stash",
-          trade: "Trade"
+          stash_description: "Summary and stats from your own stash tabs",
+          trade: "Trade",
+          trade_description: "Custom pathofexile trade browser"
         },
         poe_world_on: {
           title: "PoeWorld on…",
