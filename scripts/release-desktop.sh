@@ -11,9 +11,10 @@ npm run build-electron
 echo "Releasing to GitHub..."
 version=`git describe --tags --abbrev=0`
 escaped_version=${version//./_}
+escaped_version=${escaped_version/v/}
 changelog_file=./changelogs/$escaped_version.md
-attachment=./electron-out/make/squirrel.windows/x64/PoeWorld-$version\ Setup.exe#poe-world-setup-$escaped_version.exe
-hub release create --file $changelog_file --attach $attachment --browse
+attachment=./electron-out/make/squirrel.windows/x64/*.exe#poe-world-setup-$escaped_version.exe
+hub release create --file=$changelog_file --attach=$attachment --browse $version
 
 echo "Switching back to the original branch..."
 git checkout $current_branch

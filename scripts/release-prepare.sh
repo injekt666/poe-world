@@ -28,12 +28,13 @@ if [[ $changelog =~ ^(yes|y)$ ]]; then
 fi
 
 echo "Pushing the version commit..."
+git push origin
 git push origin --tags
 
 echo "Force-updating the release branch..."
 current_branch=`git rev-parse --abbrev-ref HEAD`
 git checkout release
-git reset --hard $version
+git reset --hard v$version
 git push origin release --force
 
 echo "Switching back to the original branch..."
