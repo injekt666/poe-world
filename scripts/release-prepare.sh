@@ -9,7 +9,7 @@ if ! [[ $release_type =~ ^(major|minor|patch)$ ]]; then
 fi
 
 echo "Bumping the version..."
-version=`npm version $release_type --no-git-tag-version --message "Bumping the version to %s"`
+version=`npm version $release_type --message "Bumping the version to %s"`
 version=${version:1}
 
 echo "Changelog : < yes | no >"
