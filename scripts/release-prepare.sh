@@ -9,7 +9,7 @@ if ! [[ $release_type =~ ^(major|minor|patch)$ ]]; then
 fi
 
 echo "Bumping the version..."
-version=`npm version $release_type --message "Bumping the version to %s"`
+version=`npm version $release_type --no-git-tag-version --message "Bumping the version to %s"`
 version=${version:1}
 
 echo "Changelog : < yes | no >"
@@ -22,10 +22,15 @@ if [[ $changelog =~ ^(yes|y)$ ]]; then
   sed -i '' -e "s/{{version}}/$version/g" ./changelogs/$changelog_filename
   "${EDITOR:-vi}" "./changelogs/$changelog_filename"
 
-  echo "Updating the version commit..."
+  echo "Adding the changelog to git..."
   git add ./changelogs/$changelog_filename
-  git commit --amend --no-edit
 fi
+
+echo "Committing the version..."
+git commit -a -m"Bumping the version to $version"
+
+echo "Tagging the version..."
+git tag $version
 
 echo "Pushing the version commit..."
 git push origin
@@ -34,7 +39,7 @@ git push origin --tags
 echo "Force-updating the release branch..."
 current_branch=`git rev-parse --abbrev-ref HEAD`
 git checkout release
-git reset --hard v$version
+git reset --hard $version
 git push origin release --force
 
 echo "Switching back to the original branch..."
