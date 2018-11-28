@@ -17,11 +17,11 @@
     "build-electron": "ember electron:make",
     "start-electron": "ember electron",
     "test-electron": "ember electron:test",
-    "lint": "npm run lint-js && npm run lint-scss",
-    "lint-js": "./node_modules/.bin/eslint './*.js' 'app' 'blueprints' 'config' 'lib' 'server' 'tests'",
+    "lint-js": "./node_modules/.bin/eslint ember-cli-build.js testem.js app/ tests/ config/",
     "lint-scss": "./node_modules/.bin/stylelint './app/**/*.scss'",
-    "lint-scss-fix": "./node_modules/.bin/stylelint './app/**/*.scss' --fix",
-    "lint-hbs": "ember-template-lint ."
+    "lint-hbs": "./node_modules/.bin/ember-template-lint './app/**/*.hbs'",
+    "prettier": "prettier --write ember-cli-build.js testem.js '{app,tests,config}/**/*.{js,scss}'",
+    "prettier-check": "prettier -l ember-cli-build.js testem.js '{app,tests,config}/**/*.{js,scss}'"
   },
   "devDependencies": {
     "@ember/jquery": "0.5.2",
@@ -70,16 +70,19 @@
     "ember-qunit": "3.4.1",
     "ember-resolver": "5.0.1",
     "ember-source": "~3.5.1",
+    "ember-template-lint": "0.8.23",
     "ember-truth-helpers": "2.0.0",
+    "eslint-config-prettier": "3.3.0",
     "eslint-plugin-ember": "5.2.0",
     "eslint-plugin-mirego": "0.0.1",
     "loader.js": "4.7.0",
     "panzoom": "github:pboutin/panzoom#master",
     "popper.js": "1.14.3",
+    "prettier": "1.15.2",
     "qunit-dom": "0.8.0",
     "stylelint": "9.3.0",
-    "stylelint-mirego": "0.2.2",
-    "stylelint-order": "0.8.1"
+    "stylelint-config-mirego": "1.0.4",
+    "stylelint-order": "1.0.0"
   },
   "engines": {
     "node": "6.* || 8.* || >= 10.*"
