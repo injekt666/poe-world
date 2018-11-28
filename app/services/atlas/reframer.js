@@ -1,5 +1,5 @@
 import Service from '@ember/service';
-import {task, timeout} from 'ember-concurrency';
+import { task, timeout } from 'ember-concurrency';
 
 /* eslint-disable no-magic-numbers */
 // Constants

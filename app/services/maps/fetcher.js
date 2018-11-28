@@ -1,4 +1,4 @@
-import Service, {inject as service} from '@ember/service';
+import Service, { inject as service } from '@ember/service';
 import Map from 'poe-world/models/map';
 import RESOURCES from 'poe-world/constants/resources';
 

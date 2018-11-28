@@ -1,6 +1,6 @@
 import Component from '@ember/component';
-import {equal} from '@ember/object/computed';
-import {observer} from '@ember/object';
+import { equal } from '@ember/object/computed';
+import { observer } from '@ember/object';
 
 export default Component.extend({
   title: '',

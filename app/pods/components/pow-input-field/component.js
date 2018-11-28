@@ -1,6 +1,6 @@
 // Vendor
 import Component from '@ember/component';
-import {equal} from '@ember/object/computed';
+import { equal } from '@ember/object/computed';
 
 // Utilities
 import uuid from 'poe-world/utilities/uuid';

@@ -1,5 +1,5 @@
 import Component from '@ember/component';
-import {inject as service} from '@ember/service';
+import { inject as service } from '@ember/service';
 
 export default Component.extend({
   globalState: service('global-state'),
@@ -15,7 +15,7 @@ export default Component.extend({
 
   click(event) {
     event.preventDefault();
-    const {url, globalState, electronUrlOpener} = this.getProperties('url', 'globalState', 'electronUrlOpener');
+    const {url, globalState, electronUrlOpener} = this;
 
     if (globalState.isWeb) return window.open(url, '_blank').focus();
 

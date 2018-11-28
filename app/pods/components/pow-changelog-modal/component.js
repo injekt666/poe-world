@@ -1,6 +1,6 @@
 import Component from '@ember/component';
-import {inject as service} from '@ember/service';
-import {task, timeout} from 'ember-concurrency';
+import { inject as service } from '@ember/service';
+import { task, timeout } from 'ember-concurrency';
 import ENV from 'poe-world/config/environment';
 import STORAGE_KEYS from 'poe-world/constants/storage-keys';
 

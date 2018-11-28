@@ -1,6 +1,6 @@
 import Component from '@ember/component';
-import {inject as service} from '@ember/service';
-import {task} from 'ember-concurrency';
+import { inject as service } from '@ember/service';
+import { task } from 'ember-concurrency';
 
 // Constants
 const STASH_FEATURES = [

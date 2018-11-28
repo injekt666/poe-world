@@ -1,7 +1,7 @@
 // Vendor
 import Component from '@ember/component';
-import {inject as service} from '@ember/service';
-import {task, timeout} from 'ember-concurrency';
+import { inject as service } from '@ember/service';
+import { task, timeout } from 'ember-concurrency';
 
 // Mixins
 import StashTabsLoadable from 'poe-world/mixins/components/stash-tabs-loadable';

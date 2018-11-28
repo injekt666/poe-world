@@ -1,5 +1,5 @@
 // Vendor
-import EmberObject, {computed} from '@ember/object';
+import EmberObject, { computed } from '@ember/object';
 
 export default EmberObject.extend({
   name: null,

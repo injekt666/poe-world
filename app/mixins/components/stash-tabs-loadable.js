@@ -1,7 +1,7 @@
 // Vendor
 import Mixin from '@ember/object/mixin';
-import {inject as service} from '@ember/service';
-import {task} from 'ember-concurrency';
+import { inject as service } from '@ember/service';
+import { task } from 'ember-concurrency';
 
 export default Mixin.create({
   toaster: service('toaster'),

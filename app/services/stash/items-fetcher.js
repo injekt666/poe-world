@@ -1,7 +1,6 @@
 // Vendor
-import Service, {inject as service} from '@ember/service';
+import Service, { inject as service } from '@ember/service';
 import StashItem from 'poe-world/models/stash-item';
-import {Promise} from 'rsvp';
 
 // Utilities
 import slugify from 'poe-world/utilities/slugify';

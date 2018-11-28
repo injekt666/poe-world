@@ -1,5 +1,5 @@
 import Service from '@ember/service';
-import {Promise} from 'rsvp';
+import { Promise } from 'rsvp';
 import fetch from 'fetch';
 
 // Constants

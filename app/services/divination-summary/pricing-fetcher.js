@@ -1,4 +1,4 @@
-import Service, {inject as service} from '@ember/service';
+import Service, { inject as service } from '@ember/service';
 import moment from 'moment';
 import Pricing from 'poe-world/models/pricing';
 import POE_NINJA from 'poe-world/constants/poe-ninja';

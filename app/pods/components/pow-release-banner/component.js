@@ -1,9 +1,9 @@
 // Vendor
 import Component from '@ember/component';
 import ENV from 'poe-world/config/environment';
-import {computed} from '@ember/object';
-import {inject as service} from '@ember/service';
-import {task} from 'ember-concurrency';
+import { computed } from '@ember/object';
+import { inject as service } from '@ember/service';
+import { task } from 'ember-concurrency';
 
 // Constants
 const {APP: {VERSION: CURRENT_VERSION}} = ENV;

@@ -1,8 +1,8 @@
 // Vendor
 import Component from '@ember/component';
-import {inject as service} from '@ember/service';
-import {computed} from '@ember/object';
-import {bool} from '@ember/object/computed';
+import { inject as service } from '@ember/service';
+import { computed } from '@ember/object';
+import { bool } from '@ember/object/computed';
 
 // Constants
 import TRADE from 'poe-world/constants/trade';

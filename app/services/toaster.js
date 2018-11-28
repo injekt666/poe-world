@@ -1,7 +1,7 @@
-import Service, {inject as service} from '@ember/service';
-import Ember from 'ember';
+import { A } from '@ember/array';
+import Service, { inject as service } from '@ember/service';
 import EmberObject from '@ember/object';
-import {task, timeout} from 'ember-concurrency';
+import { task, timeout } from 'ember-concurrency';
 import uuid from 'poe-world/utilities/uuid';
 
 // Constants
@@ -18,7 +18,7 @@ const DANGER_TYPE = 'danger';
 export default Service.extend({
   i18n: service('i18n'),
 
-  toasts: Ember.A([]),
+  toasts: A([]),
 
   toastExpiryTask: task(function *(toast) {
     yield timeout(toast.duration);

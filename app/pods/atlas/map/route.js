@@ -1,6 +1,6 @@
 import Route from '@ember/routing/route';
-import {inject as service} from '@ember/service';
-import {on} from '@ember/object/evented';
+import { inject as service } from '@ember/service';
+import { on } from '@ember/object/evented';
 
 export default Route.extend({
   mapsFetcher: service('maps/fetcher'),

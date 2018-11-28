@@ -1,5 +1,5 @@
-import Service, {inject as service} from '@ember/service';
-import {Promise} from 'rsvp';
+import Service, { inject as service } from '@ember/service';
+import { Promise } from 'rsvp';
 import uuid from 'poe-world/utilities/uuid';
 
 // Constants

@@ -1,6 +1,6 @@
 // Vendor
 import Component from '@ember/component';
-import {task, timeout} from 'ember-concurrency';
+import { task, timeout } from 'ember-concurrency';
 
 // Constants
 const SCROLL_TIMEOUT = 1000;

@@ -1,5 +1,5 @@
 // Vendor
-import Service, {inject as service} from '@ember/service';
+import Service, { inject as service } from '@ember/service';
 
 // Utilities
 import uuid from 'poe-world/utilities/uuid';

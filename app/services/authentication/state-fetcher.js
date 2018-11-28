@@ -1,5 +1,4 @@
-import Service, {inject as service} from '@ember/service';
-import {Promise} from 'rsvp';
+import Service, { inject as service } from '@ember/service';
 import PRIVATE_API from 'poe-world/constants/private-api';
 
 export default Service.extend({

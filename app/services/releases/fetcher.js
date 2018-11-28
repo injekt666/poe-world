@@ -1,5 +1,5 @@
 // Vendor
-import Service, {inject as service} from '@ember/service';
+import Service, { inject as service } from '@ember/service';
 import ENV from 'poe-world/config/environment';
 import GITHUB_API from 'poe-world/constants/github-api';
 
