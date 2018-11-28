@@ -9,7 +9,8 @@ module.exports = {
     'mirego'
   ],
   extends: [
-    'plugin:mirego/recommended'
+    'plugin:mirego/recommended',
+    'prettier'
   ],
   env: {
     es6: true
