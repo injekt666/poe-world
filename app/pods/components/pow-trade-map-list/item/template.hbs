@@ -40,19 +40,19 @@
   <div class="col-5">
     <ul class="list-unstyled">
       {{#if hasExplicitMods}}
-        {{#unless tradeMap.identified}}
-          <li>
-            <span class="badge badge-warning p-1">
-              {{t "components.map_trade_list.unidentified"}}
-            </span>
-          </li>
-        {{else}}
+        {{#if tradeMap.identified}}
           {{#each tradeMap.explicitMods as |mod|}}
             <li local-class="mod">
               {{fa-icon "caret-right"}} {{mod}}
             </li>
           {{/each}}
-        {{/unless}}
+        {{else}}
+          <li>
+            <span class="badge badge-warning p-1">
+              {{t "components.map_trade_list.unidentified"}}
+            </span>
+          </li>
+        {{/if}}
       {{else}}
         <span class="text-muted">
           {{t "components.map_trade_list.no_explicit_mods"}}
@@ -64,7 +64,8 @@
   <div class="col-4 text-right">
     {{pow-price
       amount=tradeMap.priceAmount
-      currencyId=tradeMap.priceCurrencyId}}
+      currencyId=tradeMap.priceCurrencyId
+    }}
 
     <p class="my-0">
       {{moment-from-now tradeMap.indexedAt}}

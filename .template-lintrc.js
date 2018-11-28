@@ -4,7 +4,7 @@
 
 module.exports = {
   rules: {
-    'attribute-indentation': {'open-invocation-max-len': 80},
+    'attribute-indentation': {'open-invocation-max-len': 120},
     'block-indentation': 2,
     'eol-last': 'always',
     'inline-link-to': true,
@@ -13,7 +13,7 @@ module.exports = {
     'no-debugger': true,
     'no-duplicate-attributes': true,
     'no-html-comments': true,
-    'no-implicit-this': true,
+    'no-implicit-this': false,
     'no-log': true,
     'no-outlet-outside-routes': true,
     'no-shadowed-elements': true,

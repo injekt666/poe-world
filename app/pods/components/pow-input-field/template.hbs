@@ -5,16 +5,7 @@
     </label>
   {{/if}}
 
-  {{#unless isTextarea}}
-    <input
-      type={{type}}
-      id={{id}}
-      placeholder={{placeholder}}
-      class="form-control"
-      value={{value}}
-      oninput={{action inputChange}}
-    />
-  {{else}}
+  {{#if isTextarea}}
     <textarea
       id={{id}}
       placeholder={{placeholder}}
@@ -24,7 +15,16 @@
       rows={{rows}}
       oninput={{action inputChange}}
     ></textarea>
-  {{/unless}}
+  {{else}}
+    <input
+      type={{type}}
+      id={{id}}
+      placeholder={{placeholder}}
+      class="form-control"
+      value={{value}}
+      oninput={{action inputChange}}
+    >
+  {{/if}}
 
   {{#if helper}}
     <small class="form-text text-white">

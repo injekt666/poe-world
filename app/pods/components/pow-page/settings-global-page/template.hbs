@@ -24,17 +24,18 @@
       {{pow-input-field
         label=(t "components.page.settings_global_page.account_label")
         value=currentAccount
-        onChange=(action applyAccount)}}
+        onChange=(action applyAccount)
+      }}
 
-      {{#pow-input-field
+      {{pow-input-field
         label=(t "components.page.settings_global_page.poesessid_label")
         value=currentPoesessid
-        onChange=(action applyPoesessid)}}
-      {{/pow-input-field}}
+        onChange=(action applyPoesessid)
+      }}
 
       <p>
         {{#if testAuthenticationTask.isRunning}}
-            {{fa-icon "spinner" spin=true}}
+          {{fa-icon "spinner" spin=true}}
         {{else}}
           {{#if isAuthenticated}}
             {{fa-icon "check"}} {{t "components.page.settings_global_page.authenticated"}}
