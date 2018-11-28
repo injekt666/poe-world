@@ -16,6 +16,8 @@ export default Component.extend({
 
   verifyVersionsTask: task(function *() {
     const lastSessionVersion = this.storage.getValue(STORAGE_KEYS.LAST_SESSION_VERSION, {defaultValue: '0.0.0'});
+
+    if (!CHANGELOG) return;
     if (lastSessionVersion >= CURRENT_VERSION && !FORCE_CHANGELOG) return;
 
     yield timeout(CHANGELOG_MODAL_DELAY);
