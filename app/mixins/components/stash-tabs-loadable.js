@@ -8,7 +8,7 @@ export default Mixin.create({
   stashTabsFetcher: service('stash/tabs-fetcher'),
   stashItemsFetcher: service('stash/items-fetcher'),
 
-  loadStashItemsTask: task(function*(stashIds) {
+  loadStashItemsTask: task(function *(stashIds) {
     let stashIndexes = [];
     let stashItems = [];
 

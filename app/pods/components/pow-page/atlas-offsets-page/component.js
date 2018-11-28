@@ -6,9 +6,9 @@ export default Component.extend({
   localClassNames: 'atlas-offset-page',
 
   offsetData: null,
-  mapsToConfigure: [],
+  mapsToConfigure: null,
 
-  didInsertElement() {
+  willInsertElement() {
     this.offsetData = {};
 
     this.mapsToConfigure = Object.keys(MAPS).sort((mapIdA, mapIdB) => {

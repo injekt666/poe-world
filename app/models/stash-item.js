@@ -7,14 +7,14 @@ export default EmberObject.extend({
   imageUrl: null,
   itemLevel: null,
   topCategory: null,
-  subCategories: [],
+  subCategories: null,
   rarity: null,
   identified: null,
   socketCount: null,
-  socketGroups: [],
+  socketGroups: null,
   quantity: null,
   maxStackSize: null,
-  explicitMods: [],
+  explicitMods: null,
 
   defaultCategory: computed('subCategories', function() {
     if (this.subCategories.length > 0) return this.subCategories[0];

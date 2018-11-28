@@ -11,12 +11,12 @@ export default Component.extend({
 
   currentMap: null,
 
-  maps: [],
+  maps: null,
   zoom: 1,
   panTop: 0,
   panLeft: 0,
 
-  mapsLoadTask: task(function*() {
+  mapsLoadTask: task(function *() {
     const maps = yield this.mapsFetcher.fetch();
     this.set('maps', maps);
   }).drop(),

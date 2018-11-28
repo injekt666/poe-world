@@ -18,10 +18,10 @@ export default EmberObject.extend({
   layoutRating: null,
   bossRating: null,
   tileset: null,
-  drops: [],
+  drops: null,
   offsetLeft: null,
   offsetTop: null,
-  sextants: [],
+  sextants: null,
   isTradable: true,
   pantheon: null,
 

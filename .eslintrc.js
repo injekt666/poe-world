@@ -16,7 +16,6 @@ module.exports = {
   },
   rules: {
     'ember/closure-actions': 2,
-    'ember/named-functions-in-promises': 2,
     'ember/new-module-imports': 2,
     'ember/no-global-jquery': 2,
     'ember/no-on-calls-in-components': 2,

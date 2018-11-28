@@ -6,6 +6,6 @@ export default Component.extend({
   tagName: 'ul',
 
   currentMap: null,
-  maps: [],
+  maps: null,
   onMapClick: () => {}
 });

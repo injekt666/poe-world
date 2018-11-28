@@ -23,9 +23,9 @@ export default Component.extend({
 
   stashFeatures: STASH_FEATURES,
 
-  stashes: [],
+  stashes: null,
 
-  stashTabsLoadTask: task(function*() {
+  stashTabsLoadTask: task(function *() {
     const stashes = yield this.stashTabsFetcher.fetch();
     this.set('stashes', stashes);
   }).drop(),

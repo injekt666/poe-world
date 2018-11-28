@@ -19,19 +19,19 @@ export default Component.extend({
   currentAccount: readOnly('authenticationSetting.account'),
   isAuthenticated: readOnly('globalState.isAuthenticated'),
 
-  leagues: [],
+  leagues: null,
 
-  leaguesLoadTask: task(function*() {
+  leaguesLoadTask: task(function *() {
     const leagues = yield this.leaguesFetcher.fetch();
     this.set('leagues', leagues);
   }).drop(),
 
-  debouncedTestAuthenticationTask: task(function*() {
+  debouncedTestAuthenticationTask: task(function *() {
     yield timeout(TEST_AUTHENTICATION_DEBOUNCE);
     yield this.testAuthenticationTask.perform();
   }).restartable(),
 
-  testAuthenticationTask: task(function*() {
+  testAuthenticationTask: task(function *() {
     yield this.authenticationStateFetcher.fetch();
   }).drop(),
 

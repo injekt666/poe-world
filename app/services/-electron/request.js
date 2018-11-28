@@ -4,7 +4,8 @@ import uuid from 'poe-world/utilities/uuid';
 
 // Constants
 const IPC_CHANNEL = 'REQUEST';
-const AUTHENTICATION_ERROR_CODES = [403, 404]; // 404 is raised for an invalid account name
+const FORBIDDEN_STATUS_CODE = 403;
+const NOT_FOUND_STATUS_CODE = 404;
 
 export default Service.extend({
   i18n: service('i18n'),
@@ -59,7 +60,7 @@ export default Service.extend({
       ipcRenderer.once(responseErrorChannel, (_event, error) => {
         ipcRenderer.removeAllListeners(responseSuccessChannel);
 
-        if (AUTHENTICATION_ERROR_CODES.includes(error.statusCode)) {
+        if ([FORBIDDEN_STATUS_CODE, NOT_FOUND_STATUS_CODE].includes(error.statusCode)) {
           this.globalState.set('isAuthenticated', false);
         }
 

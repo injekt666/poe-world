@@ -5,7 +5,7 @@ export default Service.extend({
   activeLeagueSetting: service('active-league/setting'),
 
   storageKey: null,
-  stashIds: [],
+  stashIds: null,
 
   applyStashIds(stashIds) {
     this.set('stashIds', stashIds);

@@ -23,7 +23,7 @@ export default Component.extend({
   currentTradeSlug: '',
   currentTrade: null,
   stagedTrade: null,
-  trades: [],
+  trades: null,
   searchValue: '',
 
   isEditing: bool('stagedTrade'),

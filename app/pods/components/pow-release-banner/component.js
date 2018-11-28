@@ -1,7 +1,6 @@
 // Vendor
 import Component from '@ember/component';
 import ENV from 'poe-world/config/environment';
-import {computed} from '@ember/object';
 import {inject as service} from '@ember/service';
 import {task} from 'ember-concurrency';
 
@@ -16,7 +15,7 @@ export default Component.extend({
   isOutdated: null,
   latestRelease: null,
 
-  fetchLatestReleaseTask: task(function*() {
+  fetchLatestReleaseTask: task(function *() {
     const latestRelease = yield this.releasesFetcher.fetchLatest();
 
     this.setProperties({

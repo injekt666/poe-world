@@ -1,4 +1,5 @@
 // Functions
+/* eslint-disable complexity */
 const accentFold = value => {
   return value.replace(
     /([àáâãäå])|([ç])|([èéêë])|([ìíîï])|([ñ])|([òóôõöø])|([ß])|([ùúûü])|([ÿ])|([æ])/g,
@@ -16,6 +17,7 @@ const accentFold = value => {
     }
   );
 };
+/* eslint-enable complexity */
 
 export default (haystack, needle) => {
   const sanitizedHaystack = accentFold(haystack.trim().toLowerCase());

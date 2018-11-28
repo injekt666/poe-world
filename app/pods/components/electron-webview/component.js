@@ -12,7 +12,7 @@ export default Component.extend({
   offset: 0,
   onUrlChange: () => {},
 
-  didNavigateTask: task(function*(url) {
+  didNavigateTask: task(function *(url) {
     this.onUrlChange(url);
 
     if (!this.offset) return;

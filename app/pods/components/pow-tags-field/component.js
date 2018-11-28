@@ -12,7 +12,7 @@ export default Component.extend({
 
   label: null,
   placeholder: null,
-  tags: [],
+  tags: null,
 
   newTag: '',
 

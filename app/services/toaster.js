@@ -20,7 +20,7 @@ export default Service.extend({
 
   toasts: A([]),
 
-  toastExpiryTask: task(function*(toast) {
+  toastExpiryTask: task(function *(toast) {
     yield timeout(toast.duration);
     toast.set('isVisible', false);
 

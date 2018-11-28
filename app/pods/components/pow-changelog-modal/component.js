@@ -16,7 +16,7 @@ export default Component.extend({
   changelogMarkdown: null,
   isOpened: false,
 
-  verifyVersionsTask: task(function*() {
+  verifyVersionsTask: task(function *() {
     const lastSessionVersion = this.storage.getValue(STORAGE_KEYS.LAST_SESSION_VERSION, {defaultValue: '0.0.0'});
 
     if (!CHANGELOG) return;
