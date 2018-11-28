@@ -9,7 +9,7 @@ module.exports = {
     'eol-last': 'always',
     'inline-link-to': true,
     'link-rel-noopener': true,
-    'no-bare-strings': true,
+    'no-bare-strings': false,
     'no-debugger': true,
     'no-duplicate-attributes': true,
     'no-html-comments': true,

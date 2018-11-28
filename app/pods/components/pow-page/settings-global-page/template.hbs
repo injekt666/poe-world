@@ -1,12 +1,12 @@
 <div class="container-fluid pb-2">
-  <h2>{{t 'components.page.settings_global_page.leagues_title'}}</h2>
+  <h2>{{t "components.page.settings_global_page.leagues_title"}}</h2>
 
   {{#pow-task-load-container task=leaguesLoadTask}}
     <div class="btn-group">
       {{#each leagues as |league|}}
         <button type="button" class="btn btn-primary" {{action applyLeague league}}>
           {{#if (eq league.slug currentLeagueSlug)}}
-            {{fa-icon 'check'}}
+            {{fa-icon "check"}}
           {{/if}}
 
           {{league.name}}
@@ -16,30 +16,30 @@
   {{/pow-task-load-container}}
 
   <h2 class="mt-4">
-    {{t 'components.page.settings_global_page.authentication_title'}}
+    {{t "components.page.settings_global_page.authentication_title"}}
   </h2>
 
   {{#pow-desktop-container}}
     <div class="form-group w-50">
       {{pow-input-field
-        label=(t 'components.page.settings_global_page.account_label')
+        label=(t "components.page.settings_global_page.account_label")
         value=currentAccount
         onChange=(action applyAccount)}}
 
       {{#pow-input-field
-        label=(t 'components.page.settings_global_page.poesessid_label')
+        label=(t "components.page.settings_global_page.poesessid_label")
         value=currentPoesessid
         onChange=(action applyPoesessid)}}
       {{/pow-input-field}}
 
       <p>
         {{#if testAuthenticationTask.isRunning}}
-            {{fa-icon 'spinner' spin=true}}
+            {{fa-icon "spinner" spin=true}}
         {{else}}
           {{#if isAuthenticated}}
-            {{fa-icon 'check'}} {{t 'components.page.settings_global_page.authenticated'}}
+            {{fa-icon "check"}} {{t "components.page.settings_global_page.authenticated"}}
           {{else}}
-            {{fa-icon 'times'}} {{t 'components.page.settings_global_page.not_authenticated'}}
+            {{fa-icon "times"}} {{t "components.page.settings_global_page.not_authenticated"}}
           {{/if}}
         {{/if}}
       </p>

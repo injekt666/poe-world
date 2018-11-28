@@ -3,10 +3,10 @@
     {{#pow-task-load-container task=divinationSummaryInitialLoadTask}}
       {{#unless hasDivinationSummaryStashes}}
         <div class="alert alert-warning d-flex align-items-center">
-          {{t 'components.page.divination_summary_page.missing_stashes_selection'}}
+          {{t "components.page.divination_summary_page.missing_stashes_selection"}}
 
-          {{#pow-link 'settings.stash-tabs' class='btn btn-primary ml-2'}}
-            {{fa-icon 'wrench' class='mr-1'}} {{t 'components.page.divination_summary_page.missing_stashes_button'}}
+          {{#pow-link "settings.stash-tabs" class="btn btn-primary ml-2"}}
+            {{fa-icon "wrench" class="mr-1"}} {{t "components.page.divination_summary_page.missing_stashes_button"}}
           {{/pow-link}}
         </div>
       {{/unless}}
@@ -14,7 +14,7 @@
       {{pow-task-load-bar task=divinationSummaryLoadTask}}
 
       <div class="d-flex align-items-center justify-content-between">
-        <h2>{{t 'components.page.divination_summary_page.title'}}</h2>
+        <h2>{{t "components.page.divination_summary_page.title"}}</h2>
 
         {{pow-poe-ninja-credit}}
       </div>
@@ -23,11 +23,11 @@
         <table class="table table-striped">
           <thead>
           <tr>
-            <th>{{t 'components.page.divination_summary_page.card_name'}}</th>
-            <th>{{t 'components.page.divination_summary_page.card_result'}}</th>
-            <th>{{t 'components.page.divination_summary_page.stock_quantity'}}</th>
-            <th class="text-right">{{t 'components.page.divination_summary_page.unit_value'}}</th>
-            <th class="text-right">{{t 'components.page.divination_summary_page.total_value'}}</th>
+            <th>{{t "components.page.divination_summary_page.card_name"}}</th>
+            <th>{{t "components.page.divination_summary_page.card_result"}}</th>
+            <th>{{t "components.page.divination_summary_page.stock_quantity"}}</th>
+            <th class="text-right">{{t "components.page.divination_summary_page.unit_value"}}</th>
+            <th class="text-right">{{t "components.page.divination_summary_page.total_value"}}</th>
           </tr>
           </thead>
 
@@ -50,19 +50,19 @@
                 {{item.quantity}} / {{item.stackSize}}
 
                 <em class="text-muted small ml-1">
-                  {{t 'components.page.divination_summary_page.stack_count' count=item.stackCount}}
+                  {{t "components.page.divination_summary_page.stack_count" count=item.stackCount}}
                 </em>
               </td>
               <td class="text-right">
                 {{pow-price
                   amount=item.chaosValue
-                  currencyId='chaos'
+                  currencyId="chaos"
                 }}
               </td>
               <td class="text-right">
                 {{pow-price
                   amount=item.chaosTotalValue
-                  currencyId='chaos'
+                  currencyId="chaos"
                 }}
               </td>
             </tr>
@@ -71,7 +71,7 @@
         </table>
       {{else}}
         <div class="alert alert-warning">
-          {{t 'components.page.divination_summary_page.no_divination_card_found'}}
+          {{t "components.page.divination_summary_page.no_divination_card_found"}}
         </div>
       {{/if}}
     {{/pow-task-load-container}}
