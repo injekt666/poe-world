@@ -132,10 +132,10 @@ export default Service.extend({
       (dataStructure.hands.oneHanded.itemChaosCount + dataStructure.hands.oneHanded.itemRegalCount) / 2
     );
     dataStructure.hands.recipeCount = twoHandedSets + oneHandedSets;
-    dataStructure.hands.itemChaosCount
-      = dataStructure.hands.twoHanded.itemChaosCount + dataStructure.hands.oneHanded.itemChaosCount;
-    dataStructure.hands.itemRegalCount
-      = dataStructure.hands.twoHanded.itemRegalCount + dataStructure.hands.oneHanded.itemRegalCount;
+    dataStructure.hands.itemChaosCount =
+      dataStructure.hands.twoHanded.itemChaosCount + dataStructure.hands.oneHanded.itemChaosCount;
+    dataStructure.hands.itemRegalCount =
+      dataStructure.hands.twoHanded.itemRegalCount + dataStructure.hands.oneHanded.itemRegalCount;
 
     const recipeTotal = (dataStructure.summary.recipeCount = Math.min(
       dataStructure.helmet.recipeCount,

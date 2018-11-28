@@ -19,7 +19,7 @@ export default Service.extend({
 
   isReframing: false,
 
-  mapReframingTask: task(function *(map) {
+  mapReframingTask: task(function*(map) {
     this.set('isReframing', true);
 
     const viewportCenterX = (window.innerWidth - SIDE_PANEL_WIDTH) / 2;
@@ -45,7 +45,7 @@ export default Service.extend({
     this.set('isReframing', false);
   }).restartable(),
 
-  resetZoomTask: task(function *task() {
+  resetZoomTask: task(function* task() {
     const {scale: zoom} = this._panzoomRef.getTransform();
     this.set('isReframing', true);
 
@@ -56,7 +56,7 @@ export default Service.extend({
     this.set('isReframing', false);
   }).restartable(),
 
-  initializeFrameTask: task(function *task(initialMap) {
+  initializeFrameTask: task(function* task(initialMap) {
     const viewportCenterX = window.innerWidth / 2;
     const viewportCenterY = window.innerHeight / 2;
 

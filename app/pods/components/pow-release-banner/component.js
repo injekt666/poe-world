@@ -15,7 +15,7 @@ export default Component.extend({
   isOutdated: null,
   latestRelease: null,
 
-  fetchLatestReleaseTask: task(function *() {
+  fetchLatestReleaseTask: task(function*() {
     const latestRelease = yield this.releasesFetcher.fetchLatest();
 
     this.setProperties({

@@ -18,7 +18,7 @@ export default Component.extend({
   autocenter: false,
   smoothScroll: false,
 
-  triggerPanzoomEventTask: task(function *() {
+  triggerPanzoomEventTask: task(function*() {
     this.onPanzoom(this._getPanzoomState());
     yield timeout(PANZOOM_EVENT_DEBOUNCE);
     this.onPanzoom(this._getPanzoomState());

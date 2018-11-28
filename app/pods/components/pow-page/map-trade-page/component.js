@@ -12,7 +12,7 @@ export default Component.extend({
   tradeMaps: A([]),
   isMapsInitiallyLoaded: false,
 
-  initialLoadTask: task(function *() {
+  initialLoadTask: task(function*() {
     const {mapsTradeFetcher, map, tradeMaps} = this;
     const {tradeMaps: newTradeMaps, tradeMapIds, total} = yield mapsTradeFetcher.fetchFromMap(map);
 
@@ -25,7 +25,7 @@ export default Component.extend({
     });
   }).drop(),
 
-  lazyLoadTask: task(function *() {
+  lazyLoadTask: task(function*() {
     const {mapsTradeFetcher, tradeMapIds, tradeMaps, isMapsInitiallyLoaded} = this;
 
     if (!isMapsInitiallyLoaded) return null;

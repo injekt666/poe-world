@@ -16,7 +16,7 @@ export default Component.extend({
   panTop: 0,
   panLeft: 0,
 
-  mapsLoadTask: task(function *() {
+  mapsLoadTask: task(function*() {
     const maps = yield this.mapsFetcher.fetch();
     this.set('maps', maps);
   }).drop(),
