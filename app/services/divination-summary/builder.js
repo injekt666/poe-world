@@ -25,7 +25,7 @@ export default Service.extend({
     }, {});
 
     return Object.values(divinationStashItemsMap)
-      .map((stashItem) => {
+      .map(stashItem => {
         const matchingPricing = divinationPricingMap[stashItem.cardSlug];
         const chaosValue = matchingPricing ? matchingPricing.chaosValue : 0;
         const exaltedValue = matchingPricing ? matchingPricing.exaltedValue : 0;

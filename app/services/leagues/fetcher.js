@@ -10,8 +10,8 @@ export default Service.extend({
   fetch() {
     if (this._leaguesPromise) return this._leaguesPromise;
 
-    const leaguesPromise = this.request.fetch(RESOURCES.LEAGUES_JSON_URL).then((rawLeagues) => {
-      return rawLeagues.map((rawLeague) => League.create(rawLeague));
+    const leaguesPromise = this.request.fetch(RESOURCES.LEAGUES_JSON_URL).then(rawLeagues => {
+      return rawLeagues.map(rawLeague => League.create(rawLeague));
     });
 
     this.set('_leaguesPromise', leaguesPromise);

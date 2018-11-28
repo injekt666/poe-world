@@ -23,7 +23,7 @@ export default Component.extend({
   currentTradeSlug: '',
   currentTrade: null,
   stagedTrade: null,
-  trades: [],
+  trades: null,
   searchValue: '',
 
   isEditing: bool('stagedTrade'),
@@ -83,10 +83,12 @@ export default Component.extend({
   },
 
   duplicate() {
-    const duplicatedTrade = this.tradePersister.persist(this.currentTrade.clone({
-      id: null,
-      label: `${this.currentTrade.label} *`
-    }));
+    const duplicatedTrade = this.tradePersister.persist(
+      this.currentTrade.clone({
+        id: null,
+        label: `${this.currentTrade.label} *`
+      })
+    );
 
     this._refreshTrades();
     this.setProperties({

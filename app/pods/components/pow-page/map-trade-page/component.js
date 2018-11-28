@@ -1,19 +1,19 @@
+import {A} from '@ember/array';
 import Component from '@ember/component';
 import {inject as service} from '@ember/service';
 import {task} from 'ember-concurrency';
-import Ember from 'ember';
 
 export default Component.extend({
   mapsTradeFetcher: service('maps/trade-fetcher'),
 
   map: null,
 
-  tradeMapIds: [],
-  tradeMaps: Ember.A([]),
+  tradeMapIds: null,
+  tradeMaps: A([]),
   isMapsInitiallyLoaded: false,
 
-  initialLoadTask: task(function *() {
-    const {mapsTradeFetcher, map, tradeMaps} = this.getProperties('mapsTradeFetcher', 'map', 'tradeMaps');
+  initialLoadTask: task(function*() {
+    const {mapsTradeFetcher, map, tradeMaps} = this;
     const {tradeMaps: newTradeMaps, tradeMapIds, total} = yield mapsTradeFetcher.fetchFromMap(map);
 
     tradeMaps.addObjects(newTradeMaps);
@@ -25,8 +25,8 @@ export default Component.extend({
     });
   }).drop(),
 
-  lazyLoadTask: task(function *() {
-    const {mapsTradeFetcher, tradeMapIds, tradeMaps, isMapsInitiallyLoaded} = this.getProperties('mapsTradeFetcher', 'tradeMapIds', 'tradeMaps', 'isMapsInitiallyLoaded');
+  lazyLoadTask: task(function*() {
+    const {mapsTradeFetcher, tradeMapIds, tradeMaps, isMapsInitiallyLoaded} = this;
 
     if (!isMapsInitiallyLoaded) return null;
 

@@ -18,10 +18,10 @@ export default EmberObject.extend({
   layoutRating: null,
   bossRating: null,
   tileset: null,
-  drops: [],
+  drops: null,
   offsetLeft: null,
   offsetTop: null,
-  sextants: [],
+  sextants: null,
   isTradable: true,
   pantheon: null,
 
@@ -38,7 +38,7 @@ export default EmberObject.extend({
   isUnique: equal('type', UNIQUE_RARITY),
 
   tradeName: computed('name', 'isUnique', function() {
-    const {name, isUnique} = this.getProperties('name', 'isUnique');
+    const {name, isUnique} = this;
     if (isUnique) return name;
 
     return `${name} Map`;

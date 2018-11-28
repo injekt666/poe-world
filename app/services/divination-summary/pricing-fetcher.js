@@ -14,7 +14,9 @@ export default Service.extend({
   fetch() {
     const currentPricingDate = moment().format('YYYY-MM-DD');
 
-    if (this._divinationPricingPromise && this._pricingDate === currentPricingDate) return this._divinationPricingPromise;
+    if (this._divinationPricingPromise && this._pricingDate === currentPricingDate) {
+      return this._divinationPricingPromise;
+    }
 
     const poeNinjaDivinationUrl = this._buildDivinationPricingUrlFor(currentPricingDate);
     const divinationPricingPromise = this.electronRequest.fetch(poeNinjaDivinationUrl).then(({lines}) => {

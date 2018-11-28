@@ -4,9 +4,13 @@ const npmPackage = require('../package.json');
 const fs = require('fs');
 
 // Environment utilities
-const parseBooleanString = (booleanString) => /^true$/i.test(booleanString);
+const parseBooleanString = booleanString => /^true$/i.test(booleanString);
 
 module.exports = function(environment) {
+  const changelogPath = `./changelogs/${npmPackage.version.replace(/\./g, '_')}.md`;
+  let changelog = null;
+  if (fs.existsSync(changelogPath)) changelog = fs.readFileSync(changelogPath, 'utf-8');
+
   const ENV = {
     modulePrefix: 'poe-world',
     podModulePrefix: 'poe-world/pods',
@@ -36,7 +40,7 @@ module.exports = function(environment) {
       DEBUG: parseBooleanString(process.env.DEBUG),
       FORCE_CHANGELOG: parseBooleanString(process.env.FORCE_CHANGELOG),
       VERSION: npmPackage.version,
-      CHANGELOG: fs.readFileSync(`./changelogs/${npmPackage.version.replace(/\./g, '_')}.md`, 'utf-8'),
+      CHANGELOG: changelog,
       GITHUB_HANDLE: npmPackage.repository.match(/github\.com\/(.+)/)[1]
     }
   };

@@ -36,7 +36,7 @@ export default Component.extend(StashTabsLoadable, {
   divine: null,
   chaos: null,
 
-  vendorRecipeLoadTask: task(function *() {
+  vendorRecipeLoadTask: task(function*() {
     const stashIds = this.vendorRecipeSetting.stashIds;
     const hasVendorRecipeStashes = stashIds.length > 0;
 
@@ -51,7 +51,7 @@ export default Component.extend(StashTabsLoadable, {
     });
   }).drop(),
 
-  vendorRecipePollingTask: task(function *() {
+  vendorRecipePollingTask: task(function*() {
     while (true) {
       yield timeout(RECIPE_POLLING_INTERVAL);
 
@@ -63,7 +63,7 @@ export default Component.extend(StashTabsLoadable, {
     }
   }).drop(),
 
-  vendorRecipeInitialLoadTask: task(function *() {
+  vendorRecipeInitialLoadTask: task(function*() {
     yield this.vendorRecipeLoadTask.perform();
   }).drop(),
 

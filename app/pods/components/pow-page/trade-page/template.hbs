@@ -8,7 +8,8 @@
               {{pow-input-field
                 placeholder=(t "components.page.trade_page.label_placeholder")
                 value=stagedTrade.label
-                onChange=(action (mut stagedTrade.label))}}
+                onChange=(action (mut stagedTrade.label))
+              }}
             {{else}}
               <h2 local-class="label" class="mb-0">
                 {{currentTrade.label}}
@@ -20,7 +21,8 @@
             {{#if isEditing}}
               {{pow-tags-field
                 placeholder=(t "components.page.trade_page.tags_placeholder")
-                tags=stagedTrade.tags}}
+                tags=stagedTrade.tags
+              }}
             {{else}}
               <h4 local-class="tags" class="d-flex flex-nowrap mb-0 mt-2">
                 {{#each currentTrade.tags as |tag|}}
@@ -42,12 +44,13 @@
                 rows=5
                 placeholder=(t "components.page.trade_page.notes_placeholder")
                 value=stagedTrade.notes
-                onChange=(action (mut stagedTrade.notes))}}
+                onChange=(action (mut stagedTrade.notes))
+              }}
             {{else}}
               <div class="position-relative h-100">
                 {{#if currentTrade.notes}}
                   <div local-class="notes">
-                    {{fa-icon 'file-alt' size="2x" local-class="notes-icon"}}
+                    {{fa-icon "file-alt" size="2x" local-class="notes-icon"}}
                     {{textarea-value currentTrade.notes}}
                   </div>
                 {{/if}}
@@ -135,12 +138,13 @@
       placeholder=(t "components.page.trade_page.search_placeholder")
       helper=(t "components.page.trade_page.search_helper")
       value=searchValue
-      onChange=(action (mut searchValue))}}
+      onChange=(action (mut searchValue))
+    }}
 
     <button type="button" class="btn btn-primary btn-block btn-lg mb-2" {{action create}}>
-        {{fa-icon "plus" class="mr-1"}}
-        {{t "components.page.trade_page.create"}}
-      </button>
+      {{fa-icon "plus" class="mr-1"}}
+      {{t "components.page.trade_page.create"}}
+    </button>
 
     <ul class="list-unstyled">
       {{#each filteredTrades as |trade|}}

@@ -15,7 +15,6 @@ export default Service.extend({
       defaultValue: []
     });
 
-    return rawTrades.map((rawTrade) => Trade.create(rawTrade));
+    return rawTrades.map(rawTrade => Trade.create(rawTrade));
   }
 });
-

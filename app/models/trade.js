@@ -8,7 +8,7 @@ export default EmberObject.extend({
   label: '',
   notes: '',
   slug: '',
-  tags: [],
+  tags: null,
   updatedAt: null,
 
   init() {

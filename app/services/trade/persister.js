@@ -29,4 +29,3 @@ export default Service.extend({
     return trade;
   }
 });
-

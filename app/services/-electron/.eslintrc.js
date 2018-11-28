@@ -4,4 +4,4 @@ module.exports = {
     requireNode: true,
     module: true
   }
-}
+};

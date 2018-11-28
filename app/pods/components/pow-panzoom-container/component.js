@@ -18,7 +18,7 @@ export default Component.extend({
   autocenter: false,
   smoothScroll: false,
 
-  triggerPanzoomEventTask: task(function *() {
+  triggerPanzoomEventTask: task(function*() {
     this.onPanzoom(this._getPanzoomState());
     yield timeout(PANZOOM_EVENT_DEBOUNCE);
     this.onPanzoom(this._getPanzoomState());
@@ -26,7 +26,10 @@ export default Component.extend({
 
   didInsertElement() {
     const $container = this.$();
-    const panzoomRef = panzoom($container[0], this.getProperties('minZoom', 'maxZoom', 'zoomSpeed', 'bounds', 'smoothScroll', 'autocenter'));
+    const panzoomRef = panzoom(
+      $container[0],
+      this.getProperties('minZoom', 'maxZoom', 'zoomSpeed', 'bounds', 'smoothScroll', 'autocenter')
+    );
 
     $container.on('pan panstart panend zoom', () => {
       this.triggerPanzoomEventTask.perform();

@@ -15,7 +15,7 @@ export default Component.extend({
 
   click(event) {
     event.preventDefault();
-    const {url, globalState, electronUrlOpener} = this.getProperties('url', 'globalState', 'electronUrlOpener');
+    const {url, globalState, electronUrlOpener} = this;
 
     if (globalState.isWeb) return window.open(url, '_blank').focus();
 

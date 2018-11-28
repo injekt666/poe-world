@@ -10,14 +10,13 @@
   left: 0;
   width: 100vw;
   height: 0;
-  background:
-    linear-gradient(
-      135deg,
-      rgba($primary, 0.35) 25%,
-      rgba($primary, 1) 25%,
-      rgba($primary, 1) 75%,
-      rgba($primary, 0.35) 75%
-    );
+  background: linear-gradient(
+    135deg,
+    rgba($primary, 0.35) 25%,
+    rgba($primary, 1) 25%,
+    rgba($primary, 1) 75%,
+    rgba($primary, 0.35) 75%
+  );
   background-size: 60px 100%;
   animation: task-load-progress 1000ms linear infinite;
   transition: height linear 100ms;

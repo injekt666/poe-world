@@ -1,41 +1,41 @@
 <div class="container-fluid">
-  <h2>{{t 'components.page.settings_stash_tabs_page.title'}}</h2>
+  <h2>{{t "components.page.settings_stash_tabs_page.title"}}</h2>
 
   {{#pow-authenticated-container}}
     {{#pow-task-load-container task=stashTabsLoadTask}}
       <table class="table table-striped table-hover">
         <thead>
-        <tr>
-          <th>{{t 'components.page.settings_stash_tabs_page.stash_name'}}</th>
-          <th>{{t 'components.page.settings_stash_tabs_page.stash_type'}}</th>
-          {{#each stashFeatures as |stashFeature|}}
-            <th>{{t stashFeature.titleKey}}</th>
-          {{/each}}
-        </tr>
+          <tr>
+            <th>{{t "components.page.settings_stash_tabs_page.stash_name"}}</th>
+            <th>{{t "components.page.settings_stash_tabs_page.stash_type"}}</th>
+            {{#each stashFeatures as |stashFeature|}}
+              <th>{{t stashFeature.titleKey}}</th>
+            {{/each}}
+          </tr>
         </thead>
 
         <tbody>
-        {{#each stashes as |stash|}}
-          <tr>
-            <td>
-              <div class="d-flex align-items-center">
-                <div local-class="stash-color" class="d-block" style={{css-style 'background-color' stash.color}}></div>
-                <span class="ml-2">{{stash.name}}</span>
-              </div>
-            </td>
-            <td>
-              {{stash.type}}
-            </td>
-            {{#each stashFeatures as |stashFeature|}}
+          {{#each stashes as |stash|}}
+            <tr>
               <td>
-                {{pow-stash-setting
-                  stash=stash
-                  stashFeature=stashFeature
-                }}
+                <div class="d-flex align-items-center">
+                  <div local-class="stash-color" class="d-block" style={{css-style "background-color" stash.color}}></div>
+                  <span class="ml-2">{{stash.name}}</span>
+                </div>
               </td>
-            {{/each}}
-          </tr>
-        {{/each}}
+              <td>
+                {{stash.type}}
+              </td>
+              {{#each stashFeatures as |stashFeature|}}
+                <td>
+                  {{pow-stash-setting
+                    stash=stash
+                    stashFeature=stashFeature
+                  }}
+                </td>
+              {{/each}}
+            </tr>
+          {{/each}}
         </tbody>
       </table>
     {{/pow-task-load-container}}

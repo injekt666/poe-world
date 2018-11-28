@@ -22,4 +22,3 @@ export default Service.extend({
     return true;
   }
 });
-

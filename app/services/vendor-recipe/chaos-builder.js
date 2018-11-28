@@ -86,7 +86,7 @@ export default Service.extend({
     const dataStructure = this.initializeDataStructure();
 
     /* eslint-disable complexity */
-    stashItems.forEach((stashItem) => {
+    stashItems.forEach(stashItem => {
       if (stashItem.identified) return;
       if (stashItem.rarity !== RARE_RARITY) return;
       if (stashItem.itemLevel < CHAOS_LOW_LEVEL || stashItem.itemLevel > REGAL_HIGH_LEVEL) return;
@@ -97,10 +97,14 @@ export default Service.extend({
       if (dataStructure[stashItem.defaultCategory]) itemCounts = dataStructure[stashItem.defaultCategory];
 
       // Two-handed items
-      if (!itemCounts && stashItem.subCategories.some((subCategory) => TWO_HANDED_REGEXP.test(subCategory))) itemCounts = dataStructure.hands.twoHanded;
+      if (!itemCounts && stashItem.subCategories.some(subCategory => TWO_HANDED_REGEXP.test(subCategory))) {
+        itemCounts = dataStructure.hands.twoHanded;
+      }
 
       // One-handed items
-      if (!itemCounts && stashItem.subCategories.some((subCategory) => ONE_HANDED_REGEXP.test(subCategory))) itemCounts = dataStructure.hands.oneHanded;
+      if (!itemCounts && stashItem.subCategories.some(subCategory => ONE_HANDED_REGEXP.test(subCategory))) {
+        itemCounts = dataStructure.hands.oneHanded;
+      }
 
       // Non compatible item
       if (!itemCounts) return;
@@ -118,16 +122,22 @@ export default Service.extend({
     dataStructure.gloves.recipeCount = dataStructure.gloves.itemChaosCount + dataStructure.gloves.itemRegalCount;
     dataStructure.belt.recipeCount = dataStructure.belt.itemChaosCount + dataStructure.belt.itemRegalCount;
     dataStructure.chest.recipeCount = dataStructure.chest.itemChaosCount + dataStructure.chest.itemRegalCount;
-    dataStructure.ring.recipeCount = Math.floor((dataStructure.ring.itemChaosCount + dataStructure.ring.itemRegalCount) / 2);
+    dataStructure.ring.recipeCount = Math.floor(
+      (dataStructure.ring.itemChaosCount + dataStructure.ring.itemRegalCount) / 2
+    );
     dataStructure.amulet.recipeCount = dataStructure.amulet.itemChaosCount + dataStructure.amulet.itemRegalCount;
 
     const twoHandedSets = dataStructure.hands.twoHanded.itemChaosCount + dataStructure.hands.twoHanded.itemRegalCount;
-    const oneHandedSets = Math.floor((dataStructure.hands.oneHanded.itemChaosCount + dataStructure.hands.oneHanded.itemRegalCount) / 2);
+    const oneHandedSets = Math.floor(
+      (dataStructure.hands.oneHanded.itemChaosCount + dataStructure.hands.oneHanded.itemRegalCount) / 2
+    );
     dataStructure.hands.recipeCount = twoHandedSets + oneHandedSets;
-    dataStructure.hands.itemChaosCount = dataStructure.hands.twoHanded.itemChaosCount + dataStructure.hands.oneHanded.itemChaosCount;
-    dataStructure.hands.itemRegalCount = dataStructure.hands.twoHanded.itemRegalCount + dataStructure.hands.oneHanded.itemRegalCount;
+    dataStructure.hands.itemChaosCount =
+      dataStructure.hands.twoHanded.itemChaosCount + dataStructure.hands.oneHanded.itemChaosCount;
+    dataStructure.hands.itemRegalCount =
+      dataStructure.hands.twoHanded.itemRegalCount + dataStructure.hands.oneHanded.itemRegalCount;
 
-    const recipeTotal = dataStructure.summary.recipeCount = Math.min(
+    const recipeTotal = (dataStructure.summary.recipeCount = Math.min(
       dataStructure.helmet.recipeCount,
       dataStructure.boots.recipeCount,
       dataStructure.gloves.recipeCount,
@@ -136,7 +146,7 @@ export default Service.extend({
       dataStructure.ring.recipeCount,
       dataStructure.amulet.recipeCount,
       dataStructure.hands.recipeCount
-    );
+    ));
 
     dataStructure.helmet.isError = dataStructure.helmet.recipeCount === recipeTotal;
     dataStructure.boots.isError = dataStructure.boots.recipeCount === recipeTotal;
@@ -147,14 +157,14 @@ export default Service.extend({
     dataStructure.amulet.isError = dataStructure.amulet.recipeCount === recipeTotal;
     dataStructure.hands.isError = dataStructure.hands.recipeCount === recipeTotal;
 
-    dataStructure.helmet.isWarning = (dataStructure.helmet.recipeCount - WARNING_QUANTITY_TRESHOLD) <= recipeTotal;
-    dataStructure.boots.isWarning = (dataStructure.boots.recipeCount - WARNING_QUANTITY_TRESHOLD) <= recipeTotal;
-    dataStructure.gloves.isWarning = (dataStructure.gloves.recipeCount - WARNING_QUANTITY_TRESHOLD) <= recipeTotal;
-    dataStructure.belt.isWarning = (dataStructure.belt.recipeCount - WARNING_QUANTITY_TRESHOLD) <= recipeTotal;
-    dataStructure.chest.isWarning = (dataStructure.chest.recipeCount - WARNING_QUANTITY_TRESHOLD) <= recipeTotal;
-    dataStructure.ring.isWarning = (dataStructure.ring.recipeCount - WARNING_QUANTITY_TRESHOLD) <= recipeTotal;
-    dataStructure.amulet.isWarning = (dataStructure.amulet.recipeCount - WARNING_QUANTITY_TRESHOLD) <= recipeTotal;
-    dataStructure.hands.isWarning = (dataStructure.hands.recipeCount - WARNING_QUANTITY_TRESHOLD) <= recipeTotal;
+    dataStructure.helmet.isWarning = dataStructure.helmet.recipeCount - WARNING_QUANTITY_TRESHOLD <= recipeTotal;
+    dataStructure.boots.isWarning = dataStructure.boots.recipeCount - WARNING_QUANTITY_TRESHOLD <= recipeTotal;
+    dataStructure.gloves.isWarning = dataStructure.gloves.recipeCount - WARNING_QUANTITY_TRESHOLD <= recipeTotal;
+    dataStructure.belt.isWarning = dataStructure.belt.recipeCount - WARNING_QUANTITY_TRESHOLD <= recipeTotal;
+    dataStructure.chest.isWarning = dataStructure.chest.recipeCount - WARNING_QUANTITY_TRESHOLD <= recipeTotal;
+    dataStructure.ring.isWarning = dataStructure.ring.recipeCount - WARNING_QUANTITY_TRESHOLD <= recipeTotal;
+    dataStructure.amulet.isWarning = dataStructure.amulet.recipeCount - WARNING_QUANTITY_TRESHOLD <= recipeTotal;
+    dataStructure.hands.isWarning = dataStructure.hands.recipeCount - WARNING_QUANTITY_TRESHOLD <= recipeTotal;
 
     return dataStructure;
   }

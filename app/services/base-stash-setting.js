@@ -5,7 +5,7 @@ export default Service.extend({
   activeLeagueSetting: service('active-league/setting'),
 
   storageKey: null,
-  stashIds: [],
+  stashIds: null,
 
   applyStashIds(stashIds) {
     this.set('stashIds', stashIds);
@@ -17,10 +17,12 @@ export default Service.extend({
   init() {
     this._super(...arguments);
 
-    this.set('stashIds', this.storage.getValue(this.storageKey, {
-      defaultValue: [],
-      leagueSlug: this.activeLeagueSetting.league.slug
-    }));
+    this.set(
+      'stashIds',
+      this.storage.getValue(this.storageKey, {
+        defaultValue: [],
+        leagueSlug: this.activeLeagueSetting.league.slug
+      })
+    );
   }
 });
-

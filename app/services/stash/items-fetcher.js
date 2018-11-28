@@ -1,7 +1,6 @@
 // Vendor
 import Service, {inject as service} from '@ember/service';
 import StashItem from 'poe-world/models/stash-item';
-import {Promise} from 'rsvp';
 
 // Utilities
 import slugify from 'poe-world/utilities/slugify';
@@ -22,12 +21,17 @@ export default Service.extend({
     const leagueId = this.activeLeagueSetting.league.id;
     const account = this.authenticationSetting.account;
 
-    return this.electronRequest.privateFetch(`${PRIVATE_API.CHARACTER_WINDOW_BASE_URL}/get-stash-items?accountName=${account}&league=${leagueId}&tabIndex=${stashIndex}`)
+    return this.electronRequest
+      .privateFetch(
+        `${
+          PRIVATE_API.CHARACTER_WINDOW_BASE_URL
+        }/get-stash-items?accountName=${account}&league=${leagueId}&tabIndex=${stashIndex}`
+      )
       .then(({items: rawStashItems}) => this._buildStashItems(rawStashItems));
   },
 
   _buildStashItems(rawStashItems) {
-    return rawStashItems.map((rawStashItem) => {
+    return rawStashItems.map(rawStashItem => {
       const [topCategory, subCategories] = this._getTypesFrom(rawStashItem);
       const name = rawStashItem.typeLine || '';
 
@@ -57,7 +61,7 @@ export default Service.extend({
       return groups;
     }, Array(MAXIMUM_SOCKETS_COUNT).fill(''));
 
-    return allSocketGroups.filter((socketGroup) => socketGroup.length > 0);
+    return allSocketGroups.filter(socketGroup => socketGroup.length > 0);
   },
 
   _getTypesFrom(rawStashItem) {

@@ -1,13 +1,21 @@
 $toaster-spacing: 20px;
 
 @keyframes toast-slide-in {
-  0% { left: calc(-100% - #{$toaster-spacing}); }
-  100% { left: 0; }
+  0% {
+    left: calc(-100% - #{$toaster-spacing});
+  }
+  100% {
+    left: 0;
+  }
 }
 
 @keyframes toast-slide-out {
-  0% { left: 0; }
-  100% { left: calc(-100% - #{$toaster-spacing}); }
+  0% {
+    left: 0;
+  }
+  100% {
+    left: calc(-100% - #{$toaster-spacing});
+  }
 }
 
 .toaster {

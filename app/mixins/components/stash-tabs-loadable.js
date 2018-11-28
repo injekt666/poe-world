@@ -8,15 +8,13 @@ export default Mixin.create({
   stashTabsFetcher: service('stash/tabs-fetcher'),
   stashItemsFetcher: service('stash/items-fetcher'),
 
-  loadStashItemsTask: task(function *(stashIds) {
+  loadStashItemsTask: task(function*(stashIds) {
     let stashIndexes = [];
     let stashItems = [];
 
     if (stashIds.length) {
       const stashTabs = yield this.stashTabsFetcher.fetch();
-      stashIndexes = stashTabs
-        .filter((stashTab) => stashIds.includes(stashTab.id))
-        .map((stashTab) => stashTab.index);
+      stashIndexes = stashTabs.filter(stashTab => stashIds.includes(stashTab.id)).map(stashTab => stashTab.index);
     }
 
     while (stashIndexes.length) {
