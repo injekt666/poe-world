@@ -1,17 +1,17 @@
 .tile {
-  border-top-right-radius: $border-radius;
-  border-bottom-right-radius: $border-radius;
   background-color: $darker;
   transition: background-color ease-in-out 200ms;
+  border-bottom-right-radius: $border-radius;
+  border-top-right-radius: $border-radius;
 
   &:hover,
   &:focus {
-    color: inherit;
     background-color: darken($primary, 7.5%);
+    color: inherit;
 
     .tile-image {
-      filter: grayscale(0);
       clip-path: polygon(0 0, 60% 0, 100% 100%, 0% 100%);
+      filter: grayscale(0);
     }
 
     .tile-title {
@@ -25,11 +25,11 @@
 }
 
 .tile-image {
-  clip-path: polygon(0 0, 70% 0, 90% 100%, 0% 100%);
-  filter: grayscale(50%);
+  align-self: center;
   transition: ease-in-out 200ms;
   transition-property: filter, clip-path;
-  align-self: center;
+  clip-path: polygon(0 0, 70% 0, 90% 100%, 0% 100%);
+  filter: grayscale(50%);
 }
 
 .tile-title,
