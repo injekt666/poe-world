@@ -1,4 +1,4 @@
-import Service, { inject as service } from '@ember/service';
+import Service, {inject as service} from '@ember/service';
 import moment from 'moment';
 import Pricing from 'poe-world/models/pricing';
 import POE_NINJA from 'poe-world/constants/poe-ninja';
@@ -14,7 +14,9 @@ export default Service.extend({
   fetch() {
     const currentPricingDate = moment().format('YYYY-MM-DD');
 
-    if (this._divinationPricingPromise && this._pricingDate === currentPricingDate) return this._divinationPricingPromise;
+    if (this._divinationPricingPromise && this._pricingDate === currentPricingDate) {
+      return this._divinationPricingPromise;
+    }
 
     const poeNinjaDivinationUrl = this._buildDivinationPricingUrlFor(currentPricingDate);
     const divinationPricingPromise = this.electronRequest.fetch(poeNinjaDivinationUrl).then(({lines}) => {

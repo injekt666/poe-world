@@ -1,4 +1,4 @@
-import Service, { inject as service } from '@ember/service';
+import Service, {inject as service} from '@ember/service';
 
 export default Service.extend({
   storage: service('storage'),
@@ -17,10 +17,12 @@ export default Service.extend({
   init() {
     this._super(...arguments);
 
-    this.set('stashIds', this.storage.getValue(this.storageKey, {
-      defaultValue: [],
-      leagueSlug: this.activeLeagueSetting.league.slug
-    }));
+    this.set(
+      'stashIds',
+      this.storage.getValue(this.storageKey, {
+        defaultValue: [],
+        leagueSlug: this.activeLeagueSetting.league.slug
+      })
+    );
   }
 });
-

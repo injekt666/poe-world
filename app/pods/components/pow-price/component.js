@@ -1,5 +1,5 @@
 import Component from '@ember/component';
-import { computed } from '@ember/object';
+import {computed} from '@ember/object';
 import CURRENCIES from 'poe-world/constants/currencies';
 
 export default Component.extend({

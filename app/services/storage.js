@@ -23,7 +23,7 @@ export default Service.extend({
   },
 
   cleanup() {
-    Object.keys(window.localStorage).forEach((key) => {
+    Object.keys(window.localStorage).forEach(key => {
       let isValid = true;
 
       if (this._isEntryExpired(this._localStorageGetEntry(key))) isValid = false;

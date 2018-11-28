@@ -1,5 +1,5 @@
 // Vendor
-import Service, { inject as service } from '@ember/service';
+import Service, {inject as service} from '@ember/service';
 
 // Constants
 import STORAGE_KEYS from 'poe-world/constants/storage-keys';
@@ -15,7 +15,6 @@ export default Service.extend({
       defaultValue: []
     });
 
-    return rawTrades.map((rawTrade) => Trade.create(rawTrade));
+    return rawTrades.map(rawTrade => Trade.create(rawTrade));
   }
 });
-

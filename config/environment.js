@@ -4,7 +4,7 @@ const npmPackage = require('../package.json');
 const fs = require('fs');
 
 // Environment utilities
-const parseBooleanString = (booleanString) => /^true$/i.test(booleanString);
+const parseBooleanString = booleanString => /^true$/i.test(booleanString);
 
 module.exports = function(environment) {
   const changelogPath = `./changelogs/${npmPackage.version.replace(/\./g, '_')}.md`;

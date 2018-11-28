@@ -1,4 +1,4 @@
-import Service, { inject as service } from '@ember/service';
+import Service, {inject as service} from '@ember/service';
 import TradeMap from 'poe-world/models/trade-map';
 import TRADE_API from 'poe-world/constants/trade-api';
 import FRAME_TYPES from 'poe-world/constants/frame-types';
@@ -42,17 +42,19 @@ export default Service.extend({
   fetchFromMap(map) {
     const leagueId = this.activeLeagueSetting.league.id;
 
-    return this.request.fetch(`${TRADE_API.BASE_URL}/search/${leagueId}?source=${this._queryParamFor(map)}`).then(({result: tradeMapIds, total}) => {
-      if (!tradeMapIds.length) return {maps: [], tradeMapIds: [], total};
+    return this.request
+      .fetch(`${TRADE_API.BASE_URL}/search/${leagueId}?source=${this._queryParamFor(map)}`)
+      .then(({result: tradeMapIds, total}) => {
+        if (!tradeMapIds.length) return {maps: [], tradeMapIds: [], total};
 
-      const tradeMapIdsParam = tradeMapIds.splice(0, TRADE_API.BATCH_SIZE).join(',');
+        const tradeMapIdsParam = tradeMapIds.splice(0, TRADE_API.BATCH_SIZE).join(',');
 
-      return this.request.fetch(`${TRADE_API.BASE_URL}/fetch/${tradeMapIdsParam}`).then(({result: mapResults}) => ({
-        tradeMaps: this._buildMaps(mapResults),
-        tradeMapIds,
-        total
-      }));
-    });
+        return this.request.fetch(`${TRADE_API.BASE_URL}/fetch/${tradeMapIdsParam}`).then(({result: mapResults}) => ({
+          tradeMaps: this._buildMaps(mapResults),
+          tradeMapIds,
+          total
+        }));
+      });
   },
 
   fetchFromIds(tradeMapIds) {
@@ -73,7 +75,7 @@ export default Service.extend({
 
   /* eslint-disable complexity */
   _buildMaps(mapResults) {
-    return mapResults.map((mapResult) => {
+    return mapResults.map(mapResult => {
       const iiqProperty = mapResult.item.properties.find(({name}) => /quantity/i.test(name));
       const iirProperty = mapResult.item.properties.find(({name}) => /rarity/i.test(name));
       const mpsProperty = mapResult.item.properties.find(({name}) => /monster/i.test(name));

@@ -1,6 +1,6 @@
 // Vendor
 import Component from '@ember/component';
-import { computed } from '@ember/object';
+import {computed} from '@ember/object';
 
 // Constants
 const RARITY_REGEX = /\<(\w+)\>\{(.+)\}/; // <uniqueitem>{Sire of Shards}

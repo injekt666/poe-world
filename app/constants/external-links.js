@@ -24,7 +24,7 @@ export default [
   {
     url: 'https://www.poelab.com/',
     name: 'POELab',
-    description: 'Navigation assistance for the Lord\'s Labyrinth'
+    description: "Navigation assistance for the Lord's Labyrinth"
   },
   {
     url: 'https://pathofexile.gamepedia.com/Path_of_Exile_Wiki',

@@ -1,5 +1,5 @@
 import EmberObject from '@ember/object';
-import { not } from '@ember/object/computed';
+import {not} from '@ember/object/computed';
 
 export default EmberObject.extend({
   id: null,

@@ -1,10 +1,9 @@
 // Lumen 4.1.2
 // Bootswatch
 
-
 // Variables ===================================================================
 
-@mixin shadow($width: 4px){
+@mixin shadow($width: 4px) {
   border-style: solid;
   border-width: 0 1px $width 1px;
 }
@@ -48,7 +47,7 @@
   }
 }
 
-[class*="btn-outline"] {
+[class*='btn-outline'] {
   border-top-width: 1px;
 }
 
@@ -111,7 +110,6 @@
 // Tables ======================================================================
 
 .table {
-
   &-success,
   &-info,
   &-warning,
@@ -125,55 +123,69 @@
   }
 
   &-success {
-    &, > th, > td {
+    &,
+    > th,
+    > td {
       background-color: $success;
     }
   }
 
   &-info {
-    &, > th, > td {
+    &,
+    > th,
+    > td {
       background-color: $info;
     }
   }
 
   &-danger {
-    &, > th, > td {
+    &,
+    > th,
+    > td {
       background-color: $danger;
     }
   }
 
   &-warning {
-    &, > th, > td {
+    &,
+    > th,
+    > td {
       background-color: $warning;
     }
   }
 
   &-hover {
-
     .table-success:hover {
-      &, > th, > td {
+      &,
+      > th,
+      > td {
         background-color: darken($success, 5%);
       }
     }
 
     .table-info:hover {
-      &, > th, > td {
+      &,
+      > th,
+      > td {
         background-color: darken($info, 5%);
       }
     }
 
     .table-danger:hover {
-      &, > th, > td {
+      &,
+      > th,
+      > td {
         background-color: darken($danger, 5%);
       }
     }
 
     .table-warning:hover {
-      &, > th, > td {
+      &,
+      > th,
+      > td {
         background-color: darken($warning, 5%);
       }
     }
-
   }
 }
 
@@ -194,7 +206,6 @@
 }
 
 .nav-tabs {
-
   .nav-link {
     color: $body-color;
     border-bottom: 0;
@@ -235,7 +246,6 @@
 }
 
 .pagination {
-
   > li > a,
   > li > span {
     position: relative;
@@ -261,7 +271,6 @@
 
   > .disabled > a,
   > .disabled > span {
-
     &:hover {
       top: 0;
       @include shadow();
@@ -275,12 +284,10 @@
 }
 
 .pager {
-
   > li > a,
   > li > span,
   > .disabled > a,
   > .disabled > span {
-
     &,
     &:hover,
     &:active {
@@ -374,7 +381,6 @@
 // Containers ==================================================================
 
 a.list-group-item {
-
   &-success {
     &.active {
       background-color: $success;
@@ -415,7 +421,6 @@ a.list-group-item {
 }
 
 .modal {
-
   .close {
     color: $black;
 

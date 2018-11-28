@@ -1,7 +1,7 @@
 // Vendor
 import Component from '@ember/component';
-import { inject as service } from '@ember/service';
-import { task, timeout } from 'ember-concurrency';
+import {inject as service} from '@ember/service';
+import {task, timeout} from 'ember-concurrency';
 
 // Mixins
 import StashTabsLoadable from 'poe-world/mixins/components/stash-tabs-loadable';
@@ -19,7 +19,7 @@ export default Component.extend(StashTabsLoadable, {
 
   divinationSummary: null,
 
-  divinationSummaryLoadTask: task(function *() {
+  divinationSummaryLoadTask: task(function*() {
     const stashIds = this.divinationSummarySetting.stashIds;
     const hasDivinationSummaryStashes = stashIds.length > 0;
 
@@ -32,7 +32,7 @@ export default Component.extend(StashTabsLoadable, {
     });
   }).drop(),
 
-  divinationSummaryPollingTask: task(function *() {
+  divinationSummaryPollingTask: task(function*() {
     while (true) {
       yield timeout(SUMMARY_POLLING_INTERVAL);
 
@@ -44,7 +44,7 @@ export default Component.extend(StashTabsLoadable, {
     }
   }).drop(),
 
-  divinationSummaryInitialLoadTask: task(function *() {
+  divinationSummaryInitialLoadTask: task(function*() {
     yield this.divinationSummaryLoadTask.perform();
   }).drop(),
 

@@ -11,8 +11,8 @@ export default Service.extend({
   build(stashItems) {
     const dataStructure = this.initializeDataStructure();
 
-    stashItems.forEach((stashItem) => {
-      const hasChromaticGroup = stashItem.socketGroups.some((socketGroup) => {
+    stashItems.forEach(stashItem => {
+      const hasChromaticGroup = stashItem.socketGroups.some(socketGroup => {
         if (socketGroup.indexOf('R') === -1) return false;
         if (socketGroup.indexOf('G') === -1) return false;
         if (socketGroup.indexOf('B') === -1) return false;

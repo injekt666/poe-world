@@ -15,7 +15,7 @@ export default Service.extend({
   build(stashItems) {
     const dataStructure = this.initializeDataStructure();
 
-    stashItems.forEach((stashItem) => {
+    stashItems.forEach(stashItem => {
       if (stashItem.socketCount === JEWELLER_SOCKETS_COUNT) dataStructure.itemCount++;
     });
 

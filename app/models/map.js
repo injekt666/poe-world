@@ -1,6 +1,6 @@
 import EmberObject from '@ember/object';
-import { computed } from '@ember/object';
-import { equal } from '@ember/object/computed';
+import {computed} from '@ember/object';
+import {equal} from '@ember/object/computed';
 
 // Constants
 const YELLOW_TIER_MIN_TIER = 6;

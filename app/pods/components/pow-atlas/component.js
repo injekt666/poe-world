@@ -1,6 +1,6 @@
 import Component from '@ember/component';
-import { inject as service } from '@ember/service';
-import { task } from 'ember-concurrency';
+import {inject as service} from '@ember/service';
+import {task} from 'ember-concurrency';
 
 export default Component.extend({
   localClassNames: 'atlas',
@@ -16,7 +16,7 @@ export default Component.extend({
   panTop: 0,
   panLeft: 0,
 
-  mapsLoadTask: task(function *() {
+  mapsLoadTask: task(function*() {
     const maps = yield this.mapsFetcher.fetch();
     this.set('maps', maps);
   }).drop(),

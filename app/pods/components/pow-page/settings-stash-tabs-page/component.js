@@ -1,6 +1,6 @@
 import Component from '@ember/component';
-import { inject as service } from '@ember/service';
-import { task } from 'ember-concurrency';
+import {inject as service} from '@ember/service';
+import {task} from 'ember-concurrency';
 
 // Constants
 const STASH_FEATURES = [
@@ -25,7 +25,7 @@ export default Component.extend({
 
   stashes: [],
 
-  stashTabsLoadTask: task(function *() {
+  stashTabsLoadTask: task(function*() {
     const stashes = yield this.stashTabsFetcher.fetch();
     this.set('stashes', stashes);
   }).drop(),

@@ -1,8 +1,8 @@
 // Vendor
 import Component from '@ember/component';
-import { inject as service } from '@ember/service';
-import { computed } from '@ember/object';
-import { bool } from '@ember/object/computed';
+import {inject as service} from '@ember/service';
+import {computed} from '@ember/object';
+import {bool} from '@ember/object/computed';
 
 // Constants
 import TRADE from 'poe-world/constants/trade';
@@ -83,10 +83,12 @@ export default Component.extend({
   },
 
   duplicate() {
-    const duplicatedTrade = this.tradePersister.persist(this.currentTrade.clone({
-      id: null,
-      label: `${this.currentTrade.label} *`
-    }));
+    const duplicatedTrade = this.tradePersister.persist(
+      this.currentTrade.clone({
+        id: null,
+        label: `${this.currentTrade.label} *`
+      })
+    );
 
     this._refreshTrades();
     this.setProperties({

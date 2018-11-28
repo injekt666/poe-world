@@ -1,5 +1,5 @@
 import Service from '@ember/service';
-import { task, timeout } from 'ember-concurrency';
+import {task, timeout} from 'ember-concurrency';
 
 /* eslint-disable no-magic-numbers */
 // Constants
@@ -19,7 +19,7 @@ export default Service.extend({
 
   isReframing: false,
 
-  mapReframingTask: task(function *(map) {
+  mapReframingTask: task(function*(map) {
     this.set('isReframing', true);
 
     const viewportCenterX = (window.innerWidth - SIDE_PANEL_WIDTH) / 2;
@@ -28,15 +28,11 @@ export default Service.extend({
     const {x: panLeft, y: panTop, scale: zoom} = this._panzoomRef.getTransform();
 
     const currentOffset = {
-      x: (map.offsetLeft * zoom) - (panLeft * -1),
-      y: (map.offsetTop * zoom) - (panTop * -1)
+      x: map.offsetLeft * zoom - panLeft * -1,
+      y: map.offsetTop * zoom - panTop * -1
     };
 
-    this._panzoomRef.moveBy(
-      (viewportCenterX - currentOffset.x),
-      (viewportCenterY - currentOffset.y),
-      true
-    );
+    this._panzoomRef.moveBy(viewportCenterX - currentOffset.x, viewportCenterY - currentOffset.y, true);
 
     yield timeout(MOVE_DURATION);
 
@@ -49,7 +45,7 @@ export default Service.extend({
     this.set('isReframing', false);
   }).restartable(),
 
-  resetZoomTask: task(function *task() {
+  resetZoomTask: task(function* task() {
     const {scale: zoom} = this._panzoomRef.getTransform();
     this.set('isReframing', true);
 
@@ -60,21 +56,13 @@ export default Service.extend({
     this.set('isReframing', false);
   }).restartable(),
 
-  initializeFrameTask: task(function *task(initialMap) {
+  initializeFrameTask: task(function* task(initialMap) {
     const viewportCenterX = window.innerWidth / 2;
     const viewportCenterY = window.innerHeight / 2;
 
-    this._panzoomRef.moveBy(
-      viewportCenterX - ATLAS_WIDTH / 2,
-      viewportCenterY - ATLAS_HEIGHT / 2,
-      false
-    );
+    this._panzoomRef.moveBy(viewportCenterX - ATLAS_WIDTH / 2, viewportCenterY - ATLAS_HEIGHT / 2, false);
 
-    this._panzoomRef.zoomAbs(
-      viewportCenterX,
-      viewportCenterY,
-      MIN_ZOOM
-    );
+    this._panzoomRef.zoomAbs(viewportCenterX, viewportCenterY, MIN_ZOOM);
 
     if (!initialMap) return;
 
@@ -90,7 +78,7 @@ export default Service.extend({
   },
 
   reframeFor(map) {
-    if (!this._panzoomRef) return this._mapToReframeOnInitialize = map;
+    if (!this._panzoomRef) return (this._mapToReframeOnInitialize = map);
 
     this.mapReframingTask.perform(map);
   },

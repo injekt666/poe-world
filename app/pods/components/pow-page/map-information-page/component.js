@@ -1,5 +1,5 @@
 import Component from '@ember/component';
-import { computed } from '@ember/object';
+import {computed} from '@ember/object';
 
 const LAYOUT_RATINGS_KEY = {
   A: 'components.page.map_information_page.layout_rating_A',

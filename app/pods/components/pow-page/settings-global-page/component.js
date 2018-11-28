@@ -1,7 +1,7 @@
 import Component from '@ember/component';
-import { inject as service } from '@ember/service';
-import { task, timeout } from 'ember-concurrency';
-import { readOnly } from '@ember/object/computed';
+import {inject as service} from '@ember/service';
+import {task, timeout} from 'ember-concurrency';
+import {readOnly} from '@ember/object/computed';
 
 // Constants
 const TEST_AUTHENTICATION_DEBOUNCE = 1000; // 1 second
@@ -21,17 +21,17 @@ export default Component.extend({
 
   leagues: [],
 
-  leaguesLoadTask: task(function *() {
+  leaguesLoadTask: task(function*() {
     const leagues = yield this.leaguesFetcher.fetch();
     this.set('leagues', leagues);
   }).drop(),
 
-  debouncedTestAuthenticationTask: task(function *() {
+  debouncedTestAuthenticationTask: task(function*() {
     yield timeout(TEST_AUTHENTICATION_DEBOUNCE);
     yield this.testAuthenticationTask.perform();
   }).restartable(),
 
-  testAuthenticationTask: task(function *() {
+  testAuthenticationTask: task(function*() {
     yield this.authenticationStateFetcher.fetch();
   }).drop(),
 

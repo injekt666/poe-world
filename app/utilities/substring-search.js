@@ -1,5 +1,5 @@
 // Functions
-const accentFold = (value) => {
+const accentFold = value => {
   return value.replace(
     /([àáâãäå])|([ç])|([èéêë])|([ìíîï])|([ñ])|([òóôõöø])|([ß])|([ùúûü])|([ÿ])|([æ])/g,
     (_, a, c, e, i, n, o, s, u, y, ae) => {
@@ -15,7 +15,7 @@ const accentFold = (value) => {
       if (ae) return 'ae';
     }
   );
-}
+};
 
 export default (haystack, needle) => {
   const sanitizedHaystack = accentFold(haystack.trim().toLowerCase());

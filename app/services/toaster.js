@@ -1,7 +1,7 @@
-import { A } from '@ember/array';
-import Service, { inject as service } from '@ember/service';
+import {A} from '@ember/array';
+import Service, {inject as service} from '@ember/service';
 import EmberObject from '@ember/object';
-import { task, timeout } from 'ember-concurrency';
+import {task, timeout} from 'ember-concurrency';
 import uuid from 'poe-world/utilities/uuid';
 
 // Constants
@@ -20,7 +20,7 @@ export default Service.extend({
 
   toasts: A([]),
 
-  toastExpiryTask: task(function *(toast) {
+  toastExpiryTask: task(function*(toast) {
     yield timeout(toast.duration);
     toast.set('isVisible', false);
 

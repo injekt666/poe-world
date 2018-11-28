@@ -1,6 +1,6 @@
 // Vendor
 import Component from '@ember/component';
-import { task, timeout } from 'ember-concurrency';
+import {task, timeout} from 'ember-concurrency';
 
 // Constants
 const SCROLL_TIMEOUT = 1000;
@@ -12,7 +12,7 @@ export default Component.extend({
   offset: 0,
   onUrlChange: () => {},
 
-  didNavigateTask: task(function *(url) {
+  didNavigateTask: task(function*(url) {
     this.onUrlChange(url);
 
     if (!this.offset) return;

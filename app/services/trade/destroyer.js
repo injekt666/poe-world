@@ -1,5 +1,5 @@
 // Vendor
-import Service, { inject as service } from '@ember/service';
+import Service, {inject as service} from '@ember/service';
 
 // Constants
 import STORAGE_KEYS from 'poe-world/constants/storage-keys';
@@ -22,4 +22,3 @@ export default Service.extend({
     return true;
   }
 });
-
