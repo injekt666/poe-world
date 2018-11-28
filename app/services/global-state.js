@@ -11,7 +11,7 @@ export default Service.extend({
   isWeb: not('isDesktop'),
 
   init() {
-    this.set('isDesktop', Boolean(window.requireNode));
+    this.set('isDesktop', window.ELECTRON);
     this.set('isAuthenticated', Boolean(this.authenticationSetting.poesessid));
   }
 });
