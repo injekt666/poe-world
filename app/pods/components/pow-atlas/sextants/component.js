@@ -1,8 +1,14 @@
+// Vendor
 import Component from '@ember/component';
-import {inject as service} from '@ember/service';
+import {service} from '@ember-decorators/service';
+import {argument} from '@ember-decorators/argument';
+import {type, optional} from '@ember-decorators/argument/type';
 
-export default Component.extend({
-  mapsFetcher: service('maps/fetcher'),
+export default class AtlasSextants extends Component {
+  @service('maps/fetcher')
+  mapsFetcher;
 
-  map: null
-});
+  @argument
+  @type(optional('object'))
+  map = null;
+}

@@ -24,6 +24,8 @@
     "prettier-check": "prettier -l ember-cli-build.js testem.js '{app,tests,config}/**/*.{js,scss}'"
   },
   "devDependencies": {
+    "@ember-decorators/argument": "0.8.21",
+    "@ember-decorators/babel-transforms": "2.1.2",
     "@ember/jquery": "0.5.2",
     "@ember/optional-features": "0.6.3",
     "@fortawesome/ember-fontawesome": "0.1.0-8",
@@ -41,7 +43,7 @@
     "electron-prebuilt-compile": "2.0.7",
     "ember-cli": "3.5.1",
     "ember-cli-app-version": "3.2.0",
-    "ember-cli-babel": "6.16.0",
+    "ember-cli-babel": "6.17.2",
     "ember-cli-dependency-checker": "3.0.0",
     "ember-cli-eslint": "4.2.3",
     "ember-cli-htmlbars": "3.0.0",
@@ -59,6 +61,7 @@
     "ember-css-modules": "0.7.10",
     "ember-css-modules-sass": "1.0.0",
     "ember-data": "~3.5.0",
+    "ember-decorators": "^3.1.1",
     "ember-electron": "2.10.0",
     "ember-export-application-global": "2.0.0",
     "ember-fetch": "5.1.1",

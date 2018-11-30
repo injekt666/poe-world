@@ -1,8 +1,12 @@
 // Vendor
 import Component from '@ember/component';
+import {argument} from '@ember-decorators/argument';
+import {type, unionOf} from '@ember-decorators/argument/type';
 
-export default Component.extend({
-  title: null,
+export default class Popover extends Component {
+  @argument
+  @type(unionOf('object', 'string'))
+  title = null;
 
   didInsertElement() {
     const $popoverContent = this.$('[data-popover-content]');
@@ -17,4 +21,4 @@ export default Component.extend({
       content
     });
   }
-});
+}

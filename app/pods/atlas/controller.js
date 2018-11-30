@@ -1,5 +1,6 @@
+// Vendor
 import Controller from '@ember/controller';
 
-export default Controller.extend({
-  currentMap: null
-});
+export default class Atlas extends Controller {
+  currentMap = null;
+}

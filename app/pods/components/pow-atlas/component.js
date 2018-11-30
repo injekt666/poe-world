@@ -1,39 +1,49 @@
+// Vendor
 import Component from '@ember/component';
-import {inject as service} from '@ember/service';
+import {service} from '@ember-decorators/service';
 import {task} from 'ember-concurrency';
+import {argument} from '@ember-decorators/argument';
+import {type, optional} from '@ember-decorators/argument/type';
+import {tagName} from '@ember-decorators/component';
 
-export default Component.extend({
-  localClassNames: 'atlas',
+@tagName('')
+export default class Atlas extends Component {
+  @service('router')
+  router;
 
-  router: service('router'),
-  mapsFetcher: service('maps/fetcher'),
-  atlasReframer: service('atlas/reframer'),
+  @service('maps/fetcher')
+  mapsFetcher;
 
-  currentMap: null,
+  @service('atlas/reframer')
+  atlasReframer;
 
-  maps: null,
-  zoom: 1,
-  panTop: 0,
-  panLeft: 0,
+  @argument
+  @type(optional('object'))
+  currentMap = null;
 
-  mapsLoadTask: task(function*() {
+  maps = null;
+  zoom = 1;
+  panTop = 0;
+  panLeft = 0;
+
+  mapsLoadTask = task(function*() {
     const maps = yield this.mapsFetcher.fetch();
     this.set('maps', maps);
-  }).drop(),
+  }).drop();
 
   willInsertElement() {
-    this.mapsLoadTask.perform();
-  },
+    this.get('mapsLoadTask').perform();
+  }
 
   mapClick(map) {
     this.router.transitionTo('atlas.map', map.id);
-  },
+  }
 
   panzoom(panzoomParams) {
     this.setProperties(panzoomParams);
-  },
+  }
 
   panzoomInitialize(panzoomRef) {
     this.atlasReframer.initialize(panzoomRef);
   }
-});
+}

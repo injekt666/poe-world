@@ -1,3 +1,4 @@
+// Vendor
 import Service from '@ember/service';
 import {task, timeout} from 'ember-concurrency';
 
@@ -13,13 +14,12 @@ const ZOOM_DURATION = 500;
 const MOVE_DURATION = 500;
 /* eslint-enable no-magic-numbers */
 
-export default Service.extend({
-  _panzoomRef: null,
-  _mapToReframeOnInitialize: null,
+export default class Reframer extends Service {
+  _panzoomRef = null;
+  _mapToReframeOnInitialize = null;
+  isReframing = false;
 
-  isReframing: false,
-
-  mapReframingTask: task(function*(map) {
+  mapReframingTask = task(function*(map) {
     this.set('isReframing', true);
 
     const viewportCenterX = (window.innerWidth - SIDE_PANEL_WIDTH) / 2;
@@ -43,9 +43,9 @@ export default Service.extend({
     }
 
     this.set('isReframing', false);
-  }).restartable(),
+  }).restartable();
 
-  resetZoomTask: task(function* task() {
+  resetZoomTask = task(function*() {
     const {scale: zoom} = this._panzoomRef.getTransform();
     this.set('isReframing', true);
 
@@ -54,9 +54,9 @@ export default Service.extend({
     yield timeout(ZOOM_DURATION);
 
     this.set('isReframing', false);
-  }).restartable(),
+  }).restartable();
 
-  initializeFrameTask: task(function* task(initialMap) {
+  initializeFrameTask = task(function*(initialMap) {
     const viewportCenterX = window.innerWidth / 2;
     const viewportCenterY = window.innerHeight / 2;
 
@@ -68,24 +68,24 @@ export default Service.extend({
 
     yield timeout(ZOOM_DURATION);
 
-    yield this.mapReframingTask.perform(initialMap);
-  }).restartable(),
+    yield this.get('mapReframingTask').perform(initialMap);
+  }).restartable();
 
   initialize(panzoomRef) {
     this._panzoomRef = panzoomRef;
 
-    this.initializeFrameTask.perform(this._mapToReframeOnInitialize);
-  },
+    this.get('initializeFrameTask').perform(this._mapToReframeOnInitialize);
+  }
 
   reframeFor(map) {
     if (!this._panzoomRef) return (this._mapToReframeOnInitialize = map);
 
-    this.mapReframingTask.perform(map);
-  },
+    this.get('mapReframingTask').perform(map);
+  }
 
   resetMapZoom() {
     if (!this._panzoomRef) return;
 
-    this.resetZoomTask.perform();
+    this.get('resetZoomTask').perform();
   }
-});
+}

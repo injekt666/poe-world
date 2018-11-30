@@ -1,6 +1,6 @@
 // Vendor
 import Component from '@ember/component';
-import {inject as service} from '@ember/service';
+import {service} from '@ember-decorators/service';
 import {task, timeout} from 'ember-concurrency';
 
 // Mixins
@@ -9,47 +9,53 @@ import StashTabsLoadable from 'poe-world/mixins/components/stash-tabs-loadable';
 // Constants
 const SUMMARY_POLLING_INTERVAL = 300000; // 5 minutes
 
-export default Component.extend(StashTabsLoadable, {
-  toaster: service('toaster'),
-  divinationSummaryPricingFetcher: service('divination-summary/pricing-fetcher'),
-  divinationSummarySetting: service('divination-summary/setting'),
-  divinationSummaryBuilder: service('divination-summary/builder'),
+export default class PageDivinationSummary extends Component.extend(StashTabsLoadable) {
+  @service('toaster')
+  toaster;
 
-  hasDivinationSummaryStashes: false,
+  @service('divination-summary/pricing-fetcher')
+  divinationSummaryPricingFetcher;
 
-  divinationSummary: null,
+  @service('divination-summary/setting')
+  divinationSummarySetting;
 
-  divinationSummaryLoadTask: task(function*() {
+  @service('divination-summary/builder')
+  divinationSummaryBuilder;
+
+  hasDivinationSummaryStashes = false;
+  divinationSummary = null;
+
+  divinationSummaryLoadTask = task(function*() {
     const stashIds = this.divinationSummarySetting.stashIds;
     const hasDivinationSummaryStashes = stashIds.length > 0;
 
-    const stashItems = yield this.loadStashItemsTask.perform(stashIds);
+    const stashItems = yield this.get('loadStashItemsTask').perform(stashIds);
     const divinationPricingMap = yield this.divinationSummaryPricingFetcher.fetch();
 
     this.setProperties({
       hasDivinationSummaryStashes,
       divinationSummary: this.divinationSummaryBuilder.build(stashItems, divinationPricingMap)
     });
-  }).drop(),
+  }).drop();
 
-  divinationSummaryPollingTask: task(function*() {
+  divinationSummaryPollingTask = task(function*() {
     while (true) {
       yield timeout(SUMMARY_POLLING_INTERVAL);
 
       try {
-        yield this.divinationSummaryLoadTask.perform();
+        yield this.get('divinationSummaryLoadTask').perform();
       } catch (_error) {
         // Prevent an API glitch from stopping the poll
       }
     }
-  }).drop(),
+  }).drop();
 
-  divinationSummaryInitialLoadTask: task(function*() {
-    yield this.divinationSummaryLoadTask.perform();
-  }).drop(),
+  divinationSummaryInitialLoadTask = task(function*() {
+    yield this.get('divinationSummaryLoadTask').perform();
+  }).drop();
 
   willInsertElement() {
-    this.divinationSummaryInitialLoadTask.perform();
-    this.divinationSummaryPollingTask.perform();
+    this.get('divinationSummaryInitialLoadTask').perform();
+    this.get('divinationSummaryPollingTask').perform();
   }
-});
+}

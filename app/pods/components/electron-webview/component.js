@@ -1,18 +1,26 @@
 // Vendor
 import Component from '@ember/component';
 import {task, timeout} from 'ember-concurrency';
+import {argument} from '@ember-decorators/argument';
+import {type, optional} from '@ember-decorators/argument/type';
 
 // Constants
 const SCROLL_TIMEOUT = 1000;
 
-export default Component.extend({
-  localClassNames: 'electron-webview',
+export default class ElectronWebview extends Component {
+  @argument
+  @type('string')
+  url;
 
-  url: '',
-  offset: 0,
-  onUrlChange: () => {},
+  @argument
+  @type(optional('number'))
+  offset = 0;
 
-  didNavigateTask: task(function*(url) {
+  @argument
+  @type(Function)
+  onUrlChange;
+
+  didNavigateTask = task(function*(url) {
     this.onUrlChange(url);
 
     if (!this.offset) return;
@@ -20,12 +28,12 @@ export default Component.extend({
 
     const webview = this.$('webview')[0];
     webview.executeJavaScript(`window.scroll({top: ${this.offset}, left: 0, behavior: 'smooth'});`);
-  }).restartable(),
+  }).restartable();
 
   didInsertElement() {
     const webview = this.$('webview')[0];
 
-    webview.addEventListener('did-navigate', ({url}) => this.didNavigateTask.perform(url));
-    webview.addEventListener('did-navigate-in-page', ({url}) => this.didNavigateTask.perform(url));
+    webview.addEventListener('did-navigate', ({url}) => this.get('didNavigateTask').perform(url));
+    webview.addEventListener('did-navigate-in-page', ({url}) => this.get('didNavigateTask').perform(url));
   }
-});
+}

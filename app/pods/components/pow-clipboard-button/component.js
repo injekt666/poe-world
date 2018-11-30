@@ -1,15 +1,24 @@
+// Vendor
 import Component from '@ember/component';
+import {argument} from '@ember-decorators/argument';
+import {type, optional} from '@ember-decorators/argument/type';
 
-export default Component.extend({
-  isCopied: false,
-  value: null,
-  onClick: () => {},
+export default class ClipboardButton extends Component {
+  @argument
+  @type('string')
+  value = null;
+
+  @argument
+  @type(optional(Function))
+  onClick = () => {};
+
+  isCopied = false;
 
   copy() {
     this._copyToClipboard();
     this.onClick();
     this.set('isCopied', true);
-  },
+  }
 
   /* eslint-disable no-alert */
   _copyToClipboard() {
@@ -21,4 +30,4 @@ export default Component.extend({
     }
   }
   /* eslint-enable no-alert */
-});
+}

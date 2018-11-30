@@ -1,5 +1,6 @@
+// Vendor
 import Component from '@ember/component';
-import {inject as service} from '@ember/service';
+import {service} from '@ember-decorators/service';
 import {task} from 'ember-concurrency';
 
 // Constants
@@ -18,19 +19,19 @@ const STASH_FEATURES = [
   }
 ];
 
-export default Component.extend({
-  stashTabsFetcher: service('stash/tabs-fetcher'),
+export default class PageSettingsStashTabs extends Component {
+  @service('stash/tabs-fetcher')
+  stashTabsFetcher;
 
-  stashFeatures: STASH_FEATURES,
+  stashFeatures = STASH_FEATURES;
+  stashes = null;
 
-  stashes: null,
-
-  stashTabsLoadTask: task(function*() {
+  stashTabsLoadTask = task(function*() {
     const stashes = yield this.stashTabsFetcher.fetch();
     this.set('stashes', stashes);
-  }).drop(),
+  }).drop();
 
   willInsertElement() {
-    this.stashTabsLoadTask.perform();
+    this.get('stashTabsLoadTask').perform();
   }
-});
+}

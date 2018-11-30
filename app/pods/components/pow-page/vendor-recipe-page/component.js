@@ -1,6 +1,6 @@
 // Vendor
 import Component from '@ember/component';
-import {inject as service} from '@ember/service';
+import {service} from '@ember-decorators/service';
 import {task, timeout} from 'ember-concurrency';
 
 // Mixins
@@ -12,35 +12,47 @@ import CURRENCIES from 'poe-world/constants/currencies';
 // Constants
 const RECIPE_POLLING_INTERVAL = 60000; // 60 seconds
 
-export default Component.extend(StashTabsLoadable, {
-  toaster: service('toaster'),
-  stashTabsFetcher: service('stash/tabs-fetcher'),
-  stashItemsFetcher: service('stash/items-fetcher'),
-  vendorRecipeSetting: service('vendor-recipe/setting'),
+export default class PageVendorRecipe extends Component.extend(StashTabsLoadable) {
+  @service('toaster')
+  toaster;
 
-  vendorRecipeChromaticBuilder: service('vendor-recipe/chromatic-builder'),
-  vendorRecipeJewellerBuilder: service('vendor-recipe/jeweller-builder'),
-  vendorRecipeDivineBuilder: service('vendor-recipe/divine-builder'),
-  vendorRecipeChaosBuilder: service('vendor-recipe/chaos-builder'),
+  @service('stash/tabs-fetcher')
+  stashTabsFetcher;
 
-  hasVendorRecipeStashes: false,
+  @service('stash/items-fetcher')
+  stashItemsFetcher;
 
-  chromaticImageUrl: CURRENCIES.chrom.imageUrl,
-  jewellerImageUrl: CURRENCIES.jew.imageUrl,
-  divineImageUrl: CURRENCIES.divine.imageUrl,
-  chaosImageUrl: CURRENCIES.chaos.imageUrl,
-  regalImageUrl: CURRENCIES.regal.imageUrl,
+  @service('vendor-recipe/setting')
+  vendorRecipeSetting;
 
-  chromatic: null,
-  jeweller: null,
-  divine: null,
-  chaos: null,
+  @service('vendor-recipe/chromatic-builder')
+  vendorRecipeChromaticBuilder;
 
-  vendorRecipeLoadTask: task(function*() {
+  @service('vendor-recipe/jeweller-builder')
+  vendorRecipeJewellerBuilder;
+
+  @service('vendor-recipe/divine-builder')
+  vendorRecipeDivineBuilder;
+
+  @service('vendor-recipe/chaos-builder')
+  vendorRecipeChaosBuilder;
+
+  hasVendorRecipeStashes = false;
+  chromaticImageUrl = CURRENCIES.chrom.imageUrl;
+  jewellerImageUrl = CURRENCIES.jew.imageUrl;
+  divineImageUrl = CURRENCIES.divine.imageUrl;
+  chaosImageUrl = CURRENCIES.chaos.imageUrl;
+  regalImageUrl = CURRENCIES.regal.imageUrl;
+  chromatic = null;
+  jeweller = null;
+  divine = null;
+  chaos = null;
+
+  vendorRecipeLoadTask = task(function*() {
     const stashIds = this.vendorRecipeSetting.stashIds;
     const hasVendorRecipeStashes = stashIds.length > 0;
 
-    const stashItems = yield this.loadStashItemsTask.perform(stashIds);
+    const stashItems = yield this.get('loadStashItemsTask').perform(stashIds);
 
     this.setProperties({
       hasVendorRecipeStashes,
@@ -49,26 +61,26 @@ export default Component.extend(StashTabsLoadable, {
       divine: this.vendorRecipeDivineBuilder.build(stashItems),
       chaos: this.vendorRecipeChaosBuilder.build(stashItems)
     });
-  }).drop(),
+  }).drop();
 
-  vendorRecipePollingTask: task(function*() {
+  vendorRecipePollingTask = task(function*() {
     while (true) {
       yield timeout(RECIPE_POLLING_INTERVAL);
 
       try {
-        yield this.vendorRecipeLoadTask.perform();
+        yield this.get('vendorRecipeLoadTask').perform();
       } catch (_error) {
         // Prevent an API glitch from stopping the poll
       }
     }
-  }).drop(),
+  }).drop();
 
-  vendorRecipeInitialLoadTask: task(function*() {
-    yield this.vendorRecipeLoadTask.perform();
-  }).drop(),
+  vendorRecipeInitialLoadTask = task(function*() {
+    yield this.get('vendorRecipeLoadTask').perform();
+  }).drop();
 
   willInsertElement() {
-    this.vendorRecipeInitialLoadTask.perform();
-    this.vendorRecipePollingTask.perform();
+    this.get('vendorRecipeInitialLoadTask').perform();
+    this.get('vendorRecipePollingTask').perform();
   }
-});
+}

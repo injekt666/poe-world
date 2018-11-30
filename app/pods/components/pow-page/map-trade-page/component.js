@@ -1,18 +1,24 @@
+// Vendor
 import {A} from '@ember/array';
 import Component from '@ember/component';
-import {inject as service} from '@ember/service';
+import {service} from '@ember-decorators/service';
 import {task} from 'ember-concurrency';
+import {argument} from '@ember-decorators/argument';
+import {type} from '@ember-decorators/argument/type';
 
-export default Component.extend({
-  mapsTradeFetcher: service('maps/trade-fetcher'),
+export default class PageMapTrade extends Component {
+  @service('maps/trade-fetcher')
+  mapsTradeFetcher;
 
-  map: null,
+  @argument
+  @type('object')
+  map = null;
 
-  tradeMapIds: null,
-  tradeMaps: A([]),
-  isMapsInitiallyLoaded: false,
+  tradeMapIds = null;
+  tradeMaps = A([]);
+  isMapsInitiallyLoaded = false;
 
-  initialLoadTask: task(function*() {
+  initialLoadTask = task(function*() {
     const {mapsTradeFetcher, map, tradeMaps} = this;
     const {tradeMaps: newTradeMaps, tradeMapIds, total} = yield mapsTradeFetcher.fetchFromMap(map);
 
@@ -23,9 +29,9 @@ export default Component.extend({
       total,
       isMapsInitiallyLoaded: true
     });
-  }).drop(),
+  }).drop();
 
-  lazyLoadTask: task(function*() {
+  lazyLoadTask = task(function*() {
     const {mapsTradeFetcher, tradeMapIds, tradeMaps, isMapsInitiallyLoaded} = this;
 
     if (!isMapsInitiallyLoaded) return null;
@@ -35,12 +41,12 @@ export default Component.extend({
     tradeMaps.addObjects(newTradeMaps);
 
     this.set('tradeMapIds', updatedTradeMapIds);
-  }).drop(),
+  }).drop();
 
   didReceiveAttrs() {
     if (!this.map.isTradable) return;
 
     this.tradeMaps.clear();
-    this.initialLoadTask.perform();
+    this.get('initialLoadTask').perform();
   }
-});
+}

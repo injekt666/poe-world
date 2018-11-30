@@ -1,16 +1,24 @@
+// Vendor
 import Component from '@ember/component';
-import {inject as service} from '@ember/service';
+import {service} from '@ember-decorators/service';
+import {argument} from '@ember-decorators/argument';
+import {type} from '@ember-decorators/argument/type';
+import {tagName} from '@ember-decorators/component';
 
-export default Component.extend({
-  localClassNames: 'map-page',
+@tagName('')
+export default class PageMap extends Component {
+  @service('router')
+  router;
 
-  router: service('router'),
-  atlasReframer: service('atlas/reframer'),
+  @service('atlas/reframer')
+  atlasReframer;
 
-  map: null,
+  @argument
+  @type('object')
+  map = null;
 
   back() {
     this.atlasReframer.resetMapZoom();
     this.router.transitionTo('atlas');
   }
-});
+}

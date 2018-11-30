@@ -3,24 +3,28 @@ import EmberObject from '@ember/object';
 import {A} from '@ember/array';
 import moment from 'moment';
 
-export default EmberObject.extend({
-  id: null,
-  label: '',
-  notes: '',
-  slug: '',
-  tags: null,
-  updatedAt: null,
+export default class Trade extends EmberObject {
+  id = null;
+  label = '';
+  notes = '';
+  slug = '';
+  tags = null;
+  updatedAt = null;
 
-  init() {
-    this.set('tags', A(this.tags));
-  },
+  constructor(props) {
+    super(props);
+    this.setProperties({
+      ...props,
+      tags: A(props.tags)
+    });
+  }
 
   updateProperties(properties) {
     this.setProperties({
       ...properties,
       updatedAt: moment().toISOString()
     });
-  },
+  }
 
   clone(properties) {
     const tradeJson = this.asJson();
@@ -34,7 +38,7 @@ export default EmberObject.extend({
 
     clone.updateProperties(properties);
     return clone;
-  },
+  }
 
   asJson() {
     return {
@@ -42,4 +46,4 @@ export default EmberObject.extend({
       tags: this.tags.toArray()
     };
   }
-});
+}
