@@ -1,3 +1,5 @@
+{{! template-lint-disable no-bare-strings no-implicit-this }}
+
 {{#if isSupported}}
   <div class="custom-control custom-checkbox" {{action toggleStash stash}}>
     <input id="{{elementId}}-checkbox" type="checkbox" class="custom-control-input" checked={{isIncluded}}>

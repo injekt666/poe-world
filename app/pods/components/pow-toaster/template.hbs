@@ -1,3 +1,5 @@
+{{! template-lint-disable no-bare-strings no-implicit-this }}
+
 <div local-class="toaster">
   {{#each toasts as |toast|}}
     <div local-class="toast {{unless toast.isVisible "toast-out"}}" class="alert alert-{{toast.type}}">
