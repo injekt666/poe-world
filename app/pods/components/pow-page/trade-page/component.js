@@ -2,167 +2,114 @@
 import Component from '@ember/component';
 import {service} from '@ember-decorators/service';
 import {computed} from '@ember-decorators/object';
-import {bool} from '@ember-decorators/object/computed';
-
-// Constants
-import TRADE from 'poe-world/constants/trade';
-const TRADE_WEBSITE_OFFSET = 192;
+import {action} from '@ember-decorators/object';
+import {tagName} from '@ember-decorators/component';
+import {task, timeout} from 'ember-concurrency';
 
 // Models
 import Trade from 'poe-world/models/trade';
 
+// Constants
+import TRADE from 'poe-world/constants/trade';
+const DOUBLE_LOAD_DELAY = 1500; // The site always redirect twice
+
+@tagName('')
 export default class PageTrade extends Component {
+  @service('intl')
+  intl;
+
   @service('active-league/setting')
   activeLeagueSetting;
 
-  @service('trade/fetcher')
-  tradeFetcher;
-
-  @service('trade/filterer')
-  tradeFilterer;
-
-  @service('trade/persister')
-  tradePersister;
-
-  @service('trade/destroyer')
-  tradeDestroyer;
-
-  tradeWebsiteOffset = TRADE_WEBSITE_OFFSET;
-  currentTradeSlug = '';
+  currentTradeSlug = null;
   currentTrade = null;
-  stagedTrade = null;
-  trades = null;
-  searchValue = '';
+  electronWebview = null;
 
-  @bool('stagedTrade')
-  isEditing;
-
-  @computed('currentTradeSlug', 'currentTrade', 'currentTrade.slug')
-  get isTradeSlugDirty() {
-    if (!this.currentTrade) return false;
-
-    return this.currentTradeSlug !== this.currentTrade.slug;
+  @computed('currentTradeSlug', 'currentTrade')
+  get canCreate() {
+    return this.currentTradeSlug && !this.currentTrade;
   }
 
-  @computed('activeLeagueSetting.league.id')
-  get tradeBaseUrl() {
-    const activeLeagueId = this.activeLeagueSetting.league.id;
-    return `${TRADE.BASE_URL}/${activeLeagueId}`;
+  @computed
+  get defaultTradeUrl() {
+    return [TRADE.BASE_URL, TRADE.DEFAULT_TYPE, this.activeLeagueSetting.league.id].join('/');
   }
 
-  @computed('tradeBaseUrl', 'currentTradeSlug')
-  get currentTradeUrl() {
-    return `${this.tradeBaseUrl}/${this.currentTradeSlug}`;
+  updateTradeUrlTask = task(function*(tradeUrl) {
+    yield timeout(DOUBLE_LOAD_DELAY);
+    this.set('currentTradeSlug', this._extractSlugFrom(tradeUrl));
+  }).restartable();
+
+  @action
+  electronWebviewReady(electronWebview) {
+    this.set('electronWebview', electronWebview);
   }
 
-  @computed('trades', 'searchValue')
-  get filteredTrades() {
-    if (!this.searchValue) return this.trades;
-
-    return this.tradeFilterer.filter(this.trades, this.searchValue);
-  }
-
-  willInsertElement() {
-    this._refreshTrades();
-
-    if (!this.trades.length) return this.create();
-
-    this._makeFirstTradeActive();
-  }
-
-  tradeUrlUpdate(newTradeUrl) {
-    const matchedSlug = newTradeUrl.match(/trade\/\w+\/\w+\/(\w+)$/);
-    if (!matchedSlug) return;
-
-    this.set('currentTradeSlug', matchedSlug[1]);
-  }
-
-  view(trade) {
+  @action
+  select(trade) {
     this.setProperties({
       currentTrade: trade,
       currentTradeSlug: trade.slug
     });
+
+    this._refreshCurrentTradeUrl();
   }
 
-  edit() {
-    this.set('stagedTrade', this.currentTrade.clone());
+  @action
+  tradeUrlUpdate(tradeUrl) {
+    this.get('updateTradeUrlTask').perform(tradeUrl);
   }
 
-  delete() {
-    if (!this.tradeDestroyer.destroy(this.currentTrade)) return;
-
-    this._refreshTrades();
-    this._makeFirstTradeActive();
-  }
-
-  duplicate() {
-    const duplicatedTrade = this.tradePersister.persist(
-      this.currentTrade.clone({
-        id: null,
-        label: `${this.currentTrade.label} *`
-      })
-    );
-
-    this._refreshTrades();
-    this.setProperties({
-      currentTrade: duplicatedTrade,
-      currentTradeSlug: duplicatedTrade.slug,
-      stagedTrade: null
-    });
-  }
-
-  save() {
-    this.stagedTrade.updateProperties({
-      slug: this.currentTradeSlug,
-      label: this.stagedTrade.label || this.currentTradeSlug
-    });
-    const savedTrade = this.tradePersister.persist(this.stagedTrade);
-
-    this._refreshTrades();
-    this.setProperties({
-      currentTrade: savedTrade,
-      currentTradeSlug: savedTrade.slug,
-      stagedTrade: null
-    });
-  }
-
-  cancel() {
-    this.setProperties({
-      stagedTrade: null,
-      currentTradeSlug: this.currentTrade.slug
-    });
-  }
-
+  @action
   create() {
-    this.setProperties({
-      currentTrade: null,
-      stagedTrade: Trade.create(),
-      currentTradeSlug: ''
+    const trade = Trade.create({
+      slug: this.currentTradeSlug
     });
+
+    this.set('currentTrade', trade);
   }
 
-  updateTradeSlug() {
-    this.currentTrade.updateProperties({slug: this.currentTradeSlug});
-    this.tradePersister.persist(this.currentTrade);
+  @action
+  clearAll() {
+    this.setProperties({
+      currentTradeSlug: null,
+      currentTrade: null
+    });
 
-    this._refreshTrades();
+    this._refreshCurrentTradeUrl();
   }
 
-  revertTradeSlug() {
+  @action
+  clearCurrentTrade() {
+    this.set('currentTrade', null);
+  }
+
+  @action
+  resetCurrentSlug() {
     this.set('currentTradeSlug', this.currentTrade.slug);
+    this._refreshCurrentTradeUrl();
   }
 
-  _refreshTrades() {
-    const trades = this.tradeFetcher.fetchAll();
-
-    this.set('trades', trades);
+  @action
+  reloadWebview() {
+    if (!this.electronWebview) return;
+    this.electronWebview.reload();
   }
 
-  _makeFirstTradeActive() {
-    const currentTrade = this.trades[0];
-    this.setProperties({
-      currentTrade,
-      currentTradeSlug: currentTrade.slug
-    });
+  _refreshCurrentTradeUrl() {
+    if (!this.electronWebview) return;
+    if (!this.currentTrade) return this.electronWebview.navigateTo(this.defaultTradeUrl);
+
+    const {type, slug} = this.currentTrade.urlParts;
+    const leagueId = this.activeLeagueSetting.league.id;
+
+    this.electronWebview.navigateTo([TRADE.BASE_URL, type, leagueId, slug].join('/'));
+  }
+
+  _extractSlugFrom(tradeUrl) {
+    const slugMatcher = tradeUrl.match(/trade\/(\w+)\/\w+\/(\w+)$/);
+    if (!slugMatcher) return null;
+
+    return `${slugMatcher[2]}:${slugMatcher[1]}`;
   }
 }
