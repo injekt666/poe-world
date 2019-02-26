@@ -8,7 +8,10 @@
       onPanzoom=(action this.panzoom)
       onPanzoomInitialize=(action this.panzoomInitialize)
     }}
-      <div local-class="map-background"></div>
+      <div
+        local-class="map-background"
+        style={{css-style "background-image" this.atlasBackgroundUrl}}
+      ></div>
 
       {{#if this.maps}}
         <ul class="list-unstyled">

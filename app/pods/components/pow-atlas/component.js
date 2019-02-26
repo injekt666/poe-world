@@ -7,6 +7,7 @@ import {type, optional} from '@ember-decorators/argument/type';
 import {action} from '@ember-decorators/object';
 
 // Constants
+import RESOURCES from 'poe-world/constants/resources';
 const SEARCH_DEBOUNCE = 500;
 
 export default class Atlas extends Component {
@@ -26,13 +27,15 @@ export default class Atlas extends Component {
   @type(optional('object'))
   currentMap = null;
 
+  atlasBackgroundUrl = RESOURCES.ATLAS_BACKGROUND_URL;
+
   maps = null;
   searchedMaps = null;
   hoveredMap = null;
 
   mapsLoadTask = task(function*() {
     const maps = yield this.mapsFetcher.fetch();
-    this.set('maps', maps);
+    this.set('maps', maps.filter(map => map.hasOffsets));
   }).drop();
 
   mapsSearchTask = task(function*({query, debounce}) {

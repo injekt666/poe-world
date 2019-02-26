@@ -32,7 +32,11 @@ export default class Fetcher extends Service {
     }, {});
 
     const maps = Object.values(mapHash);
-    maps.forEach(map => map.set('sextants', map.sextants.map(mapId => mapHash[mapId])));
+
+    maps.forEach(map => {
+      const sextants = map.sextants.map(mapId => mapHash[mapId]);
+      map.set('sextants', sextants);
+    });
 
     return maps;
   }
