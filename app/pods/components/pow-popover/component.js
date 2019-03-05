@@ -35,6 +35,10 @@ export default class Popover extends Component {
     });
   }
 
+  willDestroyElement() {
+    this.$().popover('dispose');
+  }
+
   mouseEnter() {
     this.get('triggerPopoverTask').perform();
   }

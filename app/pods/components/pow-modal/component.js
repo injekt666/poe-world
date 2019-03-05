@@ -44,4 +44,8 @@ export default class Modal extends Component {
       })
       .on('hidden.bs.modal', () => this.onClose());
   }
+
+  willDestroyElement() {
+    this.$('[data-toggle="modal"]').modal('dispose');
+  }
 }

@@ -18,4 +18,8 @@ export default class Tooltip extends Component {
       title: this.title.toString()
     });
   }
+
+  willDestroyElement() {
+    this.$().tooltip('dispose');
+  }
 }
