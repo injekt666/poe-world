@@ -33,16 +33,16 @@
     }}
   </div>
 
-  <div local-class="side-panel" class="py-1 px-2">
+  <div local-class="side-panel" class="h-100 overflow-auto py-1 px-2">
     {{#if this.currentTrade}}
-      {{pow-trade/details
+      {{pow-page/trade-page/details
         currentTradeSlug=this.currentTradeSlug
         trade=this.currentTrade
         onClose=(action this.clearCurrentTrade)
         onSlugReset=(action this.resetCurrentSlug)
       }}
     {{else}}
-      {{pow-trade/list
+      {{pow-page/trade-page/list
         onSelect=(action this.select)
       }}
     {{/if}}
