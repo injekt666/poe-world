@@ -25,3 +25,10 @@
   // The atlas pan/zoom rely on a matrix transform
   will-change: transform;
 }
+
+.disclaimer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  border-top-right-radius: $border-radius;
+}

@@ -1,5 +1,6 @@
 components:
   atlas:
+    disclaimer: Map data come from a sync with the official wiki. It can take a while to update when there are significant changes in-game.
     popover_tier: 'Tier: {tier}'
     popover_area_level: 'Area Level: {areaLevel}'
     popover_pantheon: 'Pantheon: {pantheon}'
